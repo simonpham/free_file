@@ -1,0 +1,15 @@
+name: local_entity_provider
+
+environment:
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  core:
+    path: ../../core_packages/core
+  utils:
+    path: ../../packages/utils
+
+  path_provider: ^2.1.1

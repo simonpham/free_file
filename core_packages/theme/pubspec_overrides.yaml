@@ -1,0 +1,10 @@
+# melos_managed_dependency_overrides: core,storage,utils,core_ui
+dependency_overrides:
+  core:
+    path: ../core
+  core_ui:
+    path: ../core_ui
+  storage:
+    path: ../../packages/storage
+  utils:
+    path: ../../packages/utils

@@ -1,0 +1,7 @@
+name: free_file
+
+packages:
+  - apps/*
+  - core_packages/*
+  - modules/*
+  - packages/*
