@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
   static const routeName = 'home';
-  static const routePath = '/';
+  static const routePath = '/$routeName';
 
   const HomePage({
     super.key,
@@ -12,8 +12,9 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return const Scaffold(
+      backgroundColor: Colors.transparent,
       body: Center(
-        child: Text('Hello World'),
+        child: Text('Home Page'),
       ),
     );
   }

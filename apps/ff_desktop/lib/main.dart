@@ -7,9 +7,15 @@ import 'package:ff_desktop/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
+import 'package:theme/theme.dart';
+import 'package:storage/storage.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await EasyBox.initialize();
+  await ThemeConfigs().init();
+
   try {
     await Window.initialize();
     await Window.setEffect(
