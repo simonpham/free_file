@@ -5,3 +5,6 @@ environment:
 
 dev_dependencies:
   melos: ^3.1.1
+
+  # Linter.
+  flutter_lints: ^2.0.3

@@ -1,6 +1,6 @@
 import 'package:core/constants/constants.dart';
 
-import 'models.dart';
+import 'package:core/models/models.dart';
 
 class File extends Entity {
   final int size;

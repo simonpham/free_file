@@ -1,5 +1,5 @@
 import 'package:desktop_multi_window/desktop_multi_window.dart';
-import 'package:ff_desktop/main.dart';
+import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:flutter/material.dart';
 

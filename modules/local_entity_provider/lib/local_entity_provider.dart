@@ -13,12 +13,12 @@ class LocalEntityProvider extends EntityProvider {
     final dir = io.Directory(path.path);
     final isExisted = await dir.exists();
     if (!isExisted) {
-      throw FreeError(Error.directoryNotFound);
+      throw const FreeError(Error.directoryNotFound);
     }
 
     final stats = await dir.stat();
     if (stats.type != io.FileSystemEntityType.directory) {
-      throw FreeError(Error.notADirectory);
+      throw const FreeError(Error.notADirectory);
     }
 
     final items = dir.list(recursive: false);
@@ -60,7 +60,7 @@ class LocalEntityProvider extends EntityProvider {
     final file = io.File(path.path);
     final isExisted = await file.exists();
     if (isExisted) {
-      throw FreeError(Error.fileAlreadyExists);
+      throw const FreeError(Error.fileAlreadyExists);
     }
 
     await file.create(recursive: true, exclusive: true);
@@ -85,7 +85,7 @@ class LocalEntityProvider extends EntityProvider {
     final dir = io.Directory(path.path);
     final isExisted = await dir.exists();
     if (isExisted) {
-      throw FreeError(Error.directoryAlreadyExists);
+      throw const FreeError(Error.directoryAlreadyExists);
     }
 
     await dir.create(recursive: true);
@@ -104,7 +104,7 @@ class LocalEntityProvider extends EntityProvider {
     final file = io.File(path.path);
     final isExisted = await file.exists();
     if (!isExisted) {
-      throw FreeError(Error.fileNotFound);
+      throw const FreeError(Error.fileNotFound);
     }
 
     await file.delete();
@@ -116,13 +116,13 @@ class LocalEntityProvider extends EntityProvider {
     final isExisted = await file.exists();
 
     if (!isExisted) {
-      throw FreeError(Error.fileNotFound);
+      throw const FreeError(Error.fileNotFound);
     }
 
     final newFile = io.File(newPath.path);
     final isNewExisted = await newFile.exists();
     if (isNewExisted) {
-      throw FreeError(Error.fileAlreadyExists);
+      throw const FreeError(Error.fileAlreadyExists);
     }
 
     final moved = await file.rename(newPath.path);
@@ -146,13 +146,13 @@ class LocalEntityProvider extends EntityProvider {
     final isExisted = await file.exists();
 
     if (!isExisted) {
-      throw FreeError(Error.fileNotFound);
+      throw const FreeError(Error.fileNotFound);
     }
 
     final newFile = io.File(newPath.path);
     final isNewExisted = await newFile.exists();
     if (isNewExisted) {
-      throw FreeError(Error.fileAlreadyExists);
+      throw const FreeError(Error.fileAlreadyExists);
     }
 
     await file.copy(newPath.path);
@@ -176,13 +176,13 @@ class LocalEntityProvider extends EntityProvider {
     final isExisted = await dir.exists();
 
     if (!isExisted) {
-      throw FreeError(Error.directoryNotFound);
+      throw const FreeError(Error.directoryNotFound);
     }
 
     final newDir = io.Directory(newPath.path);
     final isNewExisted = await newDir.exists();
     if (isNewExisted) {
-      throw FreeError(Error.directoryAlreadyExists);
+      throw const FreeError(Error.directoryAlreadyExists);
     }
 
     await dir.copyContent(newDir);
@@ -201,7 +201,7 @@ class LocalEntityProvider extends EntityProvider {
     final dir = io.Directory(path.path);
     final isExisted = await dir.exists();
     if (!isExisted) {
-      throw FreeError(Error.directoryNotFound);
+      throw const FreeError(Error.directoryNotFound);
     }
 
     await dir.delete(recursive: true);
@@ -213,13 +213,13 @@ class LocalEntityProvider extends EntityProvider {
     final isExisted = await dir.exists();
 
     if (!isExisted) {
-      throw FreeError(Error.directoryNotFound);
+      throw const FreeError(Error.directoryNotFound);
     }
 
     final newDir = io.Directory(newPath.path);
     final isNewExisted = await newDir.exists();
     if (isNewExisted) {
-      throw FreeError(Error.directoryAlreadyExists);
+      throw const FreeError(Error.directoryAlreadyExists);
     }
 
     await dir.rename(newPath.path);

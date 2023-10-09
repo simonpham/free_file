@@ -6,9 +6,7 @@ import 'package:desktop_multi_window/desktop_multi_window.dart';
 import 'package:ff_desktop/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
-import 'package:go_router/go_router.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
-import 'package:ff_desktop/features/home/ui/ui.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +25,6 @@ Future<void> main(List<String> args) async {
     appWindow.alignment = Alignment.center;
     appWindow.show();
   });
-
 
   final EntityProvider entityProvider = LocalEntityProvider();
   final entities = await entityProvider.list(Uri(path: '/'));
@@ -55,14 +52,3 @@ Future<void> main(List<String> args) async {
     const FreeFile(),
   );
 }
-
-final appRouter = GoRouter(
-  initialLocation: HomePage.routePath,
-  routes: [
-    GoRoute(
-      name: HomePage.routeName,
-      path: HomePage.routePath,
-      builder: (context, state) => const HomePage(),
-    ),
-  ],
-);

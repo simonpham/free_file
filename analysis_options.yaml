@@ -1,0 +1,52 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**.g.dart"
+
+linter:
+  rules:
+    # STYLE: true
+    camel_case_types: true
+    camel_case_extensions: true
+    library_names: true
+    file_names: true
+    library_prefixes: true
+    curly_braces_in_flow_control_structures: true
+    avoid_field_initializers_in_const_classes: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    directives_ordering: true
+    unawaited_futures: true
+    prefer_single_quotes: true
+    prefer_relative_imports: false
+    always_use_package_imports: true
+
+    # DOCUMENTATION: true
+    slash_for_doc_comments: true
+    package_api_docs: true # prefer
+
+    # USAGE: true
+    implementation_imports: true
+    prefer_adjacent_string_concatenation: true
+    prefer_iterable_whereType: true
+    unnecessary_lambdas: false
+    avoid_init_to_null: true
+    unnecessary_getters_setters: true
+    prefer_initializing_formals: false
+    type_init_formals: true
+    empty_constructor_bodies: true
+    unnecessary_new: true
+    unnecessary_const: true
+    use_rethrow_when_possible: true
+    avoid_print: true
+    library_private_types_in_public_api: false
+    use_build_context_synchronously: false
+
+    # DESIGN: true
+    use_to_and_as_if_applicable: true # prefer
+    prefer_final_fields: true # prefer
+    avoid_setters_without_getters: true
+    avoid_private_typedef_functions: true # prefer
+    hash_and_equals: true
+    avoid_null_checks_in_equality_operators: true
