@@ -9,9 +9,16 @@ dependencies:
 
   core:
     path: ../core
+  theme:
+    path: ../theme
+  utils:
+    path: ../../packages/utils
 
   # UI - Widgets.
   flash: ^3.0.5+1
+  gradient_borders: ^1.0.0
+  flutter_svg: ^2.0.7
+  shimmer: ^3.0.0
 
   # Icons.
   font_awesome_flutter: ^10.5.0
