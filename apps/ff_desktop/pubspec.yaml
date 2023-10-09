@@ -14,6 +14,16 @@ dependencies:
 
   core:
     path: ../../core_packages/core
+  core_ui:
+    path: ../../core_packages/core_ui
+  theme:
+    path: ../../core_packages/theme
+
+  storage:
+    path: ../../packages/storage
+  utils:
+    path: ../../packages/utils
+
   local_entity_provider:
     path: ../../modules/local_entity_provider
 
@@ -23,18 +33,10 @@ dependencies:
     sdk: flutter
 
   # State Management.
-  provider: ^6.0.5
+  flutter_riverpod: ^2.4.3
 
   # Navigation.
   go_router: ^11.1.2
-
-  # Storage.
-  path_provider: ^2.1.1
-  easy_hive: ^1.0.1
-  easy_hive_encryption: ^1.0.0+1
-
-  # Utilities.
-  fluda: ^1.1.0
 
 dev_dependencies:
   flutter_test:
