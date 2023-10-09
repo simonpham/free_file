@@ -4,5 +4,6 @@ Podfile.lock
 pubspec.lock
 *.iml
 **/macos/Build
-.flutter-plugins-dependencies
-pubspec_override.yaml
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/pubspec_overrides.yaml
