@@ -1,8 +1,0 @@
-# melos_managed_dependency_overrides: core,local_entity_provider,utils
-dependency_overrides:
-  core:
-    path: ../../core_packages/core
-  local_entity_provider:
-    path: ../../modules/local_entity_provider
-  utils:
-    path: ../../packages/utils
