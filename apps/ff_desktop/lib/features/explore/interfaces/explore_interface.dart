@@ -31,7 +31,9 @@ abstract interface class ExploreInterfaceSelectActions {
 }
 
 abstract interface class ExploreInterface {
-  StreamController<Uri> get pathController;
+  Uri get currentUri;
 
-  StreamController<List<Entity>> get entitiesController;
+  List<Entity> get entities;
+
+  void goTo(Uri uri);
 }

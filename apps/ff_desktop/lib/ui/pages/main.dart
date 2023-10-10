@@ -34,7 +34,9 @@ class MainPage extends StatelessWidget {
                     children: [
                       NavBar(),
                       Expanded(
-                        child: AddressBar(),
+                        child: AddressBar(
+                          key: Key('address_bar'),
+                        ),
                       ),
                       HeheSearchBar(),
                     ],
@@ -42,7 +44,9 @@ class MainPage extends StatelessWidget {
                 ),
                 const ToolBar(),
                 const Expanded(
-                  child: MainArea(),
+                  child: MainArea(
+                    key: Key('main_area'),
+                  ),
                 ),
                 SizedBox(
                   height: Spacing.d32,

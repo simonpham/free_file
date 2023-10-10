@@ -6,44 +6,30 @@ import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 
 import 'package:ff_desktop/features/explore/explore.dart';
+import 'package:utils/constants/constants.dart';
 
 class ExploreViewModel extends ChangeNotifier
     implements
         ExploreInterface,
         ExploreInterfaceSelectActions,
         ExploreInterfaceManipulateActions {
-  EntityProvider get _local => injector.get<LocalEntityProvider>();
-
-  StreamSubscription<Uri>? _pathSubscription;
+  LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
 
   ExploreViewModel() {
-    _pathSubscription = _pathController.stream.listen((path) async {
-      final entities = await _local.list(path);
-      _entitiesController.add(entities);
-    });
+    goTo(_currentUri);
   }
 
-  @override
-  void dispose() {
-    _pathSubscription?.cancel();
-    _pathSubscription = null;
-    super.dispose();
-  }
-
-  final StreamController<Uri> _pathController =
-      StreamController<Uri>.broadcast();
-  final StreamController<List<Entity>> _entitiesController =
-      StreamController<List<Entity>>.broadcast();
-
-  final List<Entity> _selectedEntities = [];
-  final List<Entity> _copiedEntities = [];
-  final List<Entity> _cutEntities = [];
+  Uri _currentUri = Uri.parse(kSlash);
+  List<Entity> _entities = [];
+  List<Entity> _selectedEntities = [];
+  List<Entity> _copiedEntities = [];
+  List<Entity> _cutEntities = [];
 
   @override
-  StreamController<Uri> get pathController => _pathController;
+  Uri get currentUri => _currentUri;
 
   @override
-  StreamController<List<Entity>> get entitiesController => _entitiesController;
+  List<Entity> get entities => _entities;
 
   @override
   List<Entity> get selectedEntities => _selectedEntities;
@@ -53,6 +39,16 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   List<Entity> get cutEntities => _cutEntities;
+
+  @override
+  void goTo(Uri uri) {
+    _local.list(uri).then((entities) {
+      _entities.clear();
+      _entities = entities;
+      _currentUri = uri;
+      notifyListeners();
+    });
+  }
 
   @override
   void copy(Entity entity) {

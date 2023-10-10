@@ -22,7 +22,7 @@ class NavDestination {
   final Function? onTap;
 }
 
-class NavBar extends StatelessWidget {
+class SfNavBar extends StatelessWidget {
   final List<NavDestination> destinations;
   final int? selectedIndex;
   final ValueChanged<int>? onDestinationSelected;
@@ -33,7 +33,7 @@ class NavBar extends StatelessWidget {
 
   final bool isExpanded;
 
-  const NavBar({
+  const SfNavBar({
     super.key,
     required this.destinations,
     required this.selectedIndex,

@@ -10,7 +10,7 @@ class LocalEntityProvider extends EntityProvider {
   @override
   Future<List<Entity>> list(Uri path) async {
     final result = <Entity>[];
-    final dir = io.Directory(path.path);
+    final dir = io.Directory(path.toFilePath());
     final isExisted = await dir.exists();
     if (!isExisted) {
       throw const FreeError(Error.directoryNotFound);
@@ -20,6 +20,9 @@ class LocalEntityProvider extends EntityProvider {
     if (stats.type != io.FileSystemEntityType.directory) {
       throw const FreeError(Error.notADirectory);
     }
+
+    final hiddenFolders = <Directory>[];
+    final folders = <Directory>[];
 
     final items = dir.list(recursive: false);
     await for (final item in items) {
@@ -47,17 +50,30 @@ class LocalEntityProvider extends EntityProvider {
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
         );
-        result.add(dir);
+        folders.add(dir);
         continue;
       }
     }
+
+    result.sort(
+      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+    );
+    folders.sort(
+      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+    );
+    hiddenFolders.sort(
+      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+    );
+
+    result.insertAll(0, folders);
+    result.insertAll(0, hiddenFolders);
 
     return result;
   }
 
   @override
   Future<File> createFile(Uri path) async {
-    final file = io.File(path.path);
+    final file = io.File(path.toFilePath());
     final isExisted = await file.exists();
     if (isExisted) {
       throw const FreeError(Error.fileAlreadyExists);
@@ -82,7 +98,7 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<Directory> createDirectory(Uri path) async {
-    final dir = io.Directory(path.path);
+    final dir = io.Directory(path.toFilePath());
     final isExisted = await dir.exists();
     if (isExisted) {
       throw const FreeError(Error.directoryAlreadyExists);
@@ -101,7 +117,7 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<void> deleteFile(Uri path) async {
-    final file = io.File(path.path);
+    final file = io.File(path.toFilePath());
     final isExisted = await file.exists();
     if (!isExisted) {
       throw const FreeError(Error.fileNotFound);
@@ -112,20 +128,20 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<File> moveFile(Uri path, Uri newPath) async {
-    final file = io.File(path.path);
+    final file = io.File(path.toFilePath());
     final isExisted = await file.exists();
 
     if (!isExisted) {
       throw const FreeError(Error.fileNotFound);
     }
 
-    final newFile = io.File(newPath.path);
+    final newFile = io.File(newPath.toFilePath());
     final isNewExisted = await newFile.exists();
     if (isNewExisted) {
       throw const FreeError(Error.fileAlreadyExists);
     }
 
-    final moved = await file.rename(newPath.path);
+    final moved = await file.rename(newPath.toFilePath());
     final stat = await moved.stat();
     final mimeType = lookupMimeType(moved.path);
 
@@ -142,20 +158,20 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<File> copyFile(Uri path, Uri newPath) async {
-    final file = io.File(path.path);
+    final file = io.File(path.toFilePath());
     final isExisted = await file.exists();
 
     if (!isExisted) {
       throw const FreeError(Error.fileNotFound);
     }
 
-    final newFile = io.File(newPath.path);
+    final newFile = io.File(newPath.toFilePath());
     final isNewExisted = await newFile.exists();
     if (isNewExisted) {
       throw const FreeError(Error.fileAlreadyExists);
     }
 
-    await file.copy(newPath.path);
+    await file.copy(newPath.toFilePath());
     final stat = await newFile.stat();
     final mimeType = lookupMimeType(newFile.path);
 
@@ -172,14 +188,14 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<Directory> copyDirectory(Uri path, Uri newPath) async {
-    final dir = io.Directory(path.path);
+    final dir = io.Directory(path.toFilePath());
     final isExisted = await dir.exists();
 
     if (!isExisted) {
       throw const FreeError(Error.directoryNotFound);
     }
 
-    final newDir = io.Directory(newPath.path);
+    final newDir = io.Directory(newPath.toFilePath());
     final isNewExisted = await newDir.exists();
     if (isNewExisted) {
       throw const FreeError(Error.directoryAlreadyExists);
@@ -198,7 +214,7 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<void> deleteDirectory(Uri path) async {
-    final dir = io.Directory(path.path);
+    final dir = io.Directory(path.toFilePath());
     final isExisted = await dir.exists();
     if (!isExisted) {
       throw const FreeError(Error.directoryNotFound);
@@ -209,20 +225,20 @@ class LocalEntityProvider extends EntityProvider {
 
   @override
   Future<Directory> moveDirectory(Uri path, Uri newPath) async {
-    final dir = io.Directory(path.path);
+    final dir = io.Directory(path.toFilePath());
     final isExisted = await dir.exists();
 
     if (!isExisted) {
       throw const FreeError(Error.directoryNotFound);
     }
 
-    final newDir = io.Directory(newPath.path);
+    final newDir = io.Directory(newPath.toFilePath());
     final isNewExisted = await newDir.exists();
     if (isNewExisted) {
       throw const FreeError(Error.directoryAlreadyExists);
     }
 
-    await dir.rename(newPath.path);
+    await dir.rename(newPath.toFilePath());
     final stat = await newDir.stat();
 
     return Directory(

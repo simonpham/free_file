@@ -1,4 +1,5 @@
 import 'package:desktop_multi_window/desktop_multi_window.dart';
+import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:flutter/material.dart';
@@ -40,14 +41,13 @@ class FreeFile extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = ScreenSize.of(context);
     ThemeConfigs().screenSize = size;
-    print('Screen Size: $size');
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
           value: ThemeConfigs(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => ExploreViewModel(),
+        ChangeNotifierProvider.value(
+          value: injector<ExploreViewModel>(),
         ),
       ],
       builder: (BuildContext context, _) {
