@@ -32,6 +32,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # Dependency Injection.
+  get_it: ^7.6.4
+
   # State Management.
   provider: ^6.0.5
 

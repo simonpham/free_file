@@ -4,6 +4,7 @@ import 'package:ff_desktop/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
+import 'package:ff_desktop/features/features.dart';
 
 class FreeFileLaunchArgument {
   final String? path;
@@ -44,6 +45,9 @@ class FreeFile extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(
           value: ThemeConfigs(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ExploreViewModel(),
         ),
       ],
       builder: (BuildContext context, _) {
