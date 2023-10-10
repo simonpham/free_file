@@ -33,10 +33,10 @@ dependencies:
     sdk: flutter
 
   # State Management.
-  flutter_riverpod: ^2.4.3
+  provider: ^6.0.5
 
   # Navigation.
-  go_router: ^11.1.2
+  go_router: ^11.1.3
 
   # UI - Platform.
   flutter_acrylic: ^1.1.3

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
+import 'package:ff_desktop/ui/ui.dart';
 
 class MainPage extends StatelessWidget {
   static const String routePath = '/';
@@ -13,59 +14,44 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          SizedBox(
-            width: Spacing.d64 * 4,
-            child: const Center(
-              child: Text('Sidebar'),
-            ),
-          ),
+          const SideBar(),
           Expanded(
             child: Column(
               children: [
-                Container(
-                  height: Spacing.d32,
-                  color: Colors.orange,
-                  child: const Center(
-                    child: Text('Tab Bar'),
-                  ),
-                ),
-                Container(
+                SizedBox(
                   height: Spacing.d36,
-                  color: Colors.green,
-                  child: Row(
+                  child: const Row(
                     children: [
-                      SizedBox(
-                        width: Spacing.d12 * 10,
-                        child: const Center(
-                          child: Text('Toolbar'),
-                        ),
-                      ),
                       Expanded(
-                        child: Container(
-                          color: Colors.yellow,
-                          child: const Center(
-                            child: Text(
-                              'Address Bar',
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: Spacing.d320,
-                        color: Colors.pink,
-                        child: const Center(
-                          child: Text('Search Bar'),
-                        ),
+                        child: HeheTabBar(),
                       ),
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    color: Colors.blue,
-                    child: const Center(
-                      child: Text('Main'),
-                    ),
+                SizedBox(
+                  height: Spacing.d40,
+                  child: const Row(
+                    children: [
+                      NavBar(),
+                      Expanded(
+                        child: AddressBar(),
+                      ),
+                      HeheSearchBar(),
+                    ],
+                  ),
+                ),
+                const ToolBar(),
+                const Expanded(
+                  child: MainArea(),
+                ),
+                SizedBox(
+                  height: Spacing.d32,
+                  child: const Row(
+                    children: [
+                      Expanded(
+                        child: StatusBar(),
+                      ),
+                    ],
                   ),
                 ),
               ],
