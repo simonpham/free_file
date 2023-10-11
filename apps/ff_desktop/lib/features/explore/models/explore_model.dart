@@ -20,7 +20,7 @@ class ExploreViewModel extends ChangeNotifier
     refresh();
   }
 
-  final List<Uri> _historyStack = [Uri.parse('/Users/simon/Desktop')];
+  final List<Uri> _historyStack = [Uri.parse(kSlash)];
   int _currentIndex = 0;
 
   List<Entity> _entities = [];

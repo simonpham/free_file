@@ -35,7 +35,7 @@ class LocalEntityProvider extends EntityProvider {
           size: stat.size,
           extension: item.path.split('.').last,
           name: item.path.split(kSlash).last,
-          path: item.uri,
+          path: item.uri.normalizePath(),
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
         );
@@ -46,7 +46,7 @@ class LocalEntityProvider extends EntityProvider {
       if (item is io.Directory) {
         final dir = Directory(
           name: item.path.split(kSlash).last,
-          path: item.uri,
+          path: item.uri.normalizePath(),
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
         );
@@ -88,7 +88,7 @@ class LocalEntityProvider extends EntityProvider {
       fileType: kMimeTypes[mimeType],
       extension: file.path.split('.').last,
       name: file.path.split(kSlash).last,
-      path: file.uri,
+      path: file.uri.normalizePath(),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -109,7 +109,7 @@ class LocalEntityProvider extends EntityProvider {
     final stat = await dir.stat();
     return Directory(
       name: dir.path.split(kSlash).last,
-      path: dir.uri,
+      path: dir.uri.normalizePath(),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -150,7 +150,7 @@ class LocalEntityProvider extends EntityProvider {
       fileType: kMimeTypes[mimeType],
       extension: moved.path.split('.').last,
       name: moved.path.split(kSlash).last,
-      path: moved.uri,
+      path: moved.uri.normalizePath(),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -180,7 +180,7 @@ class LocalEntityProvider extends EntityProvider {
       fileType: kMimeTypes[mimeType],
       extension: newFile.path.split('.').last,
       name: newFile.path.split(kSlash).last,
-      path: newFile.uri,
+      path: newFile.uri.normalizePath(),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -206,7 +206,7 @@ class LocalEntityProvider extends EntityProvider {
 
     return Directory(
       name: newDir.path.split(kSlash).last,
-      path: newDir.uri,
+      path: newDir.uri.normalizePath(),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -243,7 +243,7 @@ class LocalEntityProvider extends EntityProvider {
 
     return Directory(
       name: newDir.path.split(kSlash).last,
-      path: newDir.uri,
+      path: newDir.uri.normalizePath(),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
