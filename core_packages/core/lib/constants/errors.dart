@@ -3,7 +3,9 @@ enum Error {
   fileAlreadyExists,
   directoryNotFound,
   notADirectory,
-  directoryAlreadyExists;
+  directoryAlreadyExists,
+  noApplicationKnowsHowToOpenUrl,
+  openFailed;
 
   String toReadableMessage() {
     switch (this) {
@@ -17,6 +19,10 @@ enum Error {
         return 'Not a directory';
       case Error.directoryAlreadyExists:
         return 'Directory already exists';
+      case Error.openFailed:
+        return 'Open failed';
+      case Error.noApplicationKnowsHowToOpenUrl:
+        return 'No application knows how to open URL';
     }
   }
 }

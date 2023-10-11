@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io' as io;
 
 import 'package:core/core.dart';
 import 'package:ff_desktop/di.dart';
@@ -16,17 +17,21 @@ class ExploreViewModel extends ChangeNotifier
   LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
 
   ExploreViewModel() {
-    goTo(_currentUri);
+    refresh();
   }
 
-  Uri _currentUri = Uri.parse(kSlash);
+  final List<Uri> _historyStack = [Uri.parse('/Users/simon/Desktop')];
+  int _currentIndex = 0;
+
   List<Entity> _entities = [];
   List<Entity> _selectedEntities = [];
   List<Entity> _copiedEntities = [];
   List<Entity> _cutEntities = [];
 
+  io.Directory get _currentDirectory => io.Directory(currentUri.toFilePath());
+
   @override
-  Uri get currentUri => _currentUri;
+  Uri get currentUri => _historyStack[_currentIndex];
 
   @override
   List<Entity> get entities => _entities;
@@ -41,13 +46,62 @@ class ExploreViewModel extends ChangeNotifier
   List<Entity> get cutEntities => _cutEntities;
 
   @override
-  void goTo(Uri uri) {
-    _local.list(uri).then((entities) {
-      _entities.clear();
-      _entities = entities;
-      _currentUri = uri;
-      notifyListeners();
-    });
+  Future<void> refresh() async {
+    _entities = [];
+    notifyListeners();
+    final entities = await _local.list(currentUri);
+    _entities = entities;
+    notifyListeners();
+  }
+
+  @override
+  Future<void> goTo(Uri uri) async {
+    if (canForward) {
+      // Discard all forward history.
+      _historyStack.removeRange(0, _currentIndex);
+    }
+
+    // Add new uri to history.
+    _historyStack.insert(0, uri);
+
+    // Set index to the first element.
+    _currentIndex = 0;
+    refresh();
+  }
+
+  @override
+  bool get canBack => _currentIndex < _historyStack.length - 1;
+
+  @override
+  bool get canForward => _currentIndex > 0;
+
+  @override
+  bool get canUp => _currentDirectory.parent.path != currentUri.toFilePath();
+
+  @override
+  void back() {
+    if (canBack) {
+      _currentIndex++;
+      refresh();
+    }
+  }
+
+  @override
+  void forward() {
+    if (canForward) {
+      _currentIndex--;
+      refresh();
+    }
+  }
+
+  @override
+  void up() {
+    if (canUp) {
+      final directory = io.Directory(currentUri.toFilePath());
+      goTo(
+        Uri.parse(directory.parent.absolute.path),
+      );
+    }
   }
 
   @override

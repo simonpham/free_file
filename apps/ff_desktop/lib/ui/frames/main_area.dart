@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,12 +26,7 @@ class MainArea extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final entity = entities[index];
               return InkWell(
-                onDoubleTap: () {
-                  if (entity is Directory) {
-                    final model = context.read<ExploreViewModel>();
-                    model.goTo(entity.path);
-                  }
-                },
+                onDoubleTap: () => entity.doubleTap(context),
                 child: ListTile(
                   leading: Icon(
                     entity.entityIcon,

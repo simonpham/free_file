@@ -31,9 +31,23 @@ abstract interface class ExploreInterfaceSelectActions {
 }
 
 abstract interface class ExploreInterface {
+  Future<void> refresh();
+
   Uri get currentUri;
 
   List<Entity> get entities;
 
   void goTo(Uri uri);
+
+  bool get canBack;
+
+  void back();
+
+  bool get canForward;
+
+  void forward();
+
+  bool get canUp;
+
+  void up();
 }

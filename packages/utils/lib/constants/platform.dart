@@ -14,3 +14,8 @@ final kIsIoS = UniversalPlatform.isIOS;
 final kIsFuchsia = UniversalPlatform.isFuchsia;
 
 final kSlash = kIsWindows ? '\\' : '/';
+final kOpenProcess = kIsMacOs
+    ? 'open'
+    : kIsWindows
+        ? 'start'
+        : 'xdg-open';
