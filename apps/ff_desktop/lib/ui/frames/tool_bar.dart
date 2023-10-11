@@ -13,7 +13,8 @@ class ToolBar extends StatelessWidget {
       curve: Curves.easeOut,
       duration: FludaDuration.ms3,
       child: SizedBox(
-        height: Spacing.d36,
+        height: 0.0,
+        // height: Spacing.d36,
         child: Row(
           children: [
             Expanded(

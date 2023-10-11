@@ -15,7 +15,7 @@ class MainArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: context.theme.colorScheme.surface,
+      color: context.theme.colorScheme.surfaceVariant,
       child: Selector<ExploreViewModel, List<Entity>>(
         selector: (BuildContext context, ExploreViewModel model) {
           return model.entities;

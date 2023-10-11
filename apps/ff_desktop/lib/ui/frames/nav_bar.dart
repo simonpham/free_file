@@ -18,6 +18,7 @@ class NavBar extends StatelessWidget {
           child: Row(
             children: [
               IconButton(
+                disabledColor: context.theme.disabledColor,
                 icon: const Icon(Icons.arrow_back),
                 onPressed: model.canBack
                     ? () {
@@ -26,6 +27,7 @@ class NavBar extends StatelessWidget {
                     : null,
               ),
               IconButton(
+                disabledColor: context.theme.disabledColor,
                 icon: const Icon(Icons.arrow_forward),
                 onPressed: model.canForward
                     ? () {
@@ -34,6 +36,7 @@ class NavBar extends StatelessWidget {
                     : null,
               ),
               IconButton(
+                disabledColor: context.theme.disabledColor,
                 icon: const Icon(Icons.arrow_upward),
                 onPressed: model.canUp
                     ? () {
@@ -42,6 +45,7 @@ class NavBar extends StatelessWidget {
                     : null,
               ),
               IconButton(
+                disabledColor: context.theme.disabledColor,
                 icon: const Icon(Icons.refresh),
                 onPressed: () {
                   model.refresh();

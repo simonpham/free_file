@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class HeheTabBar extends StatelessWidget {
@@ -8,14 +9,12 @@ class HeheTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSize(
-      curve: Curves.easeOut,
-      duration: FludaDuration.ms3,
-      child: Container(
-        color: Colors.orange,
-        child: const Center(
-          child: Text('Hehe Tab Bar'),
-        ),
+    return SizedBox(
+      height: Spacing.d36,
+      width: double.infinity,
+      child: const AnimatedSize(
+        curve: Curves.easeOut,
+        duration: FludaDuration.ms3,
       ),
     );
   }

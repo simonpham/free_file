@@ -27,12 +27,35 @@ class HeheSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+      height: Spacing.d40,
       duration: FludaDuration.ms3,
       width: context.screenSize.searchBarWidth,
       curve: Curves.easeOut,
-      color: Colors.pink,
-      child: const Center(
-        child: Text('Hehe Search Bar'),
+      decoration: BoxDecoration(
+        color: context.theme.colorScheme.surfaceVariant,
+        borderRadius: BorderRadius.circular(
+          Spacing.d8,
+        ),
+      ),
+      margin: EdgeInsets.all(
+        Spacing.d4,
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: Spacing.d8,
+      ),
+      child: Row(
+        children: [
+          Icon(
+            Icons.search,
+            color: context.theme.colorScheme.onSurfaceVariant,
+          ),
+          Text(
+            'Search',
+            style: TextStyle(
+              color: context.theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
       ),
     );
   }

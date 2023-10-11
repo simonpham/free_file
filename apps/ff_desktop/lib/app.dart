@@ -53,7 +53,9 @@ class FreeFile extends StatelessWidget {
       builder: (BuildContext context, _) {
         return MaterialApp.router(
           color: Colors.transparent,
-          themeMode: ThemeMode.light,
+          themeMode: context.select(
+            (ThemeConfigs _) => _.themeMode,
+          ),
           debugShowCheckedModeBanner: false,
           theme: context.select(
             (ThemeConfigs _) => _.getThemeData(ThemeMode.light),

@@ -27,7 +27,6 @@ class SideBar extends StatelessWidget {
       duration: FludaDuration.ms3,
       width: context.screenSize.sideBarWidth,
       curve: Curves.easeOut,
-      color: Colors.red,
       child: const Center(
         child: Text('Side Bar'),
       ),

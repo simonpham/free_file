@@ -40,7 +40,7 @@ extension ThemeConfigsExtension on ThemeConfigs {
   ThemeMode get themeMode {
     final index = get(
       ThemeDataKeys.themeMode,
-      defaultValue: 1,
+      defaultValue: ThemeMode.system.index,
     );
     return ThemeMode.values[index];
   }
