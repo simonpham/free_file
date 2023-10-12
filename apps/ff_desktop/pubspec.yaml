@@ -58,3 +58,8 @@ flutter:
 
   assets:
     - assets/
+    - assets/icons/
+
+flutter_gen:
+  output: lib/constants/generated/
+  line_length: 80
