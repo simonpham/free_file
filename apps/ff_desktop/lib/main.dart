@@ -20,12 +20,11 @@ Future<void> main(List<String> args) async {
     await Window.initialize();
     await Window.setEffect(
       effect: WindowEffect.acrylic,
-      color: const Color(0xCC222222),
     );
   } catch (_) {}
 
   doWhenWindowReady(() {
-    const initialSize = Size(600, 450);
+    const initialSize = Size(800, 600);
     appWindow.minSize = initialSize;
     appWindow.size = initialSize;
     appWindow.alignment = Alignment.center;

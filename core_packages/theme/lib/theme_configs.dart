@@ -61,6 +61,7 @@ extension ThemeConfigsExtension on ThemeConfigs {
     ).copyWith(
       background:
           (isDark ? kBackgroundColorDark : kBackgroundColor).withTransparency,
+      onBackground: isDark ? kOnBackgroundColorDark : kOnBackgroundColor,
       surface: cardColor,
       surfaceTint: Colors.transparent,
     );
