@@ -59,6 +59,7 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/themes/
 
 flutter_gen:
   output: lib/constants/generated/

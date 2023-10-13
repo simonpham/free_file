@@ -238,7 +238,7 @@ class Button extends StatelessWidget {
         break;
       case AppButtonStyle.outline:
       default:
-        color = context.dividerColor;
+        color = context.theme.dividerColor;
         break;
     }
 
@@ -257,8 +257,8 @@ class Button extends StatelessWidget {
         color = context.theme.colorScheme.primary;
         break;
       case AppButtonStyle.chip:
-        final isDark = ThemeConfigs().themeMode == ThemeMode.dark;
-        color = isDark ? kNeutralSwatch[7]! : kNeutralSwatch[3]!;
+        final isDark = context.theme.brightness == Brightness.dark;
+        color = isDark ? Colors.grey.shade700 : Colors.grey.shade300;
         break;
       case AppButtonStyle.danger:
         color = context.theme.colorScheme.error;

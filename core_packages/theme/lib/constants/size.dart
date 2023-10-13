@@ -1,4 +1,4 @@
-part of 'sofluffy_theme.dart';
+part of 'constants.dart';
 
 class Spacing {
   static void setBase(double value) {

@@ -17,7 +17,7 @@ class StatusBar extends StatelessWidget {
       height: Spacing.d32,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: context.theme.colorScheme.background,
+        color: context.appTheme.color.statusBarBackground,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(
             Spacing.d8,

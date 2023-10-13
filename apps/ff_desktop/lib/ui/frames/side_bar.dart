@@ -104,32 +104,24 @@ class _SideBarSectionState extends State<SideBarSection> {
     if (_items.isEmpty) {
       return const SizedBox.shrink();
     }
+    final uri = widget.section.uri;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           height: Spacing.d24,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: Spacing.d24,
-          ),
-          child: Tappable(
-            onTap: widget.section == SideBarSections.yours
-                ? () {
-                    final home = PredefinedFolders.home.uri;
-                    if (home == null) {
-                      return;
-                    }
-                    context.read<ExploreViewModel>().goTo(home);
-                  }
-                : null,
-            child: Text(
-              widget.section.getLabel(context),
-              style: context.theme.textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+        SideBarItem(
+          uri: uri,
+          title: widget.section.getLabel(context),
+          onTap: uri != null
+              ? () {
+                  widget.onGoTo(uri);
+                }
+              : null,
+          icon: widget.section.getIcon(context),
+          textStyle: context.theme.textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(
@@ -148,36 +140,44 @@ class _SideBarSectionState extends State<SideBarSection> {
 }
 
 class SideBarItem extends StatelessWidget {
-  final Uri uri;
-  final VoidCallback onTap;
+  final String? title;
+  final Uri? uri;
+  final VoidCallback? onTap;
+
+  final IconData? icon;
+  final TextStyle? textStyle;
 
   const SideBarItem({
     super.key,
-    required this.uri,
-    required this.onTap,
+    this.title,
+    this.uri,
+    this.onTap,
+    this.icon,
+    this.textStyle,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d24,
+        horizontal: Spacing.d16,
+        vertical: Spacing.d4,
       ),
       child: Tappable(
         onTap: onTap,
         child: Row(
           children: [
             Icon(
-              Icons.folder,
-              size: Spacing.d24,
+              icon ?? Icons.folder,
+              size: Spacing.d20,
             ),
             SizedBox(
-              width: Spacing.d16,
+              width: Spacing.d8,
             ),
             Flexible(
               child: Text(
-                uri.lastNonEmptySegment ?? '',
-                style: context.theme.textTheme.bodyLarge,
+                title ?? uri?.lastNonEmptySegment ?? '',
+                style: textStyle ?? context.theme.textTheme.bodyLarge,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

@@ -1,6 +1,6 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class PrimaryButton extends Button {
   final String? text;
@@ -29,9 +29,7 @@ class PrimaryButton extends Button {
       semanticLabel: semanticLabel,
       child: Text(
         text ?? '',
-        style: context.base1.copyWith(
-          color: context.onPrimaryColor,
-        ),
+        style: context.theme.primaryTextTheme.labelLarge,
       ),
     );
   }

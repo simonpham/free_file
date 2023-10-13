@@ -25,9 +25,11 @@ class ListItem extends StatelessWidget {
 
   final ValueChanged<TappableState>? onStateChanged;
   final VoidCallback? onTap;
+  final VoidCallback? onDoubleTap;
   final HitTestBehavior? behavior;
 
   final bool isSelected;
+  final bool expanded;
 
   final bool enableHover;
   final bool enableHoverOverlay;
@@ -46,6 +48,7 @@ class ListItem extends StatelessWidget {
     this.radius,
     this.onStateChanged,
     this.onTap,
+    this.onDoubleTap,
     this.behavior,
     this.hideLeadingOnHandyDevice = false,
     this.hideTitleOnHandyDevice = false,
@@ -61,6 +64,7 @@ class ListItem extends StatelessWidget {
     this.padding,
     this.titlePadding,
     this.hoverOverlayPadding,
+    this.expanded = true,
   });
 
   @override
@@ -80,6 +84,7 @@ class ListItem extends StatelessWidget {
         hoverOverlayBorderRadius: radius ?? Spacing.d8,
         hoverOverlayColorTint: hoverOverlayColorTint,
         onTap: onTap,
+        onDoubleTap: onDoubleTap,
         onStateChanged: onStateChanged,
         focusNode: focusNode,
         child: ClipRRect(
@@ -97,12 +102,13 @@ class ListItem extends StatelessWidget {
             height: height,
             duration: FludaDuration.ms4,
             child: Row(
+              mainAxisSize: expanded ? MainAxisSize.max : MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (leading != null &&
                     (!hideLeadingOnHandyDevice ||
                         (hideLeadingOnHandyDevice &&
-                            !ThemeConfigs().screenSize.isHandyDevice)))
+                            !ThemeConfigs.screenSize.isHandyDevice)))
                   SizedBox.square(
                     dimension: Spacing.d24,
                     child: DecoratedBox(
@@ -131,20 +137,28 @@ class ListItem extends StatelessWidget {
                   ),
                 if (!hideTitleOnHandyDevice ||
                     (hideTitleOnHandyDevice &&
-                        !ThemeConfigs().screenSize.isHandyDevice))
-                  Expanded(
-                    child: Padding(
-                      padding: titlePadding ??
-                          EdgeInsets.only(
-                            left: Spacing.d20,
+                        !ThemeConfigs.screenSize.isHandyDevice))
+                  expanded
+                      ? Expanded(
+                          child: Padding(
+                            padding: titlePadding ??
+                                EdgeInsets.only(
+                                  left: Spacing.d20,
+                                ),
+                            child: title,
                           ),
-                      child: title,
-                    ),
-                  ),
+                        )
+                      : Padding(
+                          padding: titlePadding ??
+                              EdgeInsets.only(
+                                left: Spacing.d20,
+                              ),
+                          child: title,
+                        ),
                 if (trailing != null &&
                     (!hideTrailingOnHandyDevice ||
                         (hideTrailingOnHandyDevice &&
-                            !ThemeConfigs().screenSize.isHandyDevice)))
+                            !ThemeConfigs.screenSize.isHandyDevice)))
                   trailing!,
               ],
             ),

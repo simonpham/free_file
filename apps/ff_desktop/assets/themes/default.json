@@ -1,0 +1,40 @@
+{
+  "name": "Default",
+  "version": "1.0.0",
+  "description": "Free File's default theme",
+  "config": {
+    "showBackButton": true,
+    "showForwardButton": true,
+    "showUpButton": true,
+    "showRefreshButton": false,
+    "showSearchBar": true
+  },
+  "theme": {
+    "light": {
+      "color": {
+        "primary": "#FFEE7A3B",
+        "secondary": "#FF3FDD78",
+        "background": "#00000000",
+        "navBarBackground": "#FFF2F2F2",
+        "mainBackground": "#FFFFFFFF",
+        "statusBarBackground": "#FFEEEEEE",
+        "onBackground": "#FF000000",
+        "iconColor": "#FF000000",
+        "disabledIconColor": "#FFBDBDBD"
+      }
+    },
+    "dark": {
+      "color": {
+        "primary": "#FFEE7A3B",
+        "secondary": "#FF3FDD78",
+        "background": "#00000000",
+        "navBarBackground": "#FF2F2F2F",
+        "mainBackground": "#FF1F1F1F",
+        "statusBarBackground": "#FF2F2F2F",
+        "onBackground": "#FFFFFFFF",
+        "iconColor": "#FFFFFFFF",
+        "disabledIconColor": "#FFBDBDBD"
+      }
+    }
+  }
+}

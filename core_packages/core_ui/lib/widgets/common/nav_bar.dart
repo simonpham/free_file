@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class NavDestination {
   const NavDestination({
@@ -89,10 +90,9 @@ class SfNavBar extends StatelessWidget {
                 hoverOverlayColorTint: dest.iconColor,
                 title: Text(
                   destinations[index].label,
-                  style: context.base2.copyWith(
-                    color: selected
-                        ? kNeutralSwatch[1]!
-                        : kNeutralSwatch[3]!.withOpacity(0.75),
+                  style: context.theme.textTheme.titleLarge?.copyWith(
+                    color:
+                        selected ? Colors.grey.shade900 : Colors.grey.shade700,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

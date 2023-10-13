@@ -1,5 +1,6 @@
 import 'dart:io' as io;
 
+import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 enum SideBarSections {
@@ -10,7 +11,18 @@ enum SideBarSections {
   drives,
   tags;
 
-  final Uri? uri = null;
+  Uri? get uri {
+    switch (this) {
+      case SideBarSections.yours:
+        return PredefinedFolders.home.uri;
+      case SideBarSections.home:
+      case SideBarSections.pinned:
+      case SideBarSections.cloud:
+      case SideBarSections.drives:
+      case SideBarSections.tags:
+        return null;
+    }
+  }
 
   String getLabel(BuildContext context) {
     switch (this) {
@@ -21,11 +33,32 @@ enum SideBarSections {
       case SideBarSections.cloud:
         return 'Cloud';
       case SideBarSections.yours:
+        final home = PredefinedFolders.home.uri;
+        if (home != null) {
+          return home.toFilePath().getUsernameFromHomeFolder();
+        }
         return 'Yours';
       case SideBarSections.drives:
         return 'Drives';
       case SideBarSections.tags:
         return 'Tags';
+    }
+  }
+
+  IconData? getIcon(BuildContext context) {
+    switch (this) {
+      case SideBarSections.home:
+        return Icons.home;
+      case SideBarSections.pinned:
+        return Icons.push_pin;
+      case SideBarSections.cloud:
+        return Icons.cloud;
+      case SideBarSections.yours:
+        return Icons.person;
+      case SideBarSections.drives:
+        return Icons.drive_file_move;
+      case SideBarSections.tags:
+        return Icons.label;
     }
   }
 }

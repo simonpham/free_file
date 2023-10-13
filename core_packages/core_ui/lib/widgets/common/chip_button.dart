@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class ChipButton extends Button {
   final String? text;
@@ -36,9 +37,7 @@ class ChipButton extends Button {
         ),
         child: Text(
           text ?? '',
-          style: context.caption1.copyWith(
-            color: context.chipButtonTypoColor,
-          ),
+          style: context.theme.textTheme.bodySmall,
         ),
       ),
     );

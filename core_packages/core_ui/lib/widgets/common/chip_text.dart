@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class ChipText extends StatelessWidget {
   final String text;
@@ -14,7 +15,7 @@ class ChipText extends StatelessWidget {
     return Container(
       height: Spacing.d20,
       decoration: BoxDecoration(
-        color: context.chipBackgroundColor,
+        color: context.theme.chipTheme.backgroundColor,
         borderRadius: BorderRadius.circular(
           Spacing.d8,
         ),
@@ -25,9 +26,7 @@ class ChipText extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         text,
-        style: context.caption1.copyWith(
-          color: context.typoFadeColor,
-        ),
+        style: context.theme.textTheme.bodySmall,
       ),
     );
   }

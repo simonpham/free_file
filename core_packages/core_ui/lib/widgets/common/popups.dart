@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class DropdownPopups {
   static (RelativeRect, Size) _getDropdownPosition(BuildContext context) {
@@ -17,9 +18,7 @@ class DropdownPopups {
     );
   }
 
-  static Color _getMenuBackgroundColor(BuildContext context, bool isDark) {
-    return isDark
-        ? kNeutralSwatch[7]!.withOpacity(0.5)
-        : kNeutralSwatch[3]!.withOpacity(0.5);
+  static Color? _getMenuBackgroundColor(BuildContext context, bool isDark) {
+    return context.theme.popupMenuTheme.color;
   }
 }

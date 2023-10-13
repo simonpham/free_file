@@ -40,12 +40,9 @@ class FreeFile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = ScreenSize.of(context);
-    ThemeConfigs().screenSize = size;
+    ThemeConfigs.screenSize = size;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(
-          value: ThemeConfigs(),
-        ),
         ChangeNotifierProvider.value(
           value: injector<ExploreViewModel>(),
         ),
@@ -53,16 +50,10 @@ class FreeFile extends StatelessWidget {
       builder: (BuildContext context, _) {
         return MaterialApp.router(
           color: Colors.transparent,
-          themeMode: context.select(
-            (ThemeConfigs _) => _.themeMode,
-          ),
+          themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
-          theme: context.select(
-            (ThemeConfigs _) => _.getThemeData(ThemeMode.light),
-          ),
-          darkTheme: context.select(
-            (ThemeConfigs _) => _.getThemeData(ThemeMode.dark),
-          ),
+          theme: ThemeConfigs().getThemeData(ThemeMode.light),
+          darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
           builder: (context, child) {
             return Stack(
               children: [

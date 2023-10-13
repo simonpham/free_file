@@ -13,7 +13,7 @@ Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await EasyBox.initialize();
-  await ThemeConfigs().init();
+  await ThemeConfigs.init();
   await Injector.setup();
 
   try {

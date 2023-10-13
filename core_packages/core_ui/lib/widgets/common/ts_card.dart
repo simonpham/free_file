@@ -35,7 +35,7 @@ class TsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = ThemeConfigs().themeMode == ThemeMode.dark;
+    final isDark = context.theme.brightness == Brightness.dark;
     return AnimatedContainer(
       duration: FludaDuration.ms2,
       curve: Curves.easeOut,

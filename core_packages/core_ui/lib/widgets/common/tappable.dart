@@ -234,12 +234,13 @@ class _TappableState extends State<Tappable> {
                       child: Container(
                         margin: widget.hoverOverlayPadding,
                         decoration: BoxDecoration(
-                          border: GradientBoxBorder(
-                            gradient: const SweepGradient(
-                              colors: kGradientColors,
-                            ),
-                            width: Spacing.d2,
-                          ),
+                          // TODO: focus border.
+                          // border: GradientBoxBorder(
+                          //   gradient: const SweepGradient(
+                          //     colors: kGradientColors,
+                          //   ),
+                          //   width: Spacing.d2,
+                          // ),
                           borderRadius: widget.hoverOverlayBorderRadius != null
                               ? BorderRadius.circular(
                                   widget.hoverOverlayBorderRadius!,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ff_desktop/features/features.dart';
+import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class MainArea extends StatelessWidget {
@@ -15,7 +16,7 @@ class MainArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: context.theme.colorScheme.surfaceVariant,
+      color: context.appTheme.color.mainBackground,
       child: Selector<ExploreViewModel, List<Entity>>(
         selector: (BuildContext context, ExploreViewModel model) {
           return model.entities;
@@ -25,11 +26,25 @@ class MainArea extends StatelessWidget {
             itemCount: entities.length,
             itemBuilder: (BuildContext context, int index) {
               final entity = entities[index];
-              return InkWell(
-                onDoubleTap: () => entity.doubleTap(context),
-                child: ListTile(
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Spacing.d8,
+                  vertical: Spacing.d4,
+                ),
+                child: ListItem(
+                  onDoubleTap: () => entity.doubleTap(context),
+                  enableAnimation: false,
                   leading: Icon(
                     entity.entityIcon,
+                    color: context.appTheme.color.iconColor,
+                    size: Spacing.d20,
+                  ),
+                  titlePadding: EdgeInsets.only(
+                    left: Spacing.d8,
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Spacing.d8,
+                    vertical: Spacing.d4,
                   ),
                   title: Text(entity.name),
                 ),

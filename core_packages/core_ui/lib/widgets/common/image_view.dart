@@ -1,6 +1,5 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class ImageView extends StatelessWidget {
@@ -35,13 +34,13 @@ class ImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (url.isEmpty) {
-      final isDark = ThemeConfigs().themeMode == ThemeMode.dark;
+      final isDark = context.theme.brightness == Brightness.dark;
       return SizedBox(
         width: size ?? width,
         height: size ?? height,
         child: Shimmer.fromColors(
-          baseColor: isDark ? kNeutralSwatch[6]! : kNeutralSwatch[3]!,
-          highlightColor: isDark ? kNeutralSwatch[5]! : kNeutralSwatch[2]!,
+          baseColor: isDark ? Colors.grey.shade700 : Colors.grey.shade300,
+          highlightColor: isDark ? Colors.grey.shade600 : Colors.grey.shade200,
           child: Container(
             color: Colors.white,
           ),
@@ -119,8 +118,8 @@ class ImageView extends StatelessWidget {
           width: size ?? width,
           height: size ?? height,
           child: Shimmer.fromColors(
-            baseColor: kNeutralSwatch[3]!,
-            highlightColor: kNeutralSwatch[2]!,
+            baseColor: Colors.grey.shade300,
+            highlightColor: Colors.grey.shade200,
             child: Container(
               color: Colors.white,
             ),

@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:ff_desktop/features/features.dart';
 
 extension EntityUtilsExtension on Entity {
+  Future<void> tap(BuildContext context) async {}
+
   Future<void> doubleTap(BuildContext context) async {
     final model = context.read<ExploreViewModel>();
     final scaffoldMessenger = ScaffoldMessenger.of(context);

@@ -29,7 +29,7 @@ class MainPage extends StatelessWidget {
                   Container(
                     height: Spacing.d40,
                     decoration: BoxDecoration(
-                      color: context.theme.colorScheme.surface,
+                      color: context.appTheme.color.navBarBackground,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(
                           Spacing.d8,

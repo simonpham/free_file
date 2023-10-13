@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class EmptyWidget extends StatelessWidget {
   final String? image;
@@ -32,12 +33,12 @@ class EmptyWidget extends StatelessWidget {
           ),
           child: Text(
             title,
-            style: context.h6,
+            style: context.theme.textTheme.titleLarge,
           ),
         ),
         Text(
           subtitle,
-          style: context.base2.copyWith(color: kNeutralSwatch[4]),
+          style: context.theme.textTheme.labelLarge,
         ),
       ],
     );

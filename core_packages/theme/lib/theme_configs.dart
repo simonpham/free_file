@@ -1,141 +1,187 @@
-import 'package:core_ui/core_ui.dart';
-import 'package:easy_hive/easy_hive.dart';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
-enum ThemeDataKeys {
-  key,
-  themeMode,
-  enableTransparency,
-  screenSize,
+extension ThemeExtension on BuildContext {
+  AppTheme get appTheme => this.theme.brightness == Brightness.dark
+      ? ThemeConfigs().darkTheme
+      : ThemeConfigs().lightTheme;
 }
 
 extension ThemeConfigsExtension on ThemeConfigs {
-  ScreenSize get screenSize {
-    final index = get(
-      ThemeDataKeys.screenSize,
-      defaultValue: ScreenSize.normal.index,
+  ThemeData getThemeData(ThemeMode mode) {
+    final isDarkTheme = mode == ThemeMode.dark;
+    final config = isDarkTheme ? darkTheme : lightTheme;
+    final baseTheme = isDarkTheme ? ThemeData.dark() : ThemeData.light();
+    final colorScheme = baseTheme.colorScheme.copyWith(
+      primary: config.color.primary,
+      secondary: config.color.secondary,
+      background: config.color.background,
+      onBackground: config.color.onBackground,
+      surface: config.color.mainBackground,
+      onSurface: config.color.onBackground,
+      surfaceVariant: config.color.navBarBackground,
+      onSurfaceVariant: config.color.onBackground,
     );
-    return ScreenSize.values[index];
-  }
-
-  set screenSize(ScreenSize value) => put(
-        ThemeDataKeys.screenSize,
-        value.index,
-      );
-
-  bool get enableTransparency => kIsDesktop
-      ? get(
-          ThemeDataKeys.enableTransparency,
-          defaultValue: kIsDesktop,
-        )
-      : false;
-
-  set enableTransparency(bool value) => put(
-        ThemeDataKeys.enableTransparency,
-        value,
-      );
-
-  ThemeMode get themeMode {
-    final index = get(
-      ThemeDataKeys.themeMode,
-      defaultValue: ThemeMode.system.index,
-    );
-    return ThemeMode.values[index];
-  }
-
-  set themeMode(ThemeMode value) => put(ThemeDataKeys.themeMode, value.index);
-
-  ThemeData getThemeData(ThemeMode themeMode) {
-    final isDark = themeMode == ThemeMode.dark;
-    final cardColor = enableTransparency
-        ? kNeutralSwatch[1]!.applyTransparency(isDark ? 0.05 : 0.9)
-        : (isDark ? kNeutralSwatch[6] : kNeutralSwatch[1]);
-
-    final base = isDark
-        ? ThemeData.dark(useMaterial3: true)
-        : ThemeData.light(useMaterial3: true);
-    final colorSwatch = ColorScheme.fromSwatch(
-      primarySwatch: kPrimaryMaterialColor,
-    ).copyWith(
-      background:
-          (isDark ? kBackgroundColorDark : kBackgroundColor).withTransparency,
-      onBackground: isDark ? kOnBackgroundColorDark : kOnBackgroundColor,
-      surface: cardColor,
-      surfaceTint: Colors.transparent,
-    );
-    return base.copyWith(
-      extensions: [
-        ...base.extensions.values,
-        FlashBarTheme(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Spacing.d16),
-            ),
-          ),
-          margin: EdgeInsets.all(Spacing.d16),
-          backgroundColor: colorSwatch.primary,
-          surfaceTintColor: Colors.transparent,
-        ),
-      ],
-      textTheme: base.textTheme.apply(
-        fontFamily: kAppFontFamily,
-      ),
-      primaryTextTheme: base.primaryTextTheme.apply(
-        fontFamily: kAppFontFamily,
-      ),
-      primaryColor: colorSwatch.primary,
-      scaffoldBackgroundColor: colorSwatch.background,
-      cardColor: colorSwatch.surface,
-      colorScheme: colorSwatch,
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(Spacing.d12),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: isDark ? kNeutralSwatch[3]! : kNeutralSwatch[5]!,
-            width: Spacing.d1,
-          ),
-          borderRadius: BorderRadius.circular(Spacing.d12),
+    return baseTheme.copyWith(
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: config.color.mainBackground,
+      appBarTheme: baseTheme.appBarTheme.copyWith(
+        backgroundColor: config.color.navBarBackground,
+        foregroundColor: config.color.onBackground,
+        iconTheme: IconThemeData(
+          color: config.color.iconColor,
         ),
       ),
-      dividerColor: isDark ? kNeutralSwatch[5]! : kNeutralSwatch[3]!,
-      dividerTheme: DividerThemeData(
-        color: isDark ? kNeutralSwatch[5]! : kNeutralSwatch[3]!,
-        thickness: Spacing.d1,
-        space: 0.0,
-        indent: 0.0,
-        endIndent: 0.0,
+      bottomNavigationBarTheme: baseTheme.bottomNavigationBarTheme.copyWith(
+        backgroundColor: config.color.navBarBackground,
+        selectedItemColor: config.color.primary,
+        unselectedItemColor: config.color.onBackground,
       ),
-      dialogBackgroundColor: isDark ? kNeutralSwatch[7]! : kNeutralSwatch[1]!,
-      dialogTheme: DialogTheme(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Spacing.d24),
-        ),
+      iconTheme: IconThemeData(
+        color: config.color.iconColor,
       ),
-      checkboxTheme: CheckboxThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(FludaX.x * 0.75),
-        ),
-        side: BorderSide(
-          color: isDark ? Colors.white70 : Colors.black87,
-          width: Spacing.d1 * 1.5,
-        ),
-      ),
+      disabledColor: config.color.disabledIconColor,
     );
   }
 }
 
-class ThemeConfigs extends RefreshableBox {
-  @override
-  String get boxKey => ThemeDataKeys.key.toString();
+@immutable
+class ThemeConfigs {
+  final String name;
+  final String version;
+  final String description;
+  final Config config;
+  final AppTheme lightTheme;
+  final AppTheme darkTheme;
 
-  /// Singleton.
-  static final ThemeConfigs _instance = ThemeConfigs._();
+  static ScreenSize screenSize = ScreenSize.normal;
+  static ThemeConfigs? _instance;
 
-  factory ThemeConfigs() => _instance;
+  factory ThemeConfigs() {
+    assert(_instance != null, 'ThemeConfigs is not initialized');
+    return _instance!;
+  }
 
-  ThemeConfigs._();
+  static Future<void> init() async {
+    final json = await rootBundle.loadString(
+      'assets/themes/default.json',
+    );
+    _instance = ThemeConfigs.fromJson(jsonDecode(json));
+  }
+
+  const ThemeConfigs._({
+    required this.name,
+    required this.version,
+    required this.description,
+    required this.config,
+    required this.lightTheme,
+    required this.darkTheme,
+  });
+
+  factory ThemeConfigs.fromJson(Map<String, dynamic> json) {
+    final theme = json['theme'];
+    return ThemeConfigs._(
+      name: json['name'] as String,
+      version: json['version'] as String,
+      description: json['description'] as String,
+      config: Config.fromJson(json['config']),
+      lightTheme: AppTheme.fromJson(theme['light']),
+      darkTheme: AppTheme.fromJson(theme['dark']),
+    );
+  }
+}
+
+@immutable
+class Config {
+  final bool showBackButton;
+  final bool showForwardButton;
+  final bool showUpButton;
+  final bool showRefreshButton;
+  final bool showSearchBar;
+
+  const Config({
+    required this.showBackButton,
+    required this.showForwardButton,
+    required this.showUpButton,
+    required this.showRefreshButton,
+    required this.showSearchBar,
+  });
+
+  factory Config.fromJson(Map<String, dynamic> json) {
+    return Config(
+      showBackButton: json['showBackButton'] != false,
+      showForwardButton: json['showForwardButton'] != false,
+      showUpButton: json['showUpButton'] != false,
+      showRefreshButton: json['showRefreshButton'] == true,
+      showSearchBar: json['showSearchBar'] != false,
+    );
+  }
+}
+
+@immutable
+class AppTheme {
+  final ThemeColor color;
+
+  const AppTheme({
+    required this.color,
+  });
+
+  factory AppTheme.fromJson(Map<String, dynamic> json) {
+    return AppTheme(
+      color: ThemeColor.fromJson(json['color']),
+    );
+  }
+}
+
+@immutable
+class ThemeColor {
+  final Color primary;
+  final Color secondary;
+  final Color background;
+  final Color navBarBackground;
+  final Color mainBackground;
+  final Color statusBarBackground;
+  final Color onBackground;
+  final Color iconColor;
+  final Color disabledIconColor;
+
+  const ThemeColor({
+    required this.primary,
+    required this.secondary,
+    required this.background,
+    required this.navBarBackground,
+    required this.mainBackground,
+    required this.statusBarBackground,
+    required this.onBackground,
+    required this.iconColor,
+    required this.disabledIconColor,
+  });
+
+  factory ThemeColor.fromJson(Map<String, dynamic> json) {
+    return ThemeColor(
+      primary: '${json['primary']}'.toColor(),
+      secondary: '${json['secondary']}'.toColor(),
+      background: '${json['background']}'.toColor(),
+      navBarBackground: '${json['navBarBackground']}'.toColor(),
+      mainBackground: '${json['mainBackground']}'.toColor(),
+      statusBarBackground: '${json['statusBarBackground']}'.toColor(),
+      onBackground: '${json['onBackground']}'.toColor(),
+      iconColor: '${json['iconColor']}'.toColor(),
+      disabledIconColor: '${json['disabledIconColor']}'.toColor(),
+    );
+  }
+}
+
+extension on String {
+  Color toColor() {
+    final hexCode = replaceAll('#', '');
+    if (hexCode.length == 8) {
+      return Color(int.parse(hexCode, radix: 16));
+    }
+    return Color(int.parse('FF$hexCode', radix: 16));
+  }
 }

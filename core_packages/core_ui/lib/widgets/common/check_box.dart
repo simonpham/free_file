@@ -62,14 +62,12 @@ class _CheckBoxState extends State<CheckBox> {
             decoration: BoxDecoration(
               color: _isChecked
                   ? context.theme.primaryColor
-                  : (isHover
-                      ? context.checkBoxBorderColor
-                      : Colors.transparent),
+                  : (isHover ? Colors.grey.shade200 : Colors.transparent),
               borderRadius: BorderRadius.circular(Spacing.d4 + Spacing.d2),
               border: Border.all(
                 color: _isChecked
                     ? context.theme.primaryColor
-                    : context.checkBoxBorderColor,
+                    : Colors.grey.shade400,
                 width: Spacing.d2,
                 strokeAlign: BorderSide.strokeAlignInside,
               ),
@@ -81,7 +79,7 @@ class _CheckBoxState extends State<CheckBox> {
             ? Icon(
                 Icons.check,
                 size: Spacing.d20,
-                color: context.onPrimaryColor,
+                color: context.theme.colorScheme.onPrimary,
               )
             : null,
       ),
