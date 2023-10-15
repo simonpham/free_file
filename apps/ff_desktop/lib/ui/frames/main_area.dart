@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import 'package:ff_desktop/features/features.dart';
 import 'package:theme/theme.dart';
-import 'package:utils/utils.dart';
 
 class MainArea extends StatelessWidget {
   const MainArea({

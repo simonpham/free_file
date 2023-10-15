@@ -20,11 +20,9 @@
 
 import 'dart:async';
 
-import 'package:core_ui/core_ui.dart';
 import 'package:fluda/fluda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 const _animationDuration = 75;

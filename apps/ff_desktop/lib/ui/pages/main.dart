@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
 import 'package:ff_desktop/ui/ui.dart';
-import 'package:utils/utils.dart';
 
 class MainPage extends StatelessWidget {
   static const String routePath = '/';
