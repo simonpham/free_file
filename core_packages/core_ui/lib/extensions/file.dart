@@ -1,23 +1,39 @@
 import 'package:core/constants/mime_types.dart';
 import 'package:core/models/models.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:core_ui/constants/constants.dart';
 
 extension FileExtension on File {
-  IconData get icon {
+  SvgGenImage get icon {
     switch (fileType.contentType) {
       case ContentType.audio:
-        return FontAwesomeIcons.fileAudio;
+        return Assets.icons.multimediaAndAudio.outline.music01;
       case ContentType.image:
-        return FontAwesomeIcons.fileImage;
+        return Assets.icons.multimediaAndAudio.outline.image01;
       case ContentType.video:
-        return FontAwesomeIcons.fileVideo;
+        return Assets.icons.multimediaAndAudio.outline.clapperboard;
       case ContentType.text:
-        return FontAwesomeIcons.fileLines;
+        return Assets.icons.editor.outline.documentText;
       case ContentType.application:
-        return FontAwesomeIcons.fileZipper;
+        return Assets.icons.filesAndFolder.outline.archive;
       default:
-        return FontAwesomeIcons.file;
+        return Assets.icons.filesAndFolder.outline.file;
+    }
+  }
+
+  SvgGenImage get selectedIcon {
+    switch (fileType.contentType) {
+      case ContentType.audio:
+        return Assets.icons.multimediaAndAudio.solid.music01;
+      case ContentType.image:
+        return Assets.icons.multimediaAndAudio.solid.image01;
+      case ContentType.video:
+        return Assets.icons.multimediaAndAudio.solid.clapperboard;
+      case ContentType.text:
+        return Assets.icons.editor.solid.documentText;
+      case ContentType.application:
+        return Assets.icons.filesAndFolder.solid.archive;
+      default:
+        return Assets.icons.filesAndFolder.solid.file;
     }
   }
 }

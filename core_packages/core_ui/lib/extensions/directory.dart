@@ -1,7 +1,12 @@
 import 'package:core/models/models.dart';
-import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:core_ui/constants/constants.dart';
 
 extension DirectoryExtension on Directory {
-  IconData get icon => FontAwesomeIcons.folder;
+  SvgGenImage get icon => Assets.icons.filesAndFolder.outline.folder03;
+
+  SvgGenImage get selectedIcon => Assets.icons.filesAndFolder.solid.folder03;
+
+  SvgGenImage get openIcon => Assets.icons.filesAndFolder.outline.folder;
+
+  SvgGenImage get openSelectedIcon => Assets.icons.filesAndFolder.solid.folder;
 }

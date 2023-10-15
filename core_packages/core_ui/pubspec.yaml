@@ -20,5 +20,79 @@ dependencies:
   flutter_svg: ^2.0.7
   shimmer: ^3.0.0
 
-  # Icons.
-  font_awesome_flutter: ^10.5.0
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/arrows/bulk/
+    - assets/icons/arrows/outline/
+    - assets/icons/arrows/solid/
+    - assets/icons/business/bulk/
+    - assets/icons/business/outline/
+    - assets/icons/business/solid/
+    - assets/icons/communication/bulk/
+    - assets/icons/communication/outline/
+    - assets/icons/communication/solid/
+    - assets/icons/device/bulk/
+    - assets/icons/device/outline/
+    - assets/icons/device/solid/
+    - assets/icons/ecommerce/bulk/
+    - assets/icons/ecommerce/outline/
+    - assets/icons/ecommerce/solid/
+    - assets/icons/editor/bulk/
+    - assets/icons/editor/outline/
+    - assets/icons/editor/solid/
+    - assets/icons/education/bulk/
+    - assets/icons/education/outline/
+    - assets/icons/education/solid/
+    - assets/icons/files and folder/bulk/
+    - assets/icons/files and folder/outline/
+    - assets/icons/files and folder/solid/
+    - assets/icons/finance and payment/bulk/
+    - assets/icons/finance and payment/outline/
+    - assets/icons/finance and payment/solid/
+    - assets/icons/grid/bulk/
+    - assets/icons/grid/outline/
+    - assets/icons/grid/solid/
+    - assets/icons/health/bulk/
+    - assets/icons/health/outline/
+    - assets/icons/health/solid/
+    - assets/icons/interface/bulk/
+    - assets/icons/interface/outline/
+    - assets/icons/interface/solid/
+    - assets/icons/menu/bulk/
+    - assets/icons/menu/outline/
+    - assets/icons/menu/solid/
+    - assets/icons/multimedia and audio/bulk/
+    - assets/icons/multimedia and audio/outline/
+    - assets/icons/multimedia and audio/solid/
+    - assets/icons/navigation maps/bulk/
+    - assets/icons/navigation maps/outline/
+    - assets/icons/navigation maps/solid/
+    - assets/icons/notes and task/bulk/
+    - assets/icons/notes and task/outline/
+    - assets/icons/notes and task/solid/
+    - assets/icons/shipping and delivery/bulk/
+    - assets/icons/shipping and delivery/outline/
+    - assets/icons/shipping and delivery/solid/
+    - assets/icons/smart house/bulk/
+    - assets/icons/smart house/outline/
+    - assets/icons/smart house/solid/
+    - assets/icons/social/bulk/
+    - assets/icons/social/outline/
+    - assets/icons/social/solid/
+    - assets/icons/time and date/bulk/
+    - assets/icons/time and date/outline/
+    - assets/icons/time and date/solid/
+    - assets/icons/user/bulk/
+    - assets/icons/user/outline/
+    - assets/icons/user/solid/
+    - assets/icons/weather/bulk/
+    - assets/icons/weather/outline/
+    - assets/icons/weather/solid/
+
+flutter_gen:
+  output: lib/constants/generated/
+  line_length: 80
+  integrations:
+    flutter_svg: true

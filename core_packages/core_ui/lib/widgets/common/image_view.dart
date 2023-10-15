@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:utils/utils.dart';
 
 class ImageView extends StatelessWidget {
-  final String url;
+  final dynamic data;
   final String? blurHash;
 
   final double? size;
@@ -16,7 +16,7 @@ class ImageView extends StatelessWidget {
   final Color? color;
 
   const ImageView(
-    this.url, {
+    this.data, {
     super.key,
     this.size,
     this.width,
@@ -33,6 +33,38 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final url = data;
+
+    if (url is SvgGenImage) {
+      return url.svg(
+        width: size ?? width,
+        height: size ?? height,
+        fit: fit ?? BoxFit.cover,
+        alignment: alignment ?? Alignment.center,
+        colorFilter: color != null
+            ? ColorFilter.mode(
+                color!,
+                BlendMode.srcIn,
+              )
+            : null,
+        package: 'core_ui',
+      );
+    }
+
+    if (url is! String) {
+      return SizedBox(
+        width: size ?? width,
+        height: size ?? height,
+        child: Shimmer.fromColors(
+          baseColor: Colors.grey.shade300,
+          highlightColor: Colors.grey.shade200,
+          child: Container(
+            color: Colors.white,
+          ),
+        ),
+      );
+    }
+
     if (url.isEmpty) {
       final isDark = context.theme.brightness == Brightness.dark;
       return SizedBox(
