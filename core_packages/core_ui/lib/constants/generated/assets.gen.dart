@@ -8130,14 +8130,6 @@ class $AssetsIconsFilesAndFolderBulkGen {
 class $AssetsIconsFilesAndFolderOutlineGen {
   const $AssetsIconsFilesAndFolderOutlineGen();
 
-  /// File path: assets/icons/files and folder/outline/Vector-1.png
-  AssetGenImage get vector1 =>
-      const AssetGenImage('assets/icons/files and folder/outline/Vector-1.png');
-
-  /// File path: assets/icons/files and folder/outline/Vector.png
-  AssetGenImage get vector =>
-      const AssetGenImage('assets/icons/files and folder/outline/Vector.png');
-
   /// File path: assets/icons/files and folder/outline/archive 01.svg
   SvgGenImage get archive01 =>
       const SvgGenImage('assets/icons/files and folder/outline/archive 01.svg');
@@ -8197,6 +8189,10 @@ class $AssetsIconsFilesAndFolderOutlineGen {
   /// File path: assets/icons/files and folder/outline/file 03.svg
   SvgGenImage get file03 =>
       const SvgGenImage('assets/icons/files and folder/outline/file 03.svg');
+
+  /// File path: assets/icons/files and folder/outline/file 04.svg
+  SvgGenImage get file04 =>
+      const SvgGenImage('assets/icons/files and folder/outline/file 04.svg');
 
   /// File path: assets/icons/files and folder/outline/file-accept 01.svg
   SvgGenImage get fileAccept01 => const SvgGenImage(
@@ -8395,9 +8391,7 @@ class $AssetsIconsFilesAndFolderOutlineGen {
       const SvgGenImage('assets/icons/files and folder/outline/folder.svg');
 
   /// List of all assets
-  List<dynamic> get values => [
-        vector1,
-        vector,
+  List<SvgGenImage> get values => [
         archive01,
         archive1,
         archiveAdd,
@@ -8413,6 +8407,7 @@ class $AssetsIconsFilesAndFolderOutlineGen {
         file01,
         file02,
         file03,
+        file04,
         fileAccept01,
         fileAccept,
         fileAdd01,
