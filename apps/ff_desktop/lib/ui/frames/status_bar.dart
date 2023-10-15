@@ -17,13 +17,13 @@ class StatusBar extends StatelessWidget {
       height: Spacing.d32,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: context.appTheme.color.statusBarBackground,
+        color: context.appTheme.color.statusBarBackground.withTransparency,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(
-            Spacing.d8,
+            Spacing.d12,
           ),
           bottomRight: Radius.circular(
-            Spacing.d8,
+            Spacing.d12,
           ),
         ),
       ),

@@ -15,7 +15,7 @@ class AddressBar extends StatelessWidget {
       height: Spacing.d40,
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: context.appTheme.color.mainBackground,
+        color: context.appTheme.color.mainBackground.withTransparency,
         borderRadius: BorderRadius.circular(
           Spacing.d8,
         ),

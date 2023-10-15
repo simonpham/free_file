@@ -138,7 +138,6 @@ class _SideBarSectionState extends State<SideBarSection> {
           for (final (uri, icon, selectedIcon) in _items) ...[
             SizedBox(height: Spacing.d4),
             Builder(builder: (context) {
-              print('uri: $uri' + ' currentUri: ${model.currentUri}');
               return SideBarItem(
                 uri: uri,
                 icon: icon,
@@ -189,8 +188,10 @@ class SideBarItem extends StatelessWidget {
         onTap: onTap,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: selected ? context.theme.colorScheme.surface : null,
-            borderRadius: BorderRadius.circular(Spacing.d4),
+            color: selected
+                ? context.theme.colorScheme.surface.withTransparency
+                : null,
+            borderRadius: BorderRadius.circular(Spacing.d4 + Spacing.d2),
           ),
           child: Row(
             children: [
@@ -223,12 +224,12 @@ class SideBarItem extends StatelessWidget {
               if (selected)
                 Container(
                   height: Spacing.d32,
-                  width: Spacing.d4,
+                  width: Spacing.d4 + Spacing.d2,
                   decoration: BoxDecoration(
                     color: context.theme.primaryColor,
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(Spacing.d4),
-                      bottomRight: Radius.circular(Spacing.d4),
+                      topRight: Radius.circular(Spacing.d4 + Spacing.d2),
+                      bottomRight: Radius.circular(Spacing.d4 + Spacing.d2),
                     ),
                   ),
                 ),

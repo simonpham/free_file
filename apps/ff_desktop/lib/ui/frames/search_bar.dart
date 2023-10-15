@@ -33,7 +33,7 @@ class HeheSearchBar extends StatelessWidget {
       width: context.screenSize.searchBarWidth,
       curve: Curves.easeOut,
       decoration: BoxDecoration(
-        color: context.appTheme.color.mainBackground,
+        color: context.appTheme.color.mainBackground.withTransparency,
         borderRadius: BorderRadius.circular(
           Spacing.d8,
         ),

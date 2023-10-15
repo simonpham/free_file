@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
           const SideBar(),
           Expanded(
             child: Padding(
-              padding:  EdgeInsets.only(
+              padding: EdgeInsets.only(
                 bottom: Spacing.d8,
                 right: Spacing.d8,
               ),
@@ -26,17 +26,22 @@ class MainPage extends StatelessWidget {
                 children: [
                   const HeheTabBar(),
                   Container(
-                    height: Spacing.d40,
+                    height: Spacing.d48,
                     decoration: BoxDecoration(
-                      color: context.appTheme.color.navBarBackground,
+                      color: context
+                          .appTheme.color.navBarBackground.withTransparency,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(
-                          Spacing.d8,
+                          Spacing.d12,
                         ),
                         topRight: Radius.circular(
-                          Spacing.d8,
+                          Spacing.d12,
                         ),
                       ),
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      vertical: Spacing.d4,
+                      horizontal: Spacing.d4,
                     ),
                     child: const Row(
                       children: [
