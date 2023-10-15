@@ -170,6 +170,11 @@ enum FileType {
     mimeType: 'audio/x-midi',
     contentType: ContentType.audio,
   ),
+  mkv(
+    extension: 'mkv',
+    mimeType: 'video/x-matroska',
+    contentType: ContentType.video,
+  ),
   mp3(
     extension: 'mp3',
     mimeType: 'audio/mpeg',
@@ -239,6 +244,11 @@ enum FileType {
     extension: 'php',
     mimeType: 'application/x-httpd-php',
     contentType: ContentType.application,
+  ),
+  png(
+    extension: 'png',
+    mimeType: 'image/png',
+    contentType: ContentType.image,
   ),
   ppt(
     extension: 'ppt',
@@ -432,6 +442,7 @@ const Map<String, FileType> kMimeTypes = {
   'application/ld+json': FileType.jsonld,
   'audio/midi': FileType.mid,
   'audio/x-midi': FileType.midi,
+  'video/x-matroska': FileType.mkv,
   'audio/mpeg': FileType.mp3,
   'video/mp4': FileType.mp4,
   'video/mpeg': FileType.mpeg,
@@ -446,6 +457,7 @@ const Map<String, FileType> kMimeTypes = {
   'font/otf': FileType.otf,
   'application/pdf': FileType.pdf,
   'application/x-httpd-php': FileType.php,
+  'image/png': FileType.png,
   'application/vnd.ms-powerpoint': FileType.ppt,
   'application/vnd.openxmlformats-officedocument.presentationml.presentation':
       FileType.pptx,
