@@ -66,7 +66,7 @@ class SideBarSection extends StatefulWidget {
 }
 
 class _SideBarSectionState extends State<SideBarSection> {
-  final List<Uri> _items = [];
+  final List<(Uri, SvgGenImage, SvgGenImage)> _items = [];
 
   @override
   void initState() {
@@ -85,13 +85,19 @@ class _SideBarSectionState extends State<SideBarSection> {
           }
           final uri = folder.uri;
           if (uri != null) {
-            _items.add(uri);
+            _items.add((uri, folder.icon, folder.selectedIcon));
           }
         }
         break;
       case SideBarSections.drives:
         _items.addAll(
-          io.Directory('/Volumes/').listSync().map((e) => e.uri),
+          io.Directory('/Volumes/').listSync().map((e) => e.uri).map(
+                (e) => (
+                  e,
+                  Assets.icons.device.outline.storage,
+                  Assets.icons.device.outline.storage
+                ),
+              ),
         );
         break;
       case SideBarSections.tags:
@@ -105,37 +111,42 @@ class _SideBarSectionState extends State<SideBarSection> {
       return const SizedBox.shrink();
     }
     final uri = widget.section.uri;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: Spacing.d24,
-        ),
-        SideBarItem(
-          uri: uri,
-          title: widget.section.getLabel(context),
-          onTap: uri != null
-              ? () {
-                  widget.onGoTo(uri);
-                }
-              : null,
-          icon: widget.section.getIcon(context),
-          textStyle: context.theme.textTheme.bodyLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          height: Spacing.d8,
-        ),
-        for (final item in _items)
+    return Consumer<ExploreViewModel>(builder: (context, model, _) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: Spacing.d24),
           SideBarItem(
-            uri: item,
-            onTap: () {
-              widget.onGoTo(item);
-            },
+            uri: uri,
+            title: widget.section.getLabel(context),
+            selected: model.currentUri == uri,
+            onTap: uri != null
+                ? () {
+                    widget.onGoTo(uri);
+                  }
+                : null,
+            icon: widget.section.getIcon(context),
+            selectedIcon: widget.section.getSelectedIcon(context),
+            textStyle: context.theme.textTheme.bodyLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
-      ],
-    );
+          SizedBox(height: Spacing.d4),
+          for (final (uri, icon, selectedIcon) in _items) ...[
+            SizedBox(height: Spacing.d4),
+            SideBarItem(
+              uri: uri,
+              icon: icon,
+              selectedIcon: selectedIcon,
+              selected: model.currentUri == uri,
+              onTap: () {
+                widget.onGoTo(uri);
+              },
+            ),
+          ],
+        ],
+      );
+    });
   }
 }
 
@@ -144,7 +155,10 @@ class SideBarItem extends StatelessWidget {
   final Uri? uri;
   final VoidCallback? onTap;
 
-  final IconData? icon;
+  final bool selected;
+
+  final SvgGenImage? icon;
+  final SvgGenImage? selectedIcon;
   final TextStyle? textStyle;
 
   const SideBarItem({
@@ -153,7 +167,9 @@ class SideBarItem extends StatelessWidget {
     this.uri,
     this.onTap,
     this.icon,
+    this.selectedIcon,
     this.textStyle,
+    this.selected = false,
   });
 
   @override
@@ -167,9 +183,10 @@ class SideBarItem extends StatelessWidget {
         onTap: onTap,
         child: Row(
           children: [
-            Icon(
-              icon ?? Icons.folder,
+            ImageView(
+              selected ? selectedIcon : icon,
               size: Spacing.d20,
+              color: context.theme.iconTheme.color,
             ),
             SizedBox(
               width: Spacing.d8,

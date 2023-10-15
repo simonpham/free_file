@@ -21,11 +21,12 @@ class NavBar extends StatelessWidget {
                   model.back();
                 }
               : null,
-          child: Icon(
-            Icons.arrow_back,
+          child: ImageView(
+            Assets.icons.arrows.outline.arrowLeft,
             color: model.canBack
                 ? context.appTheme.color.iconColor
                 : context.theme.disabledColor,
+            size: Spacing.d24,
           ),
         ),
       if (ThemeConfigs().config.showForwardButton)
@@ -35,11 +36,12 @@ class NavBar extends StatelessWidget {
                   model.forward();
                 }
               : null,
-          child: Icon(
-            Icons.arrow_forward,
+          child: ImageView(
+            Assets.icons.arrows.outline.arrowRight,
             color: model.canForward
                 ? context.appTheme.color.iconColor
                 : context.theme.disabledColor,
+            size: Spacing.d24,
           ),
         ),
       if (ThemeConfigs().config.showUpButton)
@@ -49,11 +51,12 @@ class NavBar extends StatelessWidget {
                   model.up();
                 }
               : null,
-          child: Icon(
-            Icons.arrow_upward,
+          child: ImageView(
+            Assets.icons.arrows.outline.arrowUp,
             color: model.canUp
                 ? context.appTheme.color.iconColor
                 : context.theme.disabledColor,
+            size: Spacing.d24,
           ),
         ),
       if (ThemeConfigs().config.showRefreshButton)
@@ -61,9 +64,10 @@ class NavBar extends StatelessWidget {
           onTap: () {
             model.refresh();
           },
-          child: Icon(
-            Icons.refresh,
+          child: ImageView(
+            Assets.icons.arrows.outline.reload,
             color: context.appTheme.color.iconColor,
+            size: Spacing.d24,
           ),
         ),
     ];

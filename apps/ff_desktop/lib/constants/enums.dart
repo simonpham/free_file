@@ -1,5 +1,6 @@
 import 'dart:io' as io;
 
+import 'package:core_ui/constants/constants.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -45,20 +46,37 @@ enum SideBarSections {
     }
   }
 
-  IconData? getIcon(BuildContext context) {
+  SvgGenImage? getIcon(BuildContext context) {
     switch (this) {
       case SideBarSections.home:
-        return Icons.home;
+        return Assets.icons.interface.outline.home02;
       case SideBarSections.pinned:
-        return Icons.push_pin;
+        return Assets.icons.interface.outline.pin;
       case SideBarSections.cloud:
-        return Icons.cloud;
+        return Assets.icons.weather.outline.cloud;
       case SideBarSections.yours:
-        return Icons.person;
+        return Assets.icons.interface.outline.home02;
       case SideBarSections.drives:
-        return Icons.drive_file_move;
+        return Assets.icons.device.outline.storage;
       case SideBarSections.tags:
-        return Icons.label;
+        return Assets.icons.ecommerce.outline.tag;
+    }
+  }
+
+  SvgGenImage? getSelectedIcon(BuildContext context) {
+    switch (this) {
+      case SideBarSections.home:
+        return Assets.icons.interface.solid.home02;
+      case SideBarSections.pinned:
+        return Assets.icons.interface.solid.pin;
+      case SideBarSections.cloud:
+        return Assets.icons.weather.solid.cloud;
+      case SideBarSections.yours:
+        return Assets.icons.interface.solid.home02;
+      case SideBarSections.drives:
+        return Assets.icons.device.solid.storage;
+      case SideBarSections.tags:
+        return Assets.icons.ecommerce.solid.tag;
     }
   }
 }
@@ -74,22 +92,56 @@ extension on Uri {
 }
 
 enum PredefinedFolders {
-  home(icon: '', selectedIcon: ''),
-  desktop(icon: '', selectedIcon: ''),
-  downloads(icon: '', selectedIcon: ''),
-  documents(icon: '', selectedIcon: ''),
-  pictures(icon: '', selectedIcon: ''),
-  videos(icon: '', selectedIcon: ''),
-  movies(icon: '', selectedIcon: ''),
-  music(icon: '', selectedIcon: '');
+  home,
+  desktop,
+  downloads,
+  documents,
+  pictures,
+  videos,
+  movies,
+  music;
 
-  final String icon;
-  final String selectedIcon;
+  SvgGenImage get icon {
+    switch (this) {
+      case PredefinedFolders.home:
+        return Assets.icons.interface.outline.home01;
+      case PredefinedFolders.desktop:
+        return Assets.icons.interface.outline.computer;
+      case PredefinedFolders.downloads:
+        return Assets.icons.filesAndFolder.outline.folderDownload;
+      case PredefinedFolders.documents:
+        return Assets.icons.editor.outline.description;
+      case PredefinedFolders.pictures:
+        return Assets.icons.interface.outline.imageRectangle;
+      case PredefinedFolders.videos:
+        return Assets.icons.multimediaAndAudio.outline.clapperboard;
+      case PredefinedFolders.movies:
+        return Assets.icons.multimediaAndAudio.outline.film03;
+      case PredefinedFolders.music:
+        return Assets.icons.multimediaAndAudio.outline.music;
+    }
+  }
 
-  const PredefinedFolders({
-    required this.icon,
-    required this.selectedIcon,
-  });
+  SvgGenImage get selectedIcon {
+    switch (this) {
+      case PredefinedFolders.home:
+        return Assets.icons.interface.solid.home01;
+      case PredefinedFolders.desktop:
+        return Assets.icons.interface.solid.computer;
+      case PredefinedFolders.downloads:
+        return Assets.icons.filesAndFolder.solid.folderDownload;
+      case PredefinedFolders.documents:
+        return Assets.icons.editor.solid.description;
+      case PredefinedFolders.pictures:
+        return Assets.icons.interface.solid.imageRectangle;
+      case PredefinedFolders.videos:
+        return Assets.icons.multimediaAndAudio.solid.clapperboard;
+      case PredefinedFolders.movies:
+        return Assets.icons.multimediaAndAudio.solid.film03;
+      case PredefinedFolders.music:
+        return Assets.icons.multimediaAndAudio.solid.music;
+    }
+  }
 
   Uri? get uri {
     final homePath = io.Platform.isWindows

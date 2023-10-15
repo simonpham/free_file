@@ -34,7 +34,7 @@ class MainArea extends StatelessWidget {
                 child: ListItem(
                   onDoubleTap: () => entity.doubleTap(context),
                   enableAnimation: false,
-                  leading: Icon(
+                  leading: ImageView(
                     entity.entityIcon,
                     color: context.appTheme.color.iconColor,
                     size: Spacing.d20,

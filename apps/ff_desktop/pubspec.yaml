@@ -58,7 +58,6 @@ flutter:
 
   assets:
     - assets/
-    - assets/icons/
     - assets/themes/
 
 flutter_gen:
