@@ -5,3 +5,7 @@ packages:
   - core_packages/*
   - modules/*
   - packages/*
+
+scripts:
+  gen:
+    run: melos exec --scope="core_ui" -- fluttergen
