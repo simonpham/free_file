@@ -92,12 +92,15 @@ class _SideBarSectionState extends State<SideBarSection> {
       case SideBarSections.drives:
         _items.addAll(
           io.Directory('/Volumes/').listSync().map((e) => e.uri).map(
-                (e) => (
-                  e,
-                  Assets.icons.device.outline.storage,
-                  Assets.icons.device.outline.storage
-                ),
-              ),
+            (uri) {
+              final path = uri.trim();
+              return (
+                path,
+                Assets.icons.device.outline.storage,
+                Assets.icons.device.outline.storage
+              );
+            },
+          ),
         );
         break;
       case SideBarSections.tags:
@@ -134,15 +137,18 @@ class _SideBarSectionState extends State<SideBarSection> {
           SizedBox(height: Spacing.d4),
           for (final (uri, icon, selectedIcon) in _items) ...[
             SizedBox(height: Spacing.d4),
-            SideBarItem(
-              uri: uri,
-              icon: icon,
-              selectedIcon: selectedIcon,
-              selected: model.currentUri == uri,
-              onTap: () {
-                widget.onGoTo(uri);
-              },
-            ),
+            Builder(builder: (context) {
+              print('uri: $uri' + ' currentUri: ${model.currentUri}');
+              return SideBarItem(
+                uri: uri,
+                icon: icon,
+                selectedIcon: selectedIcon,
+                selected: model.currentUri == uri,
+                onTap: () {
+                  widget.onGoTo(uri);
+                },
+              );
+            }),
           ],
         ],
       );
@@ -174,32 +180,60 @@ class SideBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d16,
-        vertical: Spacing.d4,
+    return Container(
+      height: Spacing.d32,
+      margin: EdgeInsets.symmetric(
+        horizontal: Spacing.d12,
       ),
       child: Tappable(
         onTap: onTap,
-        child: Row(
-          children: [
-            ImageView(
-              selected ? selectedIcon : icon,
-              size: Spacing.d20,
-              color: context.theme.iconTheme.color,
-            ),
-            SizedBox(
-              width: Spacing.d8,
-            ),
-            Flexible(
-              child: Text(
-                title ?? uri?.lastNonEmptySegment ?? '',
-                style: textStyle ?? context.theme.textTheme.bodyLarge,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: selected ? context.theme.colorScheme.surface : null,
+            borderRadius: BorderRadius.circular(Spacing.d4),
+          ),
+          child: Row(
+            children: [
+              SizedBox(width: Spacing.d8),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: Spacing.d4,
+                ),
+                child: ImageView(
+                  selected ? selectedIcon : icon,
+                  size: Spacing.d20,
+                  color: selected
+                      ? context.theme.primaryColor
+                      : context.theme.iconTheme.color,
+                ),
               ),
-            ),
-          ],
+              SizedBox(width: Spacing.d8),
+              Expanded(
+                child: Text(
+                  title ?? uri?.lastNonEmptySegment ?? '',
+                  style: (textStyle ?? context.theme.textTheme.bodyLarge)
+                      ?.copyWith(
+                    color: selected ? context.theme.primaryColor : null,
+                    fontWeight: selected ? FontWeight.w700 : null,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              if (selected)
+                Container(
+                  height: Spacing.d32,
+                  width: Spacing.d4,
+                  decoration: BoxDecoration(
+                    color: context.theme.primaryColor,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(Spacing.d4),
+                      bottomRight: Radius.circular(Spacing.d4),
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
