@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
 
@@ -6,8 +8,14 @@ class TabViewModel extends ChangeNotifier {
 
   int get currentIndex => _currentIndex;
 
+  bool _isRemovingTab = false;
+
+  void _setIndex(int index) {
+    _currentIndex = max(0, min(index, _exploreViewModels.length - 1));
+  }
+
   void changeTab(int index) {
-    _currentIndex = index;
+    _setIndex(index);
     notifyListeners();
   }
 
@@ -20,13 +28,29 @@ class TabViewModel extends ChangeNotifier {
 
   List<ExploreViewModel> get exploreViewModels => _exploreViewModels;
 
-  void addExploreViewModel(ExploreViewModel viewModel) {
-    _exploreViewModels.add(viewModel);
+  void addTab() {
+    final currentTab = currentExploreViewModel;
+    final newTab = ExploreViewModel()..goTo(currentTab.currentUri);
+    _exploreViewModels.add(newTab);
+    _setIndex(_exploreViewModels.length - 1);
     notifyListeners();
   }
 
   void removeExploreViewModelAt(int index) {
+    if (_isRemovingTab) {
+      return;
+    }
+    if (_exploreViewModels.length == 1) {
+      return;
+    }
+    _isRemovingTab = true;
+    if (index <= _currentIndex) {
+      _setIndex(index - 1);
+      notifyListeners();
+    }
+
     _exploreViewModels.removeAt(index);
     notifyListeners();
+    _isRemovingTab = false;
   }
 }

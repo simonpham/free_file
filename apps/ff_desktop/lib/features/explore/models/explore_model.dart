@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io' as io;
 
 import 'package:core/core.dart';
+import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/di.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
@@ -20,7 +21,10 @@ class ExploreViewModel extends ChangeNotifier
     refresh();
   }
 
-  final List<Uri> _historyStack = [Uri.parse(kSlash)];
+  final List<Uri> _historyStack = [
+    Uri.parse(PredefinedFolders.home.uri?.toFilePath() ?? kSlash)
+  ];
+
   int _currentIndex = 0;
 
   List<Entity> _entities = [];
