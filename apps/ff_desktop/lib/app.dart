@@ -1,11 +1,11 @@
 import 'package:desktop_multi_window/desktop_multi_window.dart';
 import 'package:ff_desktop/di.dart';
+import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
-import 'package:ff_desktop/features/features.dart';
 
 class FreeFileLaunchArgument {
   final String? path;
@@ -44,7 +44,7 @@ class FreeFile extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: injector<ExploreViewModel>(),
+          value: injector<TabViewModel>(),
         ),
       ],
       builder: (BuildContext context, _) {
