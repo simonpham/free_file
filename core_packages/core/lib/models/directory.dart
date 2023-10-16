@@ -4,6 +4,7 @@ class Directory extends Entity {
   const Directory({
     required super.name,
     required super.path,
+    required super.isHidden,
     required super.createdAt,
     required super.updatedAt,
   }) : super(type: EntityType.directory);

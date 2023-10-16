@@ -35,7 +35,7 @@ class MainArea extends StatelessWidget {
                   enableAnimation: false,
                   leading: ImageView(
                     entity.entityIcon,
-                    color: context.appTheme.color.iconColor,
+                    color: entity.getEntityColor(context),
                     size: Spacing.d20,
                   ),
                   titlePadding: EdgeInsets.only(
@@ -45,7 +45,14 @@ class MainArea extends StatelessWidget {
                     horizontal: Spacing.d8,
                     vertical: Spacing.d4,
                   ),
-                  title: Text(entity.name),
+                  title: Text(
+                    entity.name,
+                    style: TextStyle(
+                      color: entity.isHidden
+                          ? context.appTheme.color.disabledIconColor
+                          : context.appTheme.color.onBackground,
+                    ),
+                  ),
                 ),
               );
             },

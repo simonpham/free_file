@@ -52,10 +52,12 @@ class HeheSearchBar extends StatelessWidget {
             size: Spacing.d20,
           ),
           SizedBox(width: Spacing.d4),
-          Text(
-            'Search',
-            style: TextStyle(
-              color: context.theme.colorScheme.onSurfaceVariant,
+          Flexible(
+            child: Text(
+              'Search',
+              style: TextStyle(
+                color: context.theme.colorScheme.onSurfaceVariant,
+              ),
             ),
           ),
         ],

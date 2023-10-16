@@ -7,6 +7,10 @@ import 'package:core/core.dart';
 import 'package:utils/utils.dart';
 
 class LocalEntityProvider extends EntityProvider {
+  static bool isHidden(Uri uri, io.FileStat stat) => kIsWindows
+      ? (stat.mode & 0x02) != 0
+      : uri.lastNonEmptySegment.startsWith('.');
+
   @override
   Future<List<Entity>> list(Uri path) async {
     final result = <Entity>[];
@@ -36,6 +40,7 @@ class LocalEntityProvider extends EntityProvider {
           extension: item.path.split('.').last,
           name: item.path.split(kSlash).last,
           path: item.uri.normalizePath(),
+          isHidden: isHidden(item.uri, stat),
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
         );
@@ -47,6 +52,7 @@ class LocalEntityProvider extends EntityProvider {
         final dir = Directory(
           name: item.path.split(kSlash).last,
           path: item.uri.normalizePath(),
+          isHidden: isHidden(item.uri, stat),
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
         );
@@ -89,6 +95,7 @@ class LocalEntityProvider extends EntityProvider {
       extension: file.path.split('.').last,
       name: file.path.split(kSlash).last,
       path: file.uri.normalizePath(),
+      isHidden: isHidden(file.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -110,6 +117,7 @@ class LocalEntityProvider extends EntityProvider {
     return Directory(
       name: dir.path.split(kSlash).last,
       path: dir.uri.normalizePath(),
+      isHidden: isHidden(dir.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -151,6 +159,7 @@ class LocalEntityProvider extends EntityProvider {
       extension: moved.path.split('.').last,
       name: moved.path.split(kSlash).last,
       path: moved.uri.normalizePath(),
+      isHidden: isHidden(moved.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -181,6 +190,7 @@ class LocalEntityProvider extends EntityProvider {
       extension: newFile.path.split('.').last,
       name: newFile.path.split(kSlash).last,
       path: newFile.uri.normalizePath(),
+      isHidden: isHidden(newFile.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -207,6 +217,7 @@ class LocalEntityProvider extends EntityProvider {
     return Directory(
       name: newDir.path.split(kSlash).last,
       path: newDir.uri.normalizePath(),
+      isHidden: isHidden(newDir.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );
@@ -244,6 +255,7 @@ class LocalEntityProvider extends EntityProvider {
     return Directory(
       name: newDir.path.split(kSlash).last,
       path: newDir.uri.normalizePath(),
+      isHidden: isHidden(newDir.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),
     );

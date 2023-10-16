@@ -28,6 +28,7 @@ extension ThemeConfigsExtension on ThemeConfigs {
     );
     return baseTheme.copyWith(
       colorScheme: colorScheme,
+      primaryColor: config.color.primary,
       scaffoldBackgroundColor: config.color.mainBackground,
       appBarTheme: baseTheme.appBarTheme.copyWith(
         backgroundColor: config.color.navBarBackground,
