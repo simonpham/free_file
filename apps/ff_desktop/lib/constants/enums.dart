@@ -1,8 +1,8 @@
 import 'dart:io' as io;
 
 import 'package:core_ui/constants/constants.dart';
-import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:utils/utils.dart';
 
 enum SideBarSections {
   home,

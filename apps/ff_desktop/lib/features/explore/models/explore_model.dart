@@ -3,12 +3,11 @@ import 'dart:io' as io;
 
 import 'package:core/core.dart';
 import 'package:ff_desktop/di.dart';
-import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 
 import 'package:ff_desktop/features/explore/explore.dart';
-import 'package:utils/constants/constants.dart';
+import 'package:utils/utils.dart';
 
 class ExploreViewModel extends ChangeNotifier
     implements
