@@ -32,13 +32,22 @@ class ExploreViewModel extends ChangeNotifier
   List<Entity> _copiedEntities = [];
   List<Entity> _cutEntities = [];
 
+  bool _showHidden = false;
+
+  void toggleShowHidden() {
+    _showHidden = !_showHidden;
+    notifyListeners();
+  }
+
   io.Directory get _currentDirectory => io.Directory(currentUri.toFilePath());
 
   @override
   Uri get currentUri => _historyStack[_currentIndex];
 
   @override
-  List<Entity> get entities => _entities;
+  List<Entity> get entities => _showHidden
+      ? _entities
+      : _entities.where((item) => !item.isHidden).toList();
 
   @override
   List<Entity> get selectedEntities => _selectedEntities;
