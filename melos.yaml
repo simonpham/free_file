@@ -9,3 +9,6 @@ packages:
 scripts:
   gen:
     run: melos exec --scope="core_ui" -- fluttergen
+
+  build-macos:
+    run: melos exec --scope="ff_desktop" -- flutter build macos
