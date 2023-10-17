@@ -11,4 +11,12 @@ extension UriExtension on Uri {
     final parts = path.split(kSlash);
     return parts.lastOrNull ?? '';
   }
+
+  Uri? get ifExists {
+    final dir = io.Directory(toFilePath());
+    if (dir.existsSync()) {
+      return this;
+    }
+    return null;
+  }
 }
