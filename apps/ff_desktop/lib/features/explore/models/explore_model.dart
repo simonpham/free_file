@@ -35,6 +35,15 @@ class ExploreViewModel extends ChangeNotifier
 
   bool _showHidden = false;
 
+  ViewMode _viewMode = ViewMode.list;
+
+  ViewMode get viewMode => _viewMode;
+
+  set viewMode(ViewMode mode) {
+    _viewMode = mode;
+    notifyListeners();
+  }
+
   void toggleShowHidden() {
     _showHidden = !_showHidden;
     notifyListeners();

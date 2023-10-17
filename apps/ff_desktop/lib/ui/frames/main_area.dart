@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,46 +17,14 @@ class MainArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: context.appTheme.color.mainBackground.withTransparency,
-      child: Selector<ExploreViewModel, List<Entity>>(
+      child: Selector<ExploreViewModel, (List<Entity>, ViewMode)>(
         selector: (BuildContext context, ExploreViewModel model) {
-          return model.entities;
+          return (model.entities, model.viewMode);
         },
-        builder: (context, entities, _) {
-          return ListView.builder(
-            itemCount: entities.length,
-            itemBuilder: (BuildContext context, int index) {
-              final entity = entities[index];
-              return Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: Spacing.d8,
-                  vertical: Spacing.d4,
-                ),
-                child: ListItem(
-                  onDoubleTap: () => entity.doubleTap(context),
-                  enableAnimation: false,
-                  leading: ImageView(
-                    entity.entityIcon,
-                    color: entity.getEntityColor(context),
-                    size: Spacing.d20,
-                  ),
-                  titlePadding: EdgeInsets.only(
-                    left: Spacing.d8,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Spacing.d8,
-                    vertical: Spacing.d4,
-                  ),
-                  title: Text(
-                    entity.name,
-                    style: TextStyle(
-                      color: entity.isHidden
-                          ? context.appTheme.color.disabledIconColor
-                          : context.appTheme.color.onBackground,
-                    ),
-                  ),
-                ),
-              );
-            },
+        builder: (context, data, _) {
+          return EntityView(
+            entities: data.$1,
+            mode: data.$2,
           );
         },
       ),

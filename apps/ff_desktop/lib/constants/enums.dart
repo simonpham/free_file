@@ -17,3 +17,10 @@ enum PredefinedFolders {
   movies,
   music,
 }
+
+enum ViewMode {
+  list,
+  details,
+  grid,
+  columns,
+}

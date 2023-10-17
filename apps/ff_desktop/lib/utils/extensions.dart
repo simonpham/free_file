@@ -148,3 +148,7 @@ extension PredefinedFoldersExt on PredefinedFolders {
     }
   }
 }
+
+extension ExplorerViewModeExt on ViewMode {
+  bool get isZoomable => this == ViewMode.grid;
+}
