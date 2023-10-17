@@ -3,7 +3,7 @@ part of 'extensions.dart';
 extension UriExtension on Uri {
   Uri trim() {
     final path = toFilePath().removeSuffix(kSlash);
-    return Uri.parse(path);
+    return Uri.parse(path.isEmpty ? kSlash : path);
   }
 
   String get lastNonEmptySegment {
