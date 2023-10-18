@@ -16,58 +16,83 @@ class EntityViewList extends StatelessWidget {
     final containerHeight = MediaQuery.sizeOf(context).height;
     final maxItemsPerColumn = (containerHeight / _itemHeight).floor();
     final scrollController = ScrollController();
-    return Scrollbar(
-      controller: scrollController,
-      thumbVisibility: true,
-      child: GridView.builder(
-        padding: EdgeInsets.only(
-          top: Spacing.d8,
-          bottom: Spacing.d16,
-        ),
+    return SelectRectangleOverlay(
+      onDragStart: (position) {},
+      onDragUpdate: (position) {},
+      onDragEnd: () {},
+      onReachedBorder: (borders) {
+        print(borders);
+        final maxScrollPosition = scrollController.position.maxScrollExtent;
+        if (borders.contains(BorderType.right)) {
+          final newPosition = scrollController.offset + _itemWidth;
+          scrollController.animateTo(
+            min(newPosition, maxScrollPosition),
+            curve: Curves.linear,
+            duration: FludaDuration.ms2,
+          );
+        } else if (borders.contains(BorderType.left)) {
+          final newPosition = scrollController.offset - _itemWidth;
+          scrollController.animateTo(
+            max(newPosition, 0),
+            curve: Curves.linear,
+            duration: FludaDuration.ms2,
+          );
+        }
+      },
+      child: Scrollbar(
         controller: scrollController,
-        itemCount: entities.length,
-        scrollDirection: Axis.horizontal,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: maxItemsPerColumn,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 0,
-          childAspectRatio: _itemHeight / _itemWidth,
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          final entity = entities[index];
-          return Container(
-            height: _itemHeight,
-            padding: EdgeInsets.symmetric(
-              horizontal: Spacing.d8,
-            ),
-            child: ListItem(
-              onDoubleTap: () => entity.doubleTap(context),
-              enableAnimation: false,
-              leading: ImageView(
-                entity.entityIcon,
-                color: entity.getEntityColor(context),
-                size: Spacing.d20,
-              ),
-              titlePadding: EdgeInsets.only(
-                left: Spacing.d8,
-              ),
+        thumbVisibility: true,
+        child: GridView.builder(
+          padding: EdgeInsets.only(
+            top: Spacing.d8,
+            bottom: Spacing.d16,
+          ),
+          controller: scrollController,
+          itemCount: entities.length,
+          scrollDirection: Axis.horizontal,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: maxItemsPerColumn,
+            crossAxisSpacing: 0,
+            mainAxisSpacing: 0,
+            childAspectRatio: _itemHeight / _itemWidth,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            final entity = entities[index];
+            return Container(
+              key: ValueKey(entity.path.toFilePath()),
+              height: _itemHeight,
               padding: EdgeInsets.symmetric(
                 horizontal: Spacing.d8,
-                vertical: Spacing.d4,
               ),
-              title: Text(
-                entity.name,
-                style: TextStyle(
-                  color: entity.isHidden
-                      ? context.appTheme.color.disabledIconColor
-                      : context.appTheme.color.onBackground,
+              child: ListItem(
+                onDoubleTap: () => entity.doubleTap(context),
+                enableAnimation: false,
+                leading: ImageView(
+                  entity.entityIcon,
+                  color: entity.getEntityColor(context),
+                  size: Spacing.d20,
                 ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+                titlePadding: EdgeInsets.only(
+                  left: Spacing.d8,
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: Spacing.d8,
+                  vertical: Spacing.d4,
+                ),
+                title: Text(
+                  entity.name,
+                  style: TextStyle(
+                    color: entity.isHidden
+                        ? context.appTheme.color.disabledIconColor
+                        : context.appTheme.color.onBackground,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
