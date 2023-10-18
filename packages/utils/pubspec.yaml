@@ -10,3 +10,4 @@ dependencies:
   fluda: ^1.1.0
   universal_platform: ^1.0.0+1
   mime: ^1.0.4
+  easy_debounce: ^2.0.3
