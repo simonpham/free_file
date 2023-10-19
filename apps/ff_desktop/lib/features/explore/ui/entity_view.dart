@@ -13,11 +13,13 @@ import 'package:utils/utils.dart';
 part 'view_modes/list.dart';
 
 class EntityView extends StatelessWidget {
+  final ScrollController scrollController;
   final List<Entity> entities;
   final ViewMode mode;
 
   const EntityView({
     super.key,
+    required this.scrollController,
     required this.entities,
     this.mode = ViewMode.list,
   });
@@ -30,7 +32,10 @@ class EntityView extends StatelessWidget {
       case ViewMode.grid:
       case ViewMode.list:
       default:
-        return EntityViewList(entities: entities);
+        return EntityViewList(
+          scrollController: scrollController,
+          entities: entities,
+        );
     }
   }
 }

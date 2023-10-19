@@ -4,44 +4,46 @@ const double _itemHeight = 41.0;
 const double _itemWidth = 256.0;
 
 class EntityViewList extends StatelessWidget {
+  final ScrollController scrollController;
   final List<Entity> entities;
 
   const EntityViewList({
     super.key,
     required this.entities,
+    required this.scrollController,
   });
 
   @override
   Widget build(BuildContext context) {
     final containerHeight = MediaQuery.sizeOf(context).height;
     final maxItemsPerColumn = (containerHeight / _itemHeight).floor();
-    final scrollController = ScrollController();
-    return SelectRectangleOverlay(
-      onDragStart: (position) {},
-      onDragUpdate: (position) {},
-      onDragEnd: () {},
-      onReachedBorder: (borders) {
-        print(borders);
-        final maxScrollPosition = scrollController.position.maxScrollExtent;
-        if (borders.contains(BorderType.right)) {
-          final newPosition = scrollController.offset + _itemWidth;
-          scrollController.animateTo(
-            min(newPosition, maxScrollPosition),
-            curve: Curves.linear,
-            duration: FludaDuration.ms2,
-          );
-        } else if (borders.contains(BorderType.left)) {
-          final newPosition = scrollController.offset - _itemWidth;
-          scrollController.animateTo(
-            max(newPosition, 0),
-            curve: Curves.linear,
-            duration: FludaDuration.ms2,
-          );
-        }
-      },
-      child: Scrollbar(
-        controller: scrollController,
-        thumbVisibility: true,
+    return Scrollbar(
+      controller: scrollController,
+      thumbVisibility: true,
+      child: SelectRectangleOverlay(
+        scrollController: scrollController,
+        onDragStart: (position) {},
+        onDragUpdate: (position) {},
+        onDragEnd: () {},
+        onReachedBorder: (borders) {
+          print(borders);
+          final maxScrollPosition = scrollController.position.maxScrollExtent;
+          if (borders.contains(BorderType.right)) {
+            final newPosition = scrollController.offset + _itemWidth;
+            scrollController.animateTo(
+              min(newPosition, maxScrollPosition),
+              curve: Curves.linear,
+              duration: FludaDuration.ms2,
+            );
+          } else if (borders.contains(BorderType.left)) {
+            final newPosition = scrollController.offset - _itemWidth;
+            scrollController.animateTo(
+              max(newPosition, 0),
+              curve: Curves.linear,
+              duration: FludaDuration.ms2,
+            );
+          }
+        },
         child: GridView.builder(
           padding: EdgeInsets.only(
             top: Spacing.d8,

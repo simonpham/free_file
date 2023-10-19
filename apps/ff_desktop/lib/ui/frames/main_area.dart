@@ -8,10 +8,17 @@ import 'package:provider/provider.dart';
 import 'package:ff_desktop/features/features.dart';
 import 'package:theme/theme.dart';
 
-class MainArea extends StatelessWidget {
+class MainArea extends StatefulWidget {
   const MainArea({
     super.key,
   });
+
+  @override
+  State<MainArea> createState() => _MainAreaState();
+}
+
+class _MainAreaState extends State<MainArea> {
+  final ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,7 @@ class MainArea extends StatelessWidget {
         },
         builder: (context, data, _) {
           return EntityView(
+            scrollController: scrollController,
             entities: data.$1,
             mode: data.$2,
           );
