@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math' as math;
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -40,25 +39,38 @@ class SelectRectangleOverlay extends StatefulWidget {
 
 class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
     with AfterLayoutMixin {
-  /// <start, end, start offset, end offset>
-  final ValueNotifier<(Offset, Offset, double, double)?> dragPositionNotifier =
-      ValueNotifier(
-    null,
-  );
+  bool _isDragging = false;
+
+  double _xMax = 0.0;
+  double _yMax = 0.0;
+
+  Offset _x0y0 = Offset.zero;
+  Offset _x1y1 = Offset.zero;
+  double _startOffset = 0.0;
+  double _endOffset = 0.0;
+
+  double get _width => _isLeft
+      ? (_startOffset + _x0y0.dx) - (_x1y1.dx + _endOffset)
+      : (_endOffset + _x1y1.dx) - (_x0y0.dx + _startOffset);
+
+  double get _height => (_x1y1.dy - _x0y0.dy).abs();
+
+  double get _left => _x1y1.dx;
+
+  double get _right => _xMax - _x1y1.dx;
+
+  double get _top => _x0y0.dy;
+
+  double get _bottom => _yMax - _x0y0.dy;
+
+  bool get _isLeft => _x1y1.dx + _endOffset < _x0y0.dx + _startOffset;
+
+  bool get _isTop => _x1y1.dy > _x0y0.dy;
 
   void _onScroll() {
     final currentScrollPosition = widget.scrollController.offset;
-    final dragPosition = dragPositionNotifier.value;
-    if (dragPosition == null) {
-      return;
-    }
-    final (start, end, startOffset, _) = dragPosition;
-    dragPositionNotifier.value = (
-      start,
-      end,
-      startOffset,
-      currentScrollPosition,
-    );
+    _endOffset = currentScrollPosition;
+    refresh();
   }
 
   @override
@@ -74,70 +86,55 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
 
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      onPointerSignal: (event) {
-        if (event is PointerScrollEvent) {
+    final renderBox = context.findRenderObject() as RenderBox;
+    final size = renderBox.size;
+    _xMax = size.width;
+    _yMax = size.height;
+    return Builder(builder: (context) {
+      return Listener(
+        onPointerSignal: (event) {
+          if (event is PointerScrollEvent) {
+            _isDragging = false;
+            widget.onDragEnd();
+          }
+        },
+        onPointerDown: (event) {
+          widget.onDragStart(event.localPosition);
+          _isDragging = true;
+          _x0y0 = event.localPosition;
+          _startOffset = widget.scrollController.offset;
+          refresh();
+        },
+        onPointerMove: (event) {
+          widget.onDragUpdate(event.localPosition);
+          _x1y1 = event.localPosition;
+          refresh();
+
+          _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
+        },
+        onPointerUp: (event) {
           widget.onDragEnd();
-        }
-      },
-      onPointerDown: (event) {
-        widget.onDragStart(event.localPosition);
-        dragPositionNotifier.value = (
-          event.localPosition,
-          event.localPosition,
-          widget.scrollController.offset,
-          widget.scrollController.offset,
-        );
-      },
-      onPointerMove: (event) {
-        final dragPosition = dragPositionNotifier.value;
-        if (dragPosition == null) {
-          return;
-        }
-
-        widget.onDragUpdate(event.localPosition);
-
-        var (start, end, startOffset, endOffset) = dragPosition;
-        final newEnd = event.localPosition;
-        dragPositionNotifier.value = (start, newEnd, startOffset, endOffset);
-
-        final size = MediaQuery.sizeOf(context);
-        _handleDetectBorder(size, start, end, startOffset, endOffset);
-      },
-      onPointerUp: (event) {
-        widget.onDragEnd();
-        dragPositionNotifier.value = null;
-      },
-      onPointerCancel: (event) {
-        widget.onDragEnd();
-        dragPositionNotifier.value = null;
-      },
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned.fill(child: widget.child),
-          ValueListenableBuilder(
-            valueListenable: dragPositionNotifier,
-            builder: (
-              BuildContext context,
-              (Offset, Offset, double, double)? value,
-              _,
-            ) {
-              if (value == null) {
-                return const SizedBox();
-              }
-              final (start, end, startOffset, endOffset) = value;
-              final offset = (endOffset - startOffset).abs();
-              final width = (end.dx - start.dx).abs();
-              final height = (end.dy - start.dy).abs();
-              return Positioned(
-                left: endOffset >= startOffset
-                    ? math.min(start.dx - offset, end.dx)
-                    : math.min(start.dx + offset, end.dx),
-                top: math.min(start.dy, end.dy),
+          _isDragging = false;
+          refresh();
+        },
+        onPointerCancel: (event) {
+          widget.onDragEnd();
+          _isDragging = false;
+          refresh();
+        },
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Positioned.fill(child: widget.child),
+            if (_isDragging)
+              Positioned(
+                left: _isLeft ? _left : null,
+                right: _isLeft ? null : _right,
+                top: _isTop ? _top : null,
+                bottom: _isTop ? null : _bottom,
                 child: Container(
-                  width: width + offset,
-                  height: height,
+                  width: _width,
+                  height: _height,
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Colors.blue.withOpacity(0.5),
@@ -145,12 +142,11 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
                     ),
                   ),
                 ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
+              ),
+          ],
+        ),
+      );
+    });
   }
 
   void _handleDetectBorder(
