@@ -86,67 +86,62 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
 
   @override
   Widget build(BuildContext context) {
-    final renderBox = context.findRenderObject() as RenderBox;
-    final size = renderBox.size;
+    final renderBox = context.findRenderObject() as RenderBox?;
+    final size = renderBox?.size ?? Size.zero;
     _xMax = size.width;
     _yMax = size.height;
-    return Builder(builder: (context) {
-      return Listener(
-        onPointerSignal: (event) {
-          if (event is PointerScrollEvent) {
-            _isDragging = false;
-            widget.onDragEnd();
-          }
-        },
-        onPointerDown: (event) {
-          widget.onDragStart(event.localPosition);
-          _isDragging = true;
-          _x0y0 = event.localPosition;
-          _startOffset = widget.scrollController.offset;
-          refresh();
-        },
-        onPointerMove: (event) {
-          widget.onDragUpdate(event.localPosition);
-          _x1y1 = event.localPosition;
-          refresh();
+    return Listener(
+      onPointerSignal: (event) {
+        if (event is PointerScrollEvent) {
+          widget.onDragEnd();
+          _resetDrag();
+        }
+      },
+      onPointerDown: (event) {
+        widget.onDragStart(event.localPosition);
+        _x0y0 = event.localPosition;
+        _startOffset = widget.scrollController.offset;
+        _isDragging = true;
+      },
+      onPointerMove: (event) {
+        widget.onDragUpdate(event.localPosition);
+        _x1y1 = event.localPosition;
+        refresh();
 
-          _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
-        },
-        onPointerUp: (event) {
-          widget.onDragEnd();
-          _isDragging = false;
-          refresh();
-        },
-        onPointerCancel: (event) {
-          widget.onDragEnd();
-          _isDragging = false;
-          refresh();
-        },
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Positioned.fill(child: widget.child),
-            if (_isDragging)
-              Positioned(
-                left: _isLeft ? _left : null,
-                right: _isLeft ? null : _right,
-                top: _isTop ? _top : null,
-                bottom: _isTop ? null : _bottom,
-                child: Container(
-                  width: _width,
-                  height: _height,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue.withOpacity(0.5),
-                      width: 1,
-                    ),
+        _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
+      },
+      onPointerUp: (event) {
+        widget.onDragEnd();
+        _resetDrag();
+      },
+      onPointerCancel: (event) {
+        widget.onDragEnd();
+        _resetDrag();
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned.fill(child: widget.child),
+          if (_isDragging)
+            Positioned(
+              left: _isLeft ? _left : null,
+              right: _isLeft ? null : _right,
+              top: _isTop ? _top : null,
+              bottom: _isTop ? null : _bottom,
+              child: Container(
+                width: _width,
+                height: _height,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.blue.withOpacity(0.5),
+                    width: 1,
                   ),
                 ),
               ),
-          ],
-        ),
-      );
-    });
+            ),
+        ],
+      ),
+    );
   }
 
   void _handleDetectBorder(
@@ -187,5 +182,15 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
       FludaDuration.ms2,
       () => widget.onReachedBorder(borderReached),
     );
+  }
+
+  void _resetDrag() {
+    _isDragging = false;
+
+    _x0y0 = Offset.zero;
+    _x1y1 = Offset.zero;
+    _startOffset = 0.0;
+    _endOffset = 0.0;
+    refresh();
   }
 }

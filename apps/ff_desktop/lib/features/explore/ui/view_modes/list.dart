@@ -26,7 +26,6 @@ class EntityViewList extends StatelessWidget {
         onDragUpdate: (position) {},
         onDragEnd: () {},
         onReachedBorder: (borders) {
-          print(borders);
           final maxScrollPosition = scrollController.position.maxScrollExtent;
           if (borders.contains(BorderType.right)) {
             final newPosition = scrollController.offset + _itemWidth;
