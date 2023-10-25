@@ -101,6 +101,7 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         widget.onDragStart(event.localPosition);
         _x0y0 = event.localPosition;
         _startOffset = widget.scrollController.offset;
+        _endOffset = widget.scrollController.offset;
         _isDragging = true;
       },
       onPointerMove: (event) {
