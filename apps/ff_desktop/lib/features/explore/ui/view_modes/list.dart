@@ -1,6 +1,6 @@
 part of '../entity_view.dart';
 
-class EntityViewList extends StatelessWidget {
+class EntityViewList extends StatefulWidget {
   static ViewMode mode = ViewMode.list;
 
   final ScrollController scrollController;
@@ -13,29 +13,75 @@ class EntityViewList extends StatelessWidget {
   });
 
   @override
+  State<EntityViewList> createState() => _EntityViewListState();
+}
+
+class _EntityViewListState extends State<EntityViewList> {
+  List<int> _selectedIndexes = [];
+
+  List<int> _getSelectedIndexesWithinBounds(Rect rect, int maxItemsPerColumn) {
+    final selectedIndexes = <int>[];
+    final itemWidth = EntityViewList.mode.itemWidth;
+    final itemHeight = EntityViewList.mode.itemHeight;
+
+    final scrollOffset = widget.scrollController.offset;
+    if (scrollOffset > 0) {
+      rect = rect.translate(scrollOffset, 0);
+    }
+
+    for (var i = 0; i < widget.entities.length; i++) {
+      final entityX = (i ~/ maxItemsPerColumn) * itemWidth;
+      final entityY = (i % maxItemsPerColumn) * itemHeight;
+      final entityRect = Rect.fromLTWH(
+        entityX,
+        entityY,
+        itemWidth,
+        itemHeight,
+      );
+
+      if (rect.overlaps(entityRect)) {
+        selectedIndexes.add(i);
+      }
+    }
+    return selectedIndexes;
+  }
+
+  void _updateSelectedIndexes(Rect rect, int maxItemsPerColumn) {
+    _selectedIndexes = _getSelectedIndexesWithinBounds(rect, maxItemsPerColumn);
+    refresh();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final containerHeight = MediaQuery.sizeOf(context).height;
-    final maxItemsPerColumn = (containerHeight / mode.itemHeight).floor();
+    final maxItemsPerColumn =
+        (containerHeight / EntityViewList.mode.itemHeight).floor();
     return Scrollbar(
-      controller: scrollController,
+      controller: widget.scrollController,
       thumbVisibility: true,
       child: SelectRectangleOverlay(
-        scrollController: scrollController,
+        scrollController: widget.scrollController,
         onDragStart: (position) {},
+        onRectangleUpdated: (rect) {
+          _updateSelectedIndexes(rect, maxItemsPerColumn);
+        },
         onDragUpdate: (position) {},
         onDragEnd: () {},
         onReachedBorder: (borders) {
-          final maxScrollPosition = scrollController.position.maxScrollExtent;
+          final maxScrollPosition =
+              widget.scrollController.position.maxScrollExtent;
           if (borders.contains(BorderType.right)) {
-            final newPosition = scrollController.offset + mode.itemWidth;
-            scrollController.animateTo(
+            final newPosition =
+                widget.scrollController.offset + EntityViewList.mode.itemWidth;
+            widget.scrollController.animateTo(
               min(newPosition, maxScrollPosition),
               curve: Curves.linear,
               duration: FludaDuration.ms2,
             );
           } else if (borders.contains(BorderType.left)) {
-            final newPosition = scrollController.offset - mode.itemWidth;
-            scrollController.animateTo(
+            final newPosition =
+                widget.scrollController.offset - EntityViewList.mode.itemWidth;
+            widget.scrollController.animateTo(
               max(newPosition, 0),
               curve: Curves.linear,
               duration: FludaDuration.ms2,
@@ -47,24 +93,27 @@ class EntityViewList extends StatelessWidget {
             top: Spacing.d8,
             bottom: Spacing.d16,
           ),
-          controller: scrollController,
-          itemCount: entities.length,
+          controller: widget.scrollController,
+          itemCount: widget.entities.length,
           scrollDirection: Axis.horizontal,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: maxItemsPerColumn,
             crossAxisSpacing: 0,
             mainAxisSpacing: 0,
-            childAspectRatio: mode.itemHeight / mode.itemWidth,
+            childAspectRatio:
+                EntityViewList.mode.itemHeight / EntityViewList.mode.itemWidth,
           ),
           itemBuilder: (BuildContext context, int index) {
-            final entity = entities[index];
+            final entity = widget.entities[index];
             return Container(
               key: ValueKey(entity.path.toFilePath()),
-              height: mode.itemHeight,
               padding: EdgeInsets.symmetric(
                 horizontal: Spacing.d8,
               ),
               child: ListItem(
+                backgroundColor: _selectedIndexes.contains(index)
+                    ? context.appTheme.color.primary.withOpacity(0.2)
+                    : context.appTheme.color.background,
                 onDoubleTap: () => entity.doubleTap(context),
                 enableAnimation: false,
                 leading: ImageView(

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ enum BorderType {
 class SelectRectangleOverlay extends StatefulWidget {
   final ScrollController scrollController;
 
+  final ValueChanged<Rect> onRectangleUpdated;
   final PositionCallback onDragUpdate;
   final PositionCallback onDragStart;
   final VoidCallback onDragEnd;
@@ -26,6 +28,7 @@ class SelectRectangleOverlay extends StatefulWidget {
   const SelectRectangleOverlay({
     Key? key,
     required this.scrollController,
+    required this.onRectangleUpdated,
     required this.onDragUpdate,
     required this.onDragStart,
     required this.onDragEnd,
@@ -90,6 +93,7 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
     final size = renderBox?.size ?? Size.zero;
     _xMax = size.width;
     _yMax = size.height;
+
     return Listener(
       onPointerSignal: (event) {
         if (event is PointerScrollEvent) {
@@ -109,6 +113,18 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         _x1y1 = event.localPosition;
         refresh();
 
+        final leftPosition = min(_x0y0.dx, _x1y1.dx);
+        final topPosition = min(_x0y0.dy, _x1y1.dy);
+        final rect = Rect.fromLTWH(
+          leftPosition,
+          topPosition,
+          _width,
+          _height,
+        );
+
+        widget.onRectangleUpdated(
+          rect,
+        );
         _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
       },
       onPointerUp: (event) {
