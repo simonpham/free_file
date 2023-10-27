@@ -53,9 +53,12 @@ class _EntityViewListState extends State<EntityViewList> {
 
   @override
   Widget build(BuildContext context) {
-    final containerHeight = MediaQuery.sizeOf(context).height;
-    final maxItemsPerColumn =
-        (containerHeight / EntityViewList.mode.itemHeight).floor();
+    final bound = context.findRenderObject()?.paintBounds;
+    final containerHeight = (bound?.height ?? 0) - Spacing.d24;
+    final maxItemsPerColumn = max(
+      1,
+      (containerHeight / EntityViewList.mode.itemHeight).floor(),
+    );
     return Scrollbar(
       controller: widget.scrollController,
       thumbVisibility: true,
@@ -97,6 +100,7 @@ class _EntityViewListState extends State<EntityViewList> {
           itemCount: widget.entities.length,
           scrollDirection: Axis.horizontal,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisExtent: EntityViewList.mode.itemWidth,
             crossAxisCount: maxItemsPerColumn,
             crossAxisSpacing: 0,
             mainAxisSpacing: 0,
@@ -111,6 +115,7 @@ class _EntityViewListState extends State<EntityViewList> {
                 horizontal: Spacing.d8,
               ),
               child: ListItem(
+                height: EntityViewList.mode.itemHeight - Spacing.d4,
                 backgroundColor: _selectedIndexes.contains(index)
                     ? context.appTheme.color.primary.withOpacity(0.2)
                     : context.appTheme.color.background,
