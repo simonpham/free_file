@@ -22,4 +22,25 @@ class Entity {
     required this.createdAt,
     required this.updatedAt,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Entity &&
+          runtimeType == other.runtimeType &&
+          type == other.type &&
+          name == other.name &&
+          path == other.path &&
+          isHidden == other.isHidden &&
+          createdAt == other.createdAt &&
+          updatedAt == other.updatedAt;
+
+  @override
+  int get hashCode =>
+      type.hashCode ^
+      name.hashCode ^
+      path.hashCode ^
+      isHidden.hashCode ^
+      createdAt.hashCode ^
+      updatedAt.hashCode;
 }

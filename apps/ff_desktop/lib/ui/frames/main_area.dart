@@ -22,15 +22,19 @@ class _MainAreaState extends State<MainArea> {
   Widget build(BuildContext context) {
     return Container(
       color: context.appTheme.color.mainBackground.withTransparency,
-      child: Selector<ExploreViewModel, (List<Entity>, ViewMode)>(
+      child: Selector<ExploreViewModel, (ViewMode, List<Entity>, List<Entity>)>(
         selector: (BuildContext context, ExploreViewModel model) {
-          return (model.entities, model.viewMode);
+          return (model.viewMode, model.entities, model.selectedEntities);
         },
         builder: (context, data, _) {
           return EntityView(
             scrollController: scrollController,
-            entities: data.$1,
-            mode: data.$2,
+            mode: data.$1,
+            entities: data.$2,
+            selectedEntities: data.$3,
+            onSelectionChanged: (selectedEntities) {
+              context.read<ExploreViewModel>().selectBatch(selectedEntities);
+            },
           );
         },
       ),

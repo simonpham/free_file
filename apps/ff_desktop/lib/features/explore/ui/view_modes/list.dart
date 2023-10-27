@@ -1,35 +1,33 @@
 part of '../entity_view.dart';
 
-class EntityViewList extends StatefulWidget {
+class EntityViewList extends StatelessWidget {
   static ViewMode mode = ViewMode.list;
 
   final ScrollController scrollController;
   final List<Entity> entities;
+  final List<Entity> selectedEntities;
+
+  final ValueChanged<List<Entity>> onSelectionChanged;
 
   const EntityViewList({
     super.key,
     required this.entities,
+    required this.selectedEntities,
     required this.scrollController,
+    required this.onSelectionChanged,
   });
-
-  @override
-  State<EntityViewList> createState() => _EntityViewListState();
-}
-
-class _EntityViewListState extends State<EntityViewList> {
-  List<int> _selectedIndexes = [];
 
   List<int> _getSelectedIndexesWithinBounds(Rect rect, int maxItemsPerColumn) {
     final selectedIndexes = <int>[];
-    final itemWidth = EntityViewList.mode.itemWidth;
-    final itemHeight = EntityViewList.mode.itemHeight;
+    final itemWidth = mode.itemWidth;
+    final itemHeight = mode.itemHeight;
 
-    final scrollOffset = widget.scrollController.offset;
+    final scrollOffset = scrollController.offset;
     if (scrollOffset > 0) {
       rect = rect.translate(scrollOffset, 0);
     }
 
-    for (var i = 0; i < widget.entities.length; i++) {
+    for (var i = 0; i < entities.length; i++) {
       final entityX = (i ~/ maxItemsPerColumn) * itemWidth;
       final entityY = (i % maxItemsPerColumn) * itemHeight;
       final entityRect = Rect.fromLTWH(
@@ -47,8 +45,15 @@ class _EntityViewListState extends State<EntityViewList> {
   }
 
   void _updateSelectedIndexes(Rect rect, int maxItemsPerColumn) {
-    _selectedIndexes = _getSelectedIndexesWithinBounds(rect, maxItemsPerColumn);
-    refresh();
+    final selectedIndexes = _getSelectedIndexesWithinBounds(
+      rect,
+      maxItemsPerColumn,
+    );
+    final selectedEntities = selectedIndexes.map((index) {
+      return entities[index];
+    }).toList();
+
+    onSelectionChanged(selectedEntities);
   }
 
   @override
@@ -57,13 +62,13 @@ class _EntityViewListState extends State<EntityViewList> {
     final containerHeight = (bound?.height ?? 0) - Spacing.d24;
     final maxItemsPerColumn = max(
       1,
-      (containerHeight / EntityViewList.mode.itemHeight).floor(),
+      (containerHeight / mode.itemHeight).floor(),
     );
     return Scrollbar(
-      controller: widget.scrollController,
+      controller: scrollController,
       thumbVisibility: true,
       child: SelectRectangleOverlay(
-        scrollController: widget.scrollController,
+        scrollController: scrollController,
         onDragStart: (position) {},
         onRectangleUpdated: (rect) {
           _updateSelectedIndexes(rect, maxItemsPerColumn);
@@ -71,20 +76,17 @@ class _EntityViewListState extends State<EntityViewList> {
         onDragUpdate: (position) {},
         onDragEnd: () {},
         onReachedBorder: (borders) {
-          final maxScrollPosition =
-              widget.scrollController.position.maxScrollExtent;
+          final maxScrollPosition = scrollController.position.maxScrollExtent;
           if (borders.contains(BorderType.right)) {
-            final newPosition =
-                widget.scrollController.offset + EntityViewList.mode.itemWidth;
-            widget.scrollController.animateTo(
+            final newPosition = scrollController.offset + mode.itemWidth;
+            scrollController.animateTo(
               min(newPosition, maxScrollPosition),
               curve: Curves.linear,
               duration: FludaDuration.ms2,
             );
           } else if (borders.contains(BorderType.left)) {
-            final newPosition =
-                widget.scrollController.offset - EntityViewList.mode.itemWidth;
-            widget.scrollController.animateTo(
+            final newPosition = scrollController.offset - mode.itemWidth;
+            scrollController.animateTo(
               max(newPosition, 0),
               curve: Curves.linear,
               duration: FludaDuration.ms2,
@@ -96,27 +98,26 @@ class _EntityViewListState extends State<EntityViewList> {
             top: Spacing.d8,
             bottom: Spacing.d16,
           ),
-          controller: widget.scrollController,
-          itemCount: widget.entities.length,
+          controller: scrollController,
+          itemCount: entities.length,
           scrollDirection: Axis.horizontal,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisExtent: EntityViewList.mode.itemWidth,
+            mainAxisExtent: mode.itemWidth,
             crossAxisCount: maxItemsPerColumn,
             crossAxisSpacing: 0,
             mainAxisSpacing: 0,
-            childAspectRatio:
-                EntityViewList.mode.itemHeight / EntityViewList.mode.itemWidth,
+            childAspectRatio: mode.itemHeight / mode.itemWidth,
           ),
           itemBuilder: (BuildContext context, int index) {
-            final entity = widget.entities[index];
+            final entity = entities[index];
             return Container(
               key: ValueKey(entity.path.toFilePath()),
               padding: EdgeInsets.symmetric(
                 horizontal: Spacing.d8,
               ),
               child: ListItem(
-                height: EntityViewList.mode.itemHeight - Spacing.d4,
-                backgroundColor: _selectedIndexes.contains(index)
+                height: mode.itemHeight - Spacing.d4,
+                backgroundColor: selectedEntities.contains(entity)
                     ? context.appTheme.color.primary.withOpacity(0.2)
                     : context.appTheme.color.background,
                 onDoubleTap: () => entity.doubleTap(context),

@@ -7,21 +7,28 @@ import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/utils/utils.dart';
+import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 part 'view_modes/list.dart';
 
 class EntityView extends StatelessWidget {
-  final ScrollController scrollController;
-  final List<Entity> entities;
   final ViewMode mode;
+  final ScrollController scrollController;
+
+  final List<Entity> entities;
+  final List<Entity> selectedEntities;
+
+  final ValueChanged<List<Entity>> onSelectionChanged;
 
   const EntityView({
     super.key,
+    this.mode = ViewMode.list,
     required this.scrollController,
     required this.entities,
-    this.mode = ViewMode.list,
+    required this.selectedEntities,
+    required this.onSelectionChanged,
   });
 
   @override
@@ -35,6 +42,8 @@ class EntityView extends StatelessWidget {
         return EntityViewList(
           scrollController: scrollController,
           entities: entities,
+          selectedEntities: selectedEntities,
+          onSelectionChanged: onSelectionChanged,
         );
     }
   }

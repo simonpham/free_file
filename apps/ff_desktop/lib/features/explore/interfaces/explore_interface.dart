@@ -25,6 +25,8 @@ abstract interface class ExploreInterfaceManipulateActions {
 abstract interface class ExploreInterfaceSelectActions {
   List<Entity> get selectedEntities;
 
+  void selectBatch(List<Entity> entities);
+
   void select(Entity entity);
 
   void unselect(Entity entity);

@@ -165,6 +165,12 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
+  void selectBatch(List<Entity> entities) {
+    _selectedEntities = entities;
+    notifyListeners();
+  }
+
+  @override
   void select(Entity entity) {
     // TODO: implement select
   }
