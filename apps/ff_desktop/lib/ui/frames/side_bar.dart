@@ -185,6 +185,7 @@ class SideBarItem extends StatelessWidget {
         horizontal: Spacing.d12,
       ),
       child: Tappable(
+        mouseCursor: SystemMouseCursors.click,
         onTap: onTap,
         child: DecoratedBox(
           decoration: BoxDecoration(

@@ -67,6 +67,8 @@ class Tappable extends StatefulWidget {
 
   final ValueChanged<TappableState>? onStateChanged;
 
+  final MouseCursor mouseCursor;
+
   const Tappable({
     super.key,
     this.onTap,
@@ -87,6 +89,7 @@ class Tappable extends StatefulWidget {
     this.hoverOverlayBorderRadius,
     this.hoverOverlayColorTint,
     this.onStateChanged,
+    this.mouseCursor = SystemMouseCursors.click,
   });
 
   @override
@@ -107,9 +110,7 @@ class _TappableState extends State<Tappable> {
     return Tooltip(
       message: widget.tooltip ?? '',
       child: MouseRegion(
-        cursor: _isInteractive
-            ? SystemMouseCursors.click
-            : SystemMouseCursors.basic,
+        cursor: _isInteractive ? widget.mouseCursor : SystemMouseCursors.basic,
         onEnter: (_) {
           if (widget.enableHover && _state != TappableState.focus) {
             hover();

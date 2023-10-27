@@ -38,6 +38,8 @@ class ListItem extends StatelessWidget {
   final Color? backgroundColor;
   final Color? hoverOverlayColorTint;
 
+  final MouseCursor mouseCursor;
+
   const ListItem({
     super.key,
     this.leading,
@@ -65,6 +67,7 @@ class ListItem extends StatelessWidget {
     this.titlePadding,
     this.hoverOverlayPadding,
     this.expanded = true,
+    this.mouseCursor = SystemMouseCursors.click,
   });
 
   @override
@@ -74,6 +77,7 @@ class ListItem extends StatelessWidget {
         vertical: Spacing.d0,
       ),
       child: Tappable(
+        mouseCursor: mouseCursor,
         behavior: behavior,
         tooltip: tooltip,
         enableAnimation: enableAnimation,

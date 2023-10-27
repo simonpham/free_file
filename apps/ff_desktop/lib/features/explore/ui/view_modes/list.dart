@@ -114,44 +114,41 @@ class EntityViewList extends StatelessWidget {
           ),
           itemBuilder: (BuildContext context, int index) {
             final entity = entities[index];
-            return GestureDetector(
-              onTapDown: (event) {
-                onEntityTap(entity);
-              },
-              child: Container(
-                key: ValueKey(entity.path.toFilePath()),
+            return Container(
+              key: ValueKey(entity.path.toFilePath()),
+              padding: EdgeInsets.symmetric(
+                horizontal: Spacing.d8,
+              ),
+              child: ListItem(
+                mouseCursor: SystemMouseCursors.basic,
+                height: mode.itemHeight - Spacing.d4,
+                backgroundColor: selectedEntities.contains(entity)
+                    ? context.appTheme.color.primary.withOpacity(0.2)
+                    : context.appTheme.color.background,
+                onTap: () => onEntityTap(entity),
+                onDoubleTap: () => onEntityDoubleTap(entity),
+                enableAnimation: false,
+                leading: ImageView(
+                  entity.entityIcon,
+                  color: entity.getEntityColor(context),
+                  size: Spacing.d20,
+                ),
+                titlePadding: EdgeInsets.only(
+                  left: Spacing.d8,
+                ),
                 padding: EdgeInsets.symmetric(
                   horizontal: Spacing.d8,
+                  vertical: Spacing.d4,
                 ),
-                child: ListItem(
-                  height: mode.itemHeight - Spacing.d4,
-                  backgroundColor: selectedEntities.contains(entity)
-                      ? context.appTheme.color.primary.withOpacity(0.2)
-                      : context.appTheme.color.background,
-                  onDoubleTap: () => onEntityDoubleTap(entity),
-                  enableAnimation: false,
-                  leading: ImageView(
-                    entity.entityIcon,
-                    color: entity.getEntityColor(context),
-                    size: Spacing.d20,
+                title: Text(
+                  entity.name,
+                  style: TextStyle(
+                    color: entity.isHidden
+                        ? context.appTheme.color.disabledIconColor
+                        : context.appTheme.color.onBackground,
                   ),
-                  titlePadding: EdgeInsets.only(
-                    left: Spacing.d8,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Spacing.d8,
-                    vertical: Spacing.d4,
-                  ),
-                  title: Text(
-                    entity.name,
-                    style: TextStyle(
-                      color: entity.isHidden
-                          ? context.appTheme.color.disabledIconColor
-                          : context.appTheme.color.onBackground,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             );
