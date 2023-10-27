@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:ff_desktop/constants/constants.dart';
+import 'package:ff_desktop/utils/entity_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,6 +35,12 @@ class _MainAreaState extends State<MainArea> {
             selectedEntities: data.$3,
             onSelectionChanged: (selectedEntities) {
               context.read<ExploreViewModel>().selectBatch(selectedEntities);
+            },
+            onEntityTap: (entity) {
+              entity.tap(context);
+            },
+            onEntityDoubleTap: (entity) {
+              entity.doubleTap(context);
             },
           );
         },

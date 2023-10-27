@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:ff_desktop/ui/ui.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:core/core.dart';
@@ -20,6 +21,8 @@ class EntityView extends StatelessWidget {
   final Set<Entity> selectedEntities;
 
   final ValueChanged<Set<Entity>> onSelectionChanged;
+  final ValueChanged<Entity> onEntityTap;
+  final ValueChanged<Entity> onEntityDoubleTap;
 
   const EntityView({
     super.key,
@@ -28,6 +31,8 @@ class EntityView extends StatelessWidget {
     required this.entities,
     required this.selectedEntities,
     required this.onSelectionChanged,
+    required this.onEntityTap,
+    required this.onEntityDoubleTap,
   });
 
   @override
@@ -43,6 +48,8 @@ class EntityView extends StatelessWidget {
           entities: entities,
           selectedEntities: selectedEntities,
           onSelectionChanged: onSelectionChanged,
+          onEntityTap: onEntityTap,
+          onEntityDoubleTap: onEntityDoubleTap,
         );
     }
   }
