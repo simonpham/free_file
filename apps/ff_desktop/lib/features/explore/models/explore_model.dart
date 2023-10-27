@@ -34,7 +34,7 @@ class ExploreViewModel extends ChangeNotifier
   Set<Entity> _cutEntities = {};
 
   bool _showHidden = false;
-  bool _isSelectModeEnabled = true;
+  bool _isSelectModeEnabled = false;
 
   void toggleSelectMode() {
     _isSelectModeEnabled = !_isSelectModeEnabled;
