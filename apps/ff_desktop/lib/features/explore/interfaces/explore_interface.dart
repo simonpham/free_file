@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:core/core.dart';
 
 abstract interface class ExploreInterfaceManipulateActions {
-  List<Entity> get copiedEntities;
+  Set<Entity> get copiedEntities;
 
-  List<Entity> get cutEntities;
+  Set<Entity> get cutEntities;
 
   void copy(Entity entity);
 
@@ -23,9 +23,12 @@ abstract interface class ExploreInterfaceManipulateActions {
 }
 
 abstract interface class ExploreInterfaceSelectActions {
-  List<Entity> get selectedEntities;
+  /// Select mode persists selected entities between refreshes and navigation.
+  bool get isSelectModeEnabled;
 
-  void selectBatch(List<Entity> entities);
+  Set<Entity> get selectedEntities;
+
+  void selectBatch(Set<Entity> entities);
 
   void select(Entity entity);
 

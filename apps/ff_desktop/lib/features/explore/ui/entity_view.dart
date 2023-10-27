@@ -7,7 +7,6 @@ import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/utils/utils.dart';
-import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
@@ -18,9 +17,9 @@ class EntityView extends StatelessWidget {
   final ScrollController scrollController;
 
   final List<Entity> entities;
-  final List<Entity> selectedEntities;
+  final Set<Entity> selectedEntities;
 
-  final ValueChanged<List<Entity>> onSelectionChanged;
+  final ValueChanged<Set<Entity>> onSelectionChanged;
 
   const EntityView({
     super.key,

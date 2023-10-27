@@ -29,11 +29,18 @@ class ExploreViewModel extends ChangeNotifier
   int _currentIndex = 0;
 
   List<Entity> _entities = [];
-  List<Entity> _selectedEntities = [];
-  List<Entity> _copiedEntities = [];
-  List<Entity> _cutEntities = [];
+  Set<Entity> _selectedEntities = {};
+  Set<Entity> _copiedEntities = {};
+  Set<Entity> _cutEntities = {};
 
   bool _showHidden = false;
+  bool _isSelectModeEnabled = true;
+
+  void toggleSelectMode() {
+    _isSelectModeEnabled = !_isSelectModeEnabled;
+    _clearSelectedEntities();
+    notifyListeners();
+  }
 
   ViewMode _viewMode = ViewMode.list;
 
@@ -60,13 +67,13 @@ class ExploreViewModel extends ChangeNotifier
       : _entities.where((item) => !item.isHidden).toList();
 
   @override
-  List<Entity> get selectedEntities => _selectedEntities;
+  Set<Entity> get selectedEntities => _selectedEntities;
 
   @override
-  List<Entity> get copiedEntities => _copiedEntities;
+  Set<Entity> get copiedEntities => _copiedEntities;
 
   @override
-  List<Entity> get cutEntities => _cutEntities;
+  Set<Entity> get cutEntities => _cutEntities;
 
   @override
   Future<void> refresh() async {
@@ -74,6 +81,7 @@ class ExploreViewModel extends ChangeNotifier
     notifyListeners();
     final entities = await _local.list(currentUri);
     _entities = entities;
+    _clearSelectedEntities();
     notifyListeners();
   }
 
@@ -165,18 +173,37 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  void selectBatch(List<Entity> entities) {
-    _selectedEntities = entities;
+  void selectBatch(Set<Entity> entities) {
+    if (_isSelectModeEnabled) {
+      _selectedEntities.addAll(entities);
+    } else {
+      _selectedEntities = entities;
+    }
     notifyListeners();
   }
 
   @override
   void select(Entity entity) {
-    // TODO: implement select
+    if (_isSelectModeEnabled) {
+      _selectedEntities.add(entity);
+    } else {
+      _selectedEntities = {entity};
+    }
+    notifyListeners();
   }
 
   @override
   void unselect(Entity entity) {
-    // TODO: implement unselect
+    _selectedEntities.remove(entity);
+    notifyListeners();
+  }
+
+  @override
+  bool get isSelectModeEnabled => _isSelectModeEnabled;
+
+  void _clearSelectedEntities() {
+    if (!_isSelectModeEnabled) {
+      _selectedEntities = {};
+    }
   }
 }

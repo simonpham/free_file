@@ -5,9 +5,9 @@ class EntityViewList extends StatelessWidget {
 
   final ScrollController scrollController;
   final List<Entity> entities;
-  final List<Entity> selectedEntities;
+  final Set<Entity> selectedEntities;
 
-  final ValueChanged<List<Entity>> onSelectionChanged;
+  final ValueChanged<Set<Entity>> onSelectionChanged;
 
   const EntityViewList({
     super.key,
@@ -51,7 +51,7 @@ class EntityViewList extends StatelessWidget {
     );
     final selectedEntities = selectedIndexes.map((index) {
       return entities[index];
-    }).toList();
+    }).toSet();
 
     onSelectionChanged(selectedEntities);
   }

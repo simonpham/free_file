@@ -22,7 +22,7 @@ class _MainAreaState extends State<MainArea> {
   Widget build(BuildContext context) {
     return Container(
       color: context.appTheme.color.mainBackground.withTransparency,
-      child: Selector<ExploreViewModel, (ViewMode, List<Entity>, List<Entity>)>(
+      child: Selector<ExploreViewModel, (ViewMode, List<Entity>, Set<Entity>)>(
         selector: (BuildContext context, ExploreViewModel model) {
           return (model.viewMode, model.entities, model.selectedEntities);
         },
