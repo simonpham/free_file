@@ -37,6 +37,7 @@ class EntityView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MediaQuery.sizeOf(context); // rebuild on resize.
     switch (mode) {
       case ViewMode.columns:
       case ViewMode.details:
