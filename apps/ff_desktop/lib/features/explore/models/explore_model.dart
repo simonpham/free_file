@@ -5,7 +5,7 @@ import 'package:core/core.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/utils/utils.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 
 import 'package:ff_desktop/features/explore/explore.dart';
@@ -21,6 +21,10 @@ class ExploreViewModel extends ChangeNotifier
   ExploreViewModel() {
     refresh();
   }
+
+  final TextEditingController _addressBarController = TextEditingController();
+
+  TextEditingController get addressBarController => _addressBarController;
 
   final List<Uri> _historyStack = [
     Uri.parse(PredefinedFolders.home.uri?.toFilePath() ?? kSlash)
@@ -78,6 +82,7 @@ class ExploreViewModel extends ChangeNotifier
   @override
   Future<void> refresh() async {
     _entities = [];
+    _addressBarController.text = currentUri.toFilePath();
     notifyListeners();
     final entities = await _local.list(currentUri);
     _entities = entities;
@@ -87,6 +92,37 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   Future<void> goTo(Uri uri) async {
+    final io.Directory dir = io.Directory(uri.toFilePath());
+    final stat = await dir.stat();
+
+    // Reset address bar text.
+    _addressBarController.text = currentUri.toFilePath();
+
+    // Check if uri is a file.
+    if (stat.type != io.FileSystemEntityType.directory) {
+      // Open file.
+      final error = await PlatformUtils.open(
+        uri,
+        workingDirectory: currentUri,
+      );
+      if (error != null) {
+        throw FreeError(error);
+      }
+      return;
+    }
+
+    // Check if directory exists.
+    final isExisted = await dir.exists();
+    if (!isExisted) {
+      throw const FreeError(Error.directoryNotFound);
+    }
+
+    // Skip if the same directory.
+    if (uri.toFilePath() == currentUri.toFilePath()) {
+      return;
+    }
+
+    // End of checks. Just navigate.
     if (canForward) {
       // Discard all forward history.
       _historyStack.removeRange(0, _currentIndex);

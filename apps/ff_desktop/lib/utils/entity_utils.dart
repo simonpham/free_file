@@ -13,23 +13,6 @@ extension EntityUtilsExtension on Entity {
 
   Future<void> doubleTap(BuildContext context) async {
     final model = context.read<ExploreViewModel>();
-    final scaffoldMessenger = ScaffoldMessenger.of(context);
-    if (this is Directory) {
-      model.goTo(path);
-    } else {
-      final error = await PlatformUtils.open(
-        path,
-        workingDirectory: model.currentUri,
-      );
-      if (error != null) {
-        scaffoldMessenger.showSnackBar(
-          SnackBar(
-            content: Text(
-              error.toReadableMessage(),
-            ),
-          ),
-        );
-      }
-    }
+    model.goTo(path);
   }
 }
