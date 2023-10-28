@@ -42,6 +42,7 @@ class SelectRectangleOverlay extends StatefulWidget {
 
 class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
     with AfterLayoutMixin {
+  bool _isTapDown = false;
   bool _isDragging = false;
 
   double _xMax = 0.0;
@@ -106,9 +107,14 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         _x0y0 = event.localPosition;
         _startOffset = widget.scrollController.offset;
         _endOffset = widget.scrollController.offset;
-        _isDragging = true;
+        _isTapDown = true;
       },
       onPointerMove: (event) {
+        if (!_isTapDown) {
+          return;
+        }
+        _isDragging = true;
+
         widget.onDragUpdate(event.localPosition);
         _x1y1 = event.localPosition;
         refresh();
@@ -129,6 +135,7 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
       },
       onPointerUp: (event) {
         widget.onDragEnd();
+        _isTapDown = false;
         _resetDrag();
       },
       onPointerCancel: (event) {
@@ -139,7 +146,7 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         fit: StackFit.expand,
         children: [
           Positioned.fill(child: widget.child),
-          if (_isDragging)
+          if (_isDragging && _isTapDown)
             Positioned(
               left: _isLeft ? _left : null,
               right: _isLeft ? null : _right,

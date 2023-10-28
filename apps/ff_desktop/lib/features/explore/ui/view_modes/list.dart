@@ -119,36 +119,43 @@ class EntityViewList extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: Spacing.d8,
               ),
-              child: ListItem(
-                mouseCursor: SystemMouseCursors.basic,
-                height: mode.itemHeight - Spacing.d4,
-                backgroundColor: selectedEntities.contains(entity)
-                    ? context.appTheme.color.primary.withOpacity(0.2)
-                    : context.appTheme.color.background,
-                onTap: () => onEntityTap(entity),
-                onDoubleTap: () => onEntityDoubleTap(entity),
-                enableAnimation: false,
-                leading: ImageView(
-                  entity.entityIcon,
-                  color: entity.getEntityColor(context),
-                  size: Spacing.d20,
-                ),
-                titlePadding: EdgeInsets.only(
-                  left: Spacing.d8,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: Spacing.d8,
-                  vertical: Spacing.d4,
-                ),
-                title: Text(
-                  entity.name,
-                  style: TextStyle(
-                    color: entity.isHidden
-                        ? context.appTheme.color.disabledIconColor
-                        : context.appTheme.color.onBackground,
+              child: Listener(
+                onPointerDown: (event) {
+                  if (event.buttons != kPrimaryMouseButton) {
+                    return;
+                  }
+                  onEntityTap(entity);
+                },
+                child: ListItem(
+                  mouseCursor: SystemMouseCursors.basic,
+                  height: mode.itemHeight - Spacing.d4,
+                  backgroundColor: selectedEntities.contains(entity)
+                      ? context.appTheme.color.primary.withOpacity(0.2)
+                      : context.appTheme.color.background,
+                  onDoubleTap: () => onEntityDoubleTap(entity),
+                  enableAnimation: false,
+                  leading: ImageView(
+                    entity.entityIcon,
+                    color: entity.getEntityColor(context),
+                    size: Spacing.d20,
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  titlePadding: EdgeInsets.only(
+                    left: Spacing.d8,
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Spacing.d8,
+                    vertical: Spacing.d4,
+                  ),
+                  title: Text(
+                    entity.name,
+                    style: TextStyle(
+                      color: entity.isHidden
+                          ? context.appTheme.color.disabledIconColor
+                          : context.appTheme.color.onBackground,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
             );
