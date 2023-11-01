@@ -56,3 +56,15 @@ abstract interface class ExploreInterface {
 
   void up();
 }
+
+abstract interface class TreeExploreInterface {
+  Directory get directory;
+
+  List<TreeExploreInterface> get directories;
+
+  List<File> get files;
+
+  bool get isExpanded;
+
+  Future<void> toggle();
+}

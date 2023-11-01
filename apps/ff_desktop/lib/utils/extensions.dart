@@ -15,7 +15,6 @@ extension SideBarSectionsExt on SideBarSections {
   Uri? get uri {
     switch (this) {
       case SideBarSections.yours:
-        return PredefinedFolders.home.uri;
       case SideBarSections.home:
       case SideBarSections.pinned:
       case SideBarSections.cloud:

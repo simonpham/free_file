@@ -6,3 +6,4 @@ export 'address_bar.dart';
 export 'main_area.dart';
 export 'status_bar.dart';
 export 'tool_bar.dart';
+export 'side_bar_tree_view.dart';

@@ -31,127 +31,149 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TitlebarSafeArea(
-      child: AnimatedContainer(
-        duration: FludaDuration.ms3,
-        width: context.screenSize.sideBarWidth,
-        curve: Curves.easeOut,
-        child: Column(
-          children: [
-            for (final section in SideBarSections.values)
-              SideBarSection(
-                section: section,
-                onGoTo: (uri) {
-                  context.read<ExploreViewModel>().goTo(uri);
-                },
-              ),
-          ],
+    return ChangeNotifierProvider.value(
+      value: context.select((ExploreViewModel _) => _.sideBarViewModel),
+      child: TitlebarSafeArea(
+        child: AnimatedContainer(
+          duration: FludaDuration.ms3,
+          width: context.screenSize.sideBarWidth,
+          curve: Curves.easeOut,
+          child: Selector<SideBarViewModel,
+              Map<SideBarSections, List<TreeExploreViewModel>>>(
+            selector: (context, model) => model.sections,
+            builder: (
+              BuildContext context,
+              Map<SideBarSections, List<TreeExploreViewModel>> sections,
+              Widget? _,
+            ) {
+              return CustomScrollView(
+                slivers: [
+                  for (final MapEntry<SideBarSections,
+                      List<TreeExploreViewModel>> entry in sections.entries)
+                    if (entry.value.isNotEmpty) ...[
+                      SliverPadding(
+                        padding: EdgeInsets.only(
+                          top: Spacing.d24,
+                          bottom: Spacing.d4,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: Consumer<ExploreViewModel>(
+                            builder: (context, model, _) {
+                              final uri = entry.key.uri;
+                              return SideBarItem(
+                                uri: uri,
+                                title: entry.key.getLabel(context),
+                                selected: model.currentUri == uri,
+                                onTap: uri != null
+                                    ? () {
+                                        model.goTo(uri);
+                                      }
+                                    : null,
+                                icon: entry.key.getIcon(context),
+                                selectedIcon:
+                                    entry.key.getSelectedIcon(context),
+                                textStyle:
+                                    context.theme.textTheme.bodyLarge?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      SliverList.builder(
+                        itemBuilder: (context, index) {
+                          final item = entry.value[index];
+                          return SideBarTreeView(
+                            model: item,
+                          );
+                        },
+                        itemCount: entry.value.length,
+                      ),
+                    ],
+                ],
+              );
+              return Column(
+                children: [
+                  for (final MapEntry<SideBarSections,
+                      List<TreeExploreViewModel>> entry in sections.entries)
+                    Flexible(
+                      child: SideBarSection(
+                        section: entry.key,
+                        items: entry.value,
+                      ),
+                    ),
+                ],
+              );
+              return Column(
+                children: [
+                  for (final MapEntry<SideBarSections,
+                      List<TreeExploreViewModel>> entry in sections.entries)
+                    SideBarSection(
+                      section: entry.key,
+                      items: entry.value,
+                    ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
 
-class SideBarSection extends StatefulWidget {
+class SideBarSection extends StatelessWidget {
   final SideBarSections section;
-  final ValueChanged<Uri> onGoTo;
+  final List<TreeExploreViewModel> items;
 
   const SideBarSection({
     super.key,
     required this.section,
-    required this.onGoTo,
+    required this.items,
   });
 
   @override
-  State<SideBarSection> createState() => _SideBarSectionState();
-}
-
-class _SideBarSectionState extends State<SideBarSection> {
-  final List<(Uri, SvgGenImage, SvgGenImage)> _items = [];
-
-  @override
-  void initState() {
-    super.initState();
-    switch (widget.section) {
-      case SideBarSections.home:
-        break;
-      case SideBarSections.pinned:
-        break;
-      case SideBarSections.cloud:
-        break;
-      case SideBarSections.yours:
-        for (final folder in PredefinedFolders.values) {
-          if (folder == PredefinedFolders.home) {
-            continue;
-          }
-          final uri = folder.uri;
-          if (uri != null) {
-            _items.add((uri, folder.icon, folder.selectedIcon));
-          }
-        }
-        break;
-      case SideBarSections.drives:
-        _items.addAll(
-          io.Directory('/Volumes/').listSync().map((e) => e.uri).map(
-            (uri) {
-              final path = uri.trim();
-              return (
-                path,
-                Assets.icons.device.outline.storage,
-                Assets.icons.device.outline.storage
-              );
-            },
-          ),
-        );
-        break;
-      case SideBarSections.tags:
-        break;
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
-    if (_items.isEmpty) {
+    if (items.isEmpty) {
       return const SizedBox.shrink();
     }
-    final uri = widget.section.uri;
-    return Consumer<ExploreViewModel>(builder: (context, model, _) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: Spacing.d24),
-          SideBarItem(
-            uri: uri,
-            title: widget.section.getLabel(context),
-            selected: model.currentUri == uri,
-            onTap: uri != null
-                ? () {
-                    widget.onGoTo(uri);
-                  }
-                : null,
-            icon: widget.section.getIcon(context),
-            selectedIcon: widget.section.getSelectedIcon(context),
-            textStyle: context.theme.textTheme.bodyLarge?.copyWith(
-              fontWeight: FontWeight.bold,
+    final uri = section.uri;
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
+          padding: EdgeInsets.only(
+            top: Spacing.d24,
+            bottom: Spacing.d4,
+          ),
+          sliver: SliverToBoxAdapter(
+            child: SideBarItem(
+              uri: uri,
+              title: section.getLabel(context),
+              // selected: model.currentUri == uri,
+              onTap: uri != null
+                  ? () {
+                      // widget.onGoTo(uri);
+                    }
+                  : null,
+              icon: section.getIcon(context),
+              selectedIcon: section.getSelectedIcon(context),
+              textStyle: context.theme.textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          SizedBox(height: Spacing.d4),
-          for (final (uri, icon, selectedIcon) in _items) ...[
-            SizedBox(height: Spacing.d4),
-            Builder(builder: (context) {
-              return SideBarItem(
-                uri: uri,
-                icon: icon,
-                selectedIcon: selectedIcon,
-                selected: model.currentUri == uri,
-                onTap: () {
-                  widget.onGoTo(uri);
-                },
-              );
-            }),
-          ],
-        ],
-      );
-    });
+        ),
+        SliverList.builder(
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return SideBarTreeView(
+              model: item,
+            );
+          },
+          itemCount: items.length,
+        ),
+      ],
+    );
   }
 }

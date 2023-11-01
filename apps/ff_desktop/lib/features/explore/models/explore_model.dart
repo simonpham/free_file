@@ -22,6 +22,10 @@ class ExploreViewModel extends ChangeNotifier
     refresh();
   }
 
+  final SideBarViewModel _sideBarViewModel = SideBarViewModel();
+
+  SideBarViewModel get sideBarViewModel => _sideBarViewModel;
+
   final TextEditingController _addressBarController = TextEditingController();
 
   TextEditingController get addressBarController => _addressBarController;

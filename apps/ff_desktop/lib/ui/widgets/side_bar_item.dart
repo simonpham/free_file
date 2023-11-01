@@ -14,6 +14,8 @@ class SideBarItem extends StatelessWidget {
   final SvgGenImage? selectedIcon;
   final TextStyle? textStyle;
 
+  final Widget? suffix;
+
   const SideBarItem({
     super.key,
     this.title,
@@ -23,6 +25,7 @@ class SideBarItem extends StatelessWidget {
     this.selectedIcon,
     this.textStyle,
     this.selected = false,
+    this.suffix,
   });
 
   @override
@@ -70,6 +73,7 @@ class SideBarItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
+              if (suffix != null) suffix!,
               if (selected)
                 Container(
                   height: Spacing.d32,
