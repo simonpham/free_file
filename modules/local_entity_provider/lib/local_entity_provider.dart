@@ -12,6 +12,30 @@ class LocalEntityProvider extends EntityProvider {
       : uri.lastNonEmptySegment.startsWith('.');
 
   @override
+  bool hasSubDirectories(Directory directory) {
+    final path = directory.path;
+    final dir = io.Directory(path.toFilePath());
+    final isExisted = dir.existsSync();
+    if (!isExisted) {
+      return false;
+    }
+
+    final stats = dir.statSync();
+    if (stats.type != io.FileSystemEntityType.directory) {
+      return false;
+    }
+
+    final items = dir.listSync(recursive: false);
+    for (final item in items) {
+      if (item is io.Directory) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  @override
   Future<List<Entity>> list(Uri path) async {
     final result = <Entity>[];
     final dir = io.Directory(path.toFilePath());

@@ -12,6 +12,7 @@ class TreeExploreViewModel extends ChangeNotifier
   LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
 
   final Directory _directory;
+  bool _isExpandable = false;
 
   List<TreeExploreViewModel>? _directories;
   List<File>? _files;
@@ -19,7 +20,12 @@ class TreeExploreViewModel extends ChangeNotifier
   TreeExploreViewModel(
     this._directory, {
     required this.level,
-  });
+  }) {
+    _isExpandable = _local.hasSubDirectories(_directory);
+  }
+
+  @override
+  bool get isExpandable => _isExpandable;
 
   @override
   bool get isExpanded => _directories != null;

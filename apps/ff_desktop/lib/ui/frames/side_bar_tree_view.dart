@@ -43,24 +43,18 @@ class SideBarTreeView extends StatelessWidget {
                         },
                         selected: exploreViewModel.currentUri.trim() ==
                             model.directory.path.trim(),
-                        icon: Assets.icons.filesAndFolder.outline.folder,
-                        selectedIcon: Assets.icons.filesAndFolder.solid.folder,
-                        suffix: Tappable(
-                          onTap: () {
-                            model.toggle();
-                          },
-                          child: model.isExpanded
-                              ? ImageView(
-                                  Assets.icons.arrows.outline.directionUp01,
-                                  size: Spacing.d16,
-                                  color: context.theme.colorScheme.onBackground,
-                                )
-                              : ImageView(
-                                  Assets.icons.arrows.outline.directionDown01,
-                                  size: Spacing.d16,
-                                  color: context.theme.colorScheme.onBackground,
-                                ),
-                        ),
+                        icon: model.isExpanded && model.isExpandable
+                            ? Assets.icons.filesAndFolder.outline.folder
+                            : Assets.icons.filesAndFolder.outline.folder03,
+                        selectedIcon: model.isExpanded && model.isExpandable
+                            ? Assets.icons.filesAndFolder.solid.folder
+                            : Assets.icons.filesAndFolder.solid.folder03,
+                        iconColor: model.directory.getEntityColor(context),
+                        expanded: isExpanded,
+                        expandable: model.isExpandable,
+                        onToggleExpand: () {
+                          model.toggle();
+                        },
                       );
                     },
                   ),
@@ -71,12 +65,17 @@ class SideBarTreeView extends StatelessWidget {
                       ),
                   if (isExpanded)
                     for (final file in model.files)
-                      SideBarItem(
-                        title: file.name,
-                        uri: file.path,
-                        onTap: () {},
-                        icon: Assets.icons.filesAndFolder.outline.file04,
-                        selectedIcon: Assets.icons.filesAndFolder.solid.file04,
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: Spacing.d16,
+                        ),
+                        child: SideBarItem(
+                          title: file.name,
+                          uri: file.path,
+                          onTap: () {},
+                          icon: file.icon,
+                          iconColor: file.getEntityColor(context),
+                        ),
                       ),
                 ],
               ),

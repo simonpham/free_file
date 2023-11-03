@@ -66,5 +66,7 @@ abstract interface class TreeExploreInterface {
 
   bool get isExpanded;
 
+  bool get isExpandable;
+
   Future<void> toggle();
 }

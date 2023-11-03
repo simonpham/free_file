@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:core/core.dart';
 
 mixin DirectoryActions {
+  bool hasSubDirectories(Directory directory);
+
   FutureOr<Directory> createDirectory(Uri path);
 
   FutureOr<void> deleteDirectory(Uri path);
