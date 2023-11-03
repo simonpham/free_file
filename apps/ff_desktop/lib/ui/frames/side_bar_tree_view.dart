@@ -23,62 +23,54 @@ class SideBarTreeView extends StatelessWidget {
         return Selector<TreeExploreViewModel, bool>(
           selector: (context, model) => model.isExpanded,
           builder: (context, isExpanded, _) {
-            return Padding(
-              padding: EdgeInsets.only(
-                left: model.level > 0 ? Spacing.d16 : 0.0,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Consumer<ExploreViewModel>(
-                    builder: (context, exploreViewModel, _) {
-                      return SideBarItem(
-                        title: model.directory.name,
-                        uri: model.directory.path,
-                        onTap: () {
-                          if (!model.isExpanded) {
-                            model.toggle();
-                          }
-                          exploreViewModel.goTo(model.directory.path);
-                        },
-                        selected: exploreViewModel.currentUri.trim() ==
-                            model.directory.path.trim(),
-                        icon: model.isExpanded && model.isExpandable
-                            ? Assets.icons.filesAndFolder.outline.folder
-                            : Assets.icons.filesAndFolder.outline.folder03,
-                        selectedIcon: model.isExpanded && model.isExpandable
-                            ? Assets.icons.filesAndFolder.solid.folder
-                            : Assets.icons.filesAndFolder.solid.folder03,
-                        iconColor: model.directory.getEntityColor(context),
-                        expanded: isExpanded,
-                        expandable: model.isExpandable,
-                        onToggleExpand: () {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Consumer<ExploreViewModel>(
+                  builder: (context, exploreViewModel, _) {
+                    return SideBarItem(
+                      level: model.level,
+                      title: model.directory.name,
+                      uri: model.directory.path,
+                      onTap: () {
+                        if (!model.isExpanded) {
                           model.toggle();
-                        },
-                      );
-                    },
-                  ),
-                  if (isExpanded)
-                    for (final directory in model.directories)
-                      SideBarTreeView(
-                        model: directory,
-                      ),
-                  if (isExpanded)
-                    for (final file in model.files)
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: Spacing.d16,
-                        ),
-                        child: SideBarItem(
-                          title: file.name,
-                          uri: file.path,
-                          onTap: () {},
-                          icon: file.icon,
-                          iconColor: file.getEntityColor(context),
-                        ),
-                      ),
-                ],
-              ),
+                        }
+                        exploreViewModel.goTo(model.directory.path);
+                      },
+                      selected: exploreViewModel.currentUri.trim() ==
+                          model.directory.path.trim(),
+                      icon: model.isExpanded && model.isExpandable
+                          ? Assets.icons.filesAndFolder.outline.folder
+                          : Assets.icons.filesAndFolder.outline.folder03,
+                      selectedIcon: model.isExpanded && model.isExpandable
+                          ? Assets.icons.filesAndFolder.solid.folder
+                          : Assets.icons.filesAndFolder.solid.folder03,
+                      iconColor: model.directory.getEntityColor(context),
+                      expanded: isExpanded,
+                      expandable: model.isExpandable,
+                      onToggleExpand: () {
+                        model.toggle();
+                      },
+                    );
+                  },
+                ),
+                if (isExpanded)
+                  for (final directory in model.directories)
+                    SideBarTreeView(
+                      model: directory,
+                    ),
+                if (isExpanded)
+                  for (final file in model.files)
+                    SideBarItem(
+                      level: model.level + 1,
+                      title: file.name,
+                      uri: file.path,
+                      onTap: () {},
+                      icon: file.icon,
+                      iconColor: file.getEntityColor(context),
+                    ),
+              ],
             );
           },
         );

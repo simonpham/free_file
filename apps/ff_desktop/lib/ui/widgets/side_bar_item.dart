@@ -8,6 +8,8 @@ class SideBarItem extends StatelessWidget {
   final Uri? uri;
   final VoidCallback? onTap;
 
+  final int level;
+
   final bool selected;
   final bool expanded;
   final bool expandable;
@@ -27,6 +29,7 @@ class SideBarItem extends StatelessWidget {
     this.icon,
     this.selectedIcon,
     this.textStyle,
+    this.level = 0,
     this.selected = false,
     this.expanded = false,
     this.expandable = false,
@@ -38,16 +41,16 @@ class SideBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: Spacing.d32,
-      margin: EdgeInsets.symmetric(
-        horizontal: Spacing.d12,
-      ),
-      padding: EdgeInsets.only(
-        left: expandable ? 0.0 : Spacing.d20,
+      margin: EdgeInsets.only(
+        left: Spacing.d8,
       ),
       child: Tappable(
         mouseCursor: SystemMouseCursors.click,
         onTap: onTap,
-        child: DecoratedBox(
+        child: Container(
+          padding: EdgeInsets.only(
+            left: level * Spacing.d8 + (expandable ? 0.0 : Spacing.d20),
+          ),
           decoration: BoxDecoration(
             color: selected
                 ? context.theme.colorScheme.surface.withTransparency

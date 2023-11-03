@@ -45,6 +45,7 @@ class SideBar extends StatelessWidget {
                             builder: (context, model, _) {
                               final uri = entry.key.uri;
                               return SideBarItem(
+                                level: 0,
                                 uri: uri,
                                 title: entry.key.getLabel(context),
                                 selected: model.currentUri == uri,
