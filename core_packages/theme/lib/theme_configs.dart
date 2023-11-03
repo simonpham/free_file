@@ -103,6 +103,7 @@ class Config {
   final bool showUpButton;
   final bool showRefreshButton;
   final bool showSearchBar;
+  final bool showFileInSideBar;
 
   const Config({
     required this.showBackButton,
@@ -110,6 +111,7 @@ class Config {
     required this.showUpButton,
     required this.showRefreshButton,
     required this.showSearchBar,
+    required this.showFileInSideBar,
   });
 
   factory Config.fromJson(Map<String, dynamic> json) {
@@ -119,6 +121,7 @@ class Config {
       showUpButton: json['showUpButton'] != false,
       showRefreshButton: json['showRefreshButton'] == true,
       showSearchBar: json['showSearchBar'] != false,
+      showFileInSideBar: json['showFileInSideBar'] == true,
     );
   }
 }

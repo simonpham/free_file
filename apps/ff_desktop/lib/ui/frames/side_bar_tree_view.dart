@@ -60,7 +60,7 @@ class SideBarTreeView extends StatelessWidget {
                     SideBarTreeView(
                       model: directory,
                     ),
-                if (isExpanded)
+                if (isExpanded && ThemeConfigs().config.showFileInSideBar)
                   for (final file in model.files)
                     SideBarItem(
                       level: model.level + 1,
