@@ -55,7 +55,13 @@ class Spacing {
 
   static double get d96 => d4 * 24;
 
+  static double get d110 => d4 * 27.5;
+
+  static double get d192 => d4 * 48;
+
   static double get d320 => d4 * 80;
 
   static double get d360 => d4 * 90;
+
+  static double get d690 => d4 * 172.5;
 }

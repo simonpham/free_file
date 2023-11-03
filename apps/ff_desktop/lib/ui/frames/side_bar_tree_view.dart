@@ -25,9 +25,10 @@ class SideBarTreeView extends StatelessWidget {
           builder: (context, isExpanded, _) {
             return Padding(
               padding: EdgeInsets.only(
-                left: model.level * Spacing.d8,
+                left: model.level > 0 ? Spacing.d16 : 0.0,
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Consumer<ExploreViewModel>(
                     builder: (context, exploreViewModel, _) {
@@ -50,12 +51,14 @@ class SideBarTreeView extends StatelessWidget {
                           },
                           child: model.isExpanded
                               ? ImageView(
-                                  Assets.icons.arrows.outline.upArrow,
+                                  Assets.icons.arrows.outline.directionUp01,
                                   size: Spacing.d16,
+                                  color: context.theme.colorScheme.onBackground,
                                 )
                               : ImageView(
-                                  Assets.icons.arrows.outline.downArrow,
+                                  Assets.icons.arrows.outline.directionDown01,
                                   size: Spacing.d16,
+                                  color: context.theme.colorScheme.onBackground,
                                 ),
                         ),
                       );

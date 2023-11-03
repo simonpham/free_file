@@ -10,5 +10,8 @@ scripts:
   gen:
     run: melos exec --scope="core_ui" -- fluttergen
 
+  get:
+    run: melos exec -- flutter pub get
+
   build-macos:
     run: melos exec --scope="ff_desktop" -- flutter build macos

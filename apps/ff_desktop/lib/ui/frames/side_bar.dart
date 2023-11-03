@@ -1,6 +1,3 @@
-import 'dart:io' as io;
-
-import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
@@ -10,19 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 import 'package:ff_desktop/features/features.dart';
-
-extension on ScreenSize {
-  double get sideBarWidth {
-    switch (this) {
-      case ScreenSize.extraLarge:
-        return Spacing.d64 * 5;
-      case ScreenSize.larger:
-        return Spacing.d64 * 4;
-      default:
-        return Spacing.d64 * 3;
-    }
-  }
-}
 
 class SideBar extends StatelessWidget {
   const SideBar({
@@ -36,7 +20,7 @@ class SideBar extends StatelessWidget {
       child: TitlebarSafeArea(
         child: AnimatedContainer(
           duration: FludaDuration.ms3,
-          width: context.screenSize.sideBarWidth,
+          width: kSideBarMinimumSize,
           curve: Curves.easeOut,
           child: Selector<SideBarViewModel,
               Map<SideBarSections, List<TreeExploreViewModel>>>(
@@ -91,28 +75,6 @@ class SideBar extends StatelessWidget {
                         itemCount: entry.value.length,
                       ),
                     ],
-                ],
-              );
-              return Column(
-                children: [
-                  for (final MapEntry<SideBarSections,
-                      List<TreeExploreViewModel>> entry in sections.entries)
-                    Flexible(
-                      child: SideBarSection(
-                        section: entry.key,
-                        items: entry.value,
-                      ),
-                    ),
-                ],
-              );
-              return Column(
-                children: [
-                  for (final MapEntry<SideBarSections,
-                      List<TreeExploreViewModel>> entry in sections.entries)
-                    SideBarSection(
-                      section: entry.key,
-                      items: entry.value,
-                    ),
                 ],
               );
             },

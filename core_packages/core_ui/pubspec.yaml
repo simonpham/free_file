@@ -15,9 +15,10 @@ dependencies:
     path: ../../packages/utils
 
   # UI - Widgets.
-  flash: ^3.0.5+1
+  multi_split_view: ^2.4.0
+  flash: ^3.0.5+2
   gradient_borders: ^1.0.0
-  flutter_svg: ^2.0.7
+  flutter_svg: ^2.0.9
   shimmer: ^3.0.0
 
 flutter:
