@@ -20,63 +20,70 @@ class MainPage extends StatelessWidget {
       value: context.select((TabViewModel _) => _.currentExploreViewModel),
       child: Scaffold(
         backgroundColor: context.theme.colorScheme.background,
-        body: MultiSplitView(
-          axis: Axis.horizontal,
-          initialAreas: [
-            Area(minimalSize: kSideBarMinimumSize, size: kSideBarMinimumSize),
-            Area(minimalSize: kMainAreaMinimumSize, size: kMainAreaDefaultSize),
-          ],
-          children: [
-            const SideBar(),
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: Spacing.d8,
-                right: Spacing.d8,
-              ),
-              child: Column(
-                children: [
-                  const HeheTabBar(),
-                  Container(
-                    height: Spacing.d48,
-                    decoration: BoxDecoration(
-                      color: context
-                          .appTheme.color.navBarBackground.withTransparency,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(
-                          Spacing.d12,
-                        ),
-                        topRight: Radius.circular(
-                          Spacing.d12,
-                        ),
-                      ),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      vertical: Spacing.d4,
-                      horizontal: Spacing.d4,
-                    ),
-                    child: const Row(
-                      children: [
-                        NavBar(),
-                        Expanded(
-                          child: AddressBar(
-                            key: Key('address_bar'),
+        body: MultiSplitViewTheme(
+          data: MultiSplitViewThemeData(
+            dividerThickness: Spacing.d4,
+          ),
+          child: MultiSplitView(
+            axis: Axis.horizontal,
+            initialAreas: [
+              Area(minimalSize: kSideBarMinimumSize, size: kSideBarMinimumSize),
+              Area(
+                  minimalSize: kMainAreaMinimumSize,
+                  size: kMainAreaDefaultSize),
+            ],
+            children: [
+              const SideBar(),
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: Spacing.d8,
+                  right: Spacing.d8,
+                ),
+                child: Column(
+                  children: [
+                    const HeheTabBar(),
+                    Container(
+                      height: Spacing.d48,
+                      decoration: BoxDecoration(
+                        color: context
+                            .appTheme.color.navBarBackground.withTransparency,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(
+                            Spacing.d12,
+                          ),
+                          topRight: Radius.circular(
+                            Spacing.d12,
                           ),
                         ),
-                        HeheSearchBar(),
-                      ],
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: Spacing.d4,
+                        horizontal: Spacing.d4,
+                      ),
+                      child: const Row(
+                        children: [
+                          NavBar(),
+                          Expanded(
+                            child: AddressBar(
+                              key: Key('address_bar'),
+                            ),
+                          ),
+                          HeheSearchBar(),
+                        ],
+                      ),
                     ),
-                  ),
-                  const ToolBar(),
-                  const Expanded(
-                    child: MainArea(
-                      key: Key('main_area'),
+                    const ToolBar(),
+                    const Expanded(
+                      child: MainArea(
+                        key: Key('main_area'),
+                      ),
                     ),
-                  ),
-                  const StatusBar(),
-                ],
+                    const StatusBar(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

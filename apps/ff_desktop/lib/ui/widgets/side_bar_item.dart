@@ -21,6 +21,21 @@ class SideBarItem extends StatelessWidget {
 
   final VoidCallback? onToggleExpand;
 
+  static bool hasTextOverflow(
+    String text,
+    TextStyle style, {
+    double minWidth = 0,
+    double maxWidth = double.infinity,
+    int maxLines = 1,
+  }) {
+    final TextPainter textPainter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      maxLines: maxLines,
+      textDirection: TextDirection.ltr,
+    )..layout(minWidth: minWidth, maxWidth: maxWidth);
+    return textPainter.didExceedMaxLines;
+  }
+
   const SideBarItem({
     super.key,
     this.title,
@@ -39,87 +54,250 @@ class SideBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isHoverNotifier = ValueNotifier<bool>(false);
     return Container(
-      height: Spacing.d32,
       margin: EdgeInsets.only(
         left: Spacing.d8,
       ),
-      child: Tappable(
-        mouseCursor: SystemMouseCursors.click,
-        onTap: onTap,
-        child: Container(
-          padding: EdgeInsets.only(
-            left: level * Spacing.d8 + (expandable ? 0.0 : Spacing.d20),
-          ),
-          decoration: BoxDecoration(
-            color: selected
-                ? context.theme.colorScheme.surface.withTransparency
-                : null,
-            borderRadius: BorderRadius.circular(Spacing.d4 + Spacing.d2),
-          ),
-          child: Row(
-            children: [
-              SizedBox(width: Spacing.d8),
-              if (expandable) ...[
-                Tappable(
-                  onTap: () {
-                    onToggleExpand?.call();
-                  },
-                  child: expanded
-                      ? ImageView(
-                          Assets.icons.arrows.outline.directionDown01,
-                          size: Spacing.d16,
-                          color: context.theme.colorScheme.onBackground,
-                        )
-                      : ImageView(
-                          Assets.icons.arrows.outline.directionRight01,
-                          size: Spacing.d16,
-                          color: context.theme.colorScheme.onBackground,
-                        ),
-                ),
-                SizedBox(width: Spacing.d4),
-              ],
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: Spacing.d4,
-                ),
-                child: ImageView(
-                  selected ? selectedIcon : icon,
-                  size: Spacing.d20,
-                  color: selected
-                      ? context.theme.primaryColor
-                      : context.theme.iconTheme.color,
-                ),
-              ),
-              SizedBox(width: Spacing.d8),
-              Expanded(
-                child: Text(
-                  title ?? uri?.lastNonEmptySegment ?? '',
-                  style: (textStyle ?? context.theme.textTheme.bodyLarge)
-                      ?.copyWith(
-                    color: selected ? context.theme.primaryColor : null,
-                    fontWeight: selected ? FontWeight.w700 : null,
+      child: MouseRegion(
+        onEnter: (event) {
+          isHoverNotifier.value = true;
+        },
+        onExit: (event) {
+          isHoverNotifier.value = false;
+        },
+        child: Tappable(
+          enableAnimation: false,
+          mouseCursor: SystemMouseCursors.click,
+          onTap: onTap,
+          child: ValueListenableBuilder(
+              valueListenable: isHoverNotifier,
+              builder: (context, isHover, _) {
+                return Container(
+                  padding: EdgeInsets.only(
+                    left: level * Spacing.d8 + (expandable ? 0.0 : Spacing.d20),
                   ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              if (selected)
-                Container(
-                  height: Spacing.d32,
-                  width: Spacing.d4 + Spacing.d2,
                   decoration: BoxDecoration(
-                    color: context.theme.primaryColor,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(Spacing.d4 + Spacing.d2),
-                      bottomRight: Radius.circular(Spacing.d4 + Spacing.d2),
-                    ),
+                    color: isHover
+                        ? context.theme.colorScheme.surface
+                        : (selected
+                            ? context.theme.colorScheme.surface.withTransparency
+                            : null),
+                    borderRadius:
+                        BorderRadius.circular(Spacing.d4 + Spacing.d2),
                   ),
-                ),
-            ],
-          ),
+                  child: Row(
+                    children: [
+                      SizedBox(width: Spacing.d8),
+                      if (expandable) ...[
+                        Tappable(
+                          onTap: () {
+                            onToggleExpand?.call();
+                          },
+                          child: expanded
+                              ? ImageView(
+                                  Assets.icons.arrows.outline.directionDown01,
+                                  size: Spacing.d16,
+                                  color: context.theme.colorScheme.onBackground,
+                                )
+                              : ImageView(
+                                  Assets.icons.arrows.outline.directionRight01,
+                                  size: Spacing.d16,
+                                  color: context.theme.colorScheme.onBackground,
+                                ),
+                        ),
+                        SizedBox(width: Spacing.d4),
+                      ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: Spacing.d4,
+                        ),
+                        child: ImageView(
+                          selected ? selectedIcon : icon,
+                          size: Spacing.d20,
+                          color: selected
+                              ? context.theme.primaryColor
+                              : context.theme.iconTheme.color,
+                        ),
+                      ),
+                      SizedBox(width: Spacing.d8),
+                      Expanded(
+                        child: LayoutBuilder(
+                          builder: (context, constraint) {
+                            final text =
+                                title ?? uri?.lastNonEmptySegment ?? '';
+                            final textStyle = this.textStyle ??
+                                (context.theme.textTheme.bodyLarge ??
+                                        const TextStyle())
+                                    .copyWith(
+                                  color: selected
+                                      ? context.theme.primaryColor
+                                      : context.theme.colorScheme.onBackground,
+                                  fontWeight: selected ? FontWeight.w700 : null,
+                                );
+                            final hasTextOverflow = SideBarItem.hasTextOverflow(
+                              text,
+                              textStyle,
+                              minWidth: 0,
+                              maxWidth: constraint.maxWidth - Spacing.d20,
+                            );
+                            return SideBarItemHover(
+                              enabled: hasTextOverflow,
+                              selected: selected,
+                              text: text,
+                              textStyle: textStyle,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      height: Spacing.d32,
+                                      alignment: Alignment.centerLeft,
+                                      margin: EdgeInsets.only(
+                                        right: Spacing.d4,
+                                      ),
+                                      child: Text(
+                                        text,
+                                        style: textStyle,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ),
+                                  if ((isHover || selected) && !hasTextOverflow)
+                                    Container(
+                                      height: Spacing.d32,
+                                      width: Spacing.d4 + Spacing.d2,
+                                      decoration: BoxDecoration(
+                                        color: context.theme.primaryColor,
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(
+                                              Spacing.d4 + Spacing.d2),
+                                          bottomRight: Radius.circular(
+                                              Spacing.d4 + Spacing.d2),
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
         ),
       ),
+    );
+  }
+}
+
+class SideBarItemHover extends StatefulWidget {
+  final bool enabled;
+  final bool selected;
+
+  final Widget child;
+
+  final String text;
+  final TextStyle textStyle;
+
+  const SideBarItemHover({
+    super.key,
+    required this.enabled,
+    required this.selected,
+    required this.child,
+    required this.text,
+    required this.textStyle,
+  });
+
+  @override
+  State<SideBarItemHover> createState() => _SideBarItemHoverState();
+}
+
+class _SideBarItemHoverState extends State<SideBarItemHover> {
+  OverlayEntry? _overlayEntry;
+
+  void _hideOverlay(BuildContext context) {
+    _overlayEntry?.remove();
+    _overlayEntry = null;
+  }
+
+  void _showOverlay(BuildContext context, Offset? globalPosition, Size? size) {
+    if (_overlayEntry != null) {
+      return;
+    }
+    if (globalPosition == null || size == null) {
+      return;
+    }
+    final overlay = OverlayEntry(
+      builder: (context) {
+        return Positioned(
+          left: globalPosition.dx,
+          top: globalPosition.dy,
+          height: size.height,
+          child: IgnorePointer(
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.theme.colorScheme.surface,
+                borderRadius: BorderRadius.circular(Spacing.d4 + Spacing.d2),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: Spacing.d32,
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(
+                      right: Spacing.d16,
+                    ),
+                    child: Text(
+                      widget.text,
+                      style: widget.textStyle,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Container(
+                    height: Spacing.d32,
+                    width: Spacing.d4 + Spacing.d2,
+                    decoration: BoxDecoration(
+                      color: context.theme.primaryColor,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(Spacing.d4 + Spacing.d2),
+                        bottomRight: Radius.circular(Spacing.d4 + Spacing.d2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+    _overlayEntry = overlay;
+    Overlay.of(context).insert(overlay);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final renderObject = context.findRenderObject() as RenderBox?;
+    final globalPosition = renderObject?.localToGlobal(Offset.zero);
+    final size = renderObject?.size;
+    return MouseRegion(
+      onEnter: (event) {
+        if (!widget.enabled) {
+          return;
+        }
+        _showOverlay(context, globalPosition, size);
+      },
+      onExit: (event) {
+        if (!widget.enabled) {
+          return;
+        }
+        _hideOverlay(context);
+      },
+      child: widget.child,
     );
   }
 }
