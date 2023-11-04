@@ -28,12 +28,16 @@ class SideBarItem extends StatelessWidget {
     double maxWidth = double.infinity,
     int maxLines = 1,
   }) {
-    final TextPainter textPainter = TextPainter(
-      text: TextSpan(text: text, style: style),
-      maxLines: maxLines,
-      textDirection: TextDirection.ltr,
-    )..layout(minWidth: minWidth, maxWidth: maxWidth);
-    return textPainter.didExceedMaxLines;
+    try {
+      final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: text, style: style),
+        maxLines: maxLines,
+        textDirection: TextDirection.ltr,
+      )..layout(minWidth: minWidth, maxWidth: maxWidth);
+      return textPainter.didExceedMaxLines;
+    } catch (_) {
+      return true;
+    }
   }
 
   const SideBarItem({
@@ -216,9 +220,12 @@ class SideBarItemHover extends StatefulWidget {
 }
 
 class _SideBarItemHoverState extends State<SideBarItemHover> {
+  static const String _overlayDebounceKey = 'side_bar_item_hover';
+
   OverlayEntry? _overlayEntry;
 
   void _hideOverlay(BuildContext context) {
+    EasyDebounce.cancel(_overlayDebounceKey);
     _overlayEntry?.remove();
     _overlayEntry = null;
   }
@@ -281,15 +288,21 @@ class _SideBarItemHoverState extends State<SideBarItemHover> {
 
   @override
   Widget build(BuildContext context) {
-    final renderObject = context.findRenderObject() as RenderBox?;
-    final globalPosition = renderObject?.localToGlobal(Offset.zero);
-    final size = renderObject?.size;
     return MouseRegion(
       onEnter: (event) {
         if (!widget.enabled) {
           return;
         }
-        _showOverlay(context, globalPosition, size);
+        EasyDebounce.debounce(
+          _overlayDebounceKey,
+          const Duration(milliseconds: 100),
+          () {
+            final renderObject = context.findRenderObject() as RenderBox?;
+            final globalPosition = renderObject?.localToGlobal(Offset.zero);
+            final size = renderObject?.size;
+            _showOverlay(context, globalPosition, size);
+          },
+        );
       },
       onExit: (event) {
         if (!widget.enabled) {
