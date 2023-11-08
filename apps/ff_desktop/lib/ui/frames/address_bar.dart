@@ -108,6 +108,9 @@ class _AddressBarState extends State<AddressBar> {
                             return Tooltip(
                               message: isLast ? controller.text : segment,
                               child: Tappable(
+                                mouseCursor: isLast
+                                    ? SystemMouseCursors.text
+                                    : SystemMouseCursors.click,
                                 onTap: () {
                                   if (isLast) {
                                     _enableEditMode();
@@ -180,15 +183,16 @@ class AddressDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d4,
-      ),
+      width: Spacing.d16,
       alignment: Alignment.center,
-      child: const Text(
-        '>',
-        style: TextStyle(
-          color: Colors.white,
-        ),
+      padding: EdgeInsets.only(
+        top: Spacing.d2 + Spacing.d1,
+      ),
+      child: ImageView(
+        Assets.icons.arrows.solid.directionRight01,
+        color: context.theme.colorScheme.onSurfaceVariant.withOpacity(0.5),
+        width: Spacing.d8 + Spacing.d2,
+        height: Spacing.d20,
       ),
     );
   }

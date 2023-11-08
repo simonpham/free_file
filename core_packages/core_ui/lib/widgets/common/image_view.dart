@@ -26,7 +26,7 @@ class ImageView extends StatelessWidget {
     this.color,
     this.blurHash,
   }) : assert(
-          (size == null && width != null && height != null) ||
+          (size == null && (width != null || height != null)) ||
               (size != null && width == null && height == null),
           'Either size or width and height must be provided',
         );

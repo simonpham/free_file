@@ -1,6 +1,13 @@
 part of 'extensions.dart';
 
 extension StringExtension on String {
+  String capitalize() {
+    if (isEmpty) {
+      return this;
+    }
+    return '${this[0].toUpperCase()}${substring(1)}';
+  }
+
   String getUsernameFromHomeFolder() {
     final parts = split(kSlash);
     if (parts.length > 2) {

@@ -5,6 +5,7 @@ import 'package:ff_desktop/features/explore/models/tree_explore_model.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
+import 'package:utils/utils.dart';
 
 class SideBarViewModel extends ChangeNotifier {
   EntityProvider get _local => injector.get<LocalEntityProvider>();
@@ -36,7 +37,7 @@ class SideBarViewModel extends ChangeNotifier {
             }
             final now = DateTime.now().toIso8601String();
             final directory = Directory(
-              name: folder.name,
+              name: folder.name.capitalize(),
               path: uri,
               isHidden: false,
               createdAt: now,
