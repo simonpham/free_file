@@ -47,9 +47,9 @@ class ThemeToggle extends StatelessWidget {
                   Expanded(
                     child: CustomSlidingSegmentedControl<ThemeMode>(
                       groupValue: themeMode,
-                      thumbColor:
-                          context.theme.colorScheme.primary,
-                      backgroundColor: context.theme.colorScheme.surface.withOpacity(0.3),
+                      thumbColor: context.theme.colorScheme.primary,
+                      backgroundColor: context
+                          .appTheme.color.statusBarBackground.withTransparency,
                       onValueChanged: (mode) {
                         if (mode != null) {
                           context.read<ThemeModel>().themeMode = mode;
@@ -97,6 +97,9 @@ class ThemeToggle extends StatelessWidget {
                                     ? Assets.icons.moonSolid
                                     : Assets.icons.moonOutline,
                                 size: Spacing.d16,
+                                color: themeMode == ThemeMode.light
+                                    ? context.theme.colorScheme.onSurface
+                                    : context.theme.colorScheme.onPrimary,
                               ),
                               Flexible(
                                 child: Padding(
@@ -105,8 +108,9 @@ class ThemeToggle extends StatelessWidget {
                                     ThemeMode.dark.name.capitalize(),
                                     style: context.theme.textTheme.bodySmall
                                         ?.copyWith(
-                                      color:
-                                          context.theme.colorScheme.onPrimary,
+                                      color: themeMode == ThemeMode.light
+                                          ? context.theme.colorScheme.onSurface
+                                          : context.theme.colorScheme.onPrimary,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,

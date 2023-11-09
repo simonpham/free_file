@@ -1,8 +1,8 @@
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/utils/entity_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'package:ff_desktop/features/features.dart';
 import 'package:theme/theme.dart';

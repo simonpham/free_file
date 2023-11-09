@@ -1,5 +1,5 @@
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
@@ -46,12 +46,7 @@ class StatusBar extends StatelessWidget {
                 return model.entities.length;
               },
               builder: (context, length, _) {
-                return Text(
-                  '$length items',
-                  style: context.theme.textTheme.bodyMedium?.copyWith(
-                    color: context.theme.colorScheme.onBackground,
-                  ),
-                );
+                return Text('$length items');
               },
             ),
           ],

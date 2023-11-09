@@ -1,6 +1,13 @@
 import 'dart:io';
 
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
+import 'package:desktop_lifecycle/desktop_lifecycle.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_acrylic/flutter_acrylic.dart';
+import 'package:storage/storage.dart';
+import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class PlatformUtils {
@@ -24,5 +31,49 @@ class PlatformUtils {
     }
 
     return null;
+  }
+
+  static Future<void> setupWindow() async {
+    try {
+      await Window.initialize();
+      await Window.setEffect(
+        effect: WindowEffect.acrylic,
+      );
+    } catch (_) {}
+
+    doWhenWindowReady(() {
+      const initialSize = Size(800, 600);
+      appWindow.minSize = initialSize;
+      appWindow.size = initialSize;
+      appWindow.alignment = Alignment.center;
+      appWindow.show();
+    });
+  }
+
+  static bool watchTransparencySetting(BuildContext context) {
+    final enableTransparency =
+        context.select((ThemeModel _) => _.enableTransparency);
+    final isDarkMode =
+        context.select((ThemeModel _) => _.themeMode == ThemeMode.dark);
+    try {
+      Window.setEffect(
+        effect: enableTransparency ? WindowEffect.acrylic : WindowEffect.solid,
+        color: isDarkMode ? Colors.black : Colors.white,
+        dark: isDarkMode,
+      );
+    } catch (_) {}
+
+    return enableTransparency;
+  }
+
+  static void listenToWindowStatus() {
+    DesktopLifecycle.instance.isActive.removeListener(onWindowStatusChange);
+    DesktopLifecycle.instance.isActive.addListener(onWindowStatusChange);
+  }
+
+  static void onWindowStatusChange() {
+    if (DesktopLifecycle.instance.isActive.value) {
+      Settings().reload();
+    }
   }
 }

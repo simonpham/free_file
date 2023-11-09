@@ -15,4 +15,6 @@ class ThemeModel extends ChangeNotifier {
     Settings().themeMode = value;
     notifyListeners();
   }
+
+  bool get isDark => themeMode == ThemeMode.dark;
 }

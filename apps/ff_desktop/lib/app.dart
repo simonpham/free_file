@@ -1,11 +1,11 @@
+import 'package:core_ui/core_ui.dart';
 import 'package:desktop_multi_window/desktop_multi_window.dart';
 import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
+import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_acrylic/flutter_acrylic.dart';
-import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
@@ -53,43 +53,43 @@ class FreeFile extends StatelessWidget {
         ),
       ],
       builder: (BuildContext context, _) {
-        final enableTransparency =
-            context.select((ThemeModel _) => _.enableTransparency);
-        if (enableTransparency) {
-          try {
-            Window.setEffect(
-              effect: WindowEffect.acrylic,
-            );
-          } catch (_) {}
-        } else {
-          try {
-            Window.setEffect(
-              effect: WindowEffect.solid,
-            );
-          } catch (_) {}
-        }
+        final themeMode = context.select((ThemeModel _) => _.themeMode);
         return MaterialApp.router(
-          color: enableTransparency
-              ? Colors.transparent
-              : context.theme.colorScheme.surface,
-          themeMode: context.select((ThemeModel _) => _.themeMode),
+          themeMode: themeMode,
           debugShowCheckedModeBanner: false,
           theme: ThemeConfigs().getThemeData(ThemeMode.light),
           darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
           builder: (context, child) {
-            return Stack(
-              children: [
-                if (child != null)
-                  Positioned.fill(
-                    child: child,
+            return Container(
+              color: PlatformUtils.watchTransparencySetting(context)
+                  ? Color.lerp(
+                      context.theme.primaryColor,
+                      (themeMode == ThemeMode.dark
+                          ? Colors.black54
+                          : Colors.white70),
+                      0.95,
+                    )
+                  : Color.lerp(
+                      context.theme.primaryColor,
+                      (themeMode == ThemeMode.dark
+                          ? Colors.black
+                          : Colors.white),
+                      0.95,
+                    ),
+              child: Stack(
+                children: [
+                  if (child != null)
+                    Positioned.fill(
+                      child: child,
+                    ),
+                  const Positioned(
+                    top: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: WindowTitleBar(),
                   ),
-                const Positioned(
-                  top: 0.0,
-                  left: 0.0,
-                  right: 0.0,
-                  child: WindowTitleBar(),
-                ),
-              ],
+                ],
+              ),
             );
           },
           routerConfig: appRouter,

@@ -4,7 +4,6 @@ import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
-import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 import 'package:ff_desktop/features/features.dart';
@@ -16,7 +15,6 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<ThemeModel>();
     return ChangeNotifierProvider.value(
       value: context.select((ExploreViewModel _) => _.sideBarViewModel),
       child: TitlebarSafeArea(

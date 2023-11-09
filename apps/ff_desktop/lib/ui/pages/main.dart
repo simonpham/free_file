@@ -2,10 +2,8 @@ import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/models/models.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
 import 'package:ff_desktop/ui/ui.dart';
-import 'package:utils/utils.dart';
 
 class MainPage extends StatelessWidget {
   static const String routePath = '/';
@@ -19,7 +17,7 @@ class MainPage extends StatelessWidget {
     return ChangeNotifierProvider.value(
       value: context.select((TabViewModel _) => _.currentExploreViewModel),
       child: Scaffold(
-        backgroundColor: context.theme.colorScheme.background,
+        backgroundColor: Colors.transparent,
         body: MultiSplitViewTheme(
           data: MultiSplitViewThemeData(
             dividerThickness: Spacing.d4,
