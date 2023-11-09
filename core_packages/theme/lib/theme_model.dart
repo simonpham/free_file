@@ -27,4 +27,8 @@ class ThemeModel extends ChangeNotifier {
     _screenSize = value;
     notifyListeners();
   }
+
+  void refresh() {
+    notifyListeners();
+  }
 }

@@ -4,6 +4,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:desktop_lifecycle/desktop_lifecycle.dart';
+import 'package:ff_desktop/di.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:storage/storage.dart';
@@ -71,9 +72,12 @@ class PlatformUtils {
     DesktopLifecycle.instance.isActive.addListener(onWindowStatusChange);
   }
 
-  static void onWindowStatusChange() {
+  static Future<void> onWindowStatusChange() async {
     if (DesktopLifecycle.instance.isActive.value) {
-      Settings().reload();
+      await Settings().reload();
+      if (injector.isRegistered<ThemeModel>()) {
+        injector<ThemeModel>().refresh();
+      }
     }
   }
 }
