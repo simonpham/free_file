@@ -7,7 +7,7 @@
     "showForwardButton": true,
     "showUpButton": true,
     "showRefreshButton": false,
-    "showSearchBar": true,
+    "showSearchBar": false,
     "showFileInSideBar": false
   },
   "theme": {
