@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:desktop_lifecycle/desktop_lifecycle.dart';
 import 'package:desktop_multi_window/desktop_multi_window.dart';
 import 'package:ff_desktop/app.dart';
 import 'package:ff_desktop/di.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:theme/theme.dart';
@@ -12,7 +14,7 @@ import 'package:storage/storage.dart';
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await EasyBox.initialize();
+  await Settings().init();
   await ThemeConfigs.init();
   await Injector.setup();
 
@@ -29,6 +31,14 @@ Future<void> main(List<String> args) async {
     appWindow.size = initialSize;
     appWindow.alignment = Alignment.center;
     appWindow.show();
+  });
+
+  final ValueListenable<bool> isWindowActive =
+      DesktopLifecycle.instance.isActive;
+  isWindowActive.addListener(() {
+    if (isWindowActive.value) {
+      Settings().reload();
+    }
   });
 
   if (args case [String tag, String windowIdString, String argument]) {

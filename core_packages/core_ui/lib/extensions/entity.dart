@@ -15,10 +15,10 @@ extension EntityExtension on Entity {
     }
   }
 
-  Color getEntityColor(BuildContext context) {
+  Color getEntityColor(AppTheme appTheme) {
     final color = switch (type) {
-      EntityType.directory => context.appTheme.color.primary,
-      EntityType.file => context.appTheme.color.iconColor,
+      EntityType.directory => appTheme.color.primary,
+      EntityType.file => appTheme.color.iconColor,
     };
     return isHidden ? color.withOpacity(0.6) : color;
   }

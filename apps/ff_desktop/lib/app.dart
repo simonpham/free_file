@@ -4,8 +4,10 @@ import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:provider/provider.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 class FreeFileLaunchArgument {
   final String? path;
@@ -46,11 +48,31 @@ class FreeFile extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: injector<TabViewModel>(),
         ),
+        ChangeNotifierProvider.value(
+          value: injector<ThemeModel>(),
+        ),
       ],
       builder: (BuildContext context, _) {
+        final enableTransparency =
+            context.select((ThemeModel _) => _.enableTransparency);
+        if (enableTransparency) {
+          try {
+            Window.setEffect(
+              effect: WindowEffect.acrylic,
+            );
+          } catch (_) {}
+        } else {
+          try {
+            Window.setEffect(
+              effect: WindowEffect.solid,
+            );
+          } catch (_) {}
+        }
         return MaterialApp.router(
-          color: Colors.transparent,
-          themeMode: ThemeMode.system,
+          color: enableTransparency
+              ? Colors.transparent
+              : context.theme.colorScheme.surface,
+          themeMode: context.select((ThemeModel _) => _.themeMode),
           debugShowCheckedModeBanner: false,
           theme: ThemeConfigs().getThemeData(ThemeMode.light),
           darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),

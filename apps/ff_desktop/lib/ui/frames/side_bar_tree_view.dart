@@ -46,7 +46,7 @@ class SideBarTreeView extends StatelessWidget {
                       selectedIcon: model.isExpanded && model.isExpandable
                           ? Assets.icons.filesAndFolder.solid.folder
                           : Assets.icons.filesAndFolder.solid.folder03,
-                      iconColor: model.directory.getEntityColor(context),
+                      iconColor: model.directory.getEntityColor(context.appTheme),
                       expanded: isExpanded,
                       expandable: model.isExpandable,
                       onToggleExpand: () {
@@ -68,7 +68,7 @@ class SideBarTreeView extends StatelessWidget {
                       uri: file.path,
                       onTap: () {},
                       icon: file.icon,
-                      iconColor: file.getEntityColor(context),
+                      iconColor: file.getEntityColor(context.appTheme),
                     ),
               ],
             );

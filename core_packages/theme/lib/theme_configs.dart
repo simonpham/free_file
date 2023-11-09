@@ -1,14 +1,15 @@
 import 'dart:convert';
 
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:theme/theme.dart';
-import 'package:utils/utils.dart';
 
 extension ThemeExtension on BuildContext {
-  AppTheme get appTheme => this.theme.brightness == Brightness.dark
-      ? ThemeConfigs().darkTheme
-      : ThemeConfigs().lightTheme;
+  AppTheme get appTheme =>
+      select((ThemeModel _) => _.themeMode == ThemeMode.dark)
+          ? ThemeConfigs().darkTheme
+          : ThemeConfigs().lightTheme;
 }
 
 extension ThemeConfigsExtension on ThemeConfigs {

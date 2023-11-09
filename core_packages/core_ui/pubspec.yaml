@@ -14,6 +14,9 @@ dependencies:
   utils:
     path: ../../packages/utils
 
+  # State Management.
+  provider: ^6.1.0
+
   # UI - Widgets.
   multi_split_view: ^2.4.0
   flash: ^3.0.5+2
@@ -25,6 +28,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/icons/
     - assets/icons/arrows/bulk/
     - assets/icons/arrows/outline/
     - assets/icons/arrows/solid/

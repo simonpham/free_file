@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = ff_desktop
+PRODUCT_NAME = Free File
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = io.sofluffy.ffDesktop
+PRODUCT_BUNDLE_IDENTIFIER = io.sofluffy.ff
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 io.sofluffy. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 SoFluffy. All rights reserved.

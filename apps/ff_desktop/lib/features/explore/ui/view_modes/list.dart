@@ -68,6 +68,9 @@ class EntityViewList extends StatelessWidget {
       1,
       (containerHeight / mode.itemHeight).floor(),
     );
+    final backgroundColor = context.appTheme.color.background;
+    final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(0.2);
+    final appTheme = context.appTheme;
     return Scrollbar(
       controller: scrollController,
       thumbVisibility: true,
@@ -130,13 +133,13 @@ class EntityViewList extends StatelessWidget {
                   mouseCursor: SystemMouseCursors.basic,
                   height: mode.itemHeight - Spacing.d4,
                   backgroundColor: selectedEntities.contains(entity)
-                      ? context.appTheme.color.primary.withOpacity(0.2)
-                      : context.appTheme.color.background,
+                      ? selectedBackgroundColor
+                      : backgroundColor,
                   onDoubleTap: () => onEntityDoubleTap(entity),
                   enableAnimation: false,
                   leading: ImageView(
                     entity.entityIcon,
-                    color: entity.getEntityColor(context),
+                    color: entity.getEntityColor(appTheme),
                     size: Spacing.d20,
                   ),
                   titlePadding: EdgeInsets.only(
@@ -150,8 +153,8 @@ class EntityViewList extends StatelessWidget {
                     entity.name,
                     style: TextStyle(
                       color: entity.isHidden
-                          ? context.appTheme.color.disabledIconColor
-                          : context.appTheme.color.onBackground,
+                          ? appTheme.color.disabledIconColor
+                          : appTheme.color.onBackground,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

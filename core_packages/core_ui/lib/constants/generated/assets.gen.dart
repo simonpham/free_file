@@ -30,6 +30,14 @@ class $AssetsIconsGen {
   $AssetsIconsHealthGen get health => const $AssetsIconsHealthGen();
   $AssetsIconsInterfaceGen get interface => const $AssetsIconsInterfaceGen();
   $AssetsIconsMenuGen get menu => const $AssetsIconsMenuGen();
+
+  /// File path: assets/icons/moon_outline.svg
+  SvgGenImage get moonOutline =>
+      const SvgGenImage('assets/icons/moon_outline.svg');
+
+  /// File path: assets/icons/moon_solid.svg
+  SvgGenImage get moonSolid => const SvgGenImage('assets/icons/moon_solid.svg');
+
   $AssetsIconsMultimediaAndAudioGen get multimediaAndAudio =>
       const $AssetsIconsMultimediaAndAudioGen();
   $AssetsIconsNavigationMapsGen get navigationMaps =>
@@ -40,10 +48,22 @@ class $AssetsIconsGen {
       const $AssetsIconsShippingAndDeliveryGen();
   $AssetsIconsSmartHouseGen get smartHouse => const $AssetsIconsSmartHouseGen();
   $AssetsIconsSocialGen get social => const $AssetsIconsSocialGen();
+
+  /// File path: assets/icons/sun_outline.svg
+  SvgGenImage get sunOutline =>
+      const SvgGenImage('assets/icons/sun_outline.svg');
+
+  /// File path: assets/icons/sun_solid.svg
+  SvgGenImage get sunSolid => const SvgGenImage('assets/icons/sun_solid.svg');
+
   $AssetsIconsTimeAndDateGen get timeAndDate =>
       const $AssetsIconsTimeAndDateGen();
   $AssetsIconsUserGen get user => const $AssetsIconsUserGen();
   $AssetsIconsWeatherGen get weather => const $AssetsIconsWeatherGen();
+
+  /// List of all assets
+  List<SvgGenImage> get values =>
+      [moonOutline, moonSolid, sunOutline, sunSolid];
 }
 
 class $AssetsIconsArrowsGen {

@@ -1,3 +1,4 @@
+import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
@@ -15,6 +16,7 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<ThemeModel>();
     return ChangeNotifierProvider.value(
       value: context.select((ExploreViewModel _) => _.sideBarViewModel),
       child: TitlebarSafeArea(
@@ -30,52 +32,69 @@ class SideBar extends StatelessWidget {
               Map<SideBarSections, List<TreeExploreViewModel>> sections,
               Widget? _,
             ) {
-              return CustomScrollView(
-                slivers: [
-                  for (final MapEntry<SideBarSections,
-                      List<TreeExploreViewModel>> entry in sections.entries)
-                    if (entry.value.isNotEmpty) ...[
-                      SliverPadding(
-                        padding: EdgeInsets.only(
-                          top: Spacing.d24,
-                          bottom: Spacing.d4,
-                        ),
-                        sliver: SliverToBoxAdapter(
-                          child: Consumer<ExploreViewModel>(
-                            builder: (context, model, _) {
-                              final uri = entry.key.uri;
-                              return SideBarItem(
-                                level: 0,
-                                uri: uri,
-                                title: entry.key.getLabel(context),
-                                selected: model.currentUri == uri,
-                                onTap: uri != null
-                                    ? () {
-                                        model.goTo(uri);
-                                      }
-                                    : null,
-                                icon: entry.key.getIcon(context),
-                                selectedIcon:
-                                    entry.key.getSelectedIcon(context),
-                                textStyle:
-                                    context.theme.textTheme.bodyLarge?.copyWith(
-                                  fontWeight: FontWeight.bold,
+              return Column(
+                children: [
+                  Expanded(
+                    child: CustomScrollView(
+                      slivers: [
+                        for (final MapEntry<SideBarSections,
+                                List<TreeExploreViewModel>> entry
+                            in sections.entries)
+                          if (entry.value.isNotEmpty) ...[
+                            SliverPadding(
+                              padding: EdgeInsets.only(
+                                top: Spacing.d24,
+                                bottom: Spacing.d4,
+                              ),
+                              sliver: SliverToBoxAdapter(
+                                child: Consumer<ExploreViewModel>(
+                                  builder: (context, model, _) {
+                                    final uri = entry.key.uri;
+                                    return SideBarItem(
+                                      level: 0,
+                                      uri: uri,
+                                      title: entry.key.getLabel(context),
+                                      selected: model.currentUri == uri,
+                                      onTap: uri != null
+                                          ? () {
+                                              model.goTo(uri);
+                                            }
+                                          : null,
+                                      icon: entry.key.getIcon(context),
+                                      selectedIcon:
+                                          entry.key.getSelectedIcon(context),
+                                      textStyle: context
+                                          .theme.textTheme.bodyLarge
+                                          ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    );
+                                  },
                                 ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                      SliverList.builder(
-                        itemBuilder: (context, index) {
-                          final item = entry.value[index];
-                          return SideBarTreeView(
-                            model: item,
-                          );
-                        },
-                        itemCount: entry.value.length,
-                      ),
-                    ],
+                              ),
+                            ),
+                            SliverList.builder(
+                              itemBuilder: (context, index) {
+                                final item = entry.value[index];
+                                return SideBarTreeView(
+                                  model: item,
+                                );
+                              },
+                              itemCount: entry.value.length,
+                            ),
+                          ],
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: Spacing.d8,
+                      horizontal: Spacing.d24,
+                    ),
+                    child: const ThemeToggle(
+                      isCollapsed: false,
+                    ),
+                  ),
                 ],
               );
             },

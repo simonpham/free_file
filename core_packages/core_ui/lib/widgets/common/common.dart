@@ -2,6 +2,7 @@ export 'button.dart';
 export 'check_box.dart';
 export 'chip_button.dart';
 export 'chip_text.dart';
+export 'custom_sliding_segmented_control.dart';
 export 'empty_widget.dart';
 export 'image_view.dart';
 export 'label_button.dart';

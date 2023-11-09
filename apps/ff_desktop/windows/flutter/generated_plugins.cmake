@@ -4,9 +4,9 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_windows
+  desktop_lifecycle
   desktop_multi_window
   flutter_acrylic
-  flutter_secure_storage_windows
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

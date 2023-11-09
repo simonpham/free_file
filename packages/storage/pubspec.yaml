@@ -7,5 +7,4 @@ dependencies:
   flutter:
     sdk: flutter
 
-  easy_hive: ^1.0.1
-  easy_hive_encryption: ^1.0.0+1
+  shared_preferences: ^2.2.2

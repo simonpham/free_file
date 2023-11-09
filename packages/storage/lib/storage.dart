@@ -1,6 +1,6 @@
 library storage;
 
-export 'package:easy_hive/easy_hive.dart';
-export 'package:easy_hive_encryption/easy_hive_encryption.dart';
+export 'package:shared_preferences/shared_preferences.dart';
 
+export 'constants/constants.dart';
 export 'data/data.dart';
