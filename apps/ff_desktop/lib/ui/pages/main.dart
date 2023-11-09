@@ -25,10 +25,14 @@ class MainPage extends StatelessWidget {
           child: MultiSplitView(
             axis: Axis.horizontal,
             initialAreas: [
-              Area(minimalSize: kSideBarMinimumSize, size: kSideBarMinimumSize),
               Area(
-                  minimalSize: kMainAreaMinimumSize,
-                  size: kMainAreaDefaultSize),
+                minimalSize: kSideBarMinimumSize,
+                size: kSideBarMinimumSize,
+              ),
+              Area(
+                minimalSize: kMainAreaMinimumSize,
+                size: kMainAreaDefaultSize,
+              ),
             ],
             children: [
               const SideBar(),
@@ -58,15 +62,16 @@ class MainPage extends StatelessWidget {
                         vertical: Spacing.d4,
                         horizontal: Spacing.d4,
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
-                          NavBar(),
-                          Expanded(
+                          const NavBar(),
+                          const Expanded(
                             child: AddressBar(
                               key: Key('address_bar'),
                             ),
                           ),
-                          HeheSearchBar(),
+                          if (ThemeConfigs().config.showSearchBar)
+                            const HeheSearchBar(),
                         ],
                       ),
                     ),

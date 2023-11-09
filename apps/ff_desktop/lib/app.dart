@@ -29,7 +29,7 @@ class FreeFileLaunchArgument {
   }
 }
 
-class FreeFile extends StatelessWidget {
+class FreeFile extends StatefulWidget {
   final WindowController? windowController;
   final FreeFileLaunchArgument? launchArgument;
 
@@ -40,16 +40,24 @@ class FreeFile extends StatelessWidget {
   });
 
   @override
+  State<FreeFile> createState() => _FreeFileState();
+}
+
+class _FreeFileState extends State<FreeFile> {
+
+  ThemeModel get themeModel => injector<ThemeModel>();
+
+  @override
   Widget build(BuildContext context) {
     final size = ScreenSize.of(context);
-    ThemeConfigs.screenSize = size;
+    themeModel.screenSize = size;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
           value: injector<TabViewModel>(),
         ),
         ChangeNotifierProvider.value(
-          value: injector<ThemeModel>(),
+          value: themeModel,
         ),
       ],
       builder: (BuildContext context, _) {

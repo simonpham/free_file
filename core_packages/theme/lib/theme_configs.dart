@@ -60,7 +60,6 @@ class ThemeConfigs {
   final AppTheme lightTheme;
   final AppTheme darkTheme;
 
-  static ScreenSize screenSize = ScreenSize.normal;
   static ThemeConfigs? _instance;
 
   factory ThemeConfigs() {

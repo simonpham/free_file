@@ -4,7 +4,7 @@ const int kMaxDisplayAddressNameLength = 12;
 
 double get kSideBarMinimumSize => Spacing.d192;
 
-double get kMainAreaDefaultSize => Spacing.d690;
+double get kMainAreaDefaultSize => Spacing.d600;
 
 double get kMainAreaMinimumSize => Spacing.d360;
 

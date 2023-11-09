@@ -1,14 +1,14 @@
 import 'dart:io' as io;
 
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:theme/theme.dart';
-import 'package:core_ui/constants/constants.dart';
 import 'package:utils/utils.dart';
 
 extension ScreenSizeBuildContextExtension on BuildContext {
-  ScreenSize get screenSize => ThemeConfigs.screenSize;
+  ScreenSize get screenSize => select((ThemeModel _) => _.screenSize);
 }
 
 extension SideBarSectionsExt on SideBarSections {

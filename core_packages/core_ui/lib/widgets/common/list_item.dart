@@ -72,6 +72,7 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = context.select((ThemeModel _) => _.screenSize);
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: Spacing.d0,
@@ -112,7 +113,7 @@ class ListItem extends StatelessWidget {
                 if (leading != null &&
                     (!hideLeadingOnHandyDevice ||
                         (hideLeadingOnHandyDevice &&
-                            !ThemeConfigs.screenSize.isHandyDevice)))
+                            !screenSize.isHandyDevice)))
                   SizedBox.square(
                     dimension: Spacing.d24,
                     child: DecoratedBox(
@@ -140,8 +141,7 @@ class ListItem extends StatelessWidget {
                     ),
                   ),
                 if (!hideTitleOnHandyDevice ||
-                    (hideTitleOnHandyDevice &&
-                        !ThemeConfigs.screenSize.isHandyDevice))
+                    (hideTitleOnHandyDevice && !screenSize.isHandyDevice))
                   expanded
                       ? Expanded(
                           child: Padding(
@@ -162,7 +162,7 @@ class ListItem extends StatelessWidget {
                 if (trailing != null &&
                     (!hideTrailingOnHandyDevice ||
                         (hideTrailingOnHandyDevice &&
-                            !ThemeConfigs.screenSize.isHandyDevice)))
+                            !screenSize.isHandyDevice)))
                   trailing!,
               ],
             ),
