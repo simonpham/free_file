@@ -15,7 +15,7 @@ dependencies:
     path: ../../packages/utils
 
   # State Management.
-  provider: ^6.1.0
+  provider: ^6.1.1
 
   # UI - Widgets.
   multi_split_view: ^2.4.0
