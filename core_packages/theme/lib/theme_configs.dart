@@ -49,6 +49,34 @@ extension ThemeConfigsExtension on ThemeConfigs {
       disabledColor: config.color.disabledIconColor,
     );
   }
+
+  Widget contextCardBuilder(
+    BuildContext context,
+    List<Widget> children,
+  ) {
+    return TsCard(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: children,
+      ),
+    );
+  }
+
+  Widget contextMenuButtonBuilder(
+    BuildContext context,
+    ContextMenuButtonConfig config, [
+    ContextMenuButtonStyle? style,
+  ]) {
+    return ListItem(
+      onTap: config.onPressed,
+      leading: config.icon,
+      title: Text(config.label),
+    );
+  }
+
+  Widget contextMenuDividerBuilder(BuildContext context) {
+    return const Divider();
+  }
 }
 
 @immutable

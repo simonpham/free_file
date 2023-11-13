@@ -1,11 +1,13 @@
-import 'package:core_ui/core_ui.dart';
+import 'package:flutter/material.dart';
+
 import 'package:desktop_multi_window/desktop_multi_window.dart';
+
+import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
-import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
@@ -44,7 +46,6 @@ class FreeFile extends StatefulWidget {
 }
 
 class _FreeFileState extends State<FreeFile> {
-
   ThemeModel get themeModel => injector<ThemeModel>();
 
   @override
@@ -84,19 +85,24 @@ class _FreeFileState extends State<FreeFile> {
                           : Colors.white),
                       0.95,
                     ),
-              child: Stack(
-                children: [
-                  if (child != null)
-                    Positioned.fill(
-                      child: child,
+              child: ContextMenuOverlay(
+                cardBuilder: ThemeConfigs().contextCardBuilder,
+                buttonBuilder: ThemeConfigs().contextMenuButtonBuilder,
+                dividerBuilder: ThemeConfigs().contextMenuDividerBuilder,
+                child: Stack(
+                  children: [
+                    if (child != null)
+                      Positioned.fill(
+                        child: child,
+                      ),
+                    const Positioned(
+                      top: 0.0,
+                      left: 0.0,
+                      right: 0.0,
+                      child: WindowTitleBar(),
                     ),
-                  const Positioned(
-                    top: 0.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: WindowTitleBar(),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },

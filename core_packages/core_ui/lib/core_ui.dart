@@ -1,5 +1,6 @@
 library core_ui;
 
+export 'package:context_menus/context_menus.dart';
 export 'package:flash/flash.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 export 'package:gradient_borders/gradient_borders.dart';
