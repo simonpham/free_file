@@ -1,15 +1,17 @@
 class HoldKeyEvent {
-  const HoldKeyEvent();
+  final bool isPressed;
+
+  const HoldKeyEvent(this.isPressed);
 }
 
 class HoldAltOptionEvent extends HoldKeyEvent {
-  const HoldAltOptionEvent();
+  const HoldAltOptionEvent(super.isPressed);
 }
 
 class HoldShiftEvent extends HoldKeyEvent {
-  const HoldShiftEvent();
+  const HoldShiftEvent(super.isPressed);
 }
 
 class HoldControlCommandEvent extends HoldKeyEvent {
-  const HoldControlCommandEvent();
+  const HoldControlCommandEvent(super.isPressed);
 }

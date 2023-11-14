@@ -22,6 +22,7 @@ class _MainAreaState extends State<MainArea> {
   final ScrollController scrollController = ScrollController();
 
   StreamSubscription<ShortcutEvent>? _shortcutSubscription;
+  StreamSubscription<HoldKeyEvent>? _holdKeySubscription;
 
   @override
   void initState() {
@@ -40,15 +41,24 @@ class _MainAreaState extends State<MainArea> {
     _shortcutSubscription = injector<EventBus>().on<ShortcutEvent>().listen(
           _onShortcutEvent,
         );
+    _holdKeySubscription = injector<EventBus>().on<HoldKeyEvent>().listen(
+          _onHoldKeyEvent,
+        );
   }
 
   void _cancelSubscription() {
     _shortcutSubscription?.cancel();
+    _holdKeySubscription?.cancel();
     _shortcutSubscription = null;
+    _holdKeySubscription = null;
   }
 
   void _onShortcutEvent(ShortcutEvent event) {
     debugPrint('ShortcutEvent: ${event.runtimeType}');
+  }
+
+  void _onHoldKeyEvent(HoldKeyEvent event) {
+    debugPrint('HoldKeyEvent: ${event.runtimeType}: ${event.isPressed}');
   }
 
   @override
