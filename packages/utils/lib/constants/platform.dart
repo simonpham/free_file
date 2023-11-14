@@ -13,6 +13,19 @@ final kIsIoS = UniversalPlatform.isIOS;
 
 final kIsFuchsia = UniversalPlatform.isFuchsia;
 
+final kActionKey =
+    kIsMacOs ? LogicalKeyboardKey.superKey : LogicalKeyboardKey.control;
+
+final kSpaceKeyLabel = kIsMacOs ? '␣' : 'Space';
+final kShiftKeyLabel = kIsMacOs ? '⇧' : 'Shift';
+final kAltKeyLabel = kIsMacOs ? '⌥' : 'Alt';
+final kCtrlKeyLabel = kIsMacOs ? '⌃' : 'Ctrl';
+final kSuperKeyLabel = kIsMacOs
+    ? '⌘'
+    : kIsLinux
+        ? '❖ Super'
+        : 'Windows';
+
 final kSlash = kIsWindows ? '\\' : '/';
 final kOpenProcess = kIsMacOs
     ? 'open'

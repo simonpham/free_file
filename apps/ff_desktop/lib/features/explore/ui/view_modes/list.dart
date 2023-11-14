@@ -69,7 +69,8 @@ class EntityViewList extends StatelessWidget {
       (containerHeight / mode.itemHeight).floor(),
     );
     final backgroundColor = context.appTheme.color.background;
-    final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(0.2);
+    final selectedBackgroundColor =
+        context.appTheme.color.primary.withOpacity(0.2);
     final appTheme = context.appTheme;
     return Scrollbar(
       controller: scrollController,
@@ -122,42 +123,45 @@ class EntityViewList extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: Spacing.d8,
               ),
-              child: Listener(
-                onPointerDown: (event) {
-                  if (event.buttons != kPrimaryMouseButton) {
-                    return;
-                  }
-                  onEntityTap(entity);
-                },
-                child: ListItem(
-                  mouseCursor: SystemMouseCursors.basic,
-                  height: mode.itemHeight - Spacing.d4,
-                  backgroundColor: selectedEntities.contains(entity)
-                      ? selectedBackgroundColor
-                      : backgroundColor,
-                  onDoubleTap: () => onEntityDoubleTap(entity),
-                  enableAnimation: false,
-                  leading: ImageView(
-                    entity.entityIcon,
-                    color: entity.getEntityColor(appTheme),
-                    size: Spacing.d20,
-                  ),
-                  titlePadding: EdgeInsets.only(
-                    left: Spacing.d8,
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Spacing.d8,
-                    vertical: Spacing.d4,
-                  ),
-                  title: Text(
-                    entity.name,
-                    style: TextStyle(
-                      color: entity.isHidden
-                          ? appTheme.color.disabledIconColor
-                          : appTheme.color.onBackground,
+              child: CommonEntityActionsWrapper(
+                entity: entity,
+                child: Listener(
+                  onPointerDown: (event) {
+                    if (event.buttons != kPrimaryMouseButton) {
+                      return;
+                    }
+                    onEntityTap(entity);
+                  },
+                  child: ListItem(
+                    mouseCursor: SystemMouseCursors.basic,
+                    height: mode.itemHeight - Spacing.d4,
+                    backgroundColor: selectedEntities.contains(entity)
+                        ? selectedBackgroundColor
+                        : backgroundColor,
+                    onDoubleTap: () => onEntityDoubleTap(entity),
+                    enableAnimation: false,
+                    leading: ImageView(
+                      entity.entityIcon,
+                      color: entity.getEntityColor(appTheme),
+                      size: Spacing.d20,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    titlePadding: EdgeInsets.only(
+                      left: Spacing.d8,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Spacing.d8,
+                      vertical: Spacing.d4,
+                    ),
+                    title: Text(
+                      entity.name,
+                      style: TextStyle(
+                        color: entity.isHidden
+                            ? appTheme.color.disabledIconColor
+                            : appTheme.color.onBackground,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
               ),

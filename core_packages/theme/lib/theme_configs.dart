@@ -4,6 +4,7 @@ import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:theme/theme.dart';
+import 'package:utils/utils.dart';
 
 extension ThemeExtension on BuildContext {
   AppTheme get appTheme =>
@@ -70,7 +71,23 @@ extension ThemeConfigsExtension on ThemeConfigs {
     return ListItem(
       onTap: config.onPressed,
       leading: config.icon,
-      title: Text(config.label),
+      title: Row(
+        children: [
+          Expanded(
+            child: Text(config.label),
+          ),
+          if (config.shortcutLabel != null)
+            Padding(
+              padding: EdgeInsets.only(left: Spacing.d48),
+              child: Text(
+                '${config.shortcutLabel}',
+                style: TextStyle(
+                  color: context.theme.disabledColor,
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 
