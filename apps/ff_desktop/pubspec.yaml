@@ -26,14 +26,13 @@ dependencies:
 
   local_entity_provider:
     path: ../../modules/local_entity_provider
+  shortcut:
+    path: ../../modules/shortcut
 
   # Localization.
   intl: 0.18.1
   flutter_localizations:
     sdk: flutter
-
-  # Dependency Injection.
-  get_it: ^7.6.4
 
   # Navigation.
   go_router: ^12.1.1

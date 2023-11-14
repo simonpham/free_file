@@ -1,13 +1,14 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:desktop_multi_window/desktop_multi_window.dart';
 
 import 'package:core_ui/core_ui.dart';
-import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
+import 'package:shortcut/shortcut.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
@@ -52,63 +53,65 @@ class _FreeFileState extends State<FreeFile> {
   Widget build(BuildContext context) {
     final size = ScreenSize.of(context);
     themeModel.screenSize = size;
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(
-          value: injector<TabViewModel>(),
-        ),
-        ChangeNotifierProvider.value(
-          value: themeModel,
-        ),
-      ],
-      builder: (BuildContext context, _) {
-        final themeMode = context.select((ThemeModel _) => _.themeMode);
-        return MaterialApp.router(
-          themeMode: themeMode,
-          debugShowCheckedModeBanner: false,
-          theme: ThemeConfigs().getThemeData(ThemeMode.light),
-          darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
-          builder: (context, child) {
-            return Container(
-              color: PlatformUtils.watchTransparencySetting(context)
-                  ? Color.lerp(
-                      context.theme.primaryColor,
-                      (themeMode == ThemeMode.dark
-                          ? Colors.black54
-                          : Colors.white70),
-                      0.95,
-                    )
-                  : Color.lerp(
-                      context.theme.primaryColor,
-                      (themeMode == ThemeMode.dark
-                          ? Colors.black
-                          : Colors.white),
-                      0.95,
-                    ),
-              child: ContextMenuOverlay(
-                cardBuilder: ThemeConfigs().contextCardBuilder,
-                buttonBuilder: ThemeConfigs().contextMenuButtonBuilder,
-                dividerBuilder: ThemeConfigs().contextMenuDividerBuilder,
-                child: Stack(
-                  children: [
-                    if (child != null)
-                      Positioned.fill(
-                        child: child,
+    return GlobalShortcutWrapper(
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(
+            value: injector<TabViewModel>(),
+          ),
+          ChangeNotifierProvider.value(
+            value: themeModel,
+          ),
+        ],
+        builder: (BuildContext context, _) {
+          final themeMode = context.select((ThemeModel _) => _.themeMode);
+          return MaterialApp.router(
+            themeMode: themeMode,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeConfigs().getThemeData(ThemeMode.light),
+            darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
+            builder: (context, child) {
+              return Container(
+                color: PlatformUtils.watchTransparencySetting(context)
+                    ? Color.lerp(
+                        context.theme.primaryColor,
+                        (themeMode == ThemeMode.dark
+                            ? Colors.black54
+                            : Colors.white70),
+                        0.95,
+                      )
+                    : Color.lerp(
+                        context.theme.primaryColor,
+                        (themeMode == ThemeMode.dark
+                            ? Colors.black
+                            : Colors.white),
+                        0.95,
                       ),
-                    const Positioned(
-                      top: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: WindowTitleBar(),
-                    ),
-                  ],
+                child: ContextMenuOverlay(
+                  cardBuilder: ThemeConfigs().contextCardBuilder,
+                  buttonBuilder: ThemeConfigs().contextMenuButtonBuilder,
+                  dividerBuilder: ThemeConfigs().contextMenuDividerBuilder,
+                  child: Stack(
+                    children: [
+                      if (child != null)
+                        Positioned.fill(
+                          child: child,
+                        ),
+                      const Positioned(
+                        top: 0.0,
+                        left: 0.0,
+                        right: 0.0,
+                        child: WindowTitleBar(),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
-          routerConfig: appRouter,
-        );
-      },
+              );
+            },
+            routerConfig: appRouter,
+          );
+        },
+      ),
     );
   }
 }

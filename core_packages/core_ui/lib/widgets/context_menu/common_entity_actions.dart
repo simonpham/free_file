@@ -10,7 +10,7 @@ enum EntityContextAction {
   openInNewWindow(
     showOnKeyHold: LogicalKeyboardKey.alt,
     shortcutKey: [
-      LogicalKeyboardKey.superKey,
+      LogicalKeyboardKey.meta,
       LogicalKeyboardKey.enter,
     ],
   ),
@@ -23,7 +23,7 @@ enum EntityContextAction {
     isMacOsOnly: true,
     isCompact: true,
     shortcutKey: [
-      LogicalKeyboardKey.superKey,
+      LogicalKeyboardKey.meta,
       LogicalKeyboardKey.keyC,
     ],
   ),
@@ -35,8 +35,30 @@ enum EntityContextAction {
       LogicalKeyboardKey.keyC,
     ],
   ),
-  paste(isCompact: true, hideOnKeyHold: LogicalKeyboardKey.alt),
-  move(isCompact: true, showOnKeyHold: LogicalKeyboardKey.alt),
+  paste(
+    isCompact: true,
+    hideOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [
+      LogicalKeyboardKey.meta,
+      LogicalKeyboardKey.keyV,
+    ],
+  ),
+  pasteMacOs(
+    isCompact: true,
+    hideOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [
+      LogicalKeyboardKey.control,
+      LogicalKeyboardKey.keyV,
+    ],
+  ),
+  move(
+    isCompact: true,
+    showOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [
+      LogicalKeyboardKey.meta,
+      LogicalKeyboardKey.keyV,
+    ],
+  ),
   delete(
     isCompact: true,
     hideOnKeyHold: LogicalKeyboardKey.shift,
@@ -61,7 +83,7 @@ enum EntityContextAction {
   final bool isCompact;
   final bool isMacOsOnly;
   final bool hideOnMacOs;
-  final List<LogicalKeyboardKey>? shortcutKey;
+  final List<LogicalKeyboardKey> shortcutKey;
   final LogicalKeyboardKey? showOnKeyHold;
   final LogicalKeyboardKey? hideOnKeyHold;
 
@@ -71,7 +93,7 @@ enum EntityContextAction {
     this.hideOnMacOs = false,
     this.showOnKeyHold,
     this.hideOnKeyHold,
-    this.shortcutKey,
+    this.shortcutKey = const [],
   });
 
   SvgGenImage? get icon {
@@ -84,6 +106,7 @@ enum EntityContextAction {
       copy => Assets.icons.interface.outline.copy,
       copyMacOs => Assets.icons.interface.outline.copy,
       paste => null,
+      pasteMacOs => null,
       move => null,
       delete => Assets.icons.interface.outline.trash,
       deletePermanently => Assets.icons.interface.outline.trash01,
@@ -102,6 +125,7 @@ enum EntityContextAction {
       copy => 'Copy',
       copyMacOs => 'Copy',
       paste => 'Paste',
+      pasteMacOs => 'Paste',
       move => 'Move',
       delete => 'Delete',
       deletePermanently => 'Delete permanently',
@@ -112,7 +136,7 @@ enum EntityContextAction {
 
   String get shortcutLabel {
     final shortcutKey = this.shortcutKey;
-    if (shortcutKey == null) return '';
+    if (shortcutKey.isEmpty) return '';
     return shortcutKey
         .map((e) => e.getLabel())
         .skipWhile((e) => e.isEmpty)
@@ -139,8 +163,8 @@ extension on LogicalKeyboardKey {
     switch (this) {
       case LogicalKeyboardKey.space:
         return kSpaceKeyLabel;
-      case LogicalKeyboardKey.superKey:
-        return kSuperKeyLabel;
+      case LogicalKeyboardKey.meta:
+        return kMetaKeyLabel;
       case LogicalKeyboardKey.alt:
         return kAltKeyLabel;
       case LogicalKeyboardKey.control:

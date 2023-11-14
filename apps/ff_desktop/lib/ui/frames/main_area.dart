@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
@@ -18,6 +20,36 @@ class MainArea extends StatefulWidget {
 
 class _MainAreaState extends State<MainArea> {
   final ScrollController scrollController = ScrollController();
+
+  StreamSubscription<ShortcutEvent>? _shortcutSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    _subscribeToShortcuts();
+  }
+
+  @override
+  void dispose() {
+    _cancelSubscription();
+    super.dispose();
+  }
+
+  void _subscribeToShortcuts() {
+    _cancelSubscription();
+    _shortcutSubscription = injector<EventBus>().on<ShortcutEvent>().listen(
+          _onShortcutEvent,
+        );
+  }
+
+  void _cancelSubscription() {
+    _shortcutSubscription?.cancel();
+    _shortcutSubscription = null;
+  }
+
+  void _onShortcutEvent(ShortcutEvent event) {
+    debugPrint('ShortcutEvent: ${event.runtimeType}');
+  }
 
   @override
   Widget build(BuildContext context) {

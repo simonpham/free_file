@@ -1,6 +1,4 @@
-import 'package:core/models/directory.dart';
-import 'package:core/models/file.dart';
-import 'package:ff_desktop/di.dart';
+import 'package:core/core.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';

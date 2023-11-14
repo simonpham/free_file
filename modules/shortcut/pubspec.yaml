@@ -1,0 +1,15 @@
+name: shortcut
+
+environment:
+  sdk: '>=3.1.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  core:
+    path: ../../core_packages/core
+  core_ui:
+    path: ../../core_packages/core_ui
+  utils:
+    path: ../../packages/utils
