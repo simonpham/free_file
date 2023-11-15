@@ -38,42 +38,55 @@ class CommonEntityActionsWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContextMenuRegion(
-      contextMenu: GenericContextMenu(
-        buttonConfigs: [
-          for (final action in EntityContextAction.availableActions)
-            ContextMenuButtonConfig(
-              action.getLabel(context),
-              icon: action.icon == null
-                  ? SizedBox.square(dimension: Spacing.d16)
-                  : ImageView(
-                      action.icon,
-                      size: Spacing.d16,
-                      color: context.theme.disabledColor,
-                    ),
-              shortcutLabel: action.shortcutLabel,
-              onPressed: () {
-                switch (action) {
-                  case EntityContextAction.copy:
-                    _handleCopy();
-                    break;
-                  case EntityContextAction.paste:
-                    _handlePaste();
-                    break;
-                  case EntityContextAction.move:
-                    _handleMove();
-                    break;
-                  case EntityContextAction.properties:
-                    _handleProperties();
-                    break;
-                  default:
-                    break;
-                }
-              },
-            ),
-        ],
-      ),
-      child: child,
+    return KeyHoldDetector(
+      builder: (
+        BuildContext context,
+        bool isPressedAltOption,
+        bool isPressedShift,
+        bool isPressedControlCommand,
+      ) {
+        return ContextMenuRegion(
+          contextMenu: GenericContextMenu(
+            buttonConfigs: [
+              for (final action in EntityContextAction.getAvailableActions(
+                isPressedAltOption: isPressedAltOption,
+                isPressedShift: isPressedShift,
+                isPressedControlCommand: isPressedControlCommand,
+              ))
+                ContextMenuButtonConfig(
+                  action.getLabel(context),
+                  icon: action.icon == null
+                      ? SizedBox.square(dimension: Spacing.d16)
+                      : ImageView(
+                          action.icon,
+                          size: Spacing.d16,
+                          color: context.theme.disabledColor,
+                        ),
+                  shortcutLabel: action.shortcutLabel,
+                  onPressed: () {
+                    switch (action) {
+                      case EntityContextAction.copy:
+                        _handleCopy();
+                        break;
+                      case EntityContextAction.paste:
+                        _handlePaste();
+                        break;
+                      case EntityContextAction.move:
+                        _handleMove();
+                        break;
+                      case EntityContextAction.properties:
+                        _handleProperties();
+                        break;
+                      default:
+                        break;
+                    }
+                  },
+                ),
+            ],
+          ),
+          child: child,
+        );
+      },
     );
   }
 

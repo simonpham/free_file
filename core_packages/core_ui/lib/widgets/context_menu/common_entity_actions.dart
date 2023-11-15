@@ -9,12 +9,10 @@ enum EntityContextAction {
   ),
   openInNewWindow(
     showOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.meta,
-      LogicalKeyboardKey.enter,
-    ],
   ),
-  openInNewTab,
+  openInNewTab(
+    hideOnKeyHold: LogicalKeyboardKey.alt,
+  ),
   quickLook(
     shortcutKey: [LogicalKeyboardKey.space],
   ),
@@ -37,35 +35,64 @@ enum EntityContextAction {
   ),
   paste(
     isCompact: true,
-    hideOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.meta,
-      LogicalKeyboardKey.keyV,
-    ],
-  ),
-  pasteMacOs(
-    isCompact: true,
+    hideOnMacOs: true,
     hideOnKeyHold: LogicalKeyboardKey.alt,
     shortcutKey: [
       LogicalKeyboardKey.control,
       LogicalKeyboardKey.keyV,
     ],
   ),
-  move(
+  pasteMacOs(
     isCompact: true,
+    isMacOsOnly: true,
+    hideOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [
+      LogicalKeyboardKey.meta,
+      LogicalKeyboardKey.keyV,
+    ],
+  ),
+  moveMacOs(
+    isCompact: true,
+    isMacOsOnly: true,
     showOnKeyHold: LogicalKeyboardKey.alt,
     shortcutKey: [
       LogicalKeyboardKey.meta,
       LogicalKeyboardKey.keyV,
     ],
   ),
+  move(
+    isCompact: true,
+    hideOnMacOs: true,
+    showOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [
+      LogicalKeyboardKey.control,
+      LogicalKeyboardKey.keyV,
+    ],
+  ),
   delete(
     isCompact: true,
+    hideOnMacOs: true,
     hideOnKeyHold: LogicalKeyboardKey.shift,
     shortcutKey: [LogicalKeyboardKey.delete],
   ),
+  deleteMacOs(
+    isCompact: true,
+    isMacOsOnly: true,
+    hideOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [LogicalKeyboardKey.delete],
+  ),
+  deletePermanentlyMacOs(
+    isCompact: true,
+    isMacOsOnly: true,
+    showOnKeyHold: LogicalKeyboardKey.alt,
+    shortcutKey: [
+      LogicalKeyboardKey.alt,
+      LogicalKeyboardKey.delete,
+    ],
+  ),
   deletePermanently(
     isCompact: true,
+    hideOnMacOs: true,
     showOnKeyHold: LogicalKeyboardKey.shift,
     shortcutKey: [
       LogicalKeyboardKey.shift,
@@ -108,8 +135,11 @@ enum EntityContextAction {
       paste => null,
       pasteMacOs => null,
       move => null,
+      moveMacOs => null,
       delete => Assets.icons.interface.outline.trash,
+      deleteMacOs => Assets.icons.interface.outline.trash,
       deletePermanently => Assets.icons.interface.outline.trash01,
+      deletePermanentlyMacOs => Assets.icons.interface.outline.trash01,
       rename => Assets.icons.interface.outline.edit,
       properties => null,
     };
@@ -127,8 +157,11 @@ enum EntityContextAction {
       paste => 'Paste',
       pasteMacOs => 'Paste',
       move => 'Move',
+      moveMacOs => 'Move',
       delete => 'Delete',
+      deleteMacOs => 'Delete',
       deletePermanently => 'Delete permanently',
+      deletePermanentlyMacOs => 'Delete permanently',
       rename => 'Rename',
       properties => 'Properties',
     };
@@ -153,8 +186,65 @@ enum EntityContextAction {
     return true;
   }
 
-  static Iterable<EntityContextAction> get availableActions {
-    return EntityContextAction.values.where((item) => item.enabled);
+  static Iterable<EntityContextAction> getAvailableActions({
+    bool isPressedAltOption = false,
+    bool isPressedShift = false,
+    bool isPressedControlCommand = false,
+  }) {
+    return EntityContextAction.values.where(
+      (item) {
+        if (!item.enabled) {
+          return false;
+        }
+
+        if (item.showOnKeyHold != null &&
+            isPressedAltOption == false &&
+            isPressedShift == false &&
+            isPressedControlCommand == false) {
+          return false;
+        }
+
+        if (item.hideOnKeyHold != null &&
+            isPressedAltOption &&
+            item.hideOnKeyHold == LogicalKeyboardKey.alt) {
+          return false;
+        }
+
+        if (item.hideOnKeyHold != null &&
+            isPressedShift &&
+            item.hideOnKeyHold == LogicalKeyboardKey.shift) {
+          return false;
+        }
+
+        if (item.hideOnKeyHold != null &&
+            isPressedControlCommand &&
+            (item.hideOnKeyHold == LogicalKeyboardKey.control ||
+                item.hideOnKeyHold == LogicalKeyboardKey.meta)) {
+          return false;
+        }
+
+        if (item.showOnKeyHold != null &&
+            !isPressedAltOption &&
+            item.showOnKeyHold == LogicalKeyboardKey.alt) {
+          return false;
+        }
+
+        if (item.showOnKeyHold != null &&
+            !isPressedShift &&
+            item.showOnKeyHold == LogicalKeyboardKey.shift) {
+          return false;
+        }
+
+        if (item.showOnKeyHold != null &&
+            !isPressedControlCommand &&
+            (item.showOnKeyHold == LogicalKeyboardKey.control ||
+                item.showOnKeyHold == LogicalKeyboardKey.meta)) {
+          return false;
+        }
+
+        return true;
+      },
+    );
   }
 }
 
