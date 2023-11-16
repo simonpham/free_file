@@ -128,7 +128,7 @@ class EntityViewList extends StatelessWidget {
                 entity: entity,
                 child: Listener(
                   onPointerDown: (event) {
-                    if (isSelected) {
+                    if (isSelected && event.buttons != kPrimaryMouseButton) {
                       return;
                     }
                     onEntityTap(entity);
