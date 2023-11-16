@@ -20,10 +20,13 @@ dependencies:
   # UI - Widgets.
   multi_split_view: ^2.4.0
   flash: ^3.0.5+2
-  context_menus: ^1.0.2
   gradient_borders: ^1.0.0
   flutter_svg: ^2.0.9
   shimmer: ^3.0.0
+  context_menus:
+    git:
+      url: https://github.com/SoFluffyOS/flutter-context-menu.git
+      ref: 4081ec557e2f581e40d34d3c6a70b9a23efcb1ef
 
 flutter:
   uses-material-design: true

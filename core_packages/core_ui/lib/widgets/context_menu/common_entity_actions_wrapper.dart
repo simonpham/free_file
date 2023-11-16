@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
@@ -36,57 +37,88 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     this.onMoveFile,
   });
 
+  Widget _buildMenu(
+    BuildContext context,
+    bool isPressedAltOption,
+    bool isPressedShift,
+    bool isPressedControlCommand,
+  ) {
+    return GenericContextMenu(
+      buttonConfigs: [
+        for (final action in EntityContextAction.getAvailableActions(
+          isPressedAltOption: isPressedAltOption,
+          isPressedShift: isPressedShift,
+          isPressedControlCommand: isPressedControlCommand,
+        ))
+          ContextMenuButtonConfig(
+            action.getLabel(context),
+            icon: action.icon == null
+                ? SizedBox.square(dimension: Spacing.d16)
+                : ImageView(
+                    action.icon,
+                    size: Spacing.d16,
+                    color: context.theme.disabledColor,
+                  ),
+            shortcutLabel: action.shortcutLabel,
+            onPressed: () {
+              switch (action) {
+                case EntityContextAction.copy:
+                  _handleCopy();
+                  break;
+                case EntityContextAction.paste:
+                  _handlePaste();
+                  break;
+                case EntityContextAction.move:
+                  _handleMove();
+                  break;
+                case EntityContextAction.properties:
+                  _handleProperties();
+                  break;
+                default:
+                  break;
+              }
+            },
+          ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return KeyHoldDetector(
-      builder: (
-        BuildContext context,
+      onHoldChanged: (
         bool isPressedAltOption,
         bool isPressedShift,
         bool isPressedControlCommand,
       ) {
-        return ContextMenuRegion(
-          contextMenu: GenericContextMenu(
-            buttonConfigs: [
-              for (final action in EntityContextAction.getAvailableActions(
-                isPressedAltOption: isPressedAltOption,
-                isPressedShift: isPressedShift,
-                isPressedControlCommand: isPressedControlCommand,
-              ))
-                ContextMenuButtonConfig(
-                  action.getLabel(context),
-                  icon: action.icon == null
-                      ? SizedBox.square(dimension: Spacing.d16)
-                      : ImageView(
-                          action.icon,
-                          size: Spacing.d16,
-                          color: context.theme.disabledColor,
-                        ),
-                  shortcutLabel: action.shortcutLabel,
-                  onPressed: () {
-                    switch (action) {
-                      case EntityContextAction.copy:
-                        _handleCopy();
-                        break;
-                      case EntityContextAction.paste:
-                        _handlePaste();
-                        break;
-                      case EntityContextAction.move:
-                        _handleMove();
-                        break;
-                      case EntityContextAction.properties:
-                        _handleProperties();
-                        break;
-                      default:
-                        break;
-                    }
-                  },
-                ),
-            ],
+        if (!context.contextMenuOverlay.isShowing) {
+          return;
+        }
+        context.contextMenuOverlay.show(
+          _buildMenu(
+            context,
+            isPressedAltOption,
+            isPressedShift,
+            isPressedControlCommand,
           ),
-          child: child,
         );
       },
+      child: Listener(
+        onPointerDown: (event) {
+          if (event.buttons != kSecondaryMouseButton) {
+            return;
+          }
+          context.contextMenuOverlay.show(
+            _buildMenu(
+              context,
+              false,
+              false,
+              false,
+            ),
+          );
+        },
+        child: child,
+      ),
     );
   }
 
