@@ -118,6 +118,7 @@ class EntityViewList extends StatelessWidget {
           ),
           itemBuilder: (BuildContext context, int index) {
             final entity = entities[index];
+            final isSelected = selectedEntities.contains(entity);
             return Container(
               key: ValueKey(entity.path.toFilePath()),
               padding: EdgeInsets.symmetric(
@@ -127,7 +128,7 @@ class EntityViewList extends StatelessWidget {
                 entity: entity,
                 child: Listener(
                   onPointerDown: (event) {
-                    if (event.buttons != kPrimaryMouseButton) {
+                    if (isSelected) {
                       return;
                     }
                     onEntityTap(entity);
@@ -135,9 +136,8 @@ class EntityViewList extends StatelessWidget {
                   child: ListItem(
                     mouseCursor: SystemMouseCursors.basic,
                     height: mode.itemHeight - Spacing.d4,
-                    backgroundColor: selectedEntities.contains(entity)
-                        ? selectedBackgroundColor
-                        : backgroundColor,
+                    backgroundColor:
+                        isSelected ? selectedBackgroundColor : backgroundColor,
                     onDoubleTap: () => onEntityDoubleTap(entity),
                     enableAnimation: false,
                     leading: ImageView(
@@ -151,6 +151,9 @@ class EntityViewList extends StatelessWidget {
                     padding: EdgeInsets.symmetric(
                       horizontal: Spacing.d8,
                       vertical: Spacing.d4,
+                    ),
+                    hoverOverlayPadding: EdgeInsets.only(
+                      bottom: Spacing.d4,
                     ),
                     title: Text(
                       entity.name,
