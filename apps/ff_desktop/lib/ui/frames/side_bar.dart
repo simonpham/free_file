@@ -15,6 +15,7 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MediaQuery.sizeOf(context); // rebuild on resize.
     return ChangeNotifierProvider.value(
       value: context.select((ExploreViewModel _) => _.sideBarViewModel),
       child: TitlebarSafeArea(
