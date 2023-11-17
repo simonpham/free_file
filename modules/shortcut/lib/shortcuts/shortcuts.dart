@@ -1,13 +1,2 @@
-export 'compress.dart';
-export 'copy.dart';
-export 'copy_macos.dart';
-export 'delete.dart';
-export 'delete_permanently.dart';
-export 'move.dart';
-export 'open.dart';
-export 'open_in_new_tab.dart';
-export 'open_in_new_window.dart';
-export 'paste.dart';
-export 'properties.dart';
-export 'quick_look.dart';
-export 'rename.dart';
+export 'entity/entity.dart';
+export 'workspace/workspace.dart';

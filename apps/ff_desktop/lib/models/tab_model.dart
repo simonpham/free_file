@@ -1,9 +1,32 @@
+import 'dart:async';
 import 'dart:math';
 
+import 'package:core/core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
 
 class TabViewModel extends ChangeNotifier {
+  StreamSubscription? _shortcutSubscription;
+
+  EventBus get eventBus => injector.get<EventBus>();
+
+  TabViewModel() {
+    _shortcutSubscription?.cancel();
+    _shortcutSubscription =
+        eventBus.on<ShortcutEvent>().listen(_handleShortcut);
+  }
+
+  @override
+  void dispose() {
+    _shortcutSubscription?.cancel();
+    _shortcutSubscription = null;
+    for (var element in _exploreViewModels) {
+      element.dispose();
+    }
+    _exploreViewModels.clear();
+    super.dispose();
+  }
+
   int _currentIndex = 0;
 
   int get currentIndex => _currentIndex;
@@ -52,5 +75,16 @@ class TabViewModel extends ChangeNotifier {
     _exploreViewModels.removeAt(index);
     notifyListeners();
     _isRemovingTab = false;
+  }
+
+  void _handleShortcut(ShortcutEvent event) {
+    if (event is AddTabEvent) {
+      addTab();
+      return;
+    }
+    if (event is CloseTabEvent) {
+      removeExploreViewModelAt(_currentIndex);
+      return;
+    }
   }
 }

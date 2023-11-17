@@ -1,4 +1,4 @@
-import 'package:core/core.dart';
+part of '../shortcut.dart';
 
 class OpenEvent extends ShortcutEvent {
   const OpenEvent();
