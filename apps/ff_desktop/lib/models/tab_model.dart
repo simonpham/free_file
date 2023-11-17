@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:core/core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
+import 'package:utils/utils.dart';
 
 class TabViewModel extends ChangeNotifier {
   StreamSubscription? _shortcutSubscription;
@@ -78,13 +79,18 @@ class TabViewModel extends ChangeNotifier {
   }
 
   void _handleShortcut(ShortcutEvent event) {
-    if (event is AddTabEvent) {
-      addTab();
-      return;
-    }
-    if (event is CloseTabEvent) {
-      removeExploreViewModelAt(_currentIndex);
-      return;
+    switch (event.runtimeType) {
+      case const (AddTabEvent):
+        addTab();
+        break;
+      case const (CloseTabEvent):
+        removeExploreViewModelAt(_currentIndex);
+        break;
+      default:
+        printLog(
+          '[TabViewModel] Unhandled shortcut event: ${event.runtimeType}',
+        );
+        break;
     }
   }
 }
