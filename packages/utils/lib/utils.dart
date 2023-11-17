@@ -8,3 +8,4 @@ export 'package:universal_platform/universal_platform.dart';
 
 export 'constants/constants.dart';
 export 'extensions/extensions.dart';
+export 'utils/utils.dart';
