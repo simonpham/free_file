@@ -3,7 +3,6 @@ import 'dart:io' as io;
 
 import 'package:core/core.dart';
 import 'package:ff_desktop/constants/constants.dart';
-import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
@@ -39,7 +38,6 @@ class ExploreViewModel extends ChangeNotifier
   List<Entity> _entities = [];
   Set<Entity> _selectedEntities = {};
   Set<Entity> _copiedEntities = {};
-  Set<Entity> _cutEntities = {};
 
   bool _showHidden = false;
   bool _isSelectModeEnabled = false;
@@ -79,9 +77,6 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   Set<Entity> get copiedEntities => _copiedEntities;
-
-  @override
-  Set<Entity> get cutEntities => _cutEntities;
 
   @override
   Future<void> refresh() async {
@@ -176,39 +171,56 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  void copy(Entity entity) {
-    // TODO: implement copy
+  void copy({Set<Entity>? entities}) {
+    _copiedEntities = entities ?? _selectedEntities;
+    notifyListeners();
   }
 
   @override
-  Future<Entity> createDirectory(Uri path, String name) {
+  Future<Entity> createDirectory({Uri? path, required String name}) {
     // TODO: implement createDirectory
     throw UnimplementedError();
   }
 
   @override
-  Future<Entity> createFile(Uri path, String name) {
+  Future<Entity> createFile({Uri? path, required String name}) {
     // TODO: implement createFile
     throw UnimplementedError();
   }
 
   @override
-  void cut(Entity entity) {
-    // TODO: implement cut
-  }
-
-  @override
-  void delete(Entity entity) {
+  void delete({Entity? entity}) {
     // TODO: implement delete
   }
 
   @override
-  void paste(Uri path) {
-    // TODO: implement paste
+  Future<void> paste({Uri? path}) async {
+    if (_copiedEntities.isEmpty) {
+      return;
+    }
+
+    path ??= currentUri;
+
+    final List<String> copiedPaths = [];
+    for (var entity in _copiedEntities) {
+      final newPath = path.resolve(path.path + kSlash + entity.name);
+      if (entity is File) {
+        await _local.copyFile(entity.path, newPath);
+      } else if (entity is Directory) {
+        await _local.copyDirectory(entity.path, newPath);
+      }
+      copiedPaths.add(newPath.toFilePath());
+    }
+
+    _copiedEntities = {};
+    await refresh();
+    selectBatch(_entities
+        .where((item) => copiedPaths.contains(item.path.toFilePath()))
+        .toSet());
   }
 
   @override
-  void rename(Entity entity, String name) {
+  void rename({Entity? entity, required String name}) {
     // TODO: implement rename
   }
 

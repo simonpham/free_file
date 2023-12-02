@@ -5,21 +5,17 @@ import 'package:core/core.dart';
 abstract interface class ExploreInterfaceManipulateActions {
   Set<Entity> get copiedEntities;
 
-  Set<Entity> get cutEntities;
+  FutureOr<void> copy({Set<Entity>? entities});
 
-  void copy(Entity entity);
+  FutureOr<void> paste({Uri? path});
 
-  void cut(Entity entity);
+  FutureOr<void> delete({Entity? entity});
 
-  void paste(Uri path);
+  FutureOr<void> rename({Entity? entity, required String name});
 
-  void delete(Entity entity);
+  Future<Entity> createFile({Uri? path, required String name});
 
-  void rename(Entity entity, String name);
-
-  Future<Entity> createFile(Uri path, String name);
-
-  Future<Entity> createDirectory(Uri path, String name);
+  Future<Entity> createDirectory({Uri? path, required String name});
 }
 
 abstract interface class ExploreInterfaceSelectActions {

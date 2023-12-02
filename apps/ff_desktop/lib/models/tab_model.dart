@@ -86,6 +86,13 @@ class TabViewModel extends ChangeNotifier {
       case const (CloseTabEvent):
         removeExploreViewModelAt(_currentIndex);
         break;
+      case const (CopyEvent):
+      case const (CopyMacOsEvent):
+        currentExploreViewModel.copy();
+        break;
+      case const (PasteEvent):
+        currentExploreViewModel.paste();
+        break;
       default:
         printLog(
           '[TabViewModel] Unhandled shortcut event: ${event.runtimeType}',
