@@ -63,7 +63,7 @@ class SideBar extends StatelessWidget {
                                       selectedIcon:
                                           entry.key.getSelectedIcon(context),
                                       textStyle: context
-                                          .theme.textTheme.bodyLarge
+                                          .theme.textTheme.bodyMedium
                                           ?.copyWith(
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -139,7 +139,7 @@ class SideBarSection extends StatelessWidget {
                   : null,
               icon: section.getIcon(context),
               selectedIcon: section.getSelectedIcon(context),
-              textStyle: context.theme.textTheme.bodyLarge?.copyWith(
+              textStyle: context.theme.textTheme.bodyMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),

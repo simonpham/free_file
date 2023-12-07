@@ -55,7 +55,7 @@ class _AddressBarState extends State<AddressBar> {
               focusNode: focusNode,
               controller: controller,
               onSubmitted: _handleSubmitted,
-              style: context.theme.textTheme.bodyLarge?.copyWith(
+              style: context.theme.textTheme.bodyMedium?.copyWith(
                 color: context.theme.colorScheme.onSurfaceVariant,
               ),
               onTapOutside: _disableEditMode,
@@ -124,7 +124,7 @@ class _AddressBarState extends State<AddressBar> {
                                   alignment: Alignment.center,
                                   child: Text(
                                     displaySegment,
-                                    style: context.theme.textTheme.bodyLarge
+                                    style: context.theme.textTheme.bodyMedium
                                         ?.copyWith(
                                       color: isLast
                                           ? context.theme.colorScheme

@@ -131,7 +131,7 @@ class SideBarItem extends StatelessWidget {
                             final text =
                                 title ?? uri?.lastNonEmptySegment ?? '';
                             final textStyle = this.textStyle ??
-                                (context.theme.textTheme.bodyLarge ??
+                                (context.theme.textTheme.bodyMedium ??
                                         const TextStyle())
                                     .copyWith(
                                   color: selected

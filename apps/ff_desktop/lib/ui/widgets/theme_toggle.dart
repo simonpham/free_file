@@ -8,9 +8,9 @@ class ThemeToggle extends StatelessWidget {
   final bool isCollapsed;
 
   const ThemeToggle({
-    Key? key,
+    super.key,
     this.isCollapsed = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +75,9 @@ class ThemeToggle extends StatelessWidget {
                                     ThemeMode.light.name.capitalize(),
                                     style: context.theme.textTheme.bodySmall
                                         ?.copyWith(
-                                      color:
-                                          context.theme.colorScheme.onPrimary,
+                                      color: themeMode == ThemeMode.light
+                                          ? context.theme.colorScheme.onPrimary
+                                          : context.theme.colorScheme.onBackground,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -99,7 +100,7 @@ class ThemeToggle extends StatelessWidget {
                                 size: Spacing.d16,
                                 color: themeMode == ThemeMode.light
                                     ? context.theme.colorScheme.onSurface
-                                    : context.theme.colorScheme.onPrimary,
+                                    : context.theme.colorScheme.onBackground,
                               ),
                               Flexible(
                                 child: Padding(
@@ -110,7 +111,7 @@ class ThemeToggle extends StatelessWidget {
                                         ?.copyWith(
                                       color: themeMode == ThemeMode.light
                                           ? context.theme.colorScheme.onSurface
-                                          : context.theme.colorScheme.onPrimary,
+                                          : context.theme.colorScheme.onBackground,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
