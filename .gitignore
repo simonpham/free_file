@@ -7,3 +7,4 @@ pubspec.lock
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 **/pubspec_overrides.yaml
+**/devtools_options.yaml
