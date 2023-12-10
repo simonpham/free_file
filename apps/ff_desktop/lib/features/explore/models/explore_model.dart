@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 
 import 'package:ff_desktop/features/explore/explore.dart';
+import 'package:pasteboard/pasteboard.dart';
 import 'package:utils/utils.dart';
 
 class ExploreViewModel extends ChangeNotifier
@@ -38,6 +39,10 @@ class ExploreViewModel extends ChangeNotifier
   List<Entity> _entities = [];
   Set<Entity> _selectedEntities = {};
   Set<Entity> _copiedEntities = {};
+
+  Future<List<String>> get _copiedPaths {
+    return Pasteboard.files();
+  }
 
   bool _showHidden = false;
   bool _isSelectModeEnabled = false;
@@ -171,8 +176,11 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  void copy({Set<Entity>? entities}) {
+  Future<void> copy({Set<Entity>? entities}) async {
     _copiedEntities = entities ?? _selectedEntities;
+    await Pasteboard.writeFiles(
+      _copiedEntities.map((e) => e.path.toFilePath()).toList(),
+    );
     notifyListeners();
   }
 
@@ -201,21 +209,31 @@ class ExploreViewModel extends ChangeNotifier
 
     path ??= currentUri;
 
-    final List<String> copiedPaths = [];
-    for (var entity in _copiedEntities) {
-      final newPath = path.resolve(path.path + kSlash + entity.name);
-      if (entity is File) {
-        await _local.copyFile(entity.path, newPath);
-      } else if (entity is Directory) {
-        await _local.copyDirectory(entity.path, newPath);
-      }
-      copiedPaths.add(newPath.toFilePath());
+    final copiedPaths = await _copiedPaths;
+    if (copiedPaths.isEmpty) {
+      return;
     }
 
+    final List<String> pathToSelects = [];
+    for (var copiedPath in copiedPaths) {
+      final copiedEntity = _copiedEntities.firstWhere(
+        (item) => item.path.toFilePath() == copiedPath,
+      );
+      final newPath = path.resolve(path.path + kSlash + copiedEntity.name);
+      if (copiedEntity is File) {
+        await _local.copyFile(copiedEntity.path, newPath);
+      } else if (copiedEntity is Directory) {
+        await _local.copyDirectory(copiedEntity.path, newPath);
+      }
+
+      pathToSelects.add(newPath.toFilePath());
+    }
+
+    await Pasteboard.writeFiles(const []);
     _copiedEntities = {};
     await refresh();
     selectBatch(_entities
-        .where((item) => copiedPaths.contains(item.path.toFilePath()))
+        .where((item) => pathToSelects.contains(item.path.toFilePath()))
         .toSet());
   }
 
