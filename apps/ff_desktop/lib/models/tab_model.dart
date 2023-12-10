@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
+import 'package:flutter/material.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 import 'package:pasteboard/pasteboard.dart';
 import 'package:utils/utils.dart';
@@ -15,16 +17,24 @@ class TabViewModel extends ChangeNotifier {
 
   LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
 
+  final ItemScrollController tabScrollController = ItemScrollController();
+  final ItemPositionsListener itemPositionsListener =
+      ItemPositionsListener.create();
+
   TabViewModel() {
     _shortcutSubscription?.cancel();
     _shortcutSubscription =
         eventBus.on<ShortcutEvent>().listen(_handleShortcut);
+    itemPositionsListener.itemPositions
+        .addListener(_handleItemPositionsChanged);
   }
 
   @override
   void dispose() {
     _shortcutSubscription?.cancel();
     _shortcutSubscription = null;
+    itemPositionsListener.itemPositions
+        .removeListener(_handleItemPositionsChanged);
     for (var element in _exploreViewModels) {
       element.dispose();
     }
@@ -44,8 +54,24 @@ class TabViewModel extends ChangeNotifier {
 
   bool _isRemovingTab = false;
 
+  void _handleItemPositionsChanged() {
+    // Check if _currentIndex is still in view. If not, scroll to it.
+    final itemPositions = itemPositionsListener.itemPositions.value;
+    final isCurrentIndexInView =
+        itemPositions.where((item) => item.index == _currentIndex).isNotEmpty;
+    if (isCurrentIndexInView) {
+      return;
+    }
+    final align = _currentIndex == 0 ? 0.0 : 0.5;
+    tabScrollController.jumpTo(
+      index: _currentIndex,
+      alignment: align,
+    );
+  }
+
   void _setIndex(int index) {
     _currentIndex = max(0, min(index, _exploreViewModels.length - 1));
+    notifyListeners();
   }
 
   Future<void> copy({Set<Entity>? entities}) async {
@@ -93,7 +119,6 @@ class TabViewModel extends ChangeNotifier {
 
   void changeTab(int index) {
     _setIndex(index);
-    notifyListeners();
   }
 
   void nextTab() {
@@ -128,14 +153,12 @@ class TabViewModel extends ChangeNotifier {
     final newTab = ExploreViewModel()..goTo(currentTab.currentUri);
     _exploreViewModels.add(newTab);
     _setIndex(_exploreViewModels.length - 1);
-    notifyListeners();
   }
 
   void closeAllTabs() {
     _exploreViewModels.clear();
     _exploreViewModels.add(ExploreViewModel());
     _setIndex(0);
-    notifyListeners();
   }
 
   void removeExploreViewModelAt(int index) {
@@ -148,7 +171,6 @@ class TabViewModel extends ChangeNotifier {
     _isRemovingTab = true;
     if (index <= _currentIndex) {
       _setIndex(index - 1);
-      notifyListeners();
     }
 
     _exploreViewModels.removeAt(index);
