@@ -17,9 +17,5 @@ class OpenInNewWindowAction extends Action<OpenInNewWindowIntent> {
 
 class OpenInNewWindowIntent extends Intent {
   static LogicalKeySet? get keySet =>
-      EntityContextAction.openInNewWindow.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.openInNewWindow.shortcutKey.toSet(),
-            )
-          : null;
+      EntityContextAction.openInNewWindow.keySet;
 }

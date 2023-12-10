@@ -16,10 +16,5 @@ class PropertiesAction extends Action<PropertiesIntent> {
 }
 
 class PropertiesIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.properties.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.properties.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.properties.keySet;
 }

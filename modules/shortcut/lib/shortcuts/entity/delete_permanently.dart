@@ -17,9 +17,5 @@ class DeletePermanentlyAction extends Action<DeletePermanentlyIntent> {
 
 class DeletePermanentlyIntent extends Intent {
   static LogicalKeySet? get keySet =>
-      EntityContextAction.deletePermanently.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.deletePermanently.shortcutKey.toSet(),
-            )
-          : null;
+      EntityContextAction.deletePermanently.keySet;
 }

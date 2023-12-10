@@ -16,10 +16,5 @@ class OpenInNewTabAction extends Action<OpenInNewTabIntent> {
 }
 
 class OpenInNewTabIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.openInNewTab.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.openInNewTab.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.openInNewTab.keySet;
 }

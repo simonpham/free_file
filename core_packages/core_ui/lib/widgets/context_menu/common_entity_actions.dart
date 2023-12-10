@@ -32,6 +32,17 @@ enum EntityContextAction {
     return ThemeConfigs().shortcut.items[this]?.shortcutKey ?? const [];
   }
 
+  LogicalKeySet? get keySet {
+    final shortcutKey = this.shortcutKey;
+    if (shortcutKey.isEmpty) {
+      return null;
+    }
+
+    return LogicalKeySet.fromSet(
+      shortcutKey.toSet(),
+    );
+  }
+
   LogicalKeyboardKey? get showOnKeyHold {
     return ThemeConfigs().shortcut.items[this]?.showOnKeyHold;
   }

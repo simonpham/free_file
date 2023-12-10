@@ -16,10 +16,5 @@ class CompressAction extends Action<CompressIntent> {
 }
 
 class CompressIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.compress.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.compress.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.compress.keySet;
 }

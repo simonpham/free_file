@@ -18,13 +18,9 @@ class PasteAction extends Action<PasteIntent> {
 
 class PasteIntent extends Intent {
   static LogicalKeySet? get keySet {
-    final shortcutKey =
-        (kIsMacOs ? EntityContextAction.pasteMacOs : EntityContextAction.paste)
-            .shortcutKey;
-    return shortcutKey.isNotEmpty
-        ? LogicalKeySet.fromSet(
-            shortcutKey.toSet(),
-          )
-        : null;
+    return (kIsMacOs
+            ? EntityContextAction.pasteMacOs
+            : EntityContextAction.paste)
+        .keySet;
   }
 }

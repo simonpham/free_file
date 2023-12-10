@@ -16,10 +16,5 @@ class RenameAction extends Action<RenameIntent> {
 }
 
 class RenameIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.rename.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.rename.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.rename.keySet;
 }

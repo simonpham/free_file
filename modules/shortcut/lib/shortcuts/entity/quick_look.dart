@@ -16,10 +16,5 @@ class QuickLookAction extends Action<QuickLookIntent> {
 }
 
 class QuickLookIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.quickLook.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.quickLook.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.quickLook.keySet;
 }

@@ -16,10 +16,5 @@ class OpenAction extends Action<OpenIntent> {
 }
 
 class OpenIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.open.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.open.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.open.keySet;
 }

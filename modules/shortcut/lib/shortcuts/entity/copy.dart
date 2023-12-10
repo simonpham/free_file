@@ -18,13 +18,7 @@ class CopyAction extends Action<CopyIntent> {
 
 class CopyIntent extends Intent {
   static LogicalKeySet? get keySet {
-    final shortcutKey =
-        (kIsMacOs ? EntityContextAction.copyMacOs : EntityContextAction.copy)
-            .shortcutKey;
-    return shortcutKey.isNotEmpty
-        ? LogicalKeySet.fromSet(
-            shortcutKey.toSet(),
-          )
-        : null;
+    return (kIsMacOs ? EntityContextAction.copyMacOs : EntityContextAction.copy)
+        .keySet;
   }
 }

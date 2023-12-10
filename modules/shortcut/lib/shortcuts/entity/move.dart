@@ -16,10 +16,5 @@ class MoveAction extends Action<MoveIntent> {
 }
 
 class MoveIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.move.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.move.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.move.keySet;
 }

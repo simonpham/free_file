@@ -16,10 +16,5 @@ class DeleteAction extends Action<DeleteIntent> {
 }
 
 class DeleteIntent extends Intent {
-  static LogicalKeySet? get keySet =>
-      EntityContextAction.delete.shortcutKey.isNotEmpty
-          ? LogicalKeySet.fromSet(
-              EntityContextAction.delete.shortcutKey.toSet(),
-            )
-          : null;
+  static LogicalKeySet? get keySet => EntityContextAction.delete.keySet;
 }

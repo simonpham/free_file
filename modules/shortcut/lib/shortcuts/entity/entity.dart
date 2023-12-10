@@ -3,7 +3,6 @@ import 'package:shortcut/shortcut.dart';
 
 export 'compress.dart';
 export 'copy.dart';
-export 'copy_macos.dart';
 export 'delete.dart';
 export 'delete_permanently.dart';
 export 'move.dart';
