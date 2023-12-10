@@ -6,12 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
-extension ThemeExtension on BuildContext {
-  AppTheme get appTheme =>
-      select((ThemeModel _) => _.themeMode == ThemeMode.dark)
-          ? ThemeConfigs().darkTheme
-          : ThemeConfigs().lightTheme;
-}
+part 'config.dart';
+part 'app_theme.dart';
+part 'theme_color.dart';
 
 extension ThemeConfigsExtension on ThemeConfigs {
   ThemeData getThemeData(ThemeMode mode) {
@@ -102,6 +99,7 @@ class ThemeConfigs {
   final String version;
   final String description;
   final Config config;
+  final Shortcut shortcut;
   final AppTheme lightTheme;
   final AppTheme darkTheme;
 
@@ -124,6 +122,7 @@ class ThemeConfigs {
     required this.version,
     required this.description,
     required this.config,
+    required this.shortcut,
     required this.lightTheme,
     required this.darkTheme,
   });
@@ -135,102 +134,10 @@ class ThemeConfigs {
       version: json['version'] as String,
       description: json['description'] as String,
       config: Config.fromJson(json['config']),
+      shortcut: Shortcut.fromJson(json['shortcut']),
       lightTheme: AppTheme.fromJson(theme['light']),
       darkTheme: AppTheme.fromJson(theme['dark']),
     );
   }
 }
 
-@immutable
-class Config {
-  final bool showBackButton;
-  final bool showForwardButton;
-  final bool showUpButton;
-  final bool showRefreshButton;
-  final bool showSearchBar;
-  final bool showFileInSideBar;
-
-  const Config({
-    required this.showBackButton,
-    required this.showForwardButton,
-    required this.showUpButton,
-    required this.showRefreshButton,
-    required this.showSearchBar,
-    required this.showFileInSideBar,
-  });
-
-  factory Config.fromJson(Map<String, dynamic> json) {
-    return Config(
-      showBackButton: json['showBackButton'] != false,
-      showForwardButton: json['showForwardButton'] != false,
-      showUpButton: json['showUpButton'] != false,
-      showRefreshButton: json['showRefreshButton'] == true,
-      showSearchBar: json['showSearchBar'] != false,
-      showFileInSideBar: json['showFileInSideBar'] == true,
-    );
-  }
-}
-
-@immutable
-class AppTheme {
-  final ThemeColor color;
-
-  const AppTheme({
-    required this.color,
-  });
-
-  factory AppTheme.fromJson(Map<String, dynamic> json) {
-    return AppTheme(
-      color: ThemeColor.fromJson(json['color']),
-    );
-  }
-}
-
-@immutable
-class ThemeColor {
-  final Color primary;
-  final Color secondary;
-  final Color background;
-  final Color navBarBackground;
-  final Color mainBackground;
-  final Color statusBarBackground;
-  final Color onBackground;
-  final Color iconColor;
-  final Color disabledIconColor;
-
-  const ThemeColor({
-    required this.primary,
-    required this.secondary,
-    required this.background,
-    required this.navBarBackground,
-    required this.mainBackground,
-    required this.statusBarBackground,
-    required this.onBackground,
-    required this.iconColor,
-    required this.disabledIconColor,
-  });
-
-  factory ThemeColor.fromJson(Map<String, dynamic> json) {
-    return ThemeColor(
-      primary: '${json['primary']}'.toColor(),
-      secondary: '${json['secondary']}'.toColor(),
-      background: '${json['background']}'.toColor(),
-      navBarBackground: '${json['navBarBackground']}'.toColor(),
-      mainBackground: '${json['mainBackground']}'.toColor(),
-      statusBarBackground: '${json['statusBarBackground']}'.toColor(),
-      onBackground: '${json['onBackground']}'.toColor(),
-      iconColor: '${json['iconColor']}'.toColor(),
-      disabledIconColor: '${json['disabledIconColor']}'.toColor(),
-    );
-  }
-}
-
-extension on String {
-  Color toColor() {
-    final hexCode = replaceAll('#', '');
-    if (hexCode.length == 8) {
-      return Color(int.parse(hexCode, radix: 16));
-    }
-    return Color(int.parse('FF$hexCode', radix: 16));
-  }
-}
