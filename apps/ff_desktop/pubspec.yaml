@@ -43,6 +43,7 @@ dependencies:
   desktop_lifecycle: ^0.1.1
   desktop_multi_window: ^0.2.0
   macos_window_utils: ^1.4.0
+  pasteboard: ^0.2.0
 
 dev_dependencies:
   flutter_test:
