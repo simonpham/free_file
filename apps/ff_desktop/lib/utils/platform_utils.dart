@@ -4,7 +4,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:desktop_lifecycle/desktop_lifecycle.dart';
-import 'package:ff_desktop/di.dart';
+import 'package:ff_desktop/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:storage/storage.dart';
@@ -77,6 +77,11 @@ class PlatformUtils {
       await Settings().reload();
       if (injector.isRegistered<ThemeModel>()) {
         injector<ThemeModel>().refresh();
+      }
+      if (injector.isRegistered<TabViewModel>()) {
+        final model = injector<TabViewModel>();
+        model.refreshClipboard();
+        model.currentExploreViewModel.refresh();
       }
     }
   }

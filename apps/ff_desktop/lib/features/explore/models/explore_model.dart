@@ -38,11 +38,6 @@ class ExploreViewModel extends ChangeNotifier
 
   List<Entity> _entities = [];
   Set<Entity> _selectedEntities = {};
-  Set<Entity> _copiedEntities = {};
-
-  Future<List<String>> get _copiedPaths {
-    return Pasteboard.files();
-  }
 
   bool _showHidden = false;
   bool _isSelectModeEnabled = false;
@@ -79,9 +74,6 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   Set<Entity> get selectedEntities => _selectedEntities;
-
-  @override
-  Set<Entity> get copiedEntities => _copiedEntities;
 
   @override
   Future<void> refresh() async {
@@ -176,15 +168,6 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  Future<void> copy({Set<Entity>? entities}) async {
-    _copiedEntities = entities ?? _selectedEntities;
-    await Pasteboard.writeFiles(
-      _copiedEntities.map((e) => e.path.toFilePath()).toList(),
-    );
-    notifyListeners();
-  }
-
-  @override
   Future<Entity> createDirectory({Uri? path, required String name}) {
     // TODO: implement createDirectory
     throw UnimplementedError();
@@ -199,42 +182,6 @@ class ExploreViewModel extends ChangeNotifier
   @override
   void delete({Entity? entity}) {
     // TODO: implement delete
-  }
-
-  @override
-  Future<void> paste({Uri? path}) async {
-    if (_copiedEntities.isEmpty) {
-      return;
-    }
-
-    path ??= currentUri;
-
-    final copiedPaths = await _copiedPaths;
-    if (copiedPaths.isEmpty) {
-      return;
-    }
-
-    final List<String> pathToSelects = [];
-    for (var copiedPath in copiedPaths) {
-      final copiedEntity = _copiedEntities.firstWhere(
-        (item) => item.path.toFilePath() == copiedPath,
-      );
-      final newPath = path.resolve(path.path + kSlash + copiedEntity.name);
-      if (copiedEntity is File) {
-        await _local.copyFile(copiedEntity.path, newPath);
-      } else if (copiedEntity is Directory) {
-        await _local.copyDirectory(copiedEntity.path, newPath);
-      }
-
-      pathToSelects.add(newPath.toFilePath());
-    }
-
-    await Pasteboard.writeFiles(const []);
-    _copiedEntities = {};
-    await refresh();
-    selectBatch(_entities
-        .where((item) => pathToSelects.contains(item.path.toFilePath()))
-        .toSet());
   }
 
   @override

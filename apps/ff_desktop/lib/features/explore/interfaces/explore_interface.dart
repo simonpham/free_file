@@ -3,12 +3,6 @@ import 'dart:async';
 import 'package:core/core.dart';
 
 abstract interface class ExploreInterfaceManipulateActions {
-  Set<Entity> get copiedEntities;
-
-  FutureOr<void> copy({Set<Entity>? entities});
-
-  FutureOr<void> paste({Uri? path});
-
   FutureOr<void> delete({Entity? entity});
 
   FutureOr<void> rename({Entity? entity, required String name});
