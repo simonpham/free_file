@@ -102,6 +102,46 @@ class LocalEntityProvider extends EntityProvider {
   }
 
   @override
+  Future<Entity?> get(Uri path) async {
+    final file = io.File(path.toFilePath());
+    final isExisted = await file.exists();
+    if (!isExisted) {
+      throw const FreeError(Error.fileNotFound);
+    }
+
+    final io.FileStat stat = await file.stat();
+    if (stat.type == io.FileSystemEntityType.file) {
+      final mimeType = lookupMimeType(file.path);
+      final entity = File(
+        size: stat.size,
+        fileType: kMimeTypes[mimeType],
+        extension: file.path.split('.').last,
+        name: file.path.split(kSlash).last,
+        path: file.uri.normalizePath(),
+        isHidden: isHidden(file.uri, stat),
+        createdAt: stat.changed.toIso8601String(),
+        updatedAt: stat.modified.toIso8601String(),
+      );
+
+      return entity;
+    }
+
+    if (stat.type == io.FileSystemEntityType.directory) {
+      final entity = Directory(
+        name: file.path.split(kSlash).last,
+        path: file.uri.normalizePath(),
+        isHidden: isHidden(file.uri, stat),
+        createdAt: stat.changed.toIso8601String(),
+        updatedAt: stat.modified.toIso8601String(),
+      );
+
+      return entity;
+    }
+
+    return null;
+  }
+
+  @override
   Future<File> createFile(Uri path) async {
     final file = io.File(path.toFilePath());
     final isExisted = await file.exists();
