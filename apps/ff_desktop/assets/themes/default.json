@@ -10,6 +10,67 @@
     "showSearchBar": false,
     "showFileInSideBar": false
   },
+  "shortcut": {
+    "open": {
+        "shortcutKey": ["Enter"]
+    },
+    "openInNewWindow": {
+      "showOnKeyHold": "Alt",
+      "shortcutKey": ["Enter"]
+    },
+    "openInNewTab": {
+      "hideOnKeyHold": "Alt",
+      "shortcutKey": ["Enter"]
+    },
+    "quickLook": {
+      "shortcutKey": ["Space"]
+    },
+    "compress": {},
+    "copyMacOs": {
+      "shortcutKey": ["Meta", "KeyC"]
+    },
+    "copy": {
+      "shortcutKey": ["Control", "KeyC"]
+    },
+    "paste": {
+      "hideOnKeyHold": "Alt",
+      "shortcutKey": ["Control", "KeyV"]
+    },
+    "pasteMacOs": {
+      "hideOnKeyHold": "Alt",
+      "shortcutKey": ["Meta", "KeyV"]
+    },
+    "moveMacOs": {
+      "showOnKeyHold": "Alt",
+      "shortcutKey": ["Meta", "Alt", "KeyV"]
+    },
+    "move": {
+      "showOnKeyHold": "Alt",
+      "shortcutKey": ["Control", "Alt", "KeyV"]
+    },
+    "delete": {
+      "hideOnKeyHold": "Shift",
+      "shortcutKey": ["Delete"]
+    },
+    "deleteMacOs": {
+      "hideOnKeyHold": "Alt",
+      "shortcutKey": ["Delete"]
+    },
+    "deletePermanentlyMacOs": {
+      "showOnKeyHold": "Alt",
+      "shortcutKey": ["Alt", "Delete"]
+    },
+    "deletePermanently": {
+      "showOnKeyHold": "Shift",
+      "shortcutKey": ["Shift", "Delete"]
+    },
+    "rename": {
+      "shortcutKey": ["F2"]
+    },
+    "properties": {
+      "shortcutKey": ["Alt", "Space"]
+    }
+  },
   "theme": {
     "light": {
       "color": {

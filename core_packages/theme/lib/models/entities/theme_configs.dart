@@ -7,6 +7,7 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 part 'config.dart';
+part 'shortcut.dart';
 part 'app_theme.dart';
 part 'theme_color.dart';
 

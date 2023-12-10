@@ -1,127 +1,57 @@
 import 'package:core_ui/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:theme/models/entities/entities.dart';
+import 'package:theme/models/models.dart';
 import 'package:utils/constants/constants.dart';
 
 enum EntityContextAction {
-  open(
-    shortcutKey: [LogicalKeyboardKey.enter],
-  ),
-  openInNewWindow(
-    showOnKeyHold: LogicalKeyboardKey.alt,
-  ),
-  openInNewTab(
-    hideOnKeyHold: LogicalKeyboardKey.alt,
-  ),
-  quickLook(
-    shortcutKey: [LogicalKeyboardKey.space],
-  ),
+  open,
+  openInNewWindow,
+  openInNewTab,
+  quickLook,
   compress,
-  copyMacOs(
-    isMacOsOnly: true,
-    isCompact: true,
-    shortcutKey: [
-      LogicalKeyboardKey.meta,
-      LogicalKeyboardKey.keyC,
-    ],
-  ),
-  copy(
-    isCompact: true,
-    hideOnMacOs: true,
-    shortcutKey: [
-      LogicalKeyboardKey.control,
-      LogicalKeyboardKey.keyC,
-    ],
-  ),
-  paste(
-    isCompact: true,
-    hideOnMacOs: true,
-    hideOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.control,
-      LogicalKeyboardKey.keyV,
-    ],
-  ),
-  pasteMacOs(
-    isCompact: true,
-    isMacOsOnly: true,
-    hideOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.meta,
-      LogicalKeyboardKey.keyV,
-    ],
-  ),
-  moveMacOs(
-    isCompact: true,
-    isMacOsOnly: true,
-    showOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.meta,
-      LogicalKeyboardKey.keyV,
-    ],
-  ),
-  move(
-    isCompact: true,
-    hideOnMacOs: true,
-    showOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.control,
-      LogicalKeyboardKey.keyV,
-    ],
-  ),
-  delete(
-    isCompact: true,
-    hideOnMacOs: true,
-    hideOnKeyHold: LogicalKeyboardKey.shift,
-    shortcutKey: [LogicalKeyboardKey.delete],
-  ),
-  deleteMacOs(
-    isCompact: true,
-    isMacOsOnly: true,
-    hideOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [LogicalKeyboardKey.delete],
-  ),
-  deletePermanentlyMacOs(
-    isCompact: true,
-    isMacOsOnly: true,
-    showOnKeyHold: LogicalKeyboardKey.alt,
-    shortcutKey: [
-      LogicalKeyboardKey.alt,
-      LogicalKeyboardKey.delete,
-    ],
-  ),
-  deletePermanently(
-    isCompact: true,
-    hideOnMacOs: true,
-    showOnKeyHold: LogicalKeyboardKey.shift,
-    shortcutKey: [
-      LogicalKeyboardKey.shift,
-      LogicalKeyboardKey.delete,
-    ],
-  ),
-  rename(isCompact: true, shortcutKey: [LogicalKeyboardKey.f2]),
-  properties(
-    shortcutKey: [
-      LogicalKeyboardKey.alt,
-      LogicalKeyboardKey.space,
-    ],
-  );
+  copyMacOs(isMacOsOnly: true, isCompact: true),
+  copy(isCompact: true, hideOnMacOs: true),
+  paste(isCompact: true, hideOnMacOs: true),
+  pasteMacOs(isCompact: true, isMacOsOnly: true),
+  moveMacOs(isCompact: true, isMacOsOnly: true),
+  move(isCompact: true, hideOnMacOs: true),
+  delete(isCompact: true, hideOnMacOs: true),
+  deleteMacOs(isCompact: true, isMacOsOnly: true),
+  deletePermanentlyMacOs(isCompact: true, isMacOsOnly: true),
+  deletePermanently(isCompact: true, hideOnMacOs: true),
+  rename(isCompact: true),
+  properties,
+  unknown;
 
   final bool isCompact;
   final bool isMacOsOnly;
   final bool hideOnMacOs;
-  final List<LogicalKeyboardKey> shortcutKey;
-  final LogicalKeyboardKey? showOnKeyHold;
-  final LogicalKeyboardKey? hideOnKeyHold;
+  List<LogicalKeyboardKey> get shortcutKey {
+    return ThemeConfigs().shortcut.items[this]?.shortcutKey ?? const [];
+  }
+
+  LogicalKeyboardKey? get showOnKeyHold {
+    return ThemeConfigs().shortcut.items[this]?.showOnKeyHold;
+  }
+
+  LogicalKeyboardKey? get hideOnKeyHold {
+    return ThemeConfigs().shortcut.items[this]?.hideOnKeyHold;
+  }
 
   const EntityContextAction({
     this.isCompact = false,
     this.isMacOsOnly = false,
     this.hideOnMacOs = false,
-    this.showOnKeyHold,
-    this.hideOnKeyHold,
-    this.shortcutKey = const [],
   });
+
+  factory EntityContextAction.parse(String value) {
+    return EntityContextAction.values.firstWhere(
+      (e) => e.name == value,
+      orElse: () => EntityContextAction.unknown,
+    );
+  }
 
   SvgGenImage? get icon {
     return switch (this) {
@@ -142,6 +72,7 @@ enum EntityContextAction {
       deletePermanentlyMacOs => Assets.icons.interface.outline.trash01,
       rename => Assets.icons.interface.outline.edit,
       properties => null,
+      unknown => null,
     };
   }
 
@@ -164,6 +95,7 @@ enum EntityContextAction {
       deletePermanentlyMacOs => 'Delete permanently',
       rename => 'Rename',
       properties => 'Properties',
+      unknown => 'Unknown',
     };
   }
 
