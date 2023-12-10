@@ -20,10 +20,6 @@ class CompressEvent extends ShortcutEvent {
   const CompressEvent();
 }
 
-class CopyMacOsEvent extends ShortcutEvent {
-  const CopyMacOsEvent();
-}
-
 class CopyEvent extends ShortcutEvent {
   const CopyEvent();
 }

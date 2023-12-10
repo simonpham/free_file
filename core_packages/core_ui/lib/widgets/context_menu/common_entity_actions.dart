@@ -28,8 +28,9 @@ enum EntityContextAction {
   final bool isCompact;
   final bool isMacOsOnly;
   final bool hideOnMacOs;
+
   List<LogicalKeyboardKey> get shortcutKey {
-    return ThemeConfigs().shortcut.items[this]?.shortcutKey ?? const [];
+    return ThemeConfigs().shortcut.items[name]?.shortcutKey ?? const [];
   }
 
   LogicalKeySet? get keySet {
@@ -44,11 +45,11 @@ enum EntityContextAction {
   }
 
   LogicalKeyboardKey? get showOnKeyHold {
-    return ThemeConfigs().shortcut.items[this]?.showOnKeyHold;
+    return ThemeConfigs().shortcut.items[name]?.showOnKeyHold;
   }
 
   LogicalKeyboardKey? get hideOnKeyHold {
-    return ThemeConfigs().shortcut.items[this]?.hideOnKeyHold;
+    return ThemeConfigs().shortcut.items[name]?.hideOnKeyHold;
   }
 
   const EntityContextAction({

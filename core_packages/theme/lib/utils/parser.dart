@@ -2,29 +2,59 @@ import 'package:flutter/services.dart';
 
 class KeyParser {
   static LogicalKeyboardKey? parse(String keyLabel) {
-    switch (keyLabel) {
-      case 'Enter':
-        return LogicalKeyboardKey.enter;
-      case 'Alt':
-        return LogicalKeyboardKey.alt;
-      case 'Space':
-        return LogicalKeyboardKey.space;
-      case 'Meta':
-        return LogicalKeyboardKey.meta;
-      case 'Control':
-        return LogicalKeyboardKey.control;
-      case 'Delete':
-        return LogicalKeyboardKey.delete;
-      case 'Shift':
-        return LogicalKeyboardKey.shift;
-      case 'F2':
-        return LogicalKeyboardKey.f2;
-      case 'KeyC':
-        return LogicalKeyboardKey.keyC;
-      case 'KeyV':
-        return LogicalKeyboardKey.keyV;
-      default:
-        return null;
-    }
+    return switch (keyLabel) {
+      'Enter' => LogicalKeyboardKey.enter,
+      'Alt' => LogicalKeyboardKey.alt,
+      'Space' => LogicalKeyboardKey.space,
+      'Meta' => LogicalKeyboardKey.meta,
+      'Control' => LogicalKeyboardKey.control,
+      'Delete' => LogicalKeyboardKey.delete,
+      'Shift' => LogicalKeyboardKey.shift,
+      'Tab' => LogicalKeyboardKey.tab,
+      'ArrowDown' => LogicalKeyboardKey.arrowDown,
+      'ArrowLeft' => LogicalKeyboardKey.arrowLeft,
+      'ArrowRight' => LogicalKeyboardKey.arrowRight,
+      'ArrowUp' => LogicalKeyboardKey.arrowUp,
+      'Escape' => LogicalKeyboardKey.escape,
+      'F1' => LogicalKeyboardKey.f1,
+      'F2' => LogicalKeyboardKey.f2,
+      'F3' => LogicalKeyboardKey.f3,
+      'F4' => LogicalKeyboardKey.f4,
+      'F5' => LogicalKeyboardKey.f5,
+      'F6' => LogicalKeyboardKey.f6,
+      'F7' => LogicalKeyboardKey.f7,
+      'F8' => LogicalKeyboardKey.f8,
+      'F9' => LogicalKeyboardKey.f9,
+      'F10' => LogicalKeyboardKey.f10,
+      'F11' => LogicalKeyboardKey.f11,
+      'F12' => LogicalKeyboardKey.f12,
+      'KeyA' => LogicalKeyboardKey.keyA,
+      'KeyB' => LogicalKeyboardKey.keyB,
+      'KeyC' => LogicalKeyboardKey.keyC,
+      'KeyD' => LogicalKeyboardKey.keyD,
+      'KeyE' => LogicalKeyboardKey.keyE,
+      'KeyF' => LogicalKeyboardKey.keyF,
+      'KeyG' => LogicalKeyboardKey.keyG,
+      'KeyH' => LogicalKeyboardKey.keyH,
+      'KeyI' => LogicalKeyboardKey.keyI,
+      'KeyJ' => LogicalKeyboardKey.keyJ,
+      'KeyK' => LogicalKeyboardKey.keyK,
+      'KeyL' => LogicalKeyboardKey.keyL,
+      'KeyM' => LogicalKeyboardKey.keyM,
+      'KeyN' => LogicalKeyboardKey.keyN,
+      'KeyO' => LogicalKeyboardKey.keyO,
+      'KeyP' => LogicalKeyboardKey.keyP,
+      'KeyQ' => LogicalKeyboardKey.keyQ,
+      'KeyR' => LogicalKeyboardKey.keyR,
+      'KeyS' => LogicalKeyboardKey.keyS,
+      'KeyT' => LogicalKeyboardKey.keyT,
+      'KeyU' => LogicalKeyboardKey.keyU,
+      'KeyV' => LogicalKeyboardKey.keyV,
+      'KeyW' => LogicalKeyboardKey.keyW,
+      'KeyX' => LogicalKeyboardKey.keyX,
+      'KeyY' => LogicalKeyboardKey.keyY,
+      'KeyZ' => LogicalKeyboardKey.keyZ,
+      _ => null
+    };
   }
 }

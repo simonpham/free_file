@@ -2,16 +2,16 @@ part of 'theme_configs.dart';
 
 @immutable
 class Shortcut {
-  final Map<EntityContextAction, ShortcutConfig> items;
+  final Map<String, ShortcutConfig> items;
 
   const Shortcut({
     required this.items,
   });
 
   factory Shortcut.fromJson(Map<String, dynamic> json) {
-    final items = <EntityContextAction, ShortcutConfig>{};
+    final items = <String, ShortcutConfig>{};
     for (final entry in json.entries) {
-      final action = EntityContextAction.parse(entry.key);
+      final action = entry.key;
       final config = ShortcutConfig.fromJson(entry.value);
       items[action] = config;
     }

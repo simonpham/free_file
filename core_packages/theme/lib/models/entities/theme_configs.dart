@@ -101,6 +101,7 @@ class ThemeConfigs {
   final String description;
   final Config config;
   final Shortcut shortcut;
+  final Shortcut workspaceShortcut;
   final AppTheme lightTheme;
   final AppTheme darkTheme;
 
@@ -124,6 +125,7 @@ class ThemeConfigs {
     required this.description,
     required this.config,
     required this.shortcut,
+    required this.workspaceShortcut,
     required this.lightTheme,
     required this.darkTheme,
   });
@@ -136,9 +138,9 @@ class ThemeConfigs {
       description: json['description'] as String,
       config: Config.fromJson(json['config']),
       shortcut: Shortcut.fromJson(json['shortcut']),
+      workspaceShortcut: Shortcut.fromJson(json['workspaceShortcut']),
       lightTheme: AppTheme.fromJson(theme['light']),
       darkTheme: AppTheme.fromJson(theme['dark']),
     );
   }
 }
-

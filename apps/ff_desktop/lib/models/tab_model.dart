@@ -43,6 +43,24 @@ class TabViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void nextTab() {
+    final isLastTab = _currentIndex == _exploreViewModels.length - 1;
+    if (isLastTab) {
+      changeTab(0);
+      return;
+    }
+    changeTab(_currentIndex + 1);
+  }
+
+  void previousTab() {
+    final isFirstTab = _currentIndex == 0;
+    if (isFirstTab) {
+      changeTab(_exploreViewModels.length - 1);
+      return;
+    }
+    changeTab(_currentIndex - 1);
+  }
+
   final List<ExploreViewModel> _exploreViewModels = [
     ExploreViewModel(),
   ];
@@ -57,6 +75,13 @@ class TabViewModel extends ChangeNotifier {
     final newTab = ExploreViewModel()..goTo(currentTab.currentUri);
     _exploreViewModels.add(newTab);
     _setIndex(_exploreViewModels.length - 1);
+    notifyListeners();
+  }
+
+  void closeAllTabs() {
+    _exploreViewModels.clear();
+    _exploreViewModels.add(ExploreViewModel());
+    _setIndex(0);
     notifyListeners();
   }
 
@@ -83,11 +108,19 @@ class TabViewModel extends ChangeNotifier {
       case const (AddTabEvent):
         addTab();
         break;
+      case const (CloseAllTabsEvent):
+        closeAllTabs();
+        break;
       case const (CloseTabEvent):
         removeExploreViewModelAt(_currentIndex);
         break;
+      case const (NextTabEvent):
+        nextTab();
+        break;
+      case const (PreviousTabEvent):
+        previousTab();
+        break;
       case const (CopyEvent):
-      case const (CopyMacOsEvent):
         currentExploreViewModel.copy();
         break;
       case const (PasteEvent):

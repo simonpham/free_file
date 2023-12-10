@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:utils/constants/constants.dart';
 
 class AddTabAction extends Action<AddTabIntent> {
@@ -15,7 +15,7 @@ class AddTabAction extends Action<AddTabIntent> {
 }
 
 class AddTabIntent extends Intent {
-  static LogicalKeySet get keySet => kIsMacOs
-      ? LogicalKeySet(LogicalKeyboardKey.meta, LogicalKeyboardKey.keyT)
-      : LogicalKeySet(LogicalKeyboardKey.control, LogicalKeyboardKey.keyT);
+  static LogicalKeySet? get keySet => kIsMacOs
+      ? WorkspaceActions.addTabMacOs.keySet
+      : WorkspaceActions.addTab.keySet;
 }
