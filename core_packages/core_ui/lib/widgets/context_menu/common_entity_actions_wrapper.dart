@@ -40,12 +40,18 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     this.onAction,
   });
 
+  static Entity? currentShowingEntity;
+
   Widget _buildMenu(
     BuildContext context,
     bool isPressedAltOption,
     bool isPressedShift,
     bool isPressedControlCommand,
   ) {
+    final entity = currentShowingEntity;
+    if (entity == null) {
+      return const SizedBox();
+    }
     return GenericContextMenu(
       buttonConfigs: [
         for (final action in EntityContextAction.getAvailableActions(
@@ -99,6 +105,9 @@ class CommonEntityActionsWrapper extends StatelessWidget {
         if (!context.contextMenuOverlay.isShowing) {
           return;
         }
+        if (currentShowingEntity != entity) {
+          return;
+        }
         context.contextMenuOverlay.show(
           _buildMenu(
             context,
@@ -113,6 +122,10 @@ class CommonEntityActionsWrapper extends StatelessWidget {
           if (event.buttons != kSecondaryMouseButton) {
             return;
           }
+          if (context.contextMenuOverlay.isShowing) {
+            return;
+          }
+          currentShowingEntity = entity;
           context.contextMenuOverlay.show(
             _buildMenu(
               context,
