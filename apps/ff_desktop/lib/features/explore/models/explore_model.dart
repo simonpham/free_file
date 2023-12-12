@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 
 import 'package:ff_desktop/features/explore/explore.dart';
-import 'package:pasteboard/pasteboard.dart';
 import 'package:utils/utils.dart';
 
 class ExploreViewModel extends ChangeNotifier

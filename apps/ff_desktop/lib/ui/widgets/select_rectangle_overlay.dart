@@ -26,7 +26,7 @@ class SelectRectangleOverlay extends StatefulWidget {
   final Widget child;
 
   const SelectRectangleOverlay({
-    Key? key,
+    super.key,
     required this.scrollController,
     required this.onRectangleUpdated,
     required this.onDragUpdate,
@@ -34,7 +34,7 @@ class SelectRectangleOverlay extends StatefulWidget {
     required this.onDragEnd,
     required this.onReachedBorder,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   State<SelectRectangleOverlay> createState() => _SelectRectangleOverlayState();

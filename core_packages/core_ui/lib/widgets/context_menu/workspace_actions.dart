@@ -4,11 +4,8 @@ import 'package:theme/theme.dart';
 
 enum WorkspaceActions {
   addTab,
-  addTabMacOs,
   closeTab,
-  closeTabMacOs,
   closeAllTabs,
-  closeAllTabsMacOs,
   nextTab,
   previousTab;
 

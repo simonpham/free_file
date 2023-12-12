@@ -1,7 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/utils.dart';
 
 class PasteAction extends Action<PasteIntent> {
   final BuildContext context;
@@ -18,9 +17,6 @@ class PasteAction extends Action<PasteIntent> {
 
 class PasteIntent extends Intent {
   static LogicalKeySet? get keySet {
-    return (kIsMacOs
-            ? EntityContextAction.pasteMacOs
-            : EntityContextAction.paste)
-        .keySet;
+    return EntityContextAction.paste.keySet;
   }
 }

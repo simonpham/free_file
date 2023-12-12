@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:ff_desktop/constants/constants.dart';
-import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/features/explore/models/tree_explore_model.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/foundation.dart';

@@ -1,7 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:utils/constants/constants.dart';
 
 class CloseAllTabsAction extends Action<CloseAllTabsIntent> {
   CloseAllTabsAction();
@@ -15,7 +14,5 @@ class CloseAllTabsAction extends Action<CloseAllTabsIntent> {
 }
 
 class CloseAllTabsIntent extends Intent {
-  static LogicalKeySet? get keySet => kIsMacOs
-      ? WorkspaceActions.closeAllTabsMacOs.keySet
-      : WorkspaceActions.closeAllTabs.keySet;
+  static LogicalKeySet? get keySet => WorkspaceActions.closeAllTabs.keySet;
 }

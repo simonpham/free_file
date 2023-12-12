@@ -13,38 +13,19 @@
   "workspaceShortcut": {
     "addTab": {
       "shortcutKey": [
-        "Control",
-        "KeyT"
-      ]
-    },
-    "addTabMacOs": {
-      "shortcutKey": [
-        "Meta",
+        "CmdOrControl",
         "KeyT"
       ]
     },
     "closeTab": {
       "shortcutKey": [
-        "Control",
-        "KeyW"
-      ]
-    },
-    "closeTabMacOs": {
-      "shortcutKey": [
-        "Meta",
+        "CmdOrControl",
         "KeyW"
       ]
     },
     "closeAllTabs": {
       "shortcutKey": [
-        "Control",
-        "Shift",
-        "KeyW"
-      ]
-    },
-    "closeAllTabsMacOs": {
-      "shortcutKey": [
-        "Meta",
+        "CmdOrControl",
         "Shift",
         "KeyW"
       ]
@@ -72,12 +53,14 @@
     "openInNewWindow": {
       "showOnKeyHold": "Alt",
       "shortcutKey": [
+        "CmdOrControl",
         "Enter"
       ]
     },
     "openInNewTab": {
       "hideOnKeyHold": "Alt",
       "shortcutKey": [
+        "CmdOrControl",
         "Enter"
       ]
     },
@@ -87,71 +70,38 @@
       ]
     },
     "compress": {},
-    "copyMacOs": {
-      "shortcutKey": [
-        "Meta",
-        "KeyC"
-      ]
-    },
     "copy": {
       "shortcutKey": [
-        "Control",
+        "CmdOrControl",
         "KeyC"
       ]
     },
     "paste": {
       "hideOnKeyHold": "Alt",
       "shortcutKey": [
-        "Control",
-        "KeyV"
-      ]
-    },
-    "pasteMacOs": {
-      "hideOnKeyHold": "Alt",
-      "shortcutKey": [
-        "Meta",
-        "KeyV"
-      ]
-    },
-    "moveMacOs": {
-      "showOnKeyHold": "Alt",
-      "shortcutKey": [
-        "Meta",
-        "Alt",
+        "CmdOrControl",
         "KeyV"
       ]
     },
     "move": {
       "showOnKeyHold": "Alt",
       "shortcutKey": [
-        "Control",
+        "CmdOrControl",
         "Alt",
         "KeyV"
       ]
     },
     "delete": {
-      "hideOnKeyHold": "Shift",
+      "hideOnKeyHold": "ShiftOrAlt",
       "shortcutKey": [
-        "Delete"
-      ]
-    },
-    "deleteMacOs": {
-      "hideOnKeyHold": "Alt",
-      "shortcutKey": [
-        "Delete"
-      ]
-    },
-    "deletePermanentlyMacOs": {
-      "showOnKeyHold": "Alt",
-      "shortcutKey": [
-        "Alt",
+        "ShiftOrAlt",
         "Delete"
       ]
     },
     "deletePermanently": {
-      "showOnKeyHold": "Shift",
+      "showOnKeyHold": "ShiftOrAlt",
       "shortcutKey": [
-        "Shift",
+        "ShiftOrAlt",
         "Delete"
       ]
     },

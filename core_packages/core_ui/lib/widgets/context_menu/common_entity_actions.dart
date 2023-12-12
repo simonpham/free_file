@@ -12,23 +12,16 @@ enum EntityContextAction {
   openInNewTab(supportedEntityTypes: [EntityType.directory]),
   quickLook,
   compress,
-  copyMacOs(isMacOsOnly: true, isCompact: true),
-  copy(isCompact: true, hideOnMacOs: true),
-  paste(isCompact: true, hideOnMacOs: true),
-  pasteMacOs(isCompact: true, isMacOsOnly: true),
-  moveMacOs(isCompact: true, isMacOsOnly: true),
-  move(isCompact: true, hideOnMacOs: true),
-  delete(isCompact: true, hideOnMacOs: true),
-  deleteMacOs(isCompact: true, isMacOsOnly: true),
-  deletePermanentlyMacOs(isCompact: true, isMacOsOnly: true),
-  deletePermanently(isCompact: true, hideOnMacOs: true),
+  copy(isCompact: true),
+  paste(isCompact: true),
+  move(isCompact: true),
+  delete(isCompact: true),
+  deletePermanently(isCompact: true),
   rename(isCompact: true),
   properties,
   unknown;
 
   final bool isCompact;
-  final bool isMacOsOnly;
-  final bool hideOnMacOs;
 
   final List<EntityType> supportedEntityTypes;
 
@@ -57,8 +50,6 @@ enum EntityContextAction {
 
   const EntityContextAction({
     this.isCompact = false,
-    this.isMacOsOnly = false,
-    this.hideOnMacOs = false,
     this.supportedEntityTypes = EntityType.values,
   });
 
@@ -77,15 +68,10 @@ enum EntityContextAction {
       quickLook => Assets.icons.interface.outline.eye01,
       compress => Assets.icons.filesAndFolder.outline.archiveAdd,
       copy => Assets.icons.interface.outline.copy,
-      copyMacOs => Assets.icons.interface.outline.copy,
       paste => null,
-      pasteMacOs => null,
       move => null,
-      moveMacOs => null,
       delete => Assets.icons.interface.outline.trash,
-      deleteMacOs => Assets.icons.interface.outline.trash,
       deletePermanently => Assets.icons.interface.outline.trash01,
-      deletePermanentlyMacOs => Assets.icons.interface.outline.trash01,
       rename => Assets.icons.interface.outline.edit,
       properties => null,
       unknown => null,
@@ -100,15 +86,10 @@ enum EntityContextAction {
       quickLook => 'Quick look',
       compress => 'Compress',
       copy => 'Copy',
-      copyMacOs => 'Copy',
       paste => 'Paste',
-      pasteMacOs => 'Paste',
       move => 'Move',
-      moveMacOs => 'Move',
       delete => 'Delete',
-      deleteMacOs => 'Delete',
       deletePermanently => 'Delete permanently',
-      deletePermanentlyMacOs => 'Delete permanently',
       rename => 'Rename',
       properties => 'Properties',
       unknown => 'Unknown',
@@ -124,16 +105,6 @@ enum EntityContextAction {
         .join(' + ');
   }
 
-  bool get enabled {
-    if (isMacOsOnly && !kIsMacOs) {
-      return false;
-    }
-    if (hideOnMacOs && kIsMacOs) {
-      return false;
-    }
-    return true;
-  }
-
   static Iterable<EntityContextAction> getAvailableActions({
     required EntityType entityType,
     bool isPressedAltOption = false,
@@ -142,7 +113,7 @@ enum EntityContextAction {
   }) {
     return EntityContextAction.values.where(
       (item) {
-        if (!item.enabled || item == unknown) {
+        if (item == unknown) {
           return false;
         }
 

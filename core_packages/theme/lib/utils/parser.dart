@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:utils/constants/constants.dart';
 
 class KeyParser {
   static LogicalKeyboardKey? parse(String keyLabel) {
@@ -6,6 +7,10 @@ class KeyParser {
       'Enter' => LogicalKeyboardKey.enter,
       'Alt' => LogicalKeyboardKey.alt,
       'Space' => LogicalKeyboardKey.space,
+      'CmdOrControl' =>
+        kIsMacOs ? LogicalKeyboardKey.meta : LogicalKeyboardKey.control,
+      'ShiftOrAlt' =>
+        kIsMacOs ? LogicalKeyboardKey.alt : LogicalKeyboardKey.shift,
       'Meta' => LogicalKeyboardKey.meta,
       'Control' => LogicalKeyboardKey.control,
       'Delete' => LogicalKeyboardKey.delete,
