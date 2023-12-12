@@ -54,6 +54,7 @@
       "showOnKeyHold": "Alt",
       "shortcutKey": [
         "CmdOrControl",
+        "Alt",
         "Enter"
       ]
     },
@@ -94,7 +95,6 @@
     "delete": {
       "hideOnKeyHold": "ShiftOrAlt",
       "shortcutKey": [
-        "ShiftOrAlt",
         "Delete"
       ]
     },
