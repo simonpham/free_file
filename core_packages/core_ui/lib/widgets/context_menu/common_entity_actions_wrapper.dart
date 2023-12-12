@@ -46,6 +46,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     return GenericContextMenu(
       buttonConfigs: [
         for (final action in EntityContextAction.getAvailableActions(
+          entityType: entity.type,
           isPressedAltOption: isPressedAltOption,
           isPressedShift: isPressedShift,
           isPressedControlCommand: isPressedControlCommand,

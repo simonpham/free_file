@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:core_ui/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,8 +8,8 @@ import 'package:utils/constants/constants.dart';
 
 enum EntityContextAction {
   open,
-  openInNewWindow,
-  openInNewTab,
+  openInNewWindow(supportedEntityTypes: [EntityType.directory]),
+  openInNewTab(supportedEntityTypes: [EntityType.directory]),
   quickLook,
   compress,
   copyMacOs(isMacOsOnly: true, isCompact: true),
@@ -28,6 +29,8 @@ enum EntityContextAction {
   final bool isCompact;
   final bool isMacOsOnly;
   final bool hideOnMacOs;
+
+  final List<EntityType> supportedEntityTypes;
 
   List<LogicalKeyboardKey> get shortcutKey {
     return ThemeConfigs().shortcut.items[name]?.shortcutKey ?? const [];
@@ -56,6 +59,7 @@ enum EntityContextAction {
     this.isCompact = false,
     this.isMacOsOnly = false,
     this.hideOnMacOs = false,
+    this.supportedEntityTypes = EntityType.values,
   });
 
   factory EntityContextAction.parse(String value) {
@@ -131,13 +135,18 @@ enum EntityContextAction {
   }
 
   static Iterable<EntityContextAction> getAvailableActions({
+    required EntityType entityType,
     bool isPressedAltOption = false,
     bool isPressedShift = false,
     bool isPressedControlCommand = false,
   }) {
     return EntityContextAction.values.where(
       (item) {
-        if (!item.enabled) {
+        if (!item.enabled || item == unknown) {
+          return false;
+        }
+
+        if (!item.supportedEntityTypes.contains(entityType)) {
           return false;
         }
 
