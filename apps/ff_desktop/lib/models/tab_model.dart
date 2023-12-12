@@ -148,9 +148,10 @@ class TabViewModel extends ChangeNotifier {
 
   List<ExploreViewModel> get exploreViewModels => _exploreViewModels;
 
-  void addTab() {
+  void addTab([ExploreViewModel? viewModel]) {
     final currentTab = currentExploreViewModel;
-    final newTab = ExploreViewModel()..goTo(currentTab.currentUri);
+    final newTab =
+        viewModel ?? (ExploreViewModel()..goTo(currentTab.currentUri));
     _exploreViewModels.add(newTab);
     _setIndex(_exploreViewModels.length - 1);
   }

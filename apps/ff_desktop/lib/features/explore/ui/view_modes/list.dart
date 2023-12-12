@@ -11,6 +11,8 @@ class EntityViewList extends StatelessWidget {
   final ValueChanged<Entity> onEntityTap;
   final ValueChanged<Entity> onEntityDoubleTap;
 
+  final ValueChanged<Entity> onOpenEntityInNewTab;
+
   const EntityViewList({
     super.key,
     required this.entities,
@@ -19,6 +21,7 @@ class EntityViewList extends StatelessWidget {
     required this.onSelectionChanged,
     required this.onEntityTap,
     required this.onEntityDoubleTap,
+    required this.onOpenEntityInNewTab,
   });
 
   List<int> _getSelectedIndexesWithinBounds(Rect rect, int maxItemsPerColumn) {
@@ -126,6 +129,18 @@ class EntityViewList extends StatelessWidget {
               ),
               child: CommonEntityActionsWrapper(
                 entity: entity,
+                onAction: (action) {
+                  switch (action) {
+                    case EntityContextAction.open:
+                      onEntityDoubleTap(entity);
+                      break;
+                    case EntityContextAction.openInNewTab:
+                      onOpenEntityInNewTab(entity);
+                      break;
+                    default:
+                      break;
+                  }
+                },
                 child: Listener(
                   onPointerDown: (event) {
                     if (isSelected && event.buttons != kPrimaryMouseButton) {

@@ -11,6 +11,8 @@ class CommonEntityActionsWrapper extends StatelessWidget {
   final Widget child;
   final Entity entity;
 
+  final Function(EntityContextAction action)? onAction;
+
   final FutureOr<Directory> Function(Uri path, Uri newPath)? onCopyDirectory;
   final FutureOr<Directory> Function(Uri path)? onCreateDirectory;
   final FutureOr<void> Function(Uri path)? onDeleteDirectory;
@@ -35,6 +37,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     this.onCreateFile,
     this.onDeleteFile,
     this.onMoveFile,
+    this.onAction,
   });
 
   Widget _buildMenu(
@@ -76,6 +79,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
                   _handleProperties();
                   break;
                 default:
+                  onAction?.call(action);
                   break;
               }
             },

@@ -44,6 +44,9 @@ class _MainAreaState extends State<MainArea> {
             onEntityDoubleTap: (entity) {
               entity.doubleTap(context);
             },
+            onOpenEntityInNewTab: (entity) {
+              entity.openInNewTab(context);
+            },
           );
         },
       ),

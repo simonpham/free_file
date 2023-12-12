@@ -23,6 +23,8 @@ class EntityView extends StatelessWidget {
   final ValueChanged<Entity> onEntityTap;
   final ValueChanged<Entity> onEntityDoubleTap;
 
+  final ValueChanged<Entity> onOpenEntityInNewTab;
+
   const EntityView({
     super.key,
     this.mode = ViewMode.list,
@@ -32,6 +34,7 @@ class EntityView extends StatelessWidget {
     required this.onSelectionChanged,
     required this.onEntityTap,
     required this.onEntityDoubleTap,
+    required this.onOpenEntityInNewTab,
   });
 
   @override
@@ -50,6 +53,7 @@ class EntityView extends StatelessWidget {
           onSelectionChanged: onSelectionChanged,
           onEntityTap: onEntityTap,
           onEntityDoubleTap: onEntityDoubleTap,
+          onOpenEntityInNewTab: onOpenEntityInNewTab,
         );
     }
   }
