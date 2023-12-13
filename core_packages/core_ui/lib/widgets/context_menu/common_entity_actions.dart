@@ -106,7 +106,7 @@ enum EntityContextAction {
   }
 
   static Iterable<EntityContextAction> getAvailableActions({
-    required EntityType entityType,
+    required Set<Entity> selectedEntities,
     bool isPressedAltOption = false,
     bool isPressedShift = false,
     bool isPressedControlCommand = false,
@@ -117,8 +117,11 @@ enum EntityContextAction {
           return false;
         }
 
-        if (!item.supportedEntityTypes.contains(entityType)) {
-          return false;
+        for (final entity in selectedEntities) {
+          final entityType = entity.type;
+          if (!item.supportedEntityTypes.contains(entityType)) {
+            return false;
+          }
         }
 
         if (item.showOnKeyHold != null &&

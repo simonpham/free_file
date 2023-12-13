@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/gestures.dart';
@@ -9,38 +7,16 @@ import 'package:utils/utils.dart';
 
 class CommonEntityActionsWrapper extends StatelessWidget {
   final Widget child;
-  final Entity entity;
+  final Set<Entity> selectedEntities;
 
   final Function(EntityContextAction action)? onAction;
 
-  final FutureOr<Directory> Function(Uri path, Uri newPath)? onCopyDirectory;
-  final FutureOr<Directory> Function(Uri path)? onCreateDirectory;
-  final FutureOr<void> Function(Uri path)? onDeleteDirectory;
-  final bool Function(Directory directory)? hasSubDirectoriesCheck;
-  final FutureOr<Directory> Function(Uri path, Uri newPath)? onMoveDirectory;
-
-  final FutureOr<File> Function(Uri path, Uri newPath)? onCopyFile;
-  final FutureOr<File> Function(Uri path)? onCreateFile;
-  final FutureOr<void> Function(Uri path)? onDeleteFile;
-  final FutureOr<File> Function(Uri path, Uri newPath)? onMoveFile;
-
   const CommonEntityActionsWrapper({
     super.key,
-    required this.entity,
+    required this.selectedEntities,
     required this.child,
-    this.onCopyDirectory,
-    this.onCreateDirectory,
-    this.onDeleteDirectory,
-    this.hasSubDirectoriesCheck,
-    this.onMoveDirectory,
-    this.onCopyFile,
-    this.onCreateFile,
-    this.onDeleteFile,
-    this.onMoveFile,
     this.onAction,
   });
-
-  static Entity? currentShowingEntity;
 
   Widget _buildMenu(
     BuildContext context,
@@ -48,14 +24,10 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     bool isPressedShift,
     bool isPressedControlCommand,
   ) {
-    final entity = currentShowingEntity;
-    if (entity == null) {
-      return const SizedBox();
-    }
     return GenericContextMenu(
       buttonConfigs: [
         for (final action in EntityContextAction.getAvailableActions(
-          entityType: entity.type,
+          selectedEntities: selectedEntities,
           isPressedAltOption: isPressedAltOption,
           isPressedShift: isPressedShift,
           isPressedControlCommand: isPressedControlCommand,
@@ -71,23 +43,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
                   ),
             shortcutLabel: action.shortcutLabel,
             onPressed: () {
-              switch (action) {
-                case EntityContextAction.copy:
-                  _handleCopy();
-                  break;
-                case EntityContextAction.paste:
-                  _handlePaste();
-                  break;
-                case EntityContextAction.move:
-                  _handleMove();
-                  break;
-                case EntityContextAction.properties:
-                  _handleProperties();
-                  break;
-                default:
-                  onAction?.call(action);
-                  break;
-              }
+              onAction?.call(action);
             },
           ),
       ],
@@ -103,9 +59,6 @@ class CommonEntityActionsWrapper extends StatelessWidget {
         bool isPressedControlCommand,
       ) {
         if (!context.contextMenuOverlay.isShowing) {
-          return;
-        }
-        if (currentShowingEntity != entity) {
           return;
         }
         context.contextMenuOverlay.show(
@@ -125,7 +78,6 @@ class CommonEntityActionsWrapper extends StatelessWidget {
           if (context.contextMenuOverlay.isShowing) {
             return;
           }
-          currentShowingEntity = entity;
           context.contextMenuOverlay.show(
             _buildMenu(
               context,
@@ -139,23 +91,4 @@ class CommonEntityActionsWrapper extends StatelessWidget {
       ),
     );
   }
-
-  void _handleMove() {}
-
-  void _handleCopy() {
-    switch (entity.type) {
-      case EntityType.directory:
-        final directory = entity as Directory;
-        onCopyDirectory?.call(directory.path, directory.path);
-        break;
-      case EntityType.file:
-        final file = entity as File;
-        onCopyFile?.call(file.path, file.path);
-        break;
-    }
-  }
-
-  void _handlePaste() {}
-
-  void _handleProperties() {}
 }

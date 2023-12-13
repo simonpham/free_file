@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
+import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/utils/entity_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -28,11 +29,12 @@ class _MainAreaState extends State<MainArea> {
           return (model.viewMode, model.entities, model.selectedEntities);
         },
         builder: (context, data, _) {
+          final (viewMode, entities, selectedEntities) = data;
           return EntityView(
             scrollController: scrollController,
-            mode: data.$1,
-            entities: data.$2,
-            selectedEntities: data.$3,
+            mode: viewMode,
+            entities: entities,
+            selectedEntities: selectedEntities,
             onSelectionChanged: (selectedEntities) {
               context.read<ExploreViewModel>().selectBatch(selectedEntities);
             },
@@ -42,12 +44,64 @@ class _MainAreaState extends State<MainArea> {
             onEntityDoubleTap: (entity) {
               entity.doubleTap(context);
             },
-            onOpenEntityInNewTab: (entity) {
-              entity.openInNewTab(context);
+            onAction: (action) {
+              final entities = selectedEntities.toSet();
+              _handleAction(context, action, entities);
             },
           );
         },
       ),
     );
+  }
+
+  void _handleAction(
+    BuildContext context,
+    EntityContextAction action,
+    Set<Entity> entities,
+  ) {
+    switch (action) {
+      case EntityContextAction.open:
+        for (final entity in entities) {
+          if (entity is Directory) {
+            entity.openInNewTab(context);
+          }
+          if (entity is File) {
+            entity.doubleTap(context);
+          }
+        }
+        break;
+      case EntityContextAction.openInNewWindow:
+        break;
+      case EntityContextAction.openInNewTab:
+        for (final entity in entities) {
+          if (entity is Directory) {
+            entity.openInNewTab(context);
+          }
+        }
+        break;
+      case EntityContextAction.quickLook:
+        break;
+      case EntityContextAction.compress:
+        break;
+      case EntityContextAction.copy:
+        context.read<TabViewModel>().copy(entities: entities);
+        break;
+      case EntityContextAction.paste:
+        context.read<TabViewModel>().paste();
+        break;
+      case EntityContextAction.move:
+        break;
+      case EntityContextAction.delete:
+        break;
+      case EntityContextAction.deletePermanently:
+        break;
+      case EntityContextAction.rename:
+        break;
+      case EntityContextAction.properties:
+        break;
+      case EntityContextAction.unknown:
+      default:
+        break;
+    }
   }
 }
