@@ -6,16 +6,13 @@ import 'package:core_ui/core_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
 import 'package:flutter/material.dart';
-import 'package:local_entity_provider/local_entity_provider.dart';
-import 'package:pasteboard/pasteboard.dart';
 import 'package:utils/utils.dart';
+import 'package:ff_desktop/models/models.dart';
 
-class TabViewModel extends ChangeNotifier {
+class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
   StreamSubscription? _shortcutSubscription;
 
   EventBus get eventBus => injector.get<EventBus>();
-
-  LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
 
   final ItemScrollController tabScrollController = ItemScrollController();
   final ItemPositionsListener itemPositionsListener =
@@ -46,12 +43,6 @@ class TabViewModel extends ChangeNotifier {
 
   int get currentIndex => _currentIndex;
 
-  Set<Entity> _copiedEntities = {};
-
-  Future<List<String>> get _copiedPaths {
-    return Pasteboard.files();
-  }
-
   bool _isRemovingTab = false;
 
   void _handleItemPositionsChanged() {
@@ -72,49 +63,6 @@ class TabViewModel extends ChangeNotifier {
   void _setIndex(int index) {
     _currentIndex = max(0, min(index, _exploreViewModels.length - 1));
     notifyListeners();
-  }
-
-  Future<void> copy({Set<Entity>? entities}) async {
-    _copiedEntities = entities ?? currentExploreViewModel.selectedEntities;
-    await Pasteboard.writeFiles(
-      _copiedEntities.map((e) => e.path.toFilePath()).toList(),
-    );
-    notifyListeners();
-  }
-
-  Future<void> paste({Uri? path}) async {
-    if (_copiedEntities.isEmpty) {
-      return;
-    }
-
-    path ??= currentExploreViewModel.currentUri;
-
-    final copiedPaths = await _copiedPaths;
-    if (copiedPaths.isEmpty) {
-      return;
-    }
-
-    final List<String> pathToSelects = [];
-    for (var copiedPath in copiedPaths) {
-      final copiedEntity = _copiedEntities.firstWhere(
-        (item) => item.path.toFilePath() == copiedPath,
-      );
-      final newPath = path.resolve(path.path + kSlash + copiedEntity.name);
-      if (copiedEntity is File) {
-        await _local.copyFile(copiedEntity.path, newPath);
-      } else if (copiedEntity is Directory) {
-        await _local.copyDirectory(copiedEntity.path, newPath);
-      }
-
-      pathToSelects.add(newPath.toFilePath());
-    }
-
-    await Pasteboard.writeFiles(const []);
-    _copiedEntities = {};
-    await currentExploreViewModel.refresh();
-    currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => pathToSelects.contains(item.path.toFilePath()))
-        .toSet());
   }
 
   void changeTab(int index) {
@@ -143,6 +91,7 @@ class TabViewModel extends ChangeNotifier {
     ExploreViewModel(),
   ];
 
+  @override
   ExploreViewModel get currentExploreViewModel =>
       _exploreViewModels[_currentIndex];
 
@@ -177,30 +126,6 @@ class TabViewModel extends ChangeNotifier {
     _exploreViewModels.removeAt(index);
     notifyListeners();
     _isRemovingTab = false;
-  }
-
-  Future<void> refreshClipboard() async {
-    final copiedPaths = await Pasteboard.files();
-    printLog('[TabViewModel] refreshClipboard: $copiedPaths');
-    if (copiedPaths.isEmpty) {
-      return;
-    }
-
-    final List<Entity> copiedEntities = [];
-    for (var copiedPath in copiedPaths) {
-      try {
-        final uri = Uri.parse(copiedPath);
-        final copiedEntity = await _local.get(uri);
-        if (copiedEntity == null) {
-          continue;
-        }
-        copiedEntities.add(copiedEntity);
-      } catch (err, trace) {
-        printError(err, trace);
-      }
-    }
-    _copiedEntities = copiedEntities.toSet();
-    notifyListeners();
   }
 
   void _handleShortcut(ShortcutEvent event) {
