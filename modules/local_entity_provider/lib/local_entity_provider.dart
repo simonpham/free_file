@@ -104,8 +104,10 @@ class LocalEntityProvider extends EntityProvider {
   @override
   Future<Entity?> get(Uri path) async {
     final file = io.File(path.toFilePath());
-    final isExisted = await file.exists();
-    if (!isExisted) {
+    final directory = io.Directory(path.toFilePath());
+    final isFileExisted = await file.exists();
+    final isDirectoryExisted = await directory.exists();
+    if (!isFileExisted && !isDirectoryExisted) {
       throw const FreeError(Error.fileNotFound);
     }
 

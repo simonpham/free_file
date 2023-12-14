@@ -32,6 +32,11 @@ extension DirectoryExtension on io.Directory {
       if (file is io.Directory) {
         await io.Directory(newPath).create(recursive: true);
       } else if (file is io.File) {
+        if (kIsMacOs && file.path.endsWith(kMacOsDsStore)) {
+          continue;
+        }
+        final parent = io.Directory(newPath).parent;
+        await parent.createIfNotExists();
         await file.copy(newPath);
       }
     }

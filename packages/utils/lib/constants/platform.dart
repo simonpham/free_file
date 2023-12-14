@@ -28,6 +28,7 @@ final kMetaKeyLabel = kIsMacOs
 
 final kSlash = kIsWindows ? '\\' : '/';
 
+const kMacOsDsStore = '.DS_Store';
 const kMacOsQuickLookProcess = 'qlmanage';
 final kOpenProcess = kIsMacOs
     ? 'open'
