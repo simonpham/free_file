@@ -15,6 +15,8 @@ class ImageView extends StatelessWidget {
 
   final Color? color;
 
+  final String assetPackage;
+
   const ImageView(
     this.data, {
     super.key,
@@ -25,6 +27,7 @@ class ImageView extends StatelessWidget {
     this.alignment,
     this.color,
     this.blurHash,
+    this.assetPackage = 'core_ui',
   }) : assert(
           (size == null && (width != null || height != null)) ||
               (size != null && width == null && height == null),
@@ -47,7 +50,7 @@ class ImageView extends StatelessWidget {
                 BlendMode.srcIn,
               )
             : null,
-        package: 'core_ui',
+        package: assetPackage,
       );
     }
 
@@ -105,6 +108,7 @@ class ImageView extends StatelessWidget {
                   BlendMode.srcIn,
                 )
               : null,
+          package: assetPackage,
         );
       }
 
@@ -115,6 +119,7 @@ class ImageView extends StatelessWidget {
         fit: fit ?? BoxFit.cover,
         alignment: alignment ?? Alignment.center,
         color: color,
+        package: assetPackage,
       );
     }
 

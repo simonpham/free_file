@@ -144,9 +144,8 @@ class EntityViewList extends StatelessWidget {
                         isSelected ? selectedBackgroundColor : backgroundColor,
                     onDoubleTap: () => onEntityDoubleTap(entity),
                     enableAnimation: false,
-                    leading: ImageView(
-                      entity.entityIcon,
-                      color: entity.getEntityColor(appTheme),
+                    leading: EntityIconWidget(
+                      entity: entity,
                       size: Spacing.d20,
                     ),
                     titlePadding: EdgeInsets.only(

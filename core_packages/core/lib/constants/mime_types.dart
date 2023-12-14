@@ -13,6 +13,22 @@ enum ContentType {
   unknown,
 }
 
+const List<FileType> kImageMimeTypes = [
+  FileType.avif,
+  FileType.bmp,
+  FileType.gif,
+  FileType.jpeg,
+  FileType.png,
+  FileType.svg,
+  FileType.ico,
+  FileType.tiff,
+  FileType.webp,
+];
+
+const List<FileType> kThumbnailSupportedTypes = [
+  ...kImageMimeTypes,
+];
+
 enum FileType {
   aac(
     extension: 'aac',
@@ -433,6 +449,7 @@ const Map<String, FileType> kMimeTypes = {
   'application/gzip': FileType.gz,
   'image/gif': FileType.gif,
   'text/html': FileType.html,
+  'image/x-icon': FileType.ico,
   'image/vnd.microsoft.icon': FileType.ico,
   'text/calendar': FileType.ics,
   'application/java-archive': FileType.jar,
