@@ -26,7 +26,7 @@ abstract interface class ExploreInterfaceSelectActions {
 }
 
 abstract interface class ExploreInterface {
-  Future<void> refresh();
+  Future<void> refresh({bool maintainState = false});
 
   Uri get currentUri;
 

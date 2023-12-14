@@ -75,8 +75,10 @@ class ExploreViewModel extends ChangeNotifier
   Set<Entity> get selectedEntities => _selectedEntities;
 
   @override
-  Future<void> refresh() async {
-    _entities = [];
+  Future<void> refresh({bool maintainState = false}) async {
+    if (!maintainState) {
+      _entities = [];
+    }
     _addressBarController.text = currentUri.toFilePath();
     notifyListeners();
     final entities = await _local.list(currentUri);

@@ -103,7 +103,7 @@ class PlatformUtils {
       if (injector.isRegistered<TabViewModel>()) {
         final model = injector<TabViewModel>();
         model.refreshClipboard();
-        model.currentExploreViewModel.refresh();
+        model.currentExploreViewModel.refresh(maintainState: true);
       }
     }
   }
