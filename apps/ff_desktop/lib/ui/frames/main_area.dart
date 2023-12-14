@@ -80,6 +80,7 @@ class _MainAreaState extends State<MainArea> {
         }
         break;
       case EntityContextAction.quickLook:
+        context.read<TabViewModel>().quickLook(entities: entities);
         break;
       case EntityContextAction.compress:
         break;

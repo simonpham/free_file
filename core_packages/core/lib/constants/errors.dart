@@ -6,7 +6,8 @@ enum Error {
   directoryAlreadyExists,
   noApplicationKnowsHowToOpenUrl,
   openFailed,
-  unsupportedFile;
+  unsupportedFile,
+  notSupported;
 
   String toReadableMessage() {
     switch (this) {
@@ -26,6 +27,8 @@ enum Error {
         return 'No application knows how to open URL';
       case Error.unsupportedFile:
         return 'Unsupported file';
+      case Error.notSupported:
+        return 'Not supported';
     }
   }
 }

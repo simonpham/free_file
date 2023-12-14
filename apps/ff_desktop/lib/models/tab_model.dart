@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
 import 'package:flutter/material.dart';
@@ -151,11 +152,22 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       case const (PasteEvent):
         paste();
         break;
+      case const (QuickLookEvent):
+        quickLook();
+        break;
       default:
         printLog(
           '[TabViewModel] Unhandled shortcut event: ${event.runtimeType}',
         );
         break;
     }
+  }
+
+  Future<void> quickLook({Set<Entity>? entities}) async {
+    entities ??= currentExploreViewModel.selectedEntities;
+    await PlatformUtils.openQuickLook(
+      entities.map((item) => item.path.toFilePath()).toList(),
+      workingDirectory: currentExploreViewModel.currentUri,
+    );
   }
 }

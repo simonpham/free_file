@@ -34,6 +34,28 @@ class PlatformUtils {
     return null;
   }
 
+  static Future<Error?> openQuickLook(
+    List<String> paths, {
+    Uri? workingDirectory,
+  }) async {
+    if (!kIsMacOs) {
+      return Error.notSupported;
+    }
+
+    final result = await Process.run(
+      kMacOsQuickLookProcess,
+      ['-p', ...paths],
+      workingDirectory: workingDirectory?.toFilePath(),
+      runInShell: true,
+    );
+
+    if (result.exitCode != 0) {
+      return Error.openFailed;
+    }
+
+    return null;
+  }
+
   static Future<void> setupWindow() async {
     try {
       await Window.initialize();

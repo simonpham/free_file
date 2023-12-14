@@ -27,6 +27,8 @@ final kMetaKeyLabel = kIsMacOs
         : 'Windows';
 
 final kSlash = kIsWindows ? '\\' : '/';
+
+const kMacOsQuickLookProcess = 'qlmanage';
 final kOpenProcess = kIsMacOs
     ? 'open'
     : kIsWindows
