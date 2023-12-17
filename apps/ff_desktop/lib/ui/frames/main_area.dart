@@ -98,6 +98,7 @@ class _MainAreaState extends State<MainArea> {
         context.read<TabViewModel>().paste();
         break;
       case EntityContextAction.move:
+        context.read<TabViewModel>().move();
         break;
       case EntityContextAction.delete:
         context.read<ExploreViewModel>().delete(entities: entities);

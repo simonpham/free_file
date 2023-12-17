@@ -152,6 +152,9 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       case const (PasteEvent):
         paste();
         break;
+      case const (MoveEvent):
+        move();
+        break;
       case const (QuickLookEvent):
         quickLook();
         break;

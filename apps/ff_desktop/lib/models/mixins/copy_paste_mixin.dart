@@ -68,6 +68,42 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
         .toSet());
   }
 
+  @override
+  Future<void> move({Uri? path}) async {
+    if (_copiedEntities.isEmpty) {
+      return;
+    }
+
+    path ??= currentExploreViewModel.currentUri;
+
+    final copiedPaths = await _copiedPaths;
+    if (copiedPaths.isEmpty) {
+      return;
+    }
+
+    final List<String> pathToSelects = [];
+    for (var copiedPath in copiedPaths) {
+      final copiedEntity = _copiedEntities.firstWhere(
+        (item) => item.path.toFilePath() == copiedPath,
+      );
+      final newPath = path.resolve(path.path + kSlash + copiedEntity.name);
+      if (copiedEntity is File) {
+        await _local.moveFile(copiedEntity.path, newPath);
+      } else if (copiedEntity is Directory) {
+        await _local.moveDirectory(copiedEntity.path, newPath);
+      }
+
+      pathToSelects.add(newPath.toFilePath());
+    }
+
+    await Pasteboard.writeFiles(const []);
+    _copiedEntities = {};
+    await currentExploreViewModel.refresh();
+    currentExploreViewModel.selectBatch(currentExploreViewModel.entities
+        .where((item) => pathToSelects.contains(item.path.toFilePath()))
+        .toSet());
+  }
+
   Future<void> refreshClipboard() async {
     final copiedPaths = await Pasteboard.files();
     if (copiedPaths.isEmpty) {
