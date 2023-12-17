@@ -65,6 +65,15 @@ class _MainAreaState extends State<MainArea> {
     EntityContextAction action,
   ) {
     final entities = selectedEntitiesGetter.call();
+    if (entities.isEmpty) {
+      /// If no entities are selected, open current directory in new tab.
+      final model = context.read<TabViewModel>();
+      final newTab = ExploreViewModel();
+      newTab.goTo(model.currentExploreViewModel.currentUri);
+      model.addTab(newTab);
+      return;
+    }
+
     switch (action) {
       case EntityContextAction.open:
         for (final entity in entities) {
