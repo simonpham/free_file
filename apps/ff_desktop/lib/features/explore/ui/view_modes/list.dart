@@ -6,6 +6,7 @@ class EntityViewList extends StatelessWidget {
   final ScrollController scrollController;
   final List<Entity> entities;
   final Set<Entity> Function() selectedEntitiesGetter;
+  final Set<Entity> Function() copiedEntitiesGetter;
 
   final ValueChanged<Set<Entity>> onSelectionChanged;
   final ValueChanged<Entity> onEntityTap;
@@ -17,6 +18,7 @@ class EntityViewList extends StatelessWidget {
     super.key,
     required this.entities,
     required this.selectedEntitiesGetter,
+    required this.copiedEntitiesGetter,
     required this.scrollController,
     required this.onSelectionChanged,
     required this.onEntityTap,
@@ -106,32 +108,33 @@ class EntityViewList extends StatelessWidget {
             );
           }
         },
-        child: GridView.builder(
-          padding: EdgeInsets.only(
-            top: Spacing.d8,
-            bottom: Spacing.d16,
-          ),
-          controller: scrollController,
-          itemCount: entities.length,
-          scrollDirection: Axis.horizontal,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisExtent: mode.itemWidth,
-            crossAxisCount: maxItemsPerColumn,
-            crossAxisSpacing: 0,
-            mainAxisSpacing: 0,
-            childAspectRatio: mode.itemHeight / mode.itemWidth,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            final entity = entities[index];
-            final isSelected = selectedEntities.contains(entity);
-            return Container(
-              key: ValueKey(entity.path.toFilePath()),
-              padding: EdgeInsets.symmetric(
-                horizontal: Spacing.d8,
-              ),
-              child: CommonEntityActionsWrapper(
-                selectedEntitiesGetter: selectedEntitiesGetter,
-                onAction: onAction,
+        child: CommonEntityActionsWrapper(
+          selectedEntitiesGetter: selectedEntitiesGetter,
+          copiedEntitiesGetter: copiedEntitiesGetter,
+          onAction: onAction,
+          child: GridView.builder(
+            padding: EdgeInsets.only(
+              top: Spacing.d8,
+              bottom: Spacing.d16,
+            ),
+            controller: scrollController,
+            itemCount: entities.length,
+            scrollDirection: Axis.horizontal,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisExtent: mode.itemWidth,
+              crossAxisCount: maxItemsPerColumn,
+              crossAxisSpacing: 0,
+              mainAxisSpacing: 0,
+              childAspectRatio: mode.itemHeight / mode.itemWidth,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              final entity = entities[index];
+              final isSelected = selectedEntities.contains(entity);
+              return Container(
+                key: ValueKey(entity.path.toFilePath()),
+                padding: EdgeInsets.symmetric(
+                  horizontal: Spacing.d8,
+                ),
                 child: Listener(
                   onPointerDown: (event) {
                     if (isSelected && event.buttons != kPrimaryMouseButton) {
@@ -172,9 +175,9 @@ class EntityViewList extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

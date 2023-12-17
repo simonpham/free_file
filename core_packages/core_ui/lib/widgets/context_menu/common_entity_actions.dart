@@ -8,20 +8,37 @@ import 'package:utils/constants/constants.dart';
 
 enum EntityContextAction {
   open,
-  openInNewWindow(supportedEntityTypes: [EntityType.directory]),
-  openInNewTab(supportedEntityTypes: [EntityType.directory]),
-  quickLook,
+  openInNewWindow(
+    supportedEntityTypes: [EntityType.directory],
+    minSelectedEntities: 0,
+  ),
+  openInNewTab(
+    supportedEntityTypes: [EntityType.directory],
+    minSelectedEntities: 0,
+  ),
+  quickLook(minSelectedEntities: 0),
   compress,
   copy(isCompact: true),
-  paste(isCompact: true),
-  move(isCompact: true),
+  paste(isCompact: true, minSelectedEntities: 0),
+  move(isCompact: true, minSelectedEntities: 0),
   delete(isCompact: true),
   deletePermanently(isCompact: true),
   rename(isCompact: true),
-  properties,
+  properties(minSelectedEntities: 0),
   unknown;
 
   final bool isCompact;
+
+  /// The minimum number of selected entities required to show this action.
+  /// If the number of selected entities is less than this value, this action
+  /// will not be shown.
+  final int minSelectedEntities;
+
+  /// The maximum number of selected entities required to show this action.
+  /// If the number of selected entities is more than this value, this action
+  /// will not be shown.
+  /// If this value is null, there is no limit.
+  final int? maxSelectedEntities;
 
   final List<EntityType> supportedEntityTypes;
 
@@ -50,6 +67,8 @@ enum EntityContextAction {
 
   const EntityContextAction({
     this.isCompact = false,
+    this.minSelectedEntities = 1,
+    this.maxSelectedEntities,
     this.supportedEntityTypes = EntityType.values,
   });
 
@@ -78,19 +97,28 @@ enum EntityContextAction {
     };
   }
 
-  String getLabel(BuildContext context, Set<Entity> selectedEntities) {
-    final bool hasManyItems = selectedEntities.length > 1;
+  String getLabel(
+    BuildContext context,
+    Set<Entity> selectedEntities,
+    Set<Entity> copiedEntities,
+  ) {
+    final bool hasSelectedManyItems = selectedEntities.length > 1;
+    final bool hasCopiedManyItems = copiedEntities.length > 1;
     return switch (this) {
       open => 'Open',
-      openInNewWindow when hasManyItems => 'Open in new windows',
+      openInNewWindow when hasSelectedManyItems => 'Open in new windows',
       openInNewWindow => 'Open in new window',
-      openInNewTab when hasManyItems => 'Open in new tabs',
+      openInNewTab when hasSelectedManyItems => 'Open in new tabs',
       openInNewTab => 'Open in new tab',
       quickLook => 'Quick look',
       compress => 'Compress',
       copy => 'Copy',
-      paste => 'Paste',
-      move => 'Move',
+      paste when hasCopiedManyItems => 'Paste ${copiedEntities.length} items',
+      paste when copiedEntities.isEmpty => 'Paste',
+      paste => 'Paste "${copiedEntities.first.name}" here',
+      move when hasCopiedManyItems => 'Move ${copiedEntities.length} items',
+      move when copiedEntities.isEmpty => 'Move',
+      move => 'Move "${copiedEntities.first.name}" here',
       delete => 'Delete',
       deletePermanently => 'Delete permanently',
       rename => 'Rename',
@@ -110,6 +138,7 @@ enum EntityContextAction {
 
   static Iterable<EntityContextAction> getAvailableActions({
     required Set<Entity> selectedEntities,
+    required Set<Entity> copiedEntities,
     bool isPressedAltOption = false,
     bool isPressedShift = false,
     bool isPressedControlCommand = false,
@@ -125,6 +154,19 @@ enum EntityContextAction {
           if (!item.supportedEntityTypes.contains(entityType)) {
             return false;
           }
+        }
+
+        if (item.minSelectedEntities > selectedEntities.length) {
+          return false;
+        }
+
+        if (item.maxSelectedEntities != null &&
+            item.maxSelectedEntities! < selectedEntities.length) {
+          return false;
+        }
+
+        if ((item == paste || item == move) && copiedEntities.isEmpty) {
+          return false;
         }
 
         if (item.showOnKeyHold != null &&

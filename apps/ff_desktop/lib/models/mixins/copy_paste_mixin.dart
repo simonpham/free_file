@@ -17,6 +17,8 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
 
   Set<Entity> _copiedEntities = {};
 
+  Set<Entity> get copiedEntities => _copiedEntities;
+
   Future<List<String>> get _copiedPaths {
     return Pasteboard.files();
   }

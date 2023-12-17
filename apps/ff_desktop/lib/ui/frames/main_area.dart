@@ -23,6 +23,9 @@ class _MainAreaState extends State<MainArea> {
   Set<Entity> selectedEntitiesGetter() =>
       context.read<ExploreViewModel>().selectedEntities.toSet();
 
+  Set<Entity> copiedEntitiesGetter() =>
+      context.read<TabViewModel>().copiedEntities.toSet();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,6 +41,7 @@ class _MainAreaState extends State<MainArea> {
             mode: viewMode,
             entities: entities,
             selectedEntitiesGetter: selectedEntitiesGetter,
+            copiedEntitiesGetter: copiedEntitiesGetter,
             onSelectionChanged: (selectedEntities) {
               context.read<ExploreViewModel>().selectBatch(selectedEntities);
             },
