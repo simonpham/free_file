@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:io' as io;
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:core/core.dart';
@@ -16,7 +16,7 @@ class PlatformUtils {
     Uri uri, {
     Uri? workingDirectory,
   }) async {
-    final result = await Process.run(
+    final result = await io.Process.run(
       kOpenProcess,
       [uri.toFilePath()],
       workingDirectory: workingDirectory?.toFilePath(),
@@ -42,7 +42,7 @@ class PlatformUtils {
       return Error.notSupported;
     }
 
-    final result = await Process.run(
+    final result = await io.Process.run(
       kMacOsQuickLookProcess,
       ['-p', ...paths],
       workingDirectory: workingDirectory?.toFilePath(),
@@ -54,6 +54,45 @@ class PlatformUtils {
     }
 
     return null;
+  }
+
+  static Future<(String?, Error?)> compress(
+    List<String> paths, {
+    String fileName = 'archive',
+    required Uri workingDirectory,
+  }) async {
+    if (!kIsMacOs) {
+      return (null, Error.notSupported);
+    }
+
+    String zipFilePath = '${workingDirectory.toFilePath()}$kSlash$fileName';
+    int count = 1;
+    while (await io.File('$zipFilePath.zip').exists()) {
+      zipFilePath = '$zipFilePath-$count';
+      count++;
+    }
+
+    /// Convert paths to relative paths.
+    paths = paths.map((path) {
+      return path.replaceFirst('${workingDirectory.toFilePath()}$kSlash', '');
+    }).toList();
+
+    zipFilePath = '$zipFilePath.zip';
+    final result = await io.Process.run(
+      kZipProcess,
+      [
+        '-r',
+        zipFilePath,
+        ...paths,
+      ],
+      workingDirectory: workingDirectory.toFilePath(),
+    );
+
+    if (result.exitCode != 0) {
+      return (null, Error.compressFailed);
+    }
+
+    return (zipFilePath, null);
   }
 
   static Future<void> setupWindow() async {

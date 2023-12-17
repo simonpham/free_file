@@ -6,6 +6,7 @@ enum Error {
   directoryAlreadyExists,
   noApplicationKnowsHowToOpenUrl,
   openFailed,
+  compressFailed,
   unsupportedFile,
   notSupported;
 
@@ -23,6 +24,8 @@ enum Error {
         return 'Directory already exists';
       case Error.openFailed:
         return 'Open failed';
+      case Error.compressFailed:
+        return 'Compress failed';
       case Error.noApplicationKnowsHowToOpenUrl:
         return 'No application knows how to open URL';
       case Error.unsupportedFile:

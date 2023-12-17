@@ -45,8 +45,11 @@ class _MainAreaState extends State<MainArea> {
               entity.doubleTap(context);
             },
             onAction: (action) {
-              final entities = selectedEntities.toSet();
-              _handleAction(context, action, entities);
+              final selectedEntities = context
+                  .read<ExploreViewModel>()
+                  .selectedEntities
+                  .toSet();
+              _handleAction(context, action, selectedEntities);
             },
           );
         },
@@ -83,6 +86,7 @@ class _MainAreaState extends State<MainArea> {
         context.read<TabViewModel>().quickLook(entities: entities);
         break;
       case EntityContextAction.compress:
+        context.read<TabViewModel>().compress(entities: entities);
         break;
       case EntityContextAction.copy:
         context.read<TabViewModel>().copy(entities: entities);

@@ -30,6 +30,9 @@ final kSlash = kIsWindows ? '\\' : '/';
 
 const kMacOsDsStore = '.DS_Store';
 const kMacOsQuickLookProcess = 'qlmanage';
+
+const kZipProcess = 'zip';
+
 final kOpenProcess = kIsMacOs
     ? 'open'
     : kIsWindows

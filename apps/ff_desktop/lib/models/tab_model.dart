@@ -155,6 +155,9 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       case const (QuickLookEvent):
         quickLook();
         break;
+      case const (CompressEvent):
+        compress();
+        break;
       default:
         printLog(
           '[TabViewModel] Unhandled shortcut event: ${event.runtimeType}',
@@ -169,5 +172,33 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       entities.map((item) => item.path.toFilePath()).toList(),
       workingDirectory: currentExploreViewModel.currentUri,
     );
+  }
+
+  Future<void> compress({Set<Entity>? entities}) async {
+    entities ??= currentExploreViewModel.selectedEntities;
+    Directory? firstDirectory;
+
+    final List<String> pathsToCompress = [];
+    for (final entity in entities) {
+      if (entity is Directory) {
+        firstDirectory ??= entity;
+      }
+      pathsToCompress.add(entity.path.toFilePath());
+    }
+
+    final (zipFile, error) = await PlatformUtils.compress(
+      pathsToCompress,
+      fileName: firstDirectory?.name ?? 'archive',
+      workingDirectory: currentExploreViewModel.currentUri,
+    );
+
+    if (error != null) {
+      return;
+    }
+
+    await currentExploreViewModel.refresh();
+    currentExploreViewModel.selectBatch(currentExploreViewModel.entities
+        .where((item) => item.path.toFilePath() == zipFile)
+        .toSet());
   }
 }
