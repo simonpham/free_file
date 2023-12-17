@@ -172,7 +172,9 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
   Future<void> quickLook({Set<Entity>? entities}) async {
     entities ??= currentExploreViewModel.selectedEntities;
     await PlatformUtils.openQuickLook(
-      entities.map((item) => item.path.toFilePath()).toList(),
+      entities.isEmpty
+          ? [currentExploreViewModel.currentUri.toFilePath()]
+          : entities.map((item) => item.path.toFilePath()).toList(),
       workingDirectory: currentExploreViewModel.currentUri,
     );
   }
