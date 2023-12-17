@@ -78,10 +78,13 @@ enum EntityContextAction {
     };
   }
 
-  String getLabel(BuildContext context) {
+  String getLabel(BuildContext context, Set<Entity> selectedEntities) {
+    final bool hasManyItems = selectedEntities.length > 1;
     return switch (this) {
       open => 'Open',
+      openInNewWindow when hasManyItems => 'Open in new windows',
       openInNewWindow => 'Open in new window',
+      openInNewTab when hasManyItems => 'Open in new tabs',
       openInNewTab => 'Open in new tab',
       quickLook => 'Quick look',
       compress => 'Compress',

@@ -34,7 +34,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
           isPressedControlCommand: isPressedControlCommand,
         ))
           ContextMenuButtonConfig(
-            action.getLabel(context),
+            action.getLabel(context, selectedEntities),
             icon: action.icon == null
                 ? SizedBox.square(dimension: Spacing.d16)
                 : ImageView(
