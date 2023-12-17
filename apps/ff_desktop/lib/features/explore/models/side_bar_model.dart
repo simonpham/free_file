@@ -37,7 +37,7 @@ class SideBarViewModel extends ChangeNotifier {
             final now = DateTime.now().toIso8601String();
             final directory = Directory(
               name: folder.name.capitalize(),
-              path: uri,
+              path: uri.trim(),
               isHidden: false,
               createdAt: now,
               updatedAt: now,

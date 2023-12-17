@@ -75,7 +75,7 @@ class LocalEntityProvider extends EntityProvider {
       if (item is io.Directory) {
         final dir = Directory(
           name: item.path.split(kSlash).last,
-          path: item.uri.normalizePath(),
+          path: item.uri.normalizePath().trim(),
           isHidden: isHidden(item.uri, stat),
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
@@ -131,7 +131,7 @@ class LocalEntityProvider extends EntityProvider {
     if (stat.type == io.FileSystemEntityType.directory) {
       final entity = Directory(
         name: file.path.split(kSlash).last,
-        path: file.uri.normalizePath(),
+        path: file.uri.normalizePath().trim(),
         isHidden: isHidden(file.uri, stat),
         createdAt: stat.changed.toIso8601String(),
         updatedAt: stat.modified.toIso8601String(),
@@ -320,7 +320,7 @@ class LocalEntityProvider extends EntityProvider {
 
     return Directory(
       name: newDir.path.split(kSlash).last,
-      path: newDir.uri.normalizePath(),
+      path: newDir.uri.normalizePath().trim(),
       isHidden: isHidden(newDir.uri, stat),
       createdAt: stat.changed.toIso8601String(),
       updatedAt: stat.modified.toIso8601String(),

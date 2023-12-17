@@ -70,7 +70,6 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
 
   Future<void> refreshClipboard() async {
     final copiedPaths = await Pasteboard.files();
-    printLog('[TabViewModel] refreshClipboard: $copiedPaths');
     if (copiedPaths.isEmpty) {
       return;
     }
