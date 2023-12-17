@@ -5,7 +5,7 @@ class EntityViewList extends StatelessWidget {
 
   final ScrollController scrollController;
   final List<Entity> entities;
-  final Set<Entity> selectedEntities;
+  final Set<Entity> Function() selectedEntitiesGetter;
 
   final ValueChanged<Set<Entity>> onSelectionChanged;
   final ValueChanged<Entity> onEntityTap;
@@ -16,7 +16,7 @@ class EntityViewList extends StatelessWidget {
   const EntityViewList({
     super.key,
     required this.entities,
-    required this.selectedEntities,
+    required this.selectedEntitiesGetter,
     required this.scrollController,
     required this.onSelectionChanged,
     required this.onEntityTap,
@@ -75,6 +75,8 @@ class EntityViewList extends StatelessWidget {
     final selectedBackgroundColor =
         context.appTheme.color.primary.withOpacity(0.2);
     final appTheme = context.appTheme;
+
+    final selectedEntities = selectedEntitiesGetter.call();
     return Scrollbar(
       controller: scrollController,
       thumbVisibility: true,
@@ -128,7 +130,7 @@ class EntityViewList extends StatelessWidget {
                 horizontal: Spacing.d8,
               ),
               child: CommonEntityActionsWrapper(
-                selectedEntities: selectedEntities,
+                selectedEntitiesGetter: selectedEntitiesGetter,
                 onAction: onAction,
                 child: Listener(
                   onPointerDown: (event) {

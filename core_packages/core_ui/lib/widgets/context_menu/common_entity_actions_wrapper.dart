@@ -7,13 +7,13 @@ import 'package:utils/utils.dart';
 
 class CommonEntityActionsWrapper extends StatelessWidget {
   final Widget child;
-  final Set<Entity> selectedEntities;
+  final Set<Entity> Function() selectedEntitiesGetter;
 
   final Function(EntityContextAction action)? onAction;
 
   const CommonEntityActionsWrapper({
     super.key,
-    required this.selectedEntities,
+    required this.selectedEntitiesGetter,
     required this.child,
     this.onAction,
   });
@@ -24,6 +24,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     bool isPressedShift,
     bool isPressedControlCommand,
   ) {
+    final selectedEntities = selectedEntitiesGetter.call();
     return GenericContextMenu(
       buttonConfigs: [
         for (final action in EntityContextAction.getAvailableActions(

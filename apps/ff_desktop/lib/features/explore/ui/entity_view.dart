@@ -18,7 +18,7 @@ class EntityView extends StatelessWidget {
   final ScrollController scrollController;
 
   final List<Entity> entities;
-  final Set<Entity> selectedEntities;
+  final Set<Entity> Function() selectedEntitiesGetter;
 
   final ValueChanged<Set<Entity>> onSelectionChanged;
   final ValueChanged<Entity> onEntityTap;
@@ -31,7 +31,7 @@ class EntityView extends StatelessWidget {
     this.mode = ViewMode.list,
     required this.scrollController,
     required this.entities,
-    required this.selectedEntities,
+    required this.selectedEntitiesGetter,
     required this.onSelectionChanged,
     required this.onEntityTap,
     required this.onEntityDoubleTap,
@@ -50,7 +50,7 @@ class EntityView extends StatelessWidget {
         return EntityViewList(
           scrollController: scrollController,
           entities: entities,
-          selectedEntities: selectedEntities,
+          selectedEntitiesGetter: selectedEntitiesGetter,
           onSelectionChanged: onSelectionChanged,
           onEntityTap: onEntityTap,
           onEntityDoubleTap: onEntityDoubleTap,

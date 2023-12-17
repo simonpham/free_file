@@ -20,21 +20,24 @@ class MainArea extends StatefulWidget {
 class _MainAreaState extends State<MainArea> {
   final ScrollController scrollController = ScrollController();
 
+  Set<Entity> selectedEntitiesGetter() =>
+      context.read<ExploreViewModel>().selectedEntities.toSet();
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: context.appTheme.color.mainBackground.withTransparency,
-      child: Selector<ExploreViewModel, (ViewMode, List<Entity>, Set<Entity>)>(
+      child: Selector<ExploreViewModel, (ViewMode, List<Entity>)>(
         selector: (BuildContext context, ExploreViewModel model) {
-          return (model.viewMode, model.entities, model.selectedEntities);
+          return (model.viewMode, model.entities);
         },
         builder: (context, data, _) {
-          final (viewMode, entities, selectedEntities) = data;
+          final (viewMode, entities) = data;
           return EntityView(
             scrollController: scrollController,
             mode: viewMode,
             entities: entities,
-            selectedEntities: selectedEntities,
+            selectedEntitiesGetter: selectedEntitiesGetter,
             onSelectionChanged: (selectedEntities) {
               context.read<ExploreViewModel>().selectBatch(selectedEntities);
             },
@@ -45,11 +48,7 @@ class _MainAreaState extends State<MainArea> {
               entity.doubleTap(context);
             },
             onAction: (action) {
-              final selectedEntities = context
-                  .read<ExploreViewModel>()
-                  .selectedEntities
-                  .toSet();
-              _handleAction(context, action, selectedEntities);
+              _handleAction(context, action);
             },
           );
         },
@@ -60,8 +59,8 @@ class _MainAreaState extends State<MainArea> {
   void _handleAction(
     BuildContext context,
     EntityContextAction action,
-    Set<Entity> entities,
   ) {
+    final entities = selectedEntitiesGetter.call();
     switch (action) {
       case EntityContextAction.open:
         for (final entity in entities) {
