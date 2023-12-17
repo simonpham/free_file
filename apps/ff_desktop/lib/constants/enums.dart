@@ -16,6 +16,7 @@ enum PredefinedFolders {
   videos,
   movies,
   music,
+  trash,
 }
 
 enum ViewMode {

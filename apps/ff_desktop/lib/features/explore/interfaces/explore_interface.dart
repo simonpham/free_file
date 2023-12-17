@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:core/core.dart';
 
 abstract interface class ExploreInterfaceManipulateActions {
-  FutureOr<void> delete({Entity? entity});
+  FutureOr<void> delete({Set<Entity>? entities});
+
+  FutureOr<void> deletePermanently({Set<Entity>? entities});
 
   FutureOr<void> rename({Entity? entity, required String name});
 

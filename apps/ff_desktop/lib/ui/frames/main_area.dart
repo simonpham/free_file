@@ -100,8 +100,10 @@ class _MainAreaState extends State<MainArea> {
       case EntityContextAction.move:
         break;
       case EntityContextAction.delete:
+        context.read<ExploreViewModel>().delete(entities: entities);
         break;
       case EntityContextAction.deletePermanently:
+        context.read<ExploreViewModel>().deletePermanently(entities: entities);
         break;
       case EntityContextAction.rename:
         break;

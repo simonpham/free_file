@@ -181,8 +181,51 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  void delete({Entity? entity}) {
-    // TODO: implement delete
+  Future<void> delete({Set<Entity>? entities}) async {
+    final trashUri = PredefinedFolders.trash.uri;
+    if (trashUri == null) {
+      return;
+    }
+
+    bool? needRefresh;
+    final entitiesToDelete = (entities ?? _selectedEntities).toSet();
+    for (final entity in entitiesToDelete) {
+      if (entity.type == EntityType.directory) {
+        trashUri.lastNonEmptySegment;
+        await _local.moveDirectory(entity.path, trashUri.append(entity.name));
+        needRefresh ??= true;
+      }
+      if (entity.type == EntityType.file) {
+        await _local.moveFile(entity.path, trashUri.append(entity.name));
+        needRefresh ??= true;
+      }
+    }
+
+    if (needRefresh != true) {
+      return;
+    }
+    refresh(maintainState: true);
+  }
+
+  @override
+  Future<void> deletePermanently({Set<Entity>? entities}) async {
+    final entitiesToDelete = (entities ?? _selectedEntities).toSet();
+    bool? needRefresh;
+    for (final entity in entitiesToDelete) {
+      if (entity.type == EntityType.directory) {
+        await _local.deleteDirectory(entity.path);
+        needRefresh ??= true;
+      }
+      if (entity.type == EntityType.file) {
+        await _local.deleteFile(entity.path);
+        needRefresh ??= true;
+      }
+    }
+
+    if (needRefresh != true) {
+      return;
+    }
+    refresh(maintainState: true);
   }
 
   @override

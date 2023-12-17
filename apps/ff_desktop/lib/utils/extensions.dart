@@ -99,6 +99,8 @@ extension PredefinedFoldersExt on PredefinedFolders {
         return Assets.icons.multimediaAndAudio.outline.film03;
       case PredefinedFolders.music:
         return Assets.icons.multimediaAndAudio.outline.music;
+      case PredefinedFolders.trash:
+        return Assets.icons.interface.outline.trash;
     }
   }
 
@@ -120,6 +122,8 @@ extension PredefinedFoldersExt on PredefinedFolders {
         return Assets.icons.multimediaAndAudio.solid.film03;
       case PredefinedFolders.music:
         return Assets.icons.multimediaAndAudio.solid.music;
+      case PredefinedFolders.trash:
+        return Assets.icons.interface.solid.trash;
     }
   }
 
@@ -144,6 +148,8 @@ extension PredefinedFoldersExt on PredefinedFolders {
         return Uri.parse('$homePath/Movies').ifExists;
       case PredefinedFolders.music:
         return Uri.parse('$homePath/Music').ifExists;
+      case PredefinedFolders.trash:
+        return Uri.parse('$homePath/.Trash').ifExists;
     }
   }
 }

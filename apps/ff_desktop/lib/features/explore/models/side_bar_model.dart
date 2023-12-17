@@ -27,7 +27,8 @@ class SideBarViewModel extends ChangeNotifier {
           break;
         case SideBarSections.yours:
           for (final folder in PredefinedFolders.values) {
-            if (folder == PredefinedFolders.home) {
+            if (folder == PredefinedFolders.home ||
+                folder == PredefinedFolders.trash) {
               continue;
             }
             final uri = folder.uri;
