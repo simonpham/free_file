@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:theme/models/entities/entities.dart';
 import 'package:theme/models/models.dart';
 import 'package:utils/constants/constants.dart';
+import 'package:utils/utils.dart';
 
 enum EntityContextAction {
   open,
@@ -115,10 +116,10 @@ enum EntityContextAction {
       copy => 'Copy',
       paste when hasCopiedManyItems => 'Paste ${copiedEntities.length} items',
       paste when copiedEntities.isEmpty => 'Paste',
-      paste => 'Paste "${copiedEntities.first.name}" here',
+      paste => 'Paste "${copiedEntities.first.name.truncateMiddlePath()}" here',
       move when hasCopiedManyItems => 'Move ${copiedEntities.length} items',
       move when copiedEntities.isEmpty => 'Move',
-      move => 'Move "${copiedEntities.first.name}" here',
+      move => 'Move "${copiedEntities.first.name.truncateMiddlePath()}" here',
       delete => 'Delete',
       deletePermanently => 'Delete permanently',
       rename => 'Rename',
