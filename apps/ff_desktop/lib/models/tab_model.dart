@@ -146,6 +146,19 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       case const (PreviousTabEvent):
         previousTab();
         break;
+      case const (OpenEvent):
+        break;
+      case const (OpenInNewTabEvent):
+        addTab();
+        break;
+      case const (OpenInNewWindowEvent):
+        break;
+      case const (QuickLookEvent):
+        quickLook();
+        break;
+      case const (CompressEvent):
+        compress();
+        break;
       case const (CopyEvent):
         copy();
         break;
@@ -155,11 +168,15 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       case const (MoveEvent):
         move();
         break;
-      case const (QuickLookEvent):
-        quickLook();
+      case const (DeleteEvent):
+        currentExploreViewModel.delete();
         break;
-      case const (CompressEvent):
-        compress();
+      case const (DeletePermanentlyEvent):
+        currentExploreViewModel.deletePermanently();
+        break;
+      case const (RenameEvent):
+        break;
+      case const (PropertiesEvent):
         break;
       default:
         printLog(
