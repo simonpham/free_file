@@ -9,8 +9,11 @@ import 'package:ff_desktop/features/features.dart';
 import 'package:theme/theme.dart';
 
 class MainArea extends StatefulWidget {
+  final Function(EntityContextAction action)? onAction;
+
   const MainArea({
     super.key,
+    this.onAction,
   });
 
   @override
@@ -51,67 +54,10 @@ class _MainAreaState extends State<MainArea> {
             onEntityDoubleTap: (entity) {
               entity.doubleTap(context);
             },
-            onAction: (action) {
-              _handleAction(context, action);
-            },
+            onAction: widget.onAction,
           );
         },
       ),
     );
-  }
-
-  void _handleAction(
-    BuildContext context,
-    EntityContextAction action,
-  ) {
-    final entities = selectedEntitiesGetter.call();
-    switch (action) {
-      case EntityContextAction.open when entities.length == 1:
-        entities.first.doubleTap(context);
-        break;
-      case EntityContextAction.open:
-        for (final entity in entities) {
-          if (entity is Directory) {
-            entity.openInNewTab(context);
-          }
-          if (entity is File) {
-            entity.doubleTap(context);
-          }
-        }
-        break;
-      case EntityContextAction.openInNewWindow:
-        break;
-      case EntityContextAction.openInNewTab:
-        context.read<TabViewModel>().openInNewTab();
-        break;
-      case EntityContextAction.quickLook:
-        context.read<TabViewModel>().quickLook(entities: entities);
-        break;
-      case EntityContextAction.compress:
-        context.read<TabViewModel>().compress(entities: entities);
-        break;
-      case EntityContextAction.copy:
-        context.read<TabViewModel>().copy(entities: entities);
-        break;
-      case EntityContextAction.paste:
-        context.read<TabViewModel>().paste();
-        break;
-      case EntityContextAction.move:
-        context.read<TabViewModel>().move();
-        break;
-      case EntityContextAction.delete:
-        context.read<ExploreViewModel>().delete(entities: entities);
-        break;
-      case EntityContextAction.deletePermanently:
-        context.read<ExploreViewModel>().deletePermanently(entities: entities);
-        break;
-      case EntityContextAction.rename:
-        break;
-      case EntityContextAction.properties:
-        break;
-      case EntityContextAction.unknown:
-      default:
-        break;
-    }
   }
 }
