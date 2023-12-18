@@ -59,7 +59,6 @@
       ]
     },
     "openInNewTab": {
-      "hideOnKeyHold": "Alt",
       "shortcutKey": [
         "CmdOrControl",
         "Enter"

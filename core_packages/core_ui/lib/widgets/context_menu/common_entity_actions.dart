@@ -150,6 +150,11 @@ enum EntityContextAction {
           return false;
         }
 
+        if (item == openInNewWindow) {
+          // Not supported yet.
+          return false;
+        }
+
         for (final entity in selectedEntities) {
           final entityType = entity.type;
           if (!item.supportedEntityTypes.contains(entityType)) {
