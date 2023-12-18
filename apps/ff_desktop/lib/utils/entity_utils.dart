@@ -15,7 +15,9 @@ extension EntityUtilsExtension on Entity {
     final model = context.read<ExploreViewModel>();
     model.goTo(path);
   }
+}
 
+extension DirectoryUtilsExtension on Directory {
   Future<void> openInNewTab(BuildContext context) async {
     final model = context.read<TabViewModel>();
     final newTab = ExploreViewModel();

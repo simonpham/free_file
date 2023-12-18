@@ -65,13 +65,10 @@ class _MainAreaState extends State<MainArea> {
     EntityContextAction action,
   ) {
     final entities = selectedEntitiesGetter.call();
-    if (entities.isEmpty) {
-      /// If no entities are selected, open current directory in new tab.
-      context.read<TabViewModel>().addTab();
-      return;
-    }
-
     switch (action) {
+      case EntityContextAction.open when entities.length == 1:
+        entities.first.doubleTap(context);
+        break;
       case EntityContextAction.open:
         for (final entity in entities) {
           if (entity is Directory) {
@@ -85,11 +82,7 @@ class _MainAreaState extends State<MainArea> {
       case EntityContextAction.openInNewWindow:
         break;
       case EntityContextAction.openInNewTab:
-        for (final entity in entities) {
-          if (entity is Directory) {
-            entity.openInNewTab(context);
-          }
-        }
+        context.read<TabViewModel>().openInNewTab();
         break;
       case EntityContextAction.quickLook:
         context.read<TabViewModel>().quickLook(entities: entities);

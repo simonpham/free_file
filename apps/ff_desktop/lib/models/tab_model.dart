@@ -106,6 +106,22 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
     _setIndex(_exploreViewModels.length - 1);
   }
 
+  Future<void> openInNewTab() async {
+    final entities = currentExploreViewModel.selectedEntities;
+    if (entities.isEmpty) {
+      /// If no entities are selected, open current directory in new tab.
+      addTab();
+      return;
+    }
+    for (final entity in entities) {
+      if (entity is Directory) {
+        final newTab = ExploreViewModel();
+        await newTab.goTo(entity.path);
+        addTab(newTab);
+      }
+    }
+  }
+
   void closeAllTabs() {
     _exploreViewModels.clear();
     _exploreViewModels.add(ExploreViewModel());
@@ -149,7 +165,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       case const (OpenEvent):
         break;
       case const (OpenInNewTabEvent):
-        addTab();
+        openInNewTab();
         break;
       case const (OpenInNewWindowEvent):
         break;

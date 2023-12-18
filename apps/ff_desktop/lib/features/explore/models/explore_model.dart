@@ -130,7 +130,7 @@ class ExploreViewModel extends ChangeNotifier
 
     // Set index to the first element.
     _currentIndex = 0;
-    refresh();
+    await refresh();
   }
 
   @override
