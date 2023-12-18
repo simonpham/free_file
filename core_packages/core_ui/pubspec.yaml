@@ -19,7 +19,7 @@ dependencies:
 
   # UI - Widgets.
   multi_split_view: ^2.4.0
-  flash: ^3.0.5+2
+  flash: ^3.1.0
   scrollable_positioned_list: ^0.3.8
   gradient_borders: ^1.0.0
   flutter_svg: ^2.0.9
