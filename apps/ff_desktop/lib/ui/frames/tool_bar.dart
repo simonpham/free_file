@@ -17,18 +17,11 @@ class ToolBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: Spacing.d36,
-      padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d12,
-      ),
       decoration: BoxDecoration(
         color: context.appTheme.color.navBarBackground.withTransparency,
         border: Border(
-          top: BorderSide(
-            color: context.appTheme.color.disabledIconColor,
-            width: 0.5,
-          ),
           bottom: BorderSide(
-            color: context.appTheme.color.disabledIconColor,
+            color: context.appTheme.color.disabledIconColor.withOpacity(0.1),
             width: 0.5,
           ),
         ),
@@ -40,7 +33,11 @@ class ToolBar extends StatelessWidget {
             builder: (context, tabModel, exploreModel, _) {
               final selectedEntities = exploreModel.selectedEntities;
               final copiedEntities = tabModel.copiedEntities;
-              return Row(
+              return ListView(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Spacing.d12,
+                ),
+                scrollDirection: Axis.horizontal,
                 children: [
                   for (final action in EntityContextAction.getAvailableActions(
                     selectedEntities: selectedEntities,
