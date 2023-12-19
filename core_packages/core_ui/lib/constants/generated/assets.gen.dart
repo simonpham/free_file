@@ -8266,6 +8266,10 @@ class $AssetsIconsFilesAndFolderOutlineGen {
   SvgGenImage get fileMusic =>
       const SvgGenImage('assets/icons/files and folder/outline/file-music.svg');
 
+  /// File path: assets/icons/files and folder/outline/file-paste.svg
+  SvgGenImage get filePaste =>
+      const SvgGenImage('assets/icons/files and folder/outline/file-paste.svg');
+
   /// File path: assets/icons/files and folder/outline/file-pdf.svg
   SvgGenImage get filePdf =>
       const SvgGenImage('assets/icons/files and folder/outline/file-pdf.svg');
@@ -8441,6 +8445,7 @@ class $AssetsIconsFilesAndFolderOutlineGen {
         fileMinus01,
         fileMinus,
         fileMusic,
+        filePaste,
         filePdf,
         filePng,
         fileReload,

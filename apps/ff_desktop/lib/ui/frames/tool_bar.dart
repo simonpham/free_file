@@ -47,6 +47,14 @@ class ToolBar extends StatelessWidget {
                     isPressedControlCommand: isPressedControlCommand,
                   )) ...[
                     Tappable(
+                      key: ValueKey(action),
+                      tooltip: action.isCompact
+                          ? action.getLabel(
+                              context,
+                              selectedEntities,
+                              copiedEntities,
+                            )
+                          : null,
                       enableHover: true,
                       enableHoverOverlay: true,
                       hoverOverlayBorderRadius: Spacing.d8,
