@@ -191,6 +191,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
         currentExploreViewModel.deletePermanently();
         break;
       case const (RenameEvent):
+        currentExploreViewModel.startRename();
         break;
       case const (PropertiesEvent):
         break;

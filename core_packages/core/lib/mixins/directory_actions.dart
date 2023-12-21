@@ -13,8 +13,8 @@ mixin DirectoryActions {
 
   FutureOr<Directory> copyDirectory(Uri path, Uri newPath);
 
-  FutureOr<Directory> renameDirectory(Uri path, Uri newName) {
-    final newPath = path.resolveUri(newName);
+  FutureOr<Directory> renameDirectory(Uri path, String newName) {
+    final newPath = path.resolve(newName);
     return moveDirectory(path, newPath);
   }
 }

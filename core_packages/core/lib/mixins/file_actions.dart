@@ -11,8 +11,8 @@ mixin FileActions {
 
   FutureOr<File> copyFile(Uri path, Uri newPath);
 
-  FutureOr<File> renameFile(Uri path, Uri newName) {
-    final newPath = path.resolveUri(newName);
+  FutureOr<File> renameFile(Uri path, String newName) {
+    final newPath = path.resolve(newName);
     return moveFile(path, newPath);
   }
 }

@@ -39,12 +39,26 @@ class _MainAreaState extends State<MainArea> {
         },
         builder: (context, data, _) {
           final (viewMode, entities) = data;
+          final textController =
+              context.select((ExploreViewModel _) => _.entityNameController);
           return EntityView(
             scrollController: scrollController,
             mode: viewMode,
             entities: entities,
             selectedEntitiesGetter: selectedEntitiesGetter,
             copiedEntitiesGetter: copiedEntitiesGetter,
+            isRenaming: context.select((ExploreViewModel _) => _.isRenaming),
+            entityNameFocusNode:
+                context.select((ExploreViewModel _) => _.entityNameFocusNode),
+            entityNameController: textController,
+            onRenameFinished: () {
+              final newName = textController.text;
+              final selectedEntities = selectedEntitiesGetter();
+              context.read<ExploreViewModel>().finishRename(
+                    entities: selectedEntities,
+                    newName: newName,
+                  );
+            },
             onSelectionChanged: (selectedEntities) {
               context.read<ExploreViewModel>().selectBatch(selectedEntities);
             },

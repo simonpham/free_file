@@ -8,6 +8,11 @@ class EntityViewList extends StatelessWidget {
   final Set<Entity> Function() selectedEntitiesGetter;
   final Set<Entity> Function() copiedEntitiesGetter;
 
+  final bool isRenaming;
+  final FocusNode? entityNameFocusNode;
+  final TextEditingController? entityNameController;
+  final VoidCallback onRenameFinished;
+
   final ValueChanged<Set<Entity>> onSelectionChanged;
   final ValueChanged<Entity> onEntityTap;
   final ValueChanged<Entity> onEntityDoubleTap;
@@ -20,6 +25,10 @@ class EntityViewList extends StatelessWidget {
     required this.selectedEntitiesGetter,
     required this.copiedEntitiesGetter,
     required this.scrollController,
+    required this.isRenaming,
+    required this.entityNameFocusNode,
+    required this.entityNameController,
+    required this.onRenameFinished,
     required this.onSelectionChanged,
     required this.onEntityTap,
     required this.onEntityDoubleTap,
@@ -128,8 +137,12 @@ class EntityViewList extends StatelessWidget {
               childAspectRatio: mode.itemHeight / mode.itemWidth,
             ),
             itemBuilder: (BuildContext context, int index) {
-              final entity = entities[index];
+              final Entity entity = entities[index];
               final isSelected = selectedEntities.contains(entity);
+              final shouldEnableNameEdit = isRenaming &&
+                  selectedEntities.isNotEmpty &&
+                  selectedEntities.firstOrNull?.path.toFilePath() ==
+                      entity.path.toFilePath();
               return Container(
                 key: ValueKey(entity.path.toFilePath()),
                 padding: EdgeInsets.symmetric(
@@ -143,6 +156,8 @@ class EntityViewList extends StatelessWidget {
                     onEntityTap(entity);
                   },
                   child: ListItem(
+                    enableFocus: !shouldEnableNameEdit,
+                    behavior: HitTestBehavior.translucent,
                     mouseCursor: SystemMouseCursors.basic,
                     height: mode.itemHeight - Spacing.d4,
                     backgroundColor:
@@ -163,16 +178,36 @@ class EntityViewList extends StatelessWidget {
                     hoverOverlayPadding: EdgeInsets.only(
                       bottom: Spacing.d4,
                     ),
-                    title: Text(
-                      entity.name,
-                      style: TextStyle(
-                        color: entity.isHidden
-                            ? appTheme.color.disabledIconColor
-                            : appTheme.color.onBackground,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    title: shouldEnableNameEdit
+                        ? TextField(
+                            enabled: true,
+                            readOnly: false,
+                            focusNode: entityNameFocusNode,
+                            controller: entityNameController,
+                            onEditingComplete: () => onRenameFinished(),
+                            onTapOutside: (_) => onRenameFinished(),
+                            style: context.theme.textTheme.bodyMedium?.copyWith(
+                              color: entity.isHidden
+                                  ? appTheme.color.disabledIconColor
+                                  : appTheme.color.onBackground,
+                            ),
+                            maxLines: 1,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              isDense: true,
+                              contentPadding: EdgeInsets.zero,
+                            ),
+                          )
+                        : Text(
+                            entity.name,
+                            style: context.theme.textTheme.bodyMedium?.copyWith(
+                              color: entity.isHidden
+                                  ? appTheme.color.disabledIconColor
+                                  : appTheme.color.onBackground,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                   ),
                 ),
               );

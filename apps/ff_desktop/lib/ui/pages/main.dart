@@ -149,6 +149,7 @@ class MainPage extends StatelessWidget {
         context.read<ExploreViewModel>().deletePermanently(entities: entities);
         break;
       case EntityContextAction.rename:
+        context.read<ExploreViewModel>().startRename();
         break;
       case EntityContextAction.properties:
         break;

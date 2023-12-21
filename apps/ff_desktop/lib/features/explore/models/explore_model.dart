@@ -29,6 +29,13 @@ class ExploreViewModel extends ChangeNotifier
 
   TextEditingController get addressBarController => _addressBarController;
 
+  bool _isRenaming = false;
+  bool get isRenaming => _isRenaming;
+  final FocusNode _entityNameFocusNode = FocusNode();
+  FocusNode get entityNameFocusNode => _entityNameFocusNode;
+  final TextEditingController _entityNameController = TextEditingController();
+  TextEditingController get entityNameController => _entityNameController;
+
   final List<Uri> _historyStack = [
     Uri.parse(PredefinedFolders.home.uri?.toFilePath() ?? kSlash)
   ];
@@ -229,8 +236,56 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  void rename({Entity? entity, required String name}) {
-    // TODO: implement rename
+  void startRename() {
+    if (_selectedEntities.isEmpty) {
+      return;
+    }
+
+    final entity = _selectedEntities.firstOrNull;
+    if (entity == null) {
+      return;
+    }
+
+    _isRenaming = true;
+    notifyListeners();
+    _entityNameController.text = entity.name;
+    Future.delayed(
+      FludaDuration.ms,
+      () => _entityNameFocusNode.requestFocus(),
+    );
+  }
+
+  @override
+  Future<void> finishRename({Set<Entity>? entities, required String newName}) async {
+    final entitiesToRename = (entities ?? _selectedEntities).toSet();
+    bool? needRefresh;
+
+    // TODO: Support batch rename.
+    final firstEntity = entitiesToRename.firstOrNull;
+    if (firstEntity == null) {
+      return;
+    }
+
+    if (firstEntity.type == EntityType.directory) {
+      await _local.renameDirectory(firstEntity.path, newName);
+      needRefresh ??= true;
+    }
+
+    if (firstEntity.type == EntityType.file) {
+      await _local.renameFile(firstEntity.path, newName);
+      needRefresh ??= true;
+    }
+
+    _isRenaming = false;
+    _entityNameController.text = '';
+    _entityNameFocusNode.unfocus();
+    notifyListeners();
+
+    if (needRefresh != true) {
+      return;
+    }
+
+    refresh(maintainState: true);
   }
 
   @override

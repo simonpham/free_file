@@ -59,6 +59,7 @@ class Tappable extends StatefulWidget {
   final bool enableHover;
   final bool enableHoverOverlay;
 
+  final bool enableFocus;
   final FocusNode? focusNode;
 
   final EdgeInsets? hoverOverlayPadding;
@@ -83,6 +84,7 @@ class Tappable extends StatefulWidget {
     this.enableFocusBorder = true,
     this.enableHover = false,
     this.enableHoverOverlay = false,
+    this.enableFocus = false,
     this.child,
     this.focusNode,
     this.hoverOverlayPadding = EdgeInsets.zero,
@@ -122,11 +124,14 @@ class _TappableState extends State<Tappable> {
           }
         },
         child: Focus(
-          descendantsAreFocusable: false,
-          descendantsAreTraversable: false,
+          descendantsAreFocusable: !widget.enableFocus,
+          descendantsAreTraversable: !widget.enableFocus,
           canRequestFocus: _isInteractive,
           focusNode: widget.focusNode,
           onFocusChange: (bool hasFocus) {
+            if (!widget.enableFocus) {
+              return;
+            }
             if (hasFocus) {
               focus();
             } else {
@@ -134,6 +139,10 @@ class _TappableState extends State<Tappable> {
             }
           },
           onKey: (FocusNode node, RawKeyEvent event) {
+            if (!widget.enableFocus) {
+              return KeyEventResult.ignored;
+            }
+
             if (event is RawKeyDownEvent) {
               if (event.logicalKey == LogicalKeyboardKey.enter ||
                   event.logicalKey == LogicalKeyboardKey.space) {

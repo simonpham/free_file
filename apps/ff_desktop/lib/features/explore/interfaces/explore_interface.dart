@@ -7,7 +7,9 @@ abstract interface class ExploreInterfaceManipulateActions {
 
   FutureOr<void> deletePermanently({Set<Entity>? entities});
 
-  FutureOr<void> rename({Entity? entity, required String name});
+  FutureOr<void> startRename();
+
+  FutureOr<void> finishRename({Set<Entity>? entities, required String newName});
 
   Future<Entity> createFile({Uri? path, required String name});
 

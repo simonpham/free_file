@@ -35,6 +35,8 @@ class ListItem extends StatelessWidget {
   final bool enableHoverOverlay;
   final bool enableAnimation;
   final bool enableFocusBorder;
+  final bool enableFocus;
+
   final Color? backgroundColor;
   final Color? hoverOverlayColorTint;
 
@@ -60,6 +62,7 @@ class ListItem extends StatelessWidget {
     this.enableHoverOverlay = true,
     this.enableAnimation = true,
     this.enableFocusBorder = true,
+    this.enableFocus = false,
     this.focusNode,
     this.backgroundColor,
     this.hoverOverlayColorTint,
@@ -92,6 +95,7 @@ class ListItem extends StatelessWidget {
         onDoubleTap: onDoubleTap,
         onStateChanged: onStateChanged,
         focusNode: focusNode,
+        enableFocus: enableFocus,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(radius ?? Spacing.d8),
           child: AnimatedContainer(

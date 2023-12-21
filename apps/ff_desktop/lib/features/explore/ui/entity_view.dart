@@ -21,6 +21,11 @@ class EntityView extends StatelessWidget {
   final Set<Entity> Function() selectedEntitiesGetter;
   final Set<Entity> Function() copiedEntitiesGetter;
 
+  final bool isRenaming;
+  final FocusNode? entityNameFocusNode;
+  final TextEditingController? entityNameController;
+  final VoidCallback onRenameFinished;
+
   final ValueChanged<Set<Entity>> onSelectionChanged;
   final ValueChanged<Entity> onEntityTap;
   final ValueChanged<Entity> onEntityDoubleTap;
@@ -34,6 +39,10 @@ class EntityView extends StatelessWidget {
     required this.entities,
     required this.selectedEntitiesGetter,
     required this.copiedEntitiesGetter,
+    required this.isRenaming,
+    required this.entityNameFocusNode,
+    required this.entityNameController,
+    required this.onRenameFinished,
     required this.onSelectionChanged,
     required this.onEntityTap,
     required this.onEntityDoubleTap,
@@ -54,6 +63,10 @@ class EntityView extends StatelessWidget {
           entities: entities,
           selectedEntitiesGetter: selectedEntitiesGetter,
           copiedEntitiesGetter: copiedEntitiesGetter,
+          isRenaming: isRenaming,
+          entityNameFocusNode: entityNameFocusNode,
+          entityNameController: entityNameController,
+          onRenameFinished: onRenameFinished,
           onSelectionChanged: onSelectionChanged,
           onEntityTap: onEntityTap,
           onEntityDoubleTap: onEntityDoubleTap,

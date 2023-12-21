@@ -24,7 +24,11 @@ enum EntityContextAction {
   move(isCompact: false, minSelectedEntities: 0),
   delete(isCompact: true),
   deletePermanently(isCompact: false),
-  rename(isCompact: true),
+  rename(
+    isCompact: true,
+    minSelectedEntities: 1,
+    maxSelectedEntities: 1,
+  ),
   properties(minSelectedEntities: 0),
   unknown;
 
@@ -114,10 +118,12 @@ enum EntityContextAction {
       quickLook => 'Quick look',
       compress => 'Compress',
       copy => 'Copy',
-      paste when hasCopiedManyItems => 'Paste ${copiedEntities.length} items here',
+      paste when hasCopiedManyItems =>
+        'Paste ${copiedEntities.length} items here',
       paste when copiedEntities.isEmpty => 'Paste',
       paste => 'Paste "${copiedEntities.first.name.truncateMiddlePath()}" here',
-      move when hasCopiedManyItems => 'Move ${copiedEntities.length} items here',
+      move when hasCopiedManyItems =>
+        'Move ${copiedEntities.length} items here',
       move when copiedEntities.isEmpty => 'Move',
       move => 'Move "${copiedEntities.first.name.truncateMiddlePath()}" here',
       delete => 'Delete',

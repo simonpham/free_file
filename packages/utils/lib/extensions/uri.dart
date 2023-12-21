@@ -6,6 +6,15 @@ extension UriExtension on Uri {
     return Uri.parse('$uri$kSlash$path');
   }
 
+  Uri get parent {
+    final path = toFilePath().removeSuffix(kSlash);
+    final parts = path.split(kSlash);
+    if (parts.length > 1) {
+      return Uri.parse(parts.sublist(0, parts.length - 1).join(kSlash));
+    }
+    return Uri.parse(kSlash);
+  }
+
   Uri trim() {
     final path = toFilePath().removeSuffix(kSlash);
     return Uri.parse(path.isEmpty ? kSlash : path);
