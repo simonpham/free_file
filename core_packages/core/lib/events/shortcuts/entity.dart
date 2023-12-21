@@ -47,3 +47,7 @@ class RenameEvent extends ShortcutEvent {
 class PropertiesEvent extends ShortcutEvent {
   const PropertiesEvent();
 }
+
+class SelectAllEvent extends ShortcutEvent {
+  const SelectAllEvent();
+}

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 import 'package:ff_desktop/features/features.dart';
 import 'package:theme/theme.dart';
-import 'package:utils/utils.dart';
 
 class MainArea extends StatefulWidget {
   final Function(EntityContextAction action)? onAction;
@@ -72,7 +71,6 @@ class _MainAreaState extends State<MainArea> {
                 context.read<ExploreViewModel>().selectBatch(selectedEntities);
               },
               onEntityTap: (entity) {
-                printLog('onEntityTap: ($_isPressedShift) ${entity.path}');
                 entity.tap(
                   context,
                   isPressedShift: _isPressedShift,

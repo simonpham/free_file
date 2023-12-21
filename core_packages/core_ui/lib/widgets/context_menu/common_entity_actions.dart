@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:theme/models/entities/entities.dart';
 import 'package:theme/models/models.dart';
-import 'package:utils/constants/constants.dart';
 import 'package:utils/utils.dart';
 
 enum EntityContextAction {
@@ -30,7 +29,10 @@ enum EntityContextAction {
     maxSelectedEntities: 1,
   ),
   properties(minSelectedEntities: 0),
+  selectAll(minSelectedEntities: 0),
   unknown;
+
+  final bool isVisible;
 
   final bool isCompact;
 
@@ -72,6 +74,7 @@ enum EntityContextAction {
 
   const EntityContextAction({
     this.isCompact = false,
+    this.isVisible = true,
     this.minSelectedEntities = 1,
     this.maxSelectedEntities,
     this.supportedEntityTypes = EntityType.values,
@@ -98,6 +101,7 @@ enum EntityContextAction {
       deletePermanently => Assets.icons.interface.outline.trash01,
       rename => Assets.icons.interface.outline.edit,
       properties => null,
+      selectAll => null,
       unknown => null,
     };
   }
@@ -130,6 +134,7 @@ enum EntityContextAction {
       deletePermanently => 'Delete permanently',
       rename => 'Rename',
       properties => 'Properties',
+      selectAll => 'Select all',
       unknown => 'Unknown',
     };
   }
@@ -152,7 +157,7 @@ enum EntityContextAction {
   }) {
     return EntityContextAction.values.where(
       (item) {
-        if (item == unknown) {
+        if (item == unknown || !item.isVisible) {
           return false;
         }
 

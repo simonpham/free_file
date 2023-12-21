@@ -195,6 +195,10 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
         break;
       case const (PropertiesEvent):
         break;
+      case const (SelectAllEvent):
+        final entities = currentExploreViewModel.entities.toSet();
+        currentExploreViewModel.selectBatch(entities);
+        break;
       default:
         printLog(
           '[TabViewModel] Unhandled shortcut event: ${event.runtimeType}',

@@ -13,6 +13,7 @@ export 'paste.dart';
 export 'properties.dart';
 export 'quick_look.dart';
 export 'rename.dart';
+export 'select_all.dart';
 
 class EntityShortcuts {
   static Map<LogicalKeySet?, Intent> get entityContextShortcuts =>
@@ -30,6 +31,7 @@ class EntityShortcuts {
         PropertiesIntent.keySet: PropertiesIntent(),
         QuickLookIntent.keySet: QuickLookIntent(),
         RenameIntent.keySet: RenameIntent(),
+        SelectAllIntent.keySet: SelectAllIntent(),
       };
 
   static Map<Type, Action<Intent>> getEntityContextActions(
@@ -44,10 +46,11 @@ class EntityShortcuts {
       OpenIntent: OpenAction(context),
       OpenInNewTabIntent: OpenInNewTabAction(context),
       OpenInNewWindowIntent: OpenInNewWindowAction(context),
-      RenameIntent: RenameAction(context),
       PasteIntent: PasteAction(context),
       PropertiesIntent: PropertiesAction(context),
       QuickLookIntent: QuickLookAction(context),
+      RenameIntent: RenameAction(context),
+      SelectAllIntent: SelectAllAction(context),
     };
   }
 }
