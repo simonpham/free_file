@@ -9,3 +9,5 @@ double get kMainAreaDefaultSize => Spacing.d600;
 double get kMainAreaMinimumSize => Spacing.d360;
 
 double get kSideBarItemMinSize => Spacing.d110;
+
+const double kSelectRectangleMinimumThreshold = 12.0;

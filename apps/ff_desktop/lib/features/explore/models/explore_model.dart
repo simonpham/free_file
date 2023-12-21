@@ -256,7 +256,8 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  Future<void> finishRename({Set<Entity>? entities, required String newName}) async {
+  Future<void> finishRename(
+      {Set<Entity>? entities, required String newName}) async {
     final entitiesToRename = (entities ?? _selectedEntities).toSet();
     bool? needRefresh;
 
@@ -291,7 +292,10 @@ class ExploreViewModel extends ChangeNotifier
   @override
   void selectBatch(Set<Entity> entities) {
     if (_isSelectModeEnabled) {
-      _selectedEntities.addAll(entities);
+      for (int i = entities.length - 1; i >= 0; i--) {
+        final entity = entities.elementAt(i);
+        _selectedEntities.add(entity);
+      }
     } else {
       _selectedEntities = entities;
     }
@@ -299,7 +303,47 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  void select(Entity entity) {
+  void select(
+    Entity entity, {
+    bool isPressedShift = false,
+    bool isPressedControlCommand = false,
+  }) {
+    final selectedEntities = _selectedEntities;
+    if (isPressedControlCommand && !selectedEntities.contains(entity)) {
+      _selectedEntities.add(entity);
+      notifyListeners();
+      return;
+    }
+
+    if (isPressedControlCommand && selectedEntities.contains(entity)) {
+      _selectedEntities.remove(entity);
+      notifyListeners();
+      return;
+    }
+
+    if (isPressedShift && selectedEntities.isNotEmpty) {
+      final entities = _entities;
+      final indexOfEntity = entities.indexOf(entity);
+      final indexOfFirstSelectedEntity =
+          entities.indexOf(selectedEntities.first);
+      final indexOfLastSelectedEntity = entities.indexOf(selectedEntities.last);
+      final minIndex = indexOfFirstSelectedEntity < indexOfLastSelectedEntity
+          ? indexOfFirstSelectedEntity
+          : indexOfLastSelectedEntity;
+      final maxIndex = indexOfFirstSelectedEntity > indexOfLastSelectedEntity
+          ? indexOfFirstSelectedEntity
+          : indexOfLastSelectedEntity;
+      final minIndexToSelect =
+          indexOfEntity < minIndex ? indexOfEntity : minIndex;
+      final maxIndexToSelect =
+          indexOfEntity > maxIndex ? indexOfEntity : maxIndex;
+      final entitiesToSelect =
+          entities.sublist(minIndexToSelect, maxIndexToSelect + 1);
+      _selectedEntities = entitiesToSelect.toSet();
+      notifyListeners();
+      return;
+    }
+
     if (_isSelectModeEnabled) {
       _selectedEntities.add(entity);
     } else {

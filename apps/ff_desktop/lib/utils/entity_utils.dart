@@ -6,9 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:ff_desktop/features/features.dart';
 
 extension EntityUtilsExtension on Entity {
-  Future<void> tap(BuildContext context) async {
+  Future<void> tap(
+    BuildContext context, {
+    bool isPressedShift = false,
+    bool isPressedControlCommand = false,
+  }) async {
     final model = context.read<ExploreViewModel>();
-    model.select(this);
+    model.select(
+      this,
+      isPressedShift: isPressedShift,
+      isPressedControlCommand: isPressedControlCommand,
+    );
   }
 
   Future<void> doubleTap(BuildContext context) async {

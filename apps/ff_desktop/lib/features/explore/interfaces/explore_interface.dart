@@ -24,7 +24,11 @@ abstract interface class ExploreInterfaceSelectActions {
 
   void selectBatch(Set<Entity> entities);
 
-  void select(Entity entity);
+  void select(
+    Entity entity, {
+    bool isPressedShift = false,
+    bool isPressedControlCommand = false,
+  });
 
   void unselect(Entity entity);
 }

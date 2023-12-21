@@ -95,6 +95,11 @@ class EntityViewList extends StatelessWidget {
         scrollController: scrollController,
         onDragStart: (position) {},
         onRectangleUpdated: (rect) {
+          if (rect.width < kSelectRectangleMinimumThreshold ||
+              rect.height < kSelectRectangleMinimumThreshold) {
+            return;
+          }
+
           _updateSelectedIndexes(rect, maxItemsPerColumn);
         },
         onDragUpdate: (position) {},
