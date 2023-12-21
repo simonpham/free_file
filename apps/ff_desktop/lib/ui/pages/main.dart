@@ -153,6 +153,10 @@ class MainPage extends StatelessWidget {
         break;
       case EntityContextAction.properties:
         break;
+      case EntityContextAction.selectAll:
+        final entities = context.read<ExploreViewModel>().entities.toSet();
+        context.read<ExploreViewModel>().selectBatch(entities);
+        break;
       case EntityContextAction.unknown:
       default:
         break;
