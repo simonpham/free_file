@@ -11,6 +11,8 @@ abstract interface class ExploreInterfaceManipulateActions {
 
   FutureOr<void> finishRename({Set<Entity>? entities, required String newName});
 
+  void abortRename();
+
   Future<Entity> createFile({Uri? path, required String name});
 
   Future<Entity> createDirectory({Uri? path, required String name});

@@ -256,8 +256,10 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  Future<void> finishRename(
-      {Set<Entity>? entities, required String newName}) async {
+  Future<void> finishRename({
+    Set<Entity>? entities,
+    required String newName,
+  }) async {
     final entitiesToRename = (entities ?? _selectedEntities).toSet();
     bool? needRefresh;
 
@@ -290,7 +292,19 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
+  void abortRename() {
+    _isRenaming = false;
+    _entityNameController.text = '';
+    _entityNameFocusNode.unfocus();
+    notifyListeners();
+  }
+
+  @override
   void selectBatch(Set<Entity> entities) {
+    if (_isRenaming) {
+      abortRename();
+    }
+
     if (_isSelectModeEnabled) {
       for (int i = entities.length - 1; i >= 0; i--) {
         final entity = entities.elementAt(i);
@@ -308,6 +322,10 @@ class ExploreViewModel extends ChangeNotifier
     bool isPressedShift = false,
     bool isPressedControlCommand = false,
   }) {
+    if (_isRenaming) {
+      abortRename();
+    }
+
     final selectedEntities = _selectedEntities;
     if (isPressedControlCommand && !selectedEntities.contains(entity)) {
       _selectedEntities.add(entity);
@@ -354,6 +372,10 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   void unselect(Entity entity) {
+    if (_isRenaming) {
+      abortRename();
+    }
+
     _selectedEntities.remove(entity);
     notifyListeners();
   }
@@ -362,6 +384,10 @@ class ExploreViewModel extends ChangeNotifier
   bool get isSelectModeEnabled => _isSelectModeEnabled;
 
   void _clearSelectedEntities() {
+    if (_isRenaming) {
+      abortRename();
+    }
+
     if (!_isSelectModeEnabled) {
       _selectedEntities = {};
     }
