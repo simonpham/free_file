@@ -47,7 +47,11 @@ class SideBarViewModel extends ChangeNotifier {
           }
           break;
         case SideBarSections.drives:
-          final volumePath = Uri.parse('/Volumes/');
+          final path = PlatformUtils.getVolumesPath();
+          if (path.isEmpty) {
+            break;
+          }
+          final volumePath = Uri.parse(path);
           final entities = await _local.list(volumePath);
           for (final entity in entities) {
             if (entity is Directory) {

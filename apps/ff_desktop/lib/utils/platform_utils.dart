@@ -119,7 +119,9 @@ class PlatformUtils {
         context.select((ThemeModel _) => _.themeMode == ThemeMode.dark);
     try {
       Window.setEffect(
-        effect: enableTransparency ? WindowEffect.acrylic : WindowEffect.solid,
+        effect: enableTransparency && !kIsLinux
+            ? WindowEffect.acrylic
+            : WindowEffect.solid,
         color: isDarkMode ? Colors.black : Colors.white,
         dark: isDarkMode,
       );
@@ -145,5 +147,13 @@ class PlatformUtils {
         model.currentExploreViewModel.refresh(maintainState: true);
       }
     }
+  }
+
+  static String getVolumesPath() {
+    if (kIsMacOs) {
+      return '/Volumes/';
+    }
+
+    return '';
   }
 }
