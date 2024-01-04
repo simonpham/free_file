@@ -1,5 +1,6 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/ui/ui.dart';
+import 'package:ff_desktop/utils/platform_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ff_desktop/features/features.dart';
@@ -16,6 +17,7 @@ class SideBarTreeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final icloudPath = PlatformUtils.getIcloudDrivePath();
     return ChangeNotifierProvider.value(
       value: model,
       builder: (context, _) {
@@ -27,9 +29,11 @@ class SideBarTreeView extends StatelessWidget {
               children: [
                 Consumer<ExploreViewModel>(
                   builder: (context, exploreViewModel, _) {
+                    final isIcloud = icloudPath.isNotEmpty &&
+                        model.directory.path.toFilePath() == icloudPath;
                     return SideBarItem(
                       level: model.level,
-                      title: model.directory.name,
+                      title: isIcloud ? 'iCloud Drive' : model.directory.name,
                       uri: model.directory.path,
                       onTap: () {
                         if (!model.isExpanded) {
@@ -45,7 +49,8 @@ class SideBarTreeView extends StatelessWidget {
                       selectedIcon: model.isExpanded && model.isExpandable
                           ? Assets.icons.filesAndFolder.solid.folder
                           : Assets.icons.filesAndFolder.solid.folder03,
-                      iconColor: model.directory.getEntityColor(context.appTheme),
+                      iconColor:
+                          model.directory.getEntityColor(context.appTheme),
                       expanded: isExpanded,
                       expandable: model.isExpandable,
                       onToggleExpand: () {

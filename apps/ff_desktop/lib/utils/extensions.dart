@@ -1,6 +1,5 @@
-import 'dart:io' as io;
-
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/utils/platform_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ff_desktop/constants/constants.dart';
@@ -129,12 +128,13 @@ extension PredefinedFoldersExt on PredefinedFolder {
   }
 
   Uri? get uri {
-    final homePath = io.Platform.isWindows
-        ? io.Platform.environment['USERPROFILE']
-        : io.Platform.environment['HOME'];
+    final homePath = PlatformUtils.getHomePath();
     switch (this) {
       case PredefinedFolder.home:
-        return Uri.parse('$homePath').ifExists;
+        if (homePath == null) {
+          return null;
+        }
+        return Uri.parse(homePath).ifExists;
       case PredefinedFolder.desktop:
         return Uri.parse('$homePath/Desktop').ifExists;
       case PredefinedFolder.downloads:

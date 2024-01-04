@@ -16,6 +16,9 @@ extension UriExtension on Uri {
   }
 
   Uri trim() {
+    if (authority.isNotEmpty) {
+      return this;
+    }
     final path = toFilePath().removeSuffix(kSlash);
     return Uri.parse(path.isEmpty ? kSlash : path);
   }

@@ -50,6 +50,16 @@ class SideBarViewModel extends ChangeNotifier {
           }
           break;
         case SideBarSection.cloud:
+          if (kIsMacOs) {
+            final icloudPath = PlatformUtils.getIcloudDrivePath();
+            if (icloudPath.isNotEmpty) {
+              final icloudUri = Uri.parse(icloudPath);
+              final entity = await _local.get(icloudUri);
+              if (entity is Directory) {
+                items.add(TreeExploreViewModel(entity, level: 0));
+              }
+            }
+          }
           break;
         case SideBarSection.yours:
           for (final folder in PredefinedFolder.values) {

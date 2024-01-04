@@ -156,4 +156,19 @@ class PlatformUtils {
 
     return '';
   }
+
+  static String? getHomePath() {
+    if (io.Platform.isWindows) {
+      return io.Platform.environment['USERPROFILE'];
+    }
+    return io.Platform.environment['HOME'];
+  }
+
+  static String getIcloudDrivePath() {
+    if (kIsMacOs) {
+      return '/Users/${io.Platform.environment['USER']}/Library/Mobile Documents/com~apple~CloudDocs';
+    }
+
+    return '';
+  }
 }

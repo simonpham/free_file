@@ -1,4 +1,5 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
@@ -34,6 +35,7 @@ class _AddressBarState extends State<AddressBar> {
 
   @override
   Widget build(BuildContext context) {
+    final icloudPath = PlatformUtils.getIcloudDrivePath();
     return Container(
       height: Spacing.d40,
       alignment: Alignment.centerLeft,
@@ -77,7 +79,11 @@ class _AddressBarState extends State<AddressBar> {
                     child: Selector<ExploreViewModel, Uri>(
                       selector: (_, viewModel) => viewModel.currentUri,
                       builder: (context, uri, _) {
-                        final segments = uri.trim().toFilePath().split(kSlash);
+                        final isIcloud = icloudPath.isNotEmpty &&
+                            uri.toFilePath().startsWith(icloudPath);
+                        final icloudSegmentCount =
+                            isIcloud ? icloudPath.split(kSlash).length : 0;
+                        final segments = uri.path.split(kSlash);
                         Future.delayed(Duration.zero, () {
                           scrollController.animateTo(
                             scrollController.position.maxScrollExtent,
@@ -91,6 +97,9 @@ class _AddressBarState extends State<AddressBar> {
                           scrollDirection: Axis.horizontal,
                           itemCount: segments.length,
                           separatorBuilder: (context, index) {
+                            if (index > 0 && index < icloudSegmentCount) {
+                              return const SizedBox();
+                            }
                             return const AddressDivider();
                           },
                           itemBuilder: (context, index) {
@@ -99,8 +108,13 @@ class _AddressBarState extends State<AddressBar> {
                             final isLast = index == segments.length - 1;
                             final shouldTruncate = !isLast &&
                                 segment.length > kMaxDisplayAddressNameLength;
+                            if (index > 0 && index < icloudSegmentCount) {
+                              return const SizedBox();
+                            }
                             final displaySegment = isFirst
-                                ? 'Root'
+                                ? isIcloud
+                                    ? 'iCloud Drive'
+                                    : 'Root'
                                 : shouldTruncate
                                     ? '${segment.substring(0, kMaxDisplayAddressNameLength)}...'
                                     : segment;
