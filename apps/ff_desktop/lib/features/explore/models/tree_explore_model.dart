@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:core_ui/constants/constants.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
@@ -11,6 +12,8 @@ class TreeExploreViewModel extends ChangeNotifier
 
   final Directory _directory;
   bool _isExpandable = false;
+  SvgGenImage? _customIcon;
+  SvgGenImage? _customSelectedIcon;
 
   List<TreeExploreViewModel>? _directories;
   List<File>? _files;
@@ -18,9 +21,19 @@ class TreeExploreViewModel extends ChangeNotifier
   TreeExploreViewModel(
     this._directory, {
     required this.level,
+    SvgGenImage? customIcon,
+    SvgGenImage? customSelectedIcon,
   }) {
     _isExpandable = _local.hasSubDirectories(_directory);
+    _customIcon = customIcon;
+    _customSelectedIcon = customSelectedIcon;
   }
+
+  @override
+  SvgGenImage? get customIcon => _customIcon;
+
+  @override
+  SvgGenImage? get customSelectedIcon => _customSelectedIcon;
 
   @override
   bool get isExpandable => _isExpandable;

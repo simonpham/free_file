@@ -44,11 +44,15 @@ class SideBarTreeView extends StatelessWidget {
                       selected: exploreViewModel.currentUri.trim() ==
                           model.directory.path.trim(),
                       icon: model.isExpanded && model.isExpandable
-                          ? Assets.icons.filesAndFolder.outline.folder
-                          : Assets.icons.filesAndFolder.outline.folder03,
+                          ? model.customIcon ??
+                              Assets.icons.filesAndFolder.outline.folder
+                          : model.customIcon ??
+                              Assets.icons.filesAndFolder.outline.folder03,
                       selectedIcon: model.isExpanded && model.isExpandable
-                          ? Assets.icons.filesAndFolder.solid.folder
-                          : Assets.icons.filesAndFolder.solid.folder03,
+                          ? model.customSelectedIcon ??
+                              Assets.icons.filesAndFolder.solid.folder
+                          : model.customSelectedIcon ??
+                              Assets.icons.filesAndFolder.solid.folder03,
                       iconColor:
                           model.directory.getEntityColor(context.appTheme),
                       expanded: isExpanded,

@@ -52,7 +52,7 @@ extension SideBarSectionsExt on SideBarSection {
       case SideBarSection.pinned:
         return Assets.icons.interface.outline.pin;
       case SideBarSection.cloud:
-        return Assets.icons.weather.outline.cloud;
+        return Assets.icons.device.outline.computerCloud;
       case SideBarSection.yours:
         return Assets.icons.interface.outline.home02;
       case SideBarSection.drives:
@@ -69,7 +69,7 @@ extension SideBarSectionsExt on SideBarSection {
       case SideBarSection.pinned:
         return Assets.icons.interface.solid.pin;
       case SideBarSection.cloud:
-        return Assets.icons.weather.solid.cloud;
+        return Assets.icons.device.solid.computerCloud;
       case SideBarSection.yours:
         return Assets.icons.interface.solid.home02;
       case SideBarSection.drives:

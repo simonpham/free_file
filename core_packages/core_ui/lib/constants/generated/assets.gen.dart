@@ -3521,6 +3521,10 @@ class $AssetsIconsDeviceOutlineGen {
   SvgGenImage get colorInversion =>
       const SvgGenImage('assets/icons/device/outline/color inversion.svg');
 
+  /// File path: assets/icons/device/outline/computer-cloud.svg
+  SvgGenImage get computerCloud =>
+      const SvgGenImage('assets/icons/device/outline/computer-cloud.svg');
+
   /// File path: assets/icons/device/outline/computer.svg
   SvgGenImage get computer =>
       const SvgGenImage('assets/icons/device/outline/computer.svg');
@@ -3580,6 +3584,10 @@ class $AssetsIconsDeviceOutlineGen {
   /// File path: assets/icons/device/outline/graphic eq.svg
   SvgGenImage get graphicEq =>
       const SvgGenImage('assets/icons/device/outline/graphic eq.svg');
+
+  /// File path: assets/icons/device/outline/hard-drive.svg
+  SvgGenImage get hardDrive =>
+      const SvgGenImage('assets/icons/device/outline/hard-drive.svg');
 
   /// File path: assets/icons/device/outline/hotspot-off.svg
   SvgGenImage get hotspotOff =>
@@ -3832,6 +3840,7 @@ class $AssetsIconsDeviceOutlineGen {
         camera,
         cast,
         colorInversion,
+        computerCloud,
         computer,
         darkMode,
         devices,
@@ -3847,6 +3856,7 @@ class $AssetsIconsDeviceOutlineGen {
         gpsOff,
         gps,
         graphicEq,
+        hardDrive,
         hotspotOff,
         hotspot,
         laptop,
@@ -4009,6 +4019,10 @@ class $AssetsIconsDeviceSolidGen {
   SvgGenImage get colorInversion =>
       const SvgGenImage('assets/icons/device/solid/color inversion.svg');
 
+  /// File path: assets/icons/device/solid/computer-cloud.svg
+  SvgGenImage get computerCloud =>
+      const SvgGenImage('assets/icons/device/solid/computer-cloud.svg');
+
   /// File path: assets/icons/device/solid/computer.svg
   SvgGenImage get computer =>
       const SvgGenImage('assets/icons/device/solid/computer.svg');
@@ -4068,6 +4082,10 @@ class $AssetsIconsDeviceSolidGen {
   SvgGenImage get graphicEq =>
       const SvgGenImage('assets/icons/device/solid/graphic eq.svg');
 
+  /// File path: assets/icons/device/solid/hard-drive.svg
+  SvgGenImage get hardDrive =>
+      const SvgGenImage('assets/icons/device/solid/hard-drive.svg');
+
   /// File path: assets/icons/device/solid/hotspot-off.svg
   SvgGenImage get hotspotOff =>
       const SvgGenImage('assets/icons/device/solid/hotspot-off.svg');
@@ -4079,6 +4097,10 @@ class $AssetsIconsDeviceSolidGen {
   /// File path: assets/icons/device/solid/laptop.svg
   SvgGenImage get laptop =>
       const SvgGenImage('assets/icons/device/solid/laptop.svg');
+
+  /// File path: assets/icons/device/solid/light mode.svg
+  SvgGenImage get lightMode =>
+      const SvgGenImage('assets/icons/device/solid/light mode.svg');
 
   /// File path: assets/icons/device/solid/location.svg
   SvgGenImage get location =>
@@ -4314,6 +4336,7 @@ class $AssetsIconsDeviceSolidGen {
         camera,
         cast,
         colorInversion,
+        computerCloud,
         computer,
         darkMode,
         devices,
@@ -4329,9 +4352,11 @@ class $AssetsIconsDeviceSolidGen {
         gpsOff,
         gps,
         graphicEq,
+        hardDrive,
         hotspotOff,
         hotspot,
         laptop,
+        lightMode,
         location,
         lock,
         mobileDataOff,

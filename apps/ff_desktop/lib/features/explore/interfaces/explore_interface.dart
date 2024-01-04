@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
 
 abstract interface class ExploreInterfaceManipulateActions {
   FutureOr<void> delete({Set<Entity>? entities});
@@ -58,6 +59,10 @@ abstract interface class ExploreInterface {
 }
 
 abstract interface class TreeExploreInterface {
+  SvgGenImage? get customIcon;
+
+  SvgGenImage? get customSelectedIcon;
+
   Directory get directory;
 
   List<TreeExploreInterface> get directories;
