@@ -116,18 +116,21 @@ enum EntityContextAction {
   }
 
   String getLabel(
-    BuildContext context,
-    Set<Entity> selectedEntities,
-    Set<Entity> copiedEntities,
-    List<Uri> pinnedUri,
-  ) {
+    BuildContext context, {
+    required Uri currentUri,
+    required Set<Entity> selectedEntities,
+    required Set<Entity> copiedEntities,
+    required List<Uri> pinnedUris,
+  }) {
     final bool hasSelectedManyItems = selectedEntities.length > 1;
     final bool hasCopiedManyItems = copiedEntities.length > 1;
     final List<String> pinnedPath =
-        pinnedUri.map((e) => e.toFilePath()).toList(growable: false);
-    final bool hasPinned = selectedEntities.any(
-      (entity) => pinnedPath.contains(entity.path.toFilePath()),
-    );
+        pinnedUris.map((e) => e.toFilePath()).toList(growable: false);
+    final bool hasPinned = selectedEntities.isNotEmpty
+        ? selectedEntities.any(
+            (entity) => pinnedPath.contains(entity.path.toFilePath()),
+          )
+        : pinnedPath.contains(currentUri.toFilePath());
     return switch (this) {
       open => 'Open',
       openInNewWindow when hasSelectedManyItems => 'Open in new windows',

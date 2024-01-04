@@ -7,6 +7,7 @@ import 'package:utils/utils.dart';
 
 class CommonEntityActionsWrapper extends StatelessWidget {
   final Widget child;
+  final Uri Function() currentUriGetter;
   final Set<Entity> Function() selectedEntitiesGetter;
   final Set<Entity> Function() copiedEntitiesGetter;
   final List<Uri> Function() pinnedUrisGetter;
@@ -15,6 +16,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
 
   const CommonEntityActionsWrapper({
     super.key,
+    required this.currentUriGetter,
     required this.selectedEntitiesGetter,
     required this.copiedEntitiesGetter,
     required this.pinnedUrisGetter,
@@ -28,6 +30,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     bool isPressedShift,
     bool isPressedControlCommand,
   ) {
+    final currentUri = currentUriGetter.call();
     final selectedEntities = selectedEntitiesGetter.call();
     final copiedEntities = copiedEntitiesGetter.call();
     final pinnedUris = pinnedUrisGetter.call();
@@ -43,9 +46,10 @@ class CommonEntityActionsWrapper extends StatelessWidget {
           ContextMenuButtonConfig(
             action.getLabel(
               context,
-              selectedEntities,
-              copiedEntities,
-              pinnedUris,
+              selectedEntities: selectedEntities,
+              copiedEntities: copiedEntities,
+              pinnedUris: pinnedUris,
+              currentUri: currentUri,
             ),
             icon: action.icon == null
                 ? SizedBox.square(dimension: Spacing.d16)

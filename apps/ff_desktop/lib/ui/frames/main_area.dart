@@ -23,6 +23,8 @@ class MainArea extends StatefulWidget {
 class _MainAreaState extends State<MainArea> {
   final ScrollController scrollController = ScrollController();
 
+  Uri currentUriGetter() => context.read<ExploreViewModel>().currentUri;
+
   Set<Entity> selectedEntitiesGetter() =>
       context.read<ExploreViewModel>().selectedEntities.toSet();
 
@@ -53,6 +55,7 @@ class _MainAreaState extends State<MainArea> {
               scrollController: scrollController,
               mode: viewMode,
               entities: entities,
+              currentUriGetter: currentUriGetter,
               selectedEntitiesGetter: selectedEntitiesGetter,
               copiedEntitiesGetter: copiedEntitiesGetter,
               isRenaming: context.select((ExploreViewModel _) => _.isRenaming),

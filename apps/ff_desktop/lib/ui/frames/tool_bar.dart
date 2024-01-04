@@ -34,75 +34,88 @@ class ToolBar extends StatelessWidget {
             builder: (context, tabModel, exploreModel, _) {
               final selectedEntities = exploreModel.selectedEntities;
               final copiedEntities = tabModel.copiedEntities;
-              return ListView(
-                padding: EdgeInsets.symmetric(
-                  horizontal: Spacing.d12,
+              return ChangeNotifierProvider.value(
+                value: exploreModel.sideBarViewModel,
+                child: Consumer<SideBarViewModel>(
+                  builder: (BuildContext context, _, __) {
+                    return ListView(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Spacing.d12,
+                      ),
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        for (final action
+                            in EntityContextAction.getAvailableActions(
+                          selectedEntities: selectedEntities,
+                          copiedEntities: copiedEntities,
+                          isPressedAltOption: isPressedAltOption,
+                          isPressedShift: isPressedShift,
+                          isPressedControlCommand: isPressedControlCommand,
+                        )) ...[
+                          Tappable(
+                            key: ValueKey(action),
+                            tooltip: action.isCompact
+                                ? action.getLabel(
+                                    context,
+                                    selectedEntities: selectedEntities,
+                                    copiedEntities: copiedEntities,
+                                    pinnedUris: Settings().pinnedUris,
+                                    currentUri: tabModel
+                                        .currentExploreViewModel.currentUri,
+                                  )
+                                : null,
+                            enableHover: true,
+                            enableHoverOverlay: true,
+                            hoverOverlayBorderRadius: Spacing.d8,
+                            hoverOverlayPadding: EdgeInsets.symmetric(
+                              vertical: Spacing.d4,
+                            ),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                vertical: Spacing.d4,
+                                horizontal: Spacing.d8,
+                              ),
+                              height: Spacing.d36,
+                              alignment: Alignment.center,
+                              child: Row(
+                                children: [
+                                  if (action.icon != null)
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        right:
+                                            action.isCompact ? 0.0 : Spacing.d4,
+                                      ),
+                                      child: ImageView(
+                                        action.icon,
+                                        size: Spacing.d16,
+                                        color: context.appTheme.color.iconColor,
+                                      ),
+                                    ),
+                                  if (!action.isCompact)
+                                    Text(
+                                      action.getLabel(
+                                        context,
+                                        selectedEntities: selectedEntities,
+                                        copiedEntities: copiedEntities,
+                                        pinnedUris: Settings().pinnedUris,
+                                        currentUri: tabModel
+                                            .currentExploreViewModel.currentUri,
+                                      ),
+                                      style: context.theme.textTheme.bodySmall,
+                                    ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              onAction?.call(action);
+                            },
+                          ),
+                          SizedBox(width: Spacing.d4),
+                        ],
+                      ],
+                    );
+                  },
                 ),
-                scrollDirection: Axis.horizontal,
-                children: [
-                  for (final action in EntityContextAction.getAvailableActions(
-                    selectedEntities: selectedEntities,
-                    copiedEntities: copiedEntities,
-                    isPressedAltOption: isPressedAltOption,
-                    isPressedShift: isPressedShift,
-                    isPressedControlCommand: isPressedControlCommand,
-                  )) ...[
-                    Tappable(
-                      key: ValueKey(action),
-                      tooltip: action.isCompact
-                          ? action.getLabel(
-                              context,
-                              selectedEntities,
-                              copiedEntities,
-                              Settings().pinnedUris,
-                            )
-                          : null,
-                      enableHover: true,
-                      enableHoverOverlay: true,
-                      hoverOverlayBorderRadius: Spacing.d8,
-                      hoverOverlayPadding: EdgeInsets.symmetric(
-                        vertical: Spacing.d4,
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: Spacing.d4,
-                          horizontal: Spacing.d8,
-                        ),
-                        height: Spacing.d36,
-                        alignment: Alignment.center,
-                        child: Row(
-                          children: [
-                            if (action.icon != null)
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  right: action.isCompact ? 0.0 : Spacing.d4,
-                                ),
-                                child: ImageView(
-                                  action.icon,
-                                  size: Spacing.d16,
-                                  color: context.appTheme.color.iconColor,
-                                ),
-                              ),
-                            if (!action.isCompact)
-                              Text(
-                                action.getLabel(
-                                  context,
-                                  selectedEntities,
-                                  copiedEntities,
-                                  Settings().pinnedUris,
-                                ),
-                                style: context.theme.textTheme.bodySmall,
-                              ),
-                          ],
-                        ),
-                      ),
-                      onTap: () {
-                        onAction?.call(action);
-                      },
-                    ),
-                    SizedBox(width: Spacing.d4),
-                  ],
-                ],
               );
             },
           );

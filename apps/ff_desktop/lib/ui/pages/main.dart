@@ -127,6 +127,15 @@ class MainPage extends StatelessWidget {
       case EntityContextAction.openInNewTab:
         context.read<TabViewModel>().openInNewTab();
         break;
+      case EntityContextAction.pin:
+        final tabModel = context.read<TabViewModel>();
+        final uri = entities.firstOrNull?.path ??
+            tabModel.currentExploreViewModel.currentUri;
+        context.read<ExploreViewModel>().sideBarViewModel.togglePin(uri);
+        context.read<TabViewModel>().exploreViewModels.forEach((model) {
+          model.sideBarViewModel.refresh();
+        });
+        break;
       case EntityContextAction.quickLook:
         context.read<TabViewModel>().quickLook(entities: entities);
         break;

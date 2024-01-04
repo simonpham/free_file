@@ -10,10 +10,28 @@ import 'package:utils/utils.dart';
 class SideBarViewModel extends ChangeNotifier {
   EntityProvider get _local => injector.get<LocalEntityProvider>();
 
-  final Map<SideBarSection, List<TreeExploreViewModel>> sections = {};
+  Map<SideBarSection, List<TreeExploreViewModel>> _sections = {};
+
+  Map<SideBarSection, List<TreeExploreViewModel>> get sections => _sections;
 
   SideBarViewModel() {
     _init();
+  }
+
+  void refresh() {
+    _sections.clear();
+    _sections = {};
+    _init();
+  }
+
+  void togglePin(Uri uri) {
+    final pinned = Settings().pinnedUris.toList();
+    if (pinned.contains(uri)) {
+      pinned.remove(uri);
+    } else {
+      pinned.add(uri);
+    }
+    Settings().pinnedUris = pinned;
   }
 
   Future<void> _init() async {

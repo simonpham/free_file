@@ -19,6 +19,7 @@ class EntityView extends StatelessWidget {
   final ScrollController scrollController;
 
   final List<Entity> entities;
+  final Uri Function() currentUriGetter;
   final Set<Entity> Function() selectedEntitiesGetter;
   final Set<Entity> Function() copiedEntitiesGetter;
 
@@ -38,6 +39,7 @@ class EntityView extends StatelessWidget {
     this.mode = ViewMode.list,
     required this.scrollController,
     required this.entities,
+    required this.currentUriGetter,
     required this.selectedEntitiesGetter,
     required this.copiedEntitiesGetter,
     required this.isRenaming,
@@ -62,6 +64,7 @@ class EntityView extends StatelessWidget {
         return EntityViewList(
           scrollController: scrollController,
           entities: entities,
+          currentUriGetter: currentUriGetter,
           selectedEntitiesGetter: selectedEntitiesGetter,
           copiedEntitiesGetter: copiedEntitiesGetter,
           isRenaming: isRenaming,

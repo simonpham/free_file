@@ -5,6 +5,7 @@ class EntityViewList extends StatelessWidget {
 
   final ScrollController scrollController;
   final List<Entity> entities;
+  final Uri Function() currentUriGetter;
   final Set<Entity> Function() selectedEntitiesGetter;
   final Set<Entity> Function() copiedEntitiesGetter;
 
@@ -22,6 +23,7 @@ class EntityViewList extends StatelessWidget {
   const EntityViewList({
     super.key,
     required this.entities,
+    required this.currentUriGetter,
     required this.selectedEntitiesGetter,
     required this.copiedEntitiesGetter,
     required this.scrollController,
@@ -123,6 +125,7 @@ class EntityViewList extends StatelessWidget {
           }
         },
         child: CommonEntityActionsWrapper(
+          currentUriGetter: currentUriGetter,
           selectedEntitiesGetter: selectedEntitiesGetter,
           copiedEntitiesGetter: copiedEntitiesGetter,
           pinnedUrisGetter: () => Settings().pinnedUris,
