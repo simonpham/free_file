@@ -9,6 +9,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
   final Widget child;
   final Set<Entity> Function() selectedEntitiesGetter;
   final Set<Entity> Function() copiedEntitiesGetter;
+  final List<Uri> Function() pinnedUrisGetter;
 
   final Function(EntityContextAction action)? onAction;
 
@@ -16,6 +17,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
     super.key,
     required this.selectedEntitiesGetter,
     required this.copiedEntitiesGetter,
+    required this.pinnedUrisGetter,
     required this.child,
     this.onAction,
   });
@@ -28,6 +30,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
   ) {
     final selectedEntities = selectedEntitiesGetter.call();
     final copiedEntities = copiedEntitiesGetter.call();
+    final pinnedUris = pinnedUrisGetter.call();
     return GenericContextMenu(
       buttonConfigs: [
         for (final action in EntityContextAction.getAvailableActions(
@@ -38,7 +41,12 @@ class CommonEntityActionsWrapper extends StatelessWidget {
           isPressedControlCommand: isPressedControlCommand,
         ))
           ContextMenuButtonConfig(
-            action.getLabel(context, selectedEntities, copiedEntities),
+            action.getLabel(
+              context,
+              selectedEntities,
+              copiedEntities,
+              pinnedUris,
+            ),
             icon: action.icon == null
                 ? SizedBox.square(dimension: Spacing.d16)
                 : ImageView(

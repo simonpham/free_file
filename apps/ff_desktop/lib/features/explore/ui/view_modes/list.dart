@@ -125,6 +125,7 @@ class EntityViewList extends StatelessWidget {
         child: CommonEntityActionsWrapper(
           selectedEntitiesGetter: selectedEntitiesGetter,
           copiedEntitiesGetter: copiedEntitiesGetter,
+          pinnedUrisGetter: () => Settings().pinnedUris,
           onAction: onAction,
           child: GridView.builder(
             padding: EdgeInsets.only(

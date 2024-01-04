@@ -23,7 +23,7 @@ class SideBarViewModel extends ChangeNotifier {
         case SideBarSections.home:
           break;
         case SideBarSections.pinned:
-          final pinned = Settings().sideBarFavorites;
+          final pinned = Settings().pinnedUris;
           for (final uri in pinned) {
             final entity = await _local.get(uri);
             if (entity is Directory) {

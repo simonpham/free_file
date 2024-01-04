@@ -19,14 +19,14 @@ extension ThemeSettings on Settings {
     sharedPrefs.setInt(keySettingsThemeMode, value.index);
   }
 
-  List<Uri> get sideBarFavorites {
-    final list = sharedPrefs.getStringList(keySettingsSideBarFavorites);
+  List<Uri> get pinnedUris {
+    final list = sharedPrefs.getStringList(keySettingsPinnedUris);
     return list?.map((e) => Uri.parse(e)).toList() ?? [];
   }
 
-  set sideBarFavorites(List<Uri> value) {
+  set pinnedUris(List<Uri> value) {
     sharedPrefs.setStringList(
-      keySettingsSideBarFavorites,
+      keySettingsPinnedUris,
       value.map((e) => e.toString()).toList(),
     );
   }

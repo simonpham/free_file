@@ -16,6 +16,11 @@ enum EntityContextAction {
     supportedEntityTypes: [EntityType.directory],
     minSelectedEntities: 0,
   ),
+  pin(
+    supportedEntityTypes: [EntityType.directory],
+    minSelectedEntities: 0,
+    maxSelectedEntities: 1,
+  ),
   quickLook(minSelectedEntities: 0),
   compress,
   copy(isCompact: true),
@@ -95,6 +100,7 @@ enum EntityContextAction {
       open => null,
       openInNewWindow => Assets.icons.arrows.outline.maximize,
       openInNewTab => Assets.icons.interface.outline.addRectangle,
+      pin => Assets.icons.interface.outline.pin,
       quickLook => Assets.icons.interface.outline.eye01,
       compress => Assets.icons.filesAndFolder.outline.archiveAdd,
       copy => Assets.icons.interface.outline.copy,
@@ -113,15 +119,23 @@ enum EntityContextAction {
     BuildContext context,
     Set<Entity> selectedEntities,
     Set<Entity> copiedEntities,
+    List<Uri> pinnedUri,
   ) {
     final bool hasSelectedManyItems = selectedEntities.length > 1;
     final bool hasCopiedManyItems = copiedEntities.length > 1;
+    final List<String> pinnedPath =
+        pinnedUri.map((e) => e.toFilePath()).toList(growable: false);
+    final bool hasPinned = selectedEntities.any(
+      (entity) => pinnedPath.contains(entity.path.toFilePath()),
+    );
     return switch (this) {
       open => 'Open',
       openInNewWindow when hasSelectedManyItems => 'Open in new windows',
       openInNewWindow => 'Open in new window',
       openInNewTab when hasSelectedManyItems => 'Open in new tabs',
       openInNewTab => 'Open in new tab',
+      pin when hasPinned => 'Unpin from sidebar',
+      pin => 'Pin to sidebar',
       quickLook => 'Quick look',
       compress => 'Compress',
       copy => 'Copy',
