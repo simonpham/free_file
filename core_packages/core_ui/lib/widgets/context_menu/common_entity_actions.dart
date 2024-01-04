@@ -29,7 +29,10 @@ enum EntityContextAction {
     maxSelectedEntities: 1,
   ),
   properties(minSelectedEntities: 0),
-  selectAll(minSelectedEntities: 0),
+  selectAll(
+    minSelectedEntities: 0,
+    isVisible: false,
+  ),
   unknown;
 
   final bool isVisible;
