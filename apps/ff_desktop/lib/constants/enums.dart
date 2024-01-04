@@ -1,4 +1,4 @@
-enum SideBarSections {
+enum SideBarSection {
   home,
   pinned,
   cloud,
@@ -7,7 +7,7 @@ enum SideBarSections {
   tags,
 }
 
-enum PredefinedFolders {
+enum PredefinedFolder {
   home,
   desktop,
   downloads,

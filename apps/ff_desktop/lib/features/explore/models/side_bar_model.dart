@@ -10,19 +10,19 @@ import 'package:utils/utils.dart';
 class SideBarViewModel extends ChangeNotifier {
   EntityProvider get _local => injector.get<LocalEntityProvider>();
 
-  final Map<SideBarSections, List<TreeExploreViewModel>> sections = {};
+  final Map<SideBarSection, List<TreeExploreViewModel>> sections = {};
 
   SideBarViewModel() {
     _init();
   }
 
   Future<void> _init() async {
-    for (final section in SideBarSections.values) {
+    for (final section in SideBarSection.values) {
       final List<TreeExploreViewModel> items = [];
       switch (section) {
-        case SideBarSections.home:
+        case SideBarSection.home:
           break;
-        case SideBarSections.pinned:
+        case SideBarSection.pinned:
           final pinned = Settings().pinnedUris;
           for (final uri in pinned) {
             final entity = await _local.get(uri);
@@ -31,12 +31,12 @@ class SideBarViewModel extends ChangeNotifier {
             }
           }
           break;
-        case SideBarSections.cloud:
+        case SideBarSection.cloud:
           break;
-        case SideBarSections.yours:
-          for (final folder in PredefinedFolders.values) {
-            if (folder == PredefinedFolders.home ||
-                folder == PredefinedFolders.trash) {
+        case SideBarSection.yours:
+          for (final folder in PredefinedFolder.values) {
+            if (folder == PredefinedFolder.home ||
+                folder == PredefinedFolder.trash) {
               continue;
             }
             final uri = folder.uri;
@@ -54,7 +54,7 @@ class SideBarViewModel extends ChangeNotifier {
             items.add(TreeExploreViewModel(directory, level: 0));
           }
           break;
-        case SideBarSections.drives:
+        case SideBarSection.drives:
           final path = PlatformUtils.getVolumesPath();
           if (path.isEmpty) {
             break;
@@ -67,7 +67,7 @@ class SideBarViewModel extends ChangeNotifier {
             }
           }
           break;
-        case SideBarSections.tags:
+        case SideBarSection.tags:
           break;
       }
       sections[section] = items;

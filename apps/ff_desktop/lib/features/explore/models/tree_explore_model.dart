@@ -39,6 +39,10 @@ class TreeExploreViewModel extends ChangeNotifier
 
   @override
   Future<void> toggle() async {
+    if (!_isExpandable) {
+      return;
+    }
+
     if (_directories != null && _files != null) {
       _files = null;
       _directories = null;

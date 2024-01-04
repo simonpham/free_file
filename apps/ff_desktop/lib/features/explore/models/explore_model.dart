@@ -37,7 +37,7 @@ class ExploreViewModel extends ChangeNotifier
   TextEditingController get entityNameController => _entityNameController;
 
   final List<Uri> _historyStack = [
-    Uri.parse(PredefinedFolders.home.uri?.toFilePath() ?? kSlash)
+    Uri.parse(PredefinedFolder.home.uri?.toFilePath() ?? kSlash)
   ];
 
   int _currentIndex = 0;
@@ -189,7 +189,7 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   Future<void> delete({Set<Entity>? entities}) async {
-    final trashUri = PredefinedFolders.trash.uri;
+    final trashUri = PredefinedFolder.trash.uri;
     if (trashUri == null) {
       return;
     }
