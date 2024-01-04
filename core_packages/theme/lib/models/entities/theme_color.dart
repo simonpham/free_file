@@ -2,7 +2,6 @@ part of 'theme_configs.dart';
 
 @immutable
 class ThemeColor {
-  final Color primary;
   final Color secondary;
   final Color background;
   final Color navBarBackground;
@@ -12,8 +11,10 @@ class ThemeColor {
   final Color iconColor;
   final Color disabledIconColor;
 
-  const ThemeColor({
-    required this.primary,
+  Color get primary => SystemTheme.accentColor.accent;
+
+  ThemeColor({
+    required Color primary,
     required this.secondary,
     required this.background,
     required this.navBarBackground,
@@ -22,7 +23,9 @@ class ThemeColor {
     required this.onBackground,
     required this.iconColor,
     required this.disabledIconColor,
-  });
+  }) {
+    SystemTheme.fallbackColor = primary;
+  }
 
   factory ThemeColor.fromJson(Map<String, dynamic> json) {
     return ThemeColor(

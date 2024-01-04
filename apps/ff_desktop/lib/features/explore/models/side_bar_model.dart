@@ -20,8 +20,6 @@ class SideBarViewModel extends ChangeNotifier {
   }
 
   void refresh() {
-    _sections.clear();
-    _sections = {};
     _init();
   }
 
@@ -36,6 +34,7 @@ class SideBarViewModel extends ChangeNotifier {
   }
 
   Future<void> _init() async {
+    final Map<SideBarSection, List<TreeExploreViewModel>> sections = {};
     for (final section in SideBarSection.values) {
       final List<TreeExploreViewModel> items = [];
       switch (section) {
@@ -122,6 +121,7 @@ class SideBarViewModel extends ChangeNotifier {
       }
       sections[section] = items;
     }
+    _sections = sections;
     notifyListeners();
   }
 }

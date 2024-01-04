@@ -8,6 +8,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   desktop_multi_window
   flutter_acrylic
   pasteboard
+  system_theme
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

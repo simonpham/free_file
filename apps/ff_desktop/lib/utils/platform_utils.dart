@@ -138,6 +138,7 @@ class PlatformUtils {
   static Future<void> onWindowStatusChange() async {
     if (DesktopLifecycle.instance.isActive.value) {
       await Settings().reload();
+      await SystemTheme.accentColor.load();
       if (injector.isRegistered<ThemeModel>()) {
         injector<ThemeModel>().refresh();
       }
