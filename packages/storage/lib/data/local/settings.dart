@@ -18,6 +18,18 @@ extension ThemeSettings on Settings {
   set themeMode(ThemeMode value) {
     sharedPrefs.setInt(keySettingsThemeMode, value.index);
   }
+
+  List<Uri> get sideBarFavorites {
+    final list = sharedPrefs.getStringList(keySettingsSideBarFavorites);
+    return list?.map((e) => Uri.parse(e)).toList() ?? [];
+  }
+
+  set sideBarFavorites(List<Uri> value) {
+    sharedPrefs.setStringList(
+      keySettingsSideBarFavorites,
+      value.map((e) => e.toString()).toList(),
+    );
+  }
 }
 
 class Settings {
