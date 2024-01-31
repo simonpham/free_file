@@ -150,10 +150,10 @@ class EntityViewList extends StatelessWidget {
               final isSelected = selectedEntities.contains(entity);
               final shouldEnableNameEdit = isRenaming &&
                   selectedEntities.isNotEmpty &&
-                  selectedEntities.firstOrNull?.path.toFilePath() ==
-                      entity.path.toFilePath();
+                  selectedEntities.firstOrNull?.path.toRealPath() ==
+                      entity.path.toRealPath();
               return Container(
-                key: ValueKey(entity.path.toFilePath()),
+                key: ValueKey(entity.path.toRealPath()),
                 padding: EdgeInsets.symmetric(
                   horizontal: Spacing.d8,
                 ),
@@ -196,7 +196,7 @@ class EntityViewList extends StatelessWidget {
                             onEditingComplete: () => onRenameFinished(),
                             onTapOutside: (_) => onRenameFinished(),
                             style: context.theme.textTheme.bodyMedium?.copyWith(
-                              color: entity.isHidden
+                              color: entity.hiddenStatus.isHidden
                                   ? appTheme.color.disabledIconColor
                                   : appTheme.color.onBackground,
                             ),
@@ -210,7 +210,7 @@ class EntityViewList extends StatelessWidget {
                         : Text(
                             entity.name,
                             style: context.theme.textTheme.bodyMedium?.copyWith(
-                              color: entity.isHidden
+                              color: entity.hiddenStatus.isHidden
                                   ? appTheme.color.disabledIconColor
                                   : appTheme.color.onBackground,
                             ),

@@ -32,11 +32,7 @@ extension StringExtension on String {
   }
 
   String getUsernameFromHomeFolder() {
-    final parts = split(kSlash);
-    if (parts.length > 2) {
-      return parts[2];
-    }
-    return '';
+    return basename(this);
   }
 
   String removeSuffix(String suffix) {

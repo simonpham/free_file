@@ -82,7 +82,7 @@ class SideBarViewModel extends ChangeNotifier {
             final directory = Directory(
               name: folder.name.capitalize(),
               path: uri.trim(),
-              isHidden: false,
+              hiddenStatus: HiddenStatus.normal,
               createdAt: now,
               updatedAt: now,
             );

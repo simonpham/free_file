@@ -18,8 +18,8 @@ class PlatformUtils {
   }) async {
     final result = await io.Process.run(
       kOpenProcess,
-      [uri.toFilePath()],
-      workingDirectory: workingDirectory?.toFilePath(),
+      [uri.toRealPath()],
+      workingDirectory: workingDirectory?.toRealPath(),
     );
 
     if (result.exitCode != 0 &&
@@ -45,7 +45,7 @@ class PlatformUtils {
     final result = await io.Process.run(
       kMacOsQuickLookProcess,
       ['-p', ...paths],
-      workingDirectory: workingDirectory?.toFilePath(),
+      workingDirectory: workingDirectory?.toRealPath(),
       runInShell: true,
     );
 
@@ -65,7 +65,7 @@ class PlatformUtils {
       return (null, Error.notSupported);
     }
 
-    String zipFilePath = '${workingDirectory.toFilePath()}$kSlash$fileName';
+    String zipFilePath = '${workingDirectory.toRealPath()}$kSlash$fileName';
     int count = 1;
     while (await io.File('$zipFilePath.zip').exists()) {
       zipFilePath = '$zipFilePath-$count';
@@ -74,7 +74,7 @@ class PlatformUtils {
 
     /// Convert paths to relative paths.
     paths = paths.map((path) {
-      return path.replaceFirst('${workingDirectory.toFilePath()}$kSlash', '');
+      return path.replaceFirst('${workingDirectory.toRealPath()}$kSlash', '');
     }).toList();
 
     zipFilePath = '$zipFilePath.zip';
@@ -85,7 +85,7 @@ class PlatformUtils {
         zipFilePath,
         ...paths,
       ],
-      workingDirectory: workingDirectory.toFilePath(),
+      workingDirectory: workingDirectory.toRealPath(),
     );
 
     if (result.exitCode != 0) {

@@ -125,12 +125,12 @@ enum EntityContextAction {
     final bool hasSelectedManyItems = selectedEntities.length > 1;
     final bool hasCopiedManyItems = copiedEntities.length > 1;
     final List<String> pinnedPath =
-        pinnedUris.map((e) => e.toFilePath()).toList(growable: false);
+        pinnedUris.map((e) => e.toRealPath()).toList(growable: false);
     final bool hasPinned = selectedEntities.isNotEmpty
         ? selectedEntities.any(
-            (entity) => pinnedPath.contains(entity.path.toFilePath()),
+            (entity) => pinnedPath.contains(entity.path.toRealPath()),
           )
-        : pinnedPath.contains(currentUri.toFilePath());
+        : pinnedPath.contains(currentUri.toRealPath());
     return switch (this) {
       open => 'Open',
       openInNewWindow when hasSelectedManyItems => 'Open in new windows',

@@ -17,7 +17,7 @@ class ThumbnailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ioFile = io.File(file.path.toFilePath());
+    final ioFile = io.File(file.path.toRealPath());
     if (file.fileType == FileType.svg) {
       return SvgPicture.file(
         ioFile,

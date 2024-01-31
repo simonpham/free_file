@@ -33,6 +33,8 @@ const kMacOsQuickLookProcess = 'qlmanage';
 
 const kZipProcess = 'zip';
 
+const kWindowsInvalidFileNameRegex = r'[<>:"/\\|?*]';
+
 final kOpenProcess = kIsMacOs
     ? 'open'
     : kIsWindows

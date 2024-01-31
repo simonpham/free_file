@@ -30,7 +30,7 @@ class SideBarTreeView extends StatelessWidget {
                 Consumer<ExploreViewModel>(
                   builder: (context, exploreViewModel, _) {
                     final isIcloud = icloudPath.isNotEmpty &&
-                        model.directory.path.toFilePath() == icloudPath;
+                        model.directory.path.toRealPath() == icloudPath;
                     return SideBarItem(
                       level: model.level,
                       title: isIcloud ? 'iCloud Drive' : model.directory.name,

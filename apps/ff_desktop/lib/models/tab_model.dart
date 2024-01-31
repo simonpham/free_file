@@ -211,8 +211,8 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
     entities ??= currentExploreViewModel.selectedEntities;
     await PlatformUtils.openQuickLook(
       entities.isEmpty
-          ? [currentExploreViewModel.currentUri.toFilePath()]
-          : entities.map((item) => item.path.toFilePath()).toList(),
+          ? [currentExploreViewModel.currentUri.toRealPath()]
+          : entities.map((item) => item.path.toRealPath()).toList(),
       workingDirectory: currentExploreViewModel.currentUri,
     );
   }
@@ -226,7 +226,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
       if (entity is Directory) {
         firstDirectory ??= entity;
       }
-      pathsToCompress.add(entity.path.toFilePath());
+      pathsToCompress.add(entity.path.toRealPath());
     }
 
     final (zipFile, error) = await PlatformUtils.compress(
@@ -241,7 +241,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
 
     await currentExploreViewModel.refresh();
     currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => item.path.toFilePath() == zipFile)
+        .where((item) => item.path.toRealPath() == zipFile)
         .toSet());
   }
 }

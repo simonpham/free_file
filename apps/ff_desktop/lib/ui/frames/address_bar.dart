@@ -80,7 +80,7 @@ class _AddressBarState extends State<AddressBar> {
                       selector: (_, viewModel) => viewModel.currentUri,
                       builder: (context, uri, _) {
                         final isIcloud = icloudPath.isNotEmpty &&
-                            uri.toFilePath().startsWith(icloudPath);
+                            uri.toRealPath().startsWith(icloudPath);
                         final icloudSegmentCount =
                             isIcloud ? icloudPath.split(kSlash).length : 0;
                         final segments = uri.path.split(kSlash);

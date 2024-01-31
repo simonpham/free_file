@@ -3,6 +3,7 @@ import 'package:core_ui/constants/constants.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
+import 'package:utils/utils.dart';
 
 class TreeExploreViewModel extends ChangeNotifier
     implements TreeExploreInterface {
@@ -69,14 +70,23 @@ class TreeExploreViewModel extends ChangeNotifier
     _files = files;
     final entities = await _local.list(_directory.path);
     for (final entity in entities) {
-      if (entity is Directory) {
-        directories.add(TreeExploreViewModel(entity, level: level + 1));
+      if (entity.hiddenStatus.isHidden) {
+        // TODO: Support toggle show hidden files.
         continue;
       }
 
-      if (entity is File) {
-        files.add(entity);
-        continue;
+      try {
+        if (entity is Directory) {
+          directories.add(TreeExploreViewModel(entity, level: level + 1));
+          continue;
+        }
+
+        if (entity is File) {
+          files.add(entity);
+          continue;
+        }
+      } catch (err, trace) {
+        printError(err, trace);
       }
     }
     notifyListeners();

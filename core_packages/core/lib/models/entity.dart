@@ -1,3 +1,5 @@
+import 'package:core/constants/constants.dart';
+
 enum EntityType {
   file,
   directory,
@@ -9,7 +11,7 @@ class Entity {
   final String name;
   final Uri path;
 
-  final bool isHidden;
+  final HiddenStatus hiddenStatus;
 
   final String createdAt;
   final String updatedAt;
@@ -18,7 +20,7 @@ class Entity {
     required this.type,
     required this.name,
     required this.path,
-    required this.isHidden,
+    required this.hiddenStatus,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -31,7 +33,7 @@ class Entity {
           type == other.type &&
           name == other.name &&
           path == other.path &&
-          isHidden == other.isHidden &&
+          hiddenStatus == other.hiddenStatus &&
           createdAt == other.createdAt &&
           updatedAt == other.updatedAt;
 
@@ -40,7 +42,7 @@ class Entity {
       type.hashCode ^
       name.hashCode ^
       path.hashCode ^
-      isHidden.hashCode ^
+      hiddenStatus.hashCode ^
       createdAt.hashCode ^
       updatedAt.hashCode;
 }

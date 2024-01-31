@@ -35,7 +35,7 @@ extension SideBarSectionsExt on SideBarSection {
       case SideBarSection.yours:
         final home = PredefinedFolder.home.uri;
         if (home != null) {
-          return home.toFilePath().getUsernameFromHomeFolder();
+          return home.toRealPath().getUsernameFromHomeFolder();
         }
         return 'Yours';
       case SideBarSection.drives:
@@ -136,21 +136,26 @@ extension PredefinedFoldersExt on PredefinedFolder {
         }
         return Uri.parse(homePath).ifExists;
       case PredefinedFolder.desktop:
-        return Uri.parse('$homePath/Desktop').ifExists;
+        return Uri.parse('$homePath${kSlash}Desktop').ifExists;
       case PredefinedFolder.downloads:
-        return Uri.parse('$homePath/Downloads').ifExists;
+        return Uri.parse('$homePath${kSlash}Downloads').ifExists;
       case PredefinedFolder.documents:
-        return Uri.parse('$homePath/Documents').ifExists;
+        return Uri.parse('$homePath${kSlash}Documents').ifExists;
       case PredefinedFolder.pictures:
-        return Uri.parse('$homePath/Pictures').ifExists;
+        return Uri.parse('$homePath${kSlash}Pictures').ifExists;
       case PredefinedFolder.videos:
-        return Uri.parse('$homePath/Videos').ifExists;
+        return Uri.parse('$homePath${kSlash}Videos').ifExists;
       case PredefinedFolder.movies:
-        return Uri.parse('$homePath/Movies').ifExists;
+        return Uri.parse('$homePath${kSlash}Movies').ifExists;
       case PredefinedFolder.music:
-        return Uri.parse('$homePath/Music').ifExists;
+        return Uri.parse('$homePath${kSlash}Music').ifExists;
       case PredefinedFolder.trash:
-        return Uri.parse('$homePath/.Trash').ifExists;
+        if (kIsMacOs) {
+          return Uri.parse('$homePath$kSlash.Trash').ifExists;
+        }
+        return null;
+      default:
+        return null;
     }
   }
 }

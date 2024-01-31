@@ -13,7 +13,7 @@ class File extends Entity {
     FileType? fileType,
     required this.size,
     required this.extension,
-    required super.isHidden,
+    required super.hiddenStatus,
     required super.createdAt,
     required super.updatedAt,
   })  : fileType = fileType ?? FileType.unknown,

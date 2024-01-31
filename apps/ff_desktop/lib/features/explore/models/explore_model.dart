@@ -30,14 +30,17 @@ class ExploreViewModel extends ChangeNotifier
   TextEditingController get addressBarController => _addressBarController;
 
   bool _isRenaming = false;
+
   bool get isRenaming => _isRenaming;
   final FocusNode _entityNameFocusNode = FocusNode();
+
   FocusNode get entityNameFocusNode => _entityNameFocusNode;
   final TextEditingController _entityNameController = TextEditingController();
+
   TextEditingController get entityNameController => _entityNameController;
 
   final List<Uri> _historyStack = [
-    Uri.parse(PredefinedFolder.home.uri?.toFilePath() ?? kSlash)
+    Uri.parse(PredefinedFolder.home.uri?.toRealPath() ?? kSlash)
   ];
 
   int _currentIndex = 0;
@@ -45,6 +48,7 @@ class ExploreViewModel extends ChangeNotifier
   List<Entity> _entities = [];
   Set<Entity> _selectedEntities = {};
 
+  // TODO: Support toggle show hidden files.
   bool _showHidden = false;
   bool _isSelectModeEnabled = false;
 
@@ -68,7 +72,7 @@ class ExploreViewModel extends ChangeNotifier
     notifyListeners();
   }
 
-  io.Directory get _currentDirectory => io.Directory(currentUri.toFilePath());
+  io.Directory get _currentDirectory => io.Directory(currentUri.toRealPath());
 
   @override
   Uri get currentUri => _historyStack[_currentIndex];
@@ -76,7 +80,7 @@ class ExploreViewModel extends ChangeNotifier
   @override
   List<Entity> get entities => _showHidden
       ? _entities
-      : _entities.where((item) => !item.isHidden).toList();
+      : _entities.where((item) => !item.hiddenStatus.isHidden).toList();
 
   @override
   Set<Entity> get selectedEntities => _selectedEntities;
@@ -86,7 +90,7 @@ class ExploreViewModel extends ChangeNotifier
     if (!maintainState) {
       _entities = [];
     }
-    _addressBarController.text = currentUri.toFilePath();
+    _addressBarController.text = currentUri.toRealPath();
     notifyListeners();
     final entities = await _local.list(currentUri);
     _entities = entities;
@@ -96,14 +100,14 @@ class ExploreViewModel extends ChangeNotifier
 
   @override
   Future<void> goTo(Uri uri) async {
-    final io.Directory dir = io.Directory(uri.toFilePath());
+    final io.Directory dir = io.Directory(uri.toRealPath());
     final stat = await dir.stat();
 
     // Reset address bar text.
-    _addressBarController.text = currentUri.toFilePath();
+    _addressBarController.text = currentUri.toRealPath();
 
     // Check if uri is a file.
-    if (stat.type != io.FileSystemEntityType.directory) {
+    if (stat.type == io.FileSystemEntityType.file) {
       // Open file.
       final error = await PlatformUtils.open(
         uri,
@@ -122,7 +126,7 @@ class ExploreViewModel extends ChangeNotifier
     }
 
     // Skip if the same directory.
-    if (uri.toFilePath() == currentUri.toFilePath()) {
+    if (uri.toRealPath() == currentUri.toRealPath()) {
       return;
     }
 
@@ -147,7 +151,7 @@ class ExploreViewModel extends ChangeNotifier
   bool get canForward => _currentIndex > 0;
 
   @override
-  bool get canUp => _currentDirectory.parent.path != currentUri.toFilePath();
+  bool get canUp => _currentDirectory.parent.path != currentUri.toRealPath();
 
   @override
   void back() {
@@ -168,7 +172,7 @@ class ExploreViewModel extends ChangeNotifier
   @override
   void up() {
     if (canUp) {
-      final directory = io.Directory(currentUri.toFilePath());
+      final directory = io.Directory(currentUri.toRealPath());
       goTo(
         Uri.parse(directory.parent.absolute.path),
       );

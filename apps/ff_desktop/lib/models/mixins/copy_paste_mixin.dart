@@ -27,7 +27,7 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
   Future<void> copy({Set<Entity>? entities}) async {
     _copiedEntities = entities ?? currentExploreViewModel.selectedEntities;
     await Pasteboard.writeFiles(
-      _copiedEntities.map((e) => e.path.toFilePath()).toList(),
+      _copiedEntities.map((e) => e.path.toRealPath()).toList(),
     );
     notifyListeners();
   }
@@ -48,7 +48,7 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
     final List<String> pathToSelects = [];
     for (var copiedPath in copiedPaths) {
       final copiedEntity = _copiedEntities.firstWhere(
-        (item) => item.path.toFilePath() == copiedPath,
+        (item) => item.path.toRealPath() == copiedPath,
       );
       final newPath = path.resolve(path.path + kSlash + copiedEntity.name);
       if (copiedEntity is File) {
@@ -57,14 +57,14 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
         await _local.copyDirectory(copiedEntity.path, newPath);
       }
 
-      pathToSelects.add(newPath.toFilePath());
+      pathToSelects.add(newPath.toRealPath());
     }
 
     await Pasteboard.writeFiles(const []);
     _copiedEntities = {};
     await currentExploreViewModel.refresh();
     currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => pathToSelects.contains(item.path.toFilePath()))
+        .where((item) => pathToSelects.contains(item.path.toRealPath()))
         .toSet());
   }
 
@@ -84,7 +84,7 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
     final List<String> pathToSelects = [];
     for (var copiedPath in copiedPaths) {
       final copiedEntity = _copiedEntities.firstWhere(
-        (item) => item.path.toFilePath() == copiedPath,
+        (item) => item.path.toRealPath() == copiedPath,
       );
       final newPath = path.resolve(path.path + kSlash + copiedEntity.name);
       if (copiedEntity is File) {
@@ -93,14 +93,14 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
         await _local.moveDirectory(copiedEntity.path, newPath);
       }
 
-      pathToSelects.add(newPath.toFilePath());
+      pathToSelects.add(newPath.toRealPath());
     }
 
     await Pasteboard.writeFiles(const []);
     _copiedEntities = {};
     await currentExploreViewModel.refresh();
     currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => pathToSelects.contains(item.path.toFilePath()))
+        .where((item) => pathToSelects.contains(item.path.toRealPath()))
         .toSet());
   }
 
