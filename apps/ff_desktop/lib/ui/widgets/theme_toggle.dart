@@ -7,18 +7,13 @@ import 'package:utils/utils.dart';
 class ThemeToggle extends StatelessWidget {
   final bool isCollapsed;
 
-  const ThemeToggle({
-    super.key,
-    this.isCollapsed = false,
-  });
+  const ThemeToggle({super.key, this.isCollapsed = false});
 
   @override
   Widget build(BuildContext context) {
-    final themeMode = context.select((ThemeModel _) => _.themeMode);
+    final themeMode = context.select((ThemeModel model) => model.themeMode);
     return Theme(
-      data: context.theme.copyWith(
-        brightness: Brightness.dark,
-      ),
+      data: context.theme.copyWith(brightness: Brightness.dark),
       child: GestureDetector(
         onDoubleTap: () {
           final model = context.read<ThemeModel>();
@@ -49,7 +44,10 @@ class ThemeToggle extends StatelessWidget {
                       groupValue: themeMode,
                       thumbColor: context.theme.colorScheme.primary,
                       backgroundColor: context
-                          .appTheme.color.statusBarBackground.withTransparency,
+                          .appTheme
+                          .color
+                          .statusBarBackground
+                          .withTransparency,
                       onValueChanged: (mode) {
                         if (mode != null) {
                           context.read<ThemeModel>().themeMode = mode;
@@ -75,10 +73,16 @@ class ThemeToggle extends StatelessWidget {
                                     ThemeMode.light.name.capitalize(),
                                     style: context.theme.textTheme.bodySmall
                                         ?.copyWith(
-                                      color: themeMode == ThemeMode.light
-                                          ? context.theme.colorScheme.onPrimary
-                                          : context.theme.colorScheme.onBackground,
-                                    ),
+                                          color: themeMode == ThemeMode.light
+                                              ? context
+                                                    .theme
+                                                    .colorScheme
+                                                    .onPrimary
+                                              : context
+                                                    .theme
+                                                    .colorScheme
+                                                    .onBackground,
+                                        ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -109,10 +113,16 @@ class ThemeToggle extends StatelessWidget {
                                     ThemeMode.dark.name.capitalize(),
                                     style: context.theme.textTheme.bodySmall
                                         ?.copyWith(
-                                      color: themeMode == ThemeMode.light
-                                          ? context.theme.colorScheme.onSurface
-                                          : context.theme.colorScheme.onBackground,
-                                    ),
+                                          color: themeMode == ThemeMode.light
+                                              ? context
+                                                    .theme
+                                                    .colorScheme
+                                                    .onSurface
+                                              : context
+                                                    .theme
+                                                    .colorScheme
+                                                    .onBackground,
+                                        ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),

@@ -12,15 +12,10 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class PlatformUtils {
-  static Future<Error?> open(
-    Uri uri, {
-    Uri? workingDirectory,
-  }) async {
-    final result = await io.Process.run(
-      kOpenProcess,
-      [uri.toRealPath()],
-      workingDirectory: workingDirectory?.toRealPath(),
-    );
+  static Future<Error?> open(Uri uri, {Uri? workingDirectory}) async {
+    final result = await io.Process.run(kOpenProcess, [
+      uri.toRealPath(),
+    ], workingDirectory: workingDirectory?.toRealPath());
 
     if (result.exitCode != 0 &&
         result.stderr.contains('kLSApplicationNotFoundErr')) {
@@ -78,15 +73,11 @@ class PlatformUtils {
     }).toList();
 
     zipFilePath = '$zipFilePath.zip';
-    final result = await io.Process.run(
-      kZipProcess,
-      [
-        '-r',
-        zipFilePath,
-        ...paths,
-      ],
-      workingDirectory: workingDirectory.toRealPath(),
-    );
+    final result = await io.Process.run(kZipProcess, [
+      '-r',
+      zipFilePath,
+      ...paths,
+    ], workingDirectory: workingDirectory.toRealPath());
 
     if (result.exitCode != 0) {
       return (null, Error.compressFailed);
@@ -98,9 +89,7 @@ class PlatformUtils {
   static Future<void> setupWindow() async {
     try {
       await Window.initialize();
-      await Window.setEffect(
-        effect: WindowEffect.acrylic,
-      );
+      await Window.setEffect(effect: WindowEffect.acrylic);
     } catch (_) {}
 
     doWhenWindowReady(() {
@@ -113,10 +102,12 @@ class PlatformUtils {
   }
 
   static bool watchTransparencySetting(BuildContext context) {
-    final enableTransparency =
-        context.select((ThemeModel _) => _.enableTransparency);
-    final isDarkMode =
-        context.select((ThemeModel _) => _.themeMode == ThemeMode.dark);
+    final enableTransparency = context.select(
+      (ThemeModel model) => model.enableTransparency,
+    );
+    final isDarkMode = context.select(
+      (ThemeModel model) => model.themeMode == ThemeMode.dark,
+    );
     try {
       Window.setEffect(
         effect: enableTransparency && !kIsLinux

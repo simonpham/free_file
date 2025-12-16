@@ -7,7 +7,7 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 extension ScreenSizeBuildContextExtension on BuildContext {
-  ScreenSize get screenSize => select((ThemeModel _) => _.screenSize);
+  ScreenSize get screenSize => select((ThemeModel model) => model.screenSize);
 }
 
 extension SideBarSectionsExt on SideBarSection {

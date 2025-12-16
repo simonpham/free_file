@@ -11,21 +11,19 @@ import 'package:theme/theme.dart';
 class MainPage extends StatelessWidget {
   static const String routePath = '/';
 
-  const MainPage({
-    super.key,
-  });
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
-      value: context.select((TabViewModel _) => _.currentExploreViewModel),
+      value: context.select(
+        (TabViewModel model) => model.currentExploreViewModel,
+      ),
       builder: (context, child) {
         return Scaffold(
           backgroundColor: Colors.transparent,
           body: MultiSplitViewTheme(
-            data: MultiSplitViewThemeData(
-              dividerThickness: Spacing.d4,
-            ),
+            data: MultiSplitViewThemeData(dividerThickness: Spacing.d4),
             child: MultiSplitView(
               axis: Axis.horizontal,
               initialAreas: [
@@ -51,15 +49,14 @@ class MainPage extends StatelessWidget {
                           Container(
                             height: Spacing.d48,
                             decoration: BoxDecoration(
-                              color: context.appTheme.color.navBarBackground
+                              color: context
+                                  .appTheme
+                                  .color
+                                  .navBarBackground
                                   .withTransparency,
                               borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  Spacing.d12,
-                                ),
-                                topRight: Radius.circular(
-                                  Spacing.d12,
-                                ),
+                                topLeft: Radius.circular(Spacing.d12),
+                                topRight: Radius.circular(Spacing.d12),
                               ),
                             ),
                             padding: EdgeInsets.symmetric(
@@ -70,18 +67,18 @@ class MainPage extends StatelessWidget {
                               children: [
                                 const NavBar(),
                                 const Expanded(
-                                  child: AddressBar(
-                                    key: Key('address_bar'),
-                                  ),
+                                  child: AddressBar(key: Key('address_bar')),
                                 ),
                                 if (ThemeConfigs().config.showSearchBar)
                                   const HeheSearchBar(),
                               ],
                             ),
                           ),
-                          ToolBar(onAction: (action) {
-                            _handleAction(context, action);
-                          }),
+                          ToolBar(
+                            onAction: (action) {
+                              _handleAction(context, action);
+                            },
+                          ),
                           Expanded(
                             child: MainArea(
                               key: const Key('main_area'),
@@ -104,10 +101,7 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  void _handleAction(
-    BuildContext context,
-    EntityContextAction action,
-  ) {
+  void _handleAction(BuildContext context, EntityContextAction action) {
     final entities = context.read<ExploreViewModel>().selectedEntities.toSet();
     switch (action) {
       case EntityContextAction.open when entities.length == 1:
@@ -130,7 +124,8 @@ class MainPage extends StatelessWidget {
         break;
       case EntityContextAction.pin:
         final tabModel = context.read<TabViewModel>();
-        final uri = entities.firstOrNull?.path ??
+        final uri =
+            entities.firstOrNull?.path ??
             tabModel.currentExploreViewModel.currentUri;
         context.read<ExploreViewModel>().sideBarViewModel.togglePin(uri);
         context.read<TabViewModel>().exploreViewModels.forEach((model) {

@@ -1,10 +1,18 @@
 name: free_file_workspace
 
 environment:
-  sdk: '>=3.1.3 <4.0.0'
+  sdk: ^3.10.0
+
+workspace:
+  - apps/ff_desktop
+  - core_packages/core
+  - core_packages/core_ui
+  - core_packages/theme
+  - modules/local_entity_provider
+  - modules/shortcut
+  - packages/storage
+  - packages/utils
 
 dev_dependencies:
-  melos: ^3.4.0
-
   # Linter.
-  flutter_lints: ^3.0.1
+  flutter_lints: ^5.0.0

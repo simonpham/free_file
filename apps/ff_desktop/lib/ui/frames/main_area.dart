@@ -11,10 +11,7 @@ import 'package:theme/theme.dart';
 class MainArea extends StatefulWidget {
   final Function(EntityContextAction action)? onAction;
 
-  const MainArea({
-    super.key,
-    this.onAction,
-  });
+  const MainArea({super.key, this.onAction});
 
   @override
   State<MainArea> createState() => _MainAreaState();
@@ -49,8 +46,9 @@ class _MainAreaState extends State<MainArea> {
           },
           builder: (context, data, _) {
             final (viewMode, entities) = data;
-            final textController =
-                context.select((ExploreViewModel _) => _.entityNameController);
+            final textController = context.select(
+              (ExploreViewModel model) => model.entityNameController,
+            );
             return EntityView(
               scrollController: scrollController,
               mode: viewMode,
@@ -58,17 +56,20 @@ class _MainAreaState extends State<MainArea> {
               currentUriGetter: currentUriGetter,
               selectedEntitiesGetter: selectedEntitiesGetter,
               copiedEntitiesGetter: copiedEntitiesGetter,
-              isRenaming: context.select((ExploreViewModel _) => _.isRenaming),
-              entityNameFocusNode:
-                  context.select((ExploreViewModel _) => _.entityNameFocusNode),
+              isRenaming: context.select(
+                (ExploreViewModel model) => model.isRenaming,
+              ),
+              entityNameFocusNode: context.select(
+                (ExploreViewModel model) => model.entityNameFocusNode,
+              ),
               entityNameController: textController,
               onRenameFinished: () {
                 final newName = textController.text;
                 final selectedEntities = selectedEntitiesGetter();
                 context.read<ExploreViewModel>().finishRename(
-                      entities: selectedEntities,
-                      newName: newName,
-                    );
+                  entities: selectedEntities,
+                  newName: newName,
+                );
               },
               onSelectionChanged: (selectedEntities) {
                 context.read<ExploreViewModel>().selectBatch(selectedEntities);

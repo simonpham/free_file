@@ -75,11 +75,9 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = context.select((ThemeModel _) => _.screenSize);
+    final screenSize = context.select((ThemeModel model) => model.screenSize);
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: Spacing.d0,
-      ),
+      padding: EdgeInsets.symmetric(vertical: Spacing.d0),
       child: Tappable(
         mouseCursor: mouseCursor,
         behavior: behavior,
@@ -100,10 +98,12 @@ class ListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius ?? Spacing.d8),
           child: AnimatedContainer(
             decoration: BoxDecoration(
-              color: backgroundColor ??
+              color:
+                  backgroundColor ??
                   (isSelected ? context.theme.cardColor : null),
             ),
-            padding: padding ??
+            padding:
+                padding ??
                 EdgeInsets.symmetric(
                   horizontal: Spacing.d20,
                   vertical: Spacing.d12,
@@ -125,15 +125,17 @@ class ListItem extends StatelessWidget {
                         boxShadow: (hoverOverlayColorTint != null && isSelected)
                             ? [
                                 BoxShadow(
-                                  color:
-                                      hoverOverlayColorTint!.withOpacity(0.1),
+                                  color: hoverOverlayColorTint!.withOpacity(
+                                    0.1,
+                                  ),
                                   blurRadius: FludaX.x4,
                                   offset: const Offset(0.0, 2.0),
                                   spreadRadius: FludaX.x4,
                                 ),
                                 BoxShadow(
-                                  color:
-                                      hoverOverlayColorTint!.withOpacity(0.1),
+                                  color: hoverOverlayColorTint!.withOpacity(
+                                    0.1,
+                                  ),
                                   blurRadius: FludaX.x8,
                                   offset: const Offset(40.0, -40.0),
                                   spreadRadius: FludaX.x4,
@@ -149,18 +151,16 @@ class ListItem extends StatelessWidget {
                   expanded
                       ? Expanded(
                           child: Padding(
-                            padding: titlePadding ??
-                                EdgeInsets.only(
-                                  left: Spacing.d20,
-                                ),
+                            padding:
+                                titlePadding ??
+                                EdgeInsets.only(left: Spacing.d20),
                             child: title,
                           ),
                         )
                       : Padding(
-                          padding: titlePadding ??
-                              EdgeInsets.only(
-                                left: Spacing.d20,
-                              ),
+                          padding:
+                              titlePadding ??
+                              EdgeInsets.only(left: Spacing.d20),
                           child: title,
                         ),
                 if (trailing != null &&
