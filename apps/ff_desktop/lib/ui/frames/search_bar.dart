@@ -16,7 +16,6 @@ extension on ScreenSize {
       case ScreenSize.normal:
         return Spacing.d32 * 5;
       case ScreenSize.small:
-      default:
         return Spacing.d64;
     }
   }

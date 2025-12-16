@@ -10,7 +10,6 @@ export 'language_picker.dart';
 export 'list_item.dart';
 export 'nav_bar.dart';
 export 'outline_button.dart';
-export 'popups.dart';
 export 'primary_button.dart';
 export 'secondary_button.dart';
 export 'stretching_scroll_behaviour.dart';

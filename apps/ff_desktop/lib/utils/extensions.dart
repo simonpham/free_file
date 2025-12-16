@@ -154,8 +154,6 @@ extension PredefinedFoldersExt on PredefinedFolder {
           return Uri.parse('$homePath$kSlash.Trash').ifExists;
         }
         return null;
-      default:
-        return null;
     }
   }
 }

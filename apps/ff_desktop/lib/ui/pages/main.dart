@@ -163,7 +163,6 @@ class MainPage extends StatelessWidget {
         context.read<ExploreViewModel>().selectBatch(entities);
         break;
       case EntityContextAction.unknown:
-      default:
         break;
     }
   }

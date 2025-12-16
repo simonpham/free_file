@@ -60,7 +60,6 @@ class EntityView extends StatelessWidget {
       case ViewMode.details:
       case ViewMode.grid:
       case ViewMode.list:
-      default:
         return EntityViewList(
           scrollController: scrollController,
           entities: entities,
