@@ -29,10 +29,10 @@ class ImageView extends StatelessWidget {
     this.blurHash,
     this.assetPackage = 'core_ui',
   }) : assert(
-          (size == null && (width != null || height != null)) ||
-              (size != null && width == null && height == null),
-          'Either size or width and height must be provided',
-        );
+         (size == null && (width != null || height != null)) ||
+             (size != null && width == null && height == null),
+         'Either size or width and height must be provided',
+       );
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +45,7 @@ class ImageView extends StatelessWidget {
         fit: fit ?? BoxFit.cover,
         alignment: alignment ?? Alignment.center,
         colorFilter: color != null
-            ? ColorFilter.mode(
-                color!,
-                BlendMode.srcIn,
-              )
+            ? ColorFilter.mode(color!, BlendMode.srcIn)
             : null,
         package: assetPackage,
       );
@@ -61,9 +58,7 @@ class ImageView extends StatelessWidget {
         child: Shimmer.fromColors(
           baseColor: Colors.grey.shade300,
           highlightColor: Colors.grey.shade200,
-          child: Container(
-            color: Colors.white,
-          ),
+          child: Container(color: Colors.white),
         ),
       );
     }
@@ -76,9 +71,7 @@ class ImageView extends StatelessWidget {
         child: Shimmer.fromColors(
           baseColor: isDark ? Colors.grey.shade700 : Colors.grey.shade300,
           highlightColor: isDark ? Colors.grey.shade600 : Colors.grey.shade200,
-          child: Container(
-            color: Colors.white,
-          ),
+          child: Container(color: Colors.white),
         ),
       );
     }
@@ -103,10 +96,7 @@ class ImageView extends StatelessWidget {
           fit: fit ?? BoxFit.cover,
           alignment: alignment ?? Alignment.center,
           colorFilter: color != null
-              ? ColorFilter.mode(
-                  color!,
-                  BlendMode.srcIn,
-                )
+              ? ColorFilter.mode(color!, BlendMode.srcIn)
               : null,
           package: assetPackage,
         );
@@ -131,10 +121,7 @@ class ImageView extends StatelessWidget {
         fit: fit ?? BoxFit.cover,
         alignment: alignment ?? Alignment.center,
         colorFilter: color != null
-            ? ColorFilter.mode(
-                color!,
-                BlendMode.srcIn,
-              )
+            ? ColorFilter.mode(color!, BlendMode.srcIn)
             : null,
       );
     }
@@ -157,9 +144,7 @@ class ImageView extends StatelessWidget {
           child: Shimmer.fromColors(
             baseColor: Colors.grey.shade300,
             highlightColor: Colors.grey.shade200,
-            child: Container(
-              color: Colors.white,
-            ),
+            child: Container(color: Colors.white),
           ),
         );
       },

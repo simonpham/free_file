@@ -9,9 +9,7 @@ class SelectAllAction extends Action<SelectAllIntent> {
 
   @override
   void invoke(covariant SelectAllIntent intent) {
-    injector<EventBus>().fire(
-      const SelectAllEvent(),
-    );
+    injector<EventBus>().fire(const SelectAllEvent());
   }
 }
 

@@ -70,23 +70,24 @@ class CommonEntityActionsWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return KeyHoldDetector(
-      onHoldChanged: (
-        bool isPressedAltOption,
-        bool isPressedShift,
-        bool isPressedControlCommand,
-      ) {
-        if (!context.contextMenuOverlay.isShowing) {
-          return;
-        }
-        context.contextMenuOverlay.show(
-          _buildMenu(
-            context,
-            isPressedAltOption,
-            isPressedShift,
-            isPressedControlCommand,
-          ),
-        );
-      },
+      onHoldChanged:
+          (
+            bool isPressedAltOption,
+            bool isPressedShift,
+            bool isPressedControlCommand,
+          ) {
+            if (!context.contextMenuOverlay.isShowing) {
+              return;
+            }
+            context.contextMenuOverlay.show(
+              _buildMenu(
+                context,
+                isPressedAltOption,
+                isPressedShift,
+                isPressedControlCommand,
+              ),
+            );
+          },
       child: Listener(
         onPointerDown: (event) {
           if (event.buttons != kSecondaryMouseButton) {
@@ -96,12 +97,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
             return;
           }
           context.contextMenuOverlay.show(
-            _buildMenu(
-              context,
-              false,
-              false,
-              false,
-            ),
+            _buildMenu(context, false, false, false),
           );
         },
         child: child,

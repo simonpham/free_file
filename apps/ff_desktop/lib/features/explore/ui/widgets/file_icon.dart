@@ -9,20 +9,13 @@ class EntityIconWidget extends StatelessWidget {
   final Entity entity;
   final double size;
 
-  const EntityIconWidget({
-    super.key,
-    required this.entity,
-    required this.size,
-  });
+  const EntityIconWidget({super.key, required this.entity, required this.size});
 
   @override
   Widget build(BuildContext context) {
     final entity = this.entity;
     if (entity is File && kThumbnailSupportedTypes.contains(entity.fileType)) {
-      return ThumbnailWidget(
-        file: entity,
-        size: size,
-      );
+      return ThumbnailWidget(file: entity, size: size);
     }
 
     return ImageView(

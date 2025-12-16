@@ -40,7 +40,7 @@ class ExploreViewModel extends ChangeNotifier
   TextEditingController get entityNameController => _entityNameController;
 
   final List<Uri> _historyStack = [
-    Uri.parse(PredefinedFolder.home.uri?.toRealPath() ?? kSlash)
+    Uri.parse(PredefinedFolder.home.uri?.toRealPath() ?? kSlash),
   ];
 
   int _currentIndex = 0;
@@ -109,10 +109,7 @@ class ExploreViewModel extends ChangeNotifier
     // Check if uri is a file.
     if (stat.type == io.FileSystemEntityType.file) {
       // Open file.
-      final error = await PlatformUtils.open(
-        uri,
-        workingDirectory: currentUri,
-      );
+      final error = await PlatformUtils.open(uri, workingDirectory: currentUri);
       if (error != null) {
         throw FreeError(error);
       }
@@ -173,9 +170,7 @@ class ExploreViewModel extends ChangeNotifier
   void up() {
     if (canUp) {
       final directory = io.Directory(currentUri.toRealPath());
-      goTo(
-        Uri.parse(directory.parent.absolute.path),
-      );
+      goTo(Uri.parse(directory.parent.absolute.path));
     }
   }
 
@@ -253,10 +248,7 @@ class ExploreViewModel extends ChangeNotifier
     _isRenaming = true;
     notifyListeners();
     _entityNameController.text = entity.name;
-    Future.delayed(
-      FludaDuration.ms,
-      () => _entityNameFocusNode.requestFocus(),
-    );
+    Future.delayed(FludaDuration.ms, () => _entityNameFocusNode.requestFocus());
   }
 
   @override
@@ -346,8 +338,9 @@ class ExploreViewModel extends ChangeNotifier
     if (isPressedShift && selectedEntities.isNotEmpty) {
       final entities = _entities;
       final indexOfEntity = entities.indexOf(entity);
-      final indexOfFirstSelectedEntity =
-          entities.indexOf(selectedEntities.first);
+      final indexOfFirstSelectedEntity = entities.indexOf(
+        selectedEntities.first,
+      );
       final indexOfLastSelectedEntity = entities.indexOf(selectedEntities.last);
       final minIndex = indexOfFirstSelectedEntity < indexOfLastSelectedEntity
           ? indexOfFirstSelectedEntity
@@ -355,12 +348,16 @@ class ExploreViewModel extends ChangeNotifier
       final maxIndex = indexOfFirstSelectedEntity > indexOfLastSelectedEntity
           ? indexOfFirstSelectedEntity
           : indexOfLastSelectedEntity;
-      final minIndexToSelect =
-          indexOfEntity < minIndex ? indexOfEntity : minIndex;
-      final maxIndexToSelect =
-          indexOfEntity > maxIndex ? indexOfEntity : maxIndex;
-      final entitiesToSelect =
-          entities.sublist(minIndexToSelect, maxIndexToSelect + 1);
+      final minIndexToSelect = indexOfEntity < minIndex
+          ? indexOfEntity
+          : minIndex;
+      final maxIndexToSelect = indexOfEntity > maxIndex
+          ? indexOfEntity
+          : maxIndex;
+      final entitiesToSelect = entities.sublist(
+        minIndexToSelect,
+        maxIndexToSelect + 1,
+      );
       _selectedEntities = entitiesToSelect.toSet();
       notifyListeners();
       return;

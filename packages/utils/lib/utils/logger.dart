@@ -7,11 +7,7 @@ void printLog(dynamic message) {
     return;
   }
 
-  dev.log(
-    message.toString(),
-    name: 'Free File',
-    time: DateTime.now(),
-  );
+  dev.log(message.toString(), name: 'Free File', time: DateTime.now());
 }
 
 void printError(dynamic err, dynamic trace) {

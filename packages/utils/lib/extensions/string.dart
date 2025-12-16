@@ -1,9 +1,7 @@
 part of 'extensions.dart';
 
 extension StringExtension on String {
-  String truncateMiddlePath({
-    int maxLength = 20,
-  }) {
+  String truncateMiddlePath({int maxLength = 20}) {
     final parts = split(kSlash);
     if (parts.length > 2) {
       final firstPart = parts[0];

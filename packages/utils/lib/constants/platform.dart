@@ -13,8 +13,9 @@ final kIsIoS = UniversalPlatform.isIOS;
 
 final kIsFuchsia = UniversalPlatform.isFuchsia;
 
-final kActionKey =
-    kIsMacOs ? LogicalKeyboardKey.meta : LogicalKeyboardKey.control;
+final kActionKey = kIsMacOs
+    ? LogicalKeyboardKey.meta
+    : LogicalKeyboardKey.control;
 
 final kSpaceKeyLabel = kIsMacOs ? '␣' : 'Space';
 final kShiftKeyLabel = kIsMacOs ? '⇧' : 'Shift';
@@ -23,8 +24,8 @@ final kCtrlKeyLabel = kIsMacOs ? '⌃' : 'Ctrl';
 final kMetaKeyLabel = kIsMacOs
     ? '⌘'
     : kIsLinux
-        ? '❖ Super'
-        : 'Windows';
+    ? '❖ Super'
+    : 'Windows';
 
 final kSlash = kIsWindows ? '\\' : '/';
 
@@ -38,5 +39,5 @@ const kWindowsInvalidFileNameRegex = r'[<>:"/\\|?*]';
 final kOpenProcess = kIsMacOs
     ? 'open'
     : kIsWindows
-        ? 'start'
-        : 'xdg-open';
+    ? 'start'
+    : 'xdg-open';

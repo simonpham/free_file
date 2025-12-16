@@ -9,9 +9,7 @@ class CopyAction extends Action<CopyIntent> {
 
   @override
   void invoke(covariant CopyIntent intent) {
-    injector<EventBus>().fire(
-      const CopyEvent(),
-    );
+    injector<EventBus>().fire(const CopyEvent());
   }
 }
 

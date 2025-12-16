@@ -28,17 +28,11 @@ enum EntityContextAction {
   move(isCompact: false, minSelectedEntities: 0),
   delete(isCompact: true),
   deletePermanently(isCompact: false),
-  rename(
-    isCompact: true,
-    minSelectedEntities: 1,
-    maxSelectedEntities: 1,
-  ),
+  rename(isCompact: true, minSelectedEntities: 1, maxSelectedEntities: 1),
   properties(minSelectedEntities: 0),
-  selectAll(
-    minSelectedEntities: 0,
-    isVisible: false,
-  ),
-  unknown;
+  selectAll(minSelectedEntities: 0, isVisible: false),
+  unknown
+  ;
 
   final bool isVisible;
 
@@ -67,9 +61,7 @@ enum EntityContextAction {
       return null;
     }
 
-    return LogicalKeySet.fromSet(
-      shortcutKey.toSet(),
-    );
+    return LogicalKeySet.fromSet(shortcutKey.toSet());
   }
 
   LogicalKeyboardKey? get showOnKeyHold {
@@ -124,8 +116,9 @@ enum EntityContextAction {
   }) {
     final bool hasSelectedManyItems = selectedEntities.length > 1;
     final bool hasCopiedManyItems = copiedEntities.length > 1;
-    final List<String> pinnedPath =
-        pinnedUris.map((e) => e.toRealPath()).toList(growable: false);
+    final List<String> pinnedPath = pinnedUris
+        .map((e) => e.toRealPath())
+        .toList(growable: false);
     final bool hasPinned = selectedEntities.isNotEmpty
         ? selectedEntities.any(
             (entity) => pinnedPath.contains(entity.path.toRealPath()),
@@ -175,85 +168,83 @@ enum EntityContextAction {
     bool isPressedShift = false,
     bool isPressedControlCommand = false,
   }) {
-    return EntityContextAction.values.where(
-      (item) {
-        if (item == unknown || !item.isVisible) {
+    return EntityContextAction.values.where((item) {
+      if (item == unknown || !item.isVisible) {
+        return false;
+      }
+
+      if (item == openInNewWindow) {
+        // Not supported yet.
+        return false;
+      }
+
+      for (final entity in selectedEntities) {
+        final entityType = entity.type;
+        if (!item.supportedEntityTypes.contains(entityType)) {
           return false;
         }
+      }
 
-        if (item == openInNewWindow) {
-          // Not supported yet.
-          return false;
-        }
+      if (item.minSelectedEntities > selectedEntities.length) {
+        return false;
+      }
 
-        for (final entity in selectedEntities) {
-          final entityType = entity.type;
-          if (!item.supportedEntityTypes.contains(entityType)) {
-            return false;
-          }
-        }
+      if (item.maxSelectedEntities != null &&
+          item.maxSelectedEntities! < selectedEntities.length) {
+        return false;
+      }
 
-        if (item.minSelectedEntities > selectedEntities.length) {
-          return false;
-        }
+      if ((item == paste || item == move) && copiedEntities.isEmpty) {
+        return false;
+      }
 
-        if (item.maxSelectedEntities != null &&
-            item.maxSelectedEntities! < selectedEntities.length) {
-          return false;
-        }
+      if (item.showOnKeyHold != null &&
+          isPressedAltOption == false &&
+          isPressedShift == false &&
+          isPressedControlCommand == false) {
+        return false;
+      }
 
-        if ((item == paste || item == move) && copiedEntities.isEmpty) {
-          return false;
-        }
+      if (item.hideOnKeyHold != null &&
+          isPressedAltOption &&
+          item.hideOnKeyHold == LogicalKeyboardKey.alt) {
+        return false;
+      }
 
-        if (item.showOnKeyHold != null &&
-            isPressedAltOption == false &&
-            isPressedShift == false &&
-            isPressedControlCommand == false) {
-          return false;
-        }
+      if (item.hideOnKeyHold != null &&
+          isPressedShift &&
+          item.hideOnKeyHold == LogicalKeyboardKey.shift) {
+        return false;
+      }
 
-        if (item.hideOnKeyHold != null &&
-            isPressedAltOption &&
-            item.hideOnKeyHold == LogicalKeyboardKey.alt) {
-          return false;
-        }
+      if (item.hideOnKeyHold != null &&
+          isPressedControlCommand &&
+          (item.hideOnKeyHold == LogicalKeyboardKey.control ||
+              item.hideOnKeyHold == LogicalKeyboardKey.meta)) {
+        return false;
+      }
 
-        if (item.hideOnKeyHold != null &&
-            isPressedShift &&
-            item.hideOnKeyHold == LogicalKeyboardKey.shift) {
-          return false;
-        }
+      if (item.showOnKeyHold != null &&
+          !isPressedAltOption &&
+          item.showOnKeyHold == LogicalKeyboardKey.alt) {
+        return false;
+      }
 
-        if (item.hideOnKeyHold != null &&
-            isPressedControlCommand &&
-            (item.hideOnKeyHold == LogicalKeyboardKey.control ||
-                item.hideOnKeyHold == LogicalKeyboardKey.meta)) {
-          return false;
-        }
+      if (item.showOnKeyHold != null &&
+          !isPressedShift &&
+          item.showOnKeyHold == LogicalKeyboardKey.shift) {
+        return false;
+      }
 
-        if (item.showOnKeyHold != null &&
-            !isPressedAltOption &&
-            item.showOnKeyHold == LogicalKeyboardKey.alt) {
-          return false;
-        }
+      if (item.showOnKeyHold != null &&
+          !isPressedControlCommand &&
+          (item.showOnKeyHold == LogicalKeyboardKey.control ||
+              item.showOnKeyHold == LogicalKeyboardKey.meta)) {
+        return false;
+      }
 
-        if (item.showOnKeyHold != null &&
-            !isPressedShift &&
-            item.showOnKeyHold == LogicalKeyboardKey.shift) {
-          return false;
-        }
-
-        if (item.showOnKeyHold != null &&
-            !isPressedControlCommand &&
-            (item.showOnKeyHold == LogicalKeyboardKey.control ||
-                item.showOnKeyHold == LogicalKeyboardKey.meta)) {
-          return false;
-        }
-
-        return true;
-      },
-    );
+      return true;
+    });
   }
 }
 

@@ -9,9 +9,7 @@ class OpenAction extends Action<OpenIntent> {
 
   @override
   void invoke(covariant OpenIntent intent) {
-    injector<EventBus>().fire(
-      const OpenEvent(),
-    );
+    injector<EventBus>().fire(const OpenEvent());
   }
 }
 

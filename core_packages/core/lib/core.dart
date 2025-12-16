@@ -1,4 +1,4 @@
-library core;
+library;
 
 import 'package:get_it/get_it.dart';
 

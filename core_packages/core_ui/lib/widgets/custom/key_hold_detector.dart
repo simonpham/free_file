@@ -8,7 +8,8 @@ class KeyHoldDetector extends StatefulWidget {
     bool isPressedAltOption,
     bool isPressedShift,
     bool isPressedControlCommand,
-  ) onHoldChanged;
+  )
+  onHoldChanged;
 
   final Widget child;
 
@@ -32,8 +33,9 @@ class _KeyHoldDetectorState extends State<KeyHoldDetector> {
   @override
   void initState() {
     super.initState();
-    _holdKeySubscription =
-        injector<EventBus>().on<HoldKeyEvent>().listen(_onHoldKeyEvent);
+    _holdKeySubscription = injector<EventBus>().on<HoldKeyEvent>().listen(
+      _onHoldKeyEvent,
+    );
   }
 
   @override
@@ -69,12 +71,10 @@ class KeyHoldDetectorBuilder extends StatelessWidget {
     bool isPressedAltOption,
     bool isPressedShift,
     bool isPressedControlCommand,
-  ) builder;
+  )
+  builder;
 
-  const KeyHoldDetectorBuilder({
-    super.key,
-    required this.builder,
-  });
+  const KeyHoldDetectorBuilder({super.key, required this.builder});
 
   @override
   Widget build(BuildContext context) {

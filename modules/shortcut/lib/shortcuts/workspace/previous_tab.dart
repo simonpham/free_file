@@ -7,9 +7,7 @@ class PreviousTabAction extends Action<PreviousTabIntent> {
 
   @override
   void invoke(covariant PreviousTabIntent intent) {
-    injector<EventBus>().fire(
-      const PreviousTabEvent(),
-    );
+    injector<EventBus>().fire(const PreviousTabEvent());
   }
 }
 

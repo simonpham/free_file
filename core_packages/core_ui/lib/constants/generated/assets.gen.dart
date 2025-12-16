@@ -104,8 +104,12 @@ class $AssetsIconsGen {
   $AssetsIconsWeatherGen get weather => const $AssetsIconsWeatherGen();
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [moonOutline, moonSolid, sunOutline, sunSolid];
+  List<SvgGenImage> get values => [
+    moonOutline,
+    moonSolid,
+    sunOutline,
+    sunSolid,
+  ];
 }
 
 class $AssetsIconsArrowsGen {
@@ -539,11 +543,13 @@ class $AssetsIconsArrowsBulkGen {
 
   /// File path: assets/icons/arrows/bulk/arrow-transfer-rectangle-1.svg
   SvgGenImage get arrowTransferRectangle1 => const SvgGenImage(
-      'assets/icons/arrows/bulk/arrow-transfer-rectangle-1.svg');
+    'assets/icons/arrows/bulk/arrow-transfer-rectangle-1.svg',
+  );
 
   /// File path: assets/icons/arrows/bulk/arrow-transfer-rectangle.svg
   SvgGenImage get arrowTransferRectangle => const SvgGenImage(
-      'assets/icons/arrows/bulk/arrow-transfer-rectangle.svg');
+    'assets/icons/arrows/bulk/arrow-transfer-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/bulk/arrow-transfer.svg
   SvgGenImage get arrowTransfer =>
@@ -571,7 +577,8 @@ class $AssetsIconsArrowsBulkGen {
 
   /// File path: assets/icons/arrows/bulk/direction-down-rectangle.svg
   SvgGenImage get directionDownRectangle => const SvgGenImage(
-      'assets/icons/arrows/bulk/direction-down-rectangle.svg');
+    'assets/icons/arrows/bulk/direction-down-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/bulk/direction-down.svg
   SvgGenImage get directionDown =>
@@ -587,7 +594,8 @@ class $AssetsIconsArrowsBulkGen {
 
   /// File path: assets/icons/arrows/bulk/direction-left-rectangle.svg
   SvgGenImage get directionLeftRectangle => const SvgGenImage(
-      'assets/icons/arrows/bulk/direction-left-rectangle.svg');
+    'assets/icons/arrows/bulk/direction-left-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/bulk/direction-left.svg
   SvgGenImage get directionLeft =>
@@ -603,7 +611,8 @@ class $AssetsIconsArrowsBulkGen {
 
   /// File path: assets/icons/arrows/bulk/direction-right-rectangle.svg
   SvgGenImage get directionRightRectangle => const SvgGenImage(
-      'assets/icons/arrows/bulk/direction-right-rectangle.svg');
+    'assets/icons/arrows/bulk/direction-right-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/bulk/direction-right.svg
   SvgGenImage get directionRight =>
@@ -778,92 +787,92 @@ class $AssetsIconsArrowsBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        aIn01,
-        aIn,
-        arrowBackCircle,
-        arrowBackRectangle,
-        arrowBack,
-        arrowDownCircle,
-        arrowDownRectangle,
-        arrowDown,
-        arrowLeftCircle,
-        arrowLeftRectangle,
-        arrowLeft,
-        arrowMoveCircle,
-        arrowMoveRectangle,
-        arrowMove,
-        arrowReturnCircle,
-        arrowReturnRectangle,
-        arrowReturn,
-        arrowRightCircle,
-        arrowRightRectangle,
-        arrowRight,
-        arrowSort1,
-        arrowSortRectangle1,
-        arrowSortRectangle,
-        arrowSort,
-        arrowTransfer1,
-        arrowTransferRectangle1,
-        arrowTransferRectangle,
-        arrowTransfer,
-        arrowUpCircle,
-        arrowUpRectangle,
-        arrowUp,
-        directionDown01,
-        directionDownCircle,
-        directionDownRectangle,
-        directionDown,
-        directionLeft01,
-        directionLeftCircle,
-        directionLeftRectangle,
-        directionLeft,
-        directionRight01,
-        directionRightCircle,
-        directionRightRectangle,
-        directionRight,
-        directionUp01,
-        directionUpCircle,
-        directionUpRectangle,
-        directionUp,
-        downArrow01,
-        downArrow,
-        download01,
-        download,
-        exchangeRectangle,
-        exchange,
-        leftArrow01,
-        leftArrow,
-        maximize01,
-        maximize02,
-        maximize,
-        minimize01,
-        minimize02,
-        minimize,
-        nextArrow,
-        out01,
-        out,
-        previousArrow,
-        redoCircle,
-        redoRectangle1,
-        redoRectangle,
-        redo,
-        reloadCircle,
-        reloadRectangle,
-        reload,
-        rightArrow01,
-        rightArrow,
-        undoCircle,
-        undo,
-        upArrow01,
-        upArrow,
-        upload01,
-        upload,
-        zoomInRectangle,
-        zoomIn,
-        zoomOutCircle,
-        zoomOutRectangle,
-        zoomOut
-      ];
+    aIn01,
+    aIn,
+    arrowBackCircle,
+    arrowBackRectangle,
+    arrowBack,
+    arrowDownCircle,
+    arrowDownRectangle,
+    arrowDown,
+    arrowLeftCircle,
+    arrowLeftRectangle,
+    arrowLeft,
+    arrowMoveCircle,
+    arrowMoveRectangle,
+    arrowMove,
+    arrowReturnCircle,
+    arrowReturnRectangle,
+    arrowReturn,
+    arrowRightCircle,
+    arrowRightRectangle,
+    arrowRight,
+    arrowSort1,
+    arrowSortRectangle1,
+    arrowSortRectangle,
+    arrowSort,
+    arrowTransfer1,
+    arrowTransferRectangle1,
+    arrowTransferRectangle,
+    arrowTransfer,
+    arrowUpCircle,
+    arrowUpRectangle,
+    arrowUp,
+    directionDown01,
+    directionDownCircle,
+    directionDownRectangle,
+    directionDown,
+    directionLeft01,
+    directionLeftCircle,
+    directionLeftRectangle,
+    directionLeft,
+    directionRight01,
+    directionRightCircle,
+    directionRightRectangle,
+    directionRight,
+    directionUp01,
+    directionUpCircle,
+    directionUpRectangle,
+    directionUp,
+    downArrow01,
+    downArrow,
+    download01,
+    download,
+    exchangeRectangle,
+    exchange,
+    leftArrow01,
+    leftArrow,
+    maximize01,
+    maximize02,
+    maximize,
+    minimize01,
+    minimize02,
+    minimize,
+    nextArrow,
+    out01,
+    out,
+    previousArrow,
+    redoCircle,
+    redoRectangle1,
+    redoRectangle,
+    redo,
+    reloadCircle,
+    reloadRectangle,
+    reload,
+    rightArrow01,
+    rightArrow,
+    undoCircle,
+    undo,
+    upArrow01,
+    upArrow,
+    upload01,
+    upload,
+    zoomInRectangle,
+    zoomIn,
+    zoomOutCircle,
+    zoomOutRectangle,
+    zoomOut,
+  ];
 }
 
 class $AssetsIconsArrowsOutlineGen {
@@ -931,7 +940,8 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/arrow-return-rectangle.svg
   SvgGenImage get arrowReturnRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/arrow-return-rectangle.svg');
+    'assets/icons/arrows/outline/arrow-return-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/arrow-return.svg
   SvgGenImage get arrowReturn =>
@@ -943,7 +953,8 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/arrow-right-rectangle.svg
   SvgGenImage get arrowRightRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/arrow-right-rectangle.svg');
+    'assets/icons/arrows/outline/arrow-right-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/arrow-right.svg
   SvgGenImage get arrowRight =>
@@ -955,7 +966,8 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/arrow-sort-rectangle-1.svg
   SvgGenImage get arrowSortRectangle1 => const SvgGenImage(
-      'assets/icons/arrows/outline/arrow-sort-rectangle-1.svg');
+    'assets/icons/arrows/outline/arrow-sort-rectangle-1.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/arrow-sort-rectangle.svg
   SvgGenImage get arrowSortRectangle =>
@@ -971,11 +983,13 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/arrow-transfer-rectangle-1.svg
   SvgGenImage get arrowTransferRectangle1 => const SvgGenImage(
-      'assets/icons/arrows/outline/arrow-transfer-rectangle-1.svg');
+    'assets/icons/arrows/outline/arrow-transfer-rectangle-1.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/arrow-transfer-rectangle.svg
   SvgGenImage get arrowTransferRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/arrow-transfer-rectangle.svg');
+    'assets/icons/arrows/outline/arrow-transfer-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/arrow-transfer.svg
   SvgGenImage get arrowTransfer =>
@@ -999,11 +1013,13 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/direction-down-circle.svg
   SvgGenImage get directionDownCircle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-down-circle.svg');
+    'assets/icons/arrows/outline/direction-down-circle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-down-rectangle.svg
   SvgGenImage get directionDownRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-down-rectangle.svg');
+    'assets/icons/arrows/outline/direction-down-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-down.svg
   SvgGenImage get directionDown =>
@@ -1015,11 +1031,13 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/direction-left-circle.svg
   SvgGenImage get directionLeftCircle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-left-circle.svg');
+    'assets/icons/arrows/outline/direction-left-circle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-left-rectangle.svg
   SvgGenImage get directionLeftRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-left-rectangle.svg');
+    'assets/icons/arrows/outline/direction-left-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-left.svg
   SvgGenImage get directionLeft =>
@@ -1031,11 +1049,13 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/direction-right-circle.svg
   SvgGenImage get directionRightCircle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-right-circle.svg');
+    'assets/icons/arrows/outline/direction-right-circle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-right-rectangle.svg
   SvgGenImage get directionRightRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-right-rectangle.svg');
+    'assets/icons/arrows/outline/direction-right-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-right.svg
   SvgGenImage get directionRight =>
@@ -1051,7 +1071,8 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// File path: assets/icons/arrows/outline/direction-up-rectangle.svg
   SvgGenImage get directionUpRectangle => const SvgGenImage(
-      'assets/icons/arrows/outline/direction-up-rectangle.svg');
+    'assets/icons/arrows/outline/direction-up-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/outline/direction-up.svg
   SvgGenImage get directionUp =>
@@ -1211,92 +1232,92 @@ class $AssetsIconsArrowsOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        aIn01,
-        aIn,
-        arrowBackCircle,
-        arrowBackRectangle,
-        arrowBack,
-        arrowDownCircle,
-        arrowDownRectangle,
-        arrowDown,
-        arrowLeftCircle,
-        arrowLeftRectangle,
-        arrowLeft,
-        arrowMoveCircle,
-        arrowMoveRectangle,
-        arrowMove,
-        arrowReturnCircle,
-        arrowReturnRectangle,
-        arrowReturn,
-        arrowRightCircle,
-        arrowRightRectangle,
-        arrowRight,
-        arrowSort1,
-        arrowSortRectangle1,
-        arrowSortRectangle,
-        arrowSort,
-        arrowTransfer1,
-        arrowTransferRectangle1,
-        arrowTransferRectangle,
-        arrowTransfer,
-        arrowUpCircle,
-        arrowUpRectangle,
-        arrowUp,
-        directionDown01,
-        directionDownCircle,
-        directionDownRectangle,
-        directionDown,
-        directionLeft01,
-        directionLeftCircle,
-        directionLeftRectangle,
-        directionLeft,
-        directionRight01,
-        directionRightCircle,
-        directionRightRectangle,
-        directionRight,
-        directionUp01,
-        directionUpCircle,
-        directionUpRectangle,
-        directionUp,
-        downArrow01,
-        downArrow,
-        download01,
-        download,
-        exchangeRectangle,
-        exchange,
-        leftArrow01,
-        leftArrow,
-        maximize01,
-        maximize02,
-        maximize,
-        minimize01,
-        minimize02,
-        minimize,
-        nextArrow,
-        out01,
-        out,
-        previousArrow,
-        redoCircle,
-        redoRectangle1,
-        redoRectangle,
-        redo,
-        reloadCircle,
-        reloadRectangle,
-        reload,
-        rightArrow01,
-        rightArrow,
-        undoCircle,
-        undo,
-        upArrow01,
-        upArrow,
-        upload01,
-        upload,
-        zoomInRectangle,
-        zoomIn,
-        zoomOutCircle,
-        zoomOutRectangle,
-        zoomOut
-      ];
+    aIn01,
+    aIn,
+    arrowBackCircle,
+    arrowBackRectangle,
+    arrowBack,
+    arrowDownCircle,
+    arrowDownRectangle,
+    arrowDown,
+    arrowLeftCircle,
+    arrowLeftRectangle,
+    arrowLeft,
+    arrowMoveCircle,
+    arrowMoveRectangle,
+    arrowMove,
+    arrowReturnCircle,
+    arrowReturnRectangle,
+    arrowReturn,
+    arrowRightCircle,
+    arrowRightRectangle,
+    arrowRight,
+    arrowSort1,
+    arrowSortRectangle1,
+    arrowSortRectangle,
+    arrowSort,
+    arrowTransfer1,
+    arrowTransferRectangle1,
+    arrowTransferRectangle,
+    arrowTransfer,
+    arrowUpCircle,
+    arrowUpRectangle,
+    arrowUp,
+    directionDown01,
+    directionDownCircle,
+    directionDownRectangle,
+    directionDown,
+    directionLeft01,
+    directionLeftCircle,
+    directionLeftRectangle,
+    directionLeft,
+    directionRight01,
+    directionRightCircle,
+    directionRightRectangle,
+    directionRight,
+    directionUp01,
+    directionUpCircle,
+    directionUpRectangle,
+    directionUp,
+    downArrow01,
+    downArrow,
+    download01,
+    download,
+    exchangeRectangle,
+    exchange,
+    leftArrow01,
+    leftArrow,
+    maximize01,
+    maximize02,
+    maximize,
+    minimize01,
+    minimize02,
+    minimize,
+    nextArrow,
+    out01,
+    out,
+    previousArrow,
+    redoCircle,
+    redoRectangle1,
+    redoRectangle,
+    redo,
+    reloadCircle,
+    reloadRectangle,
+    reload,
+    rightArrow01,
+    rightArrow,
+    undoCircle,
+    undo,
+    upArrow01,
+    upArrow,
+    upload01,
+    upload,
+    zoomInRectangle,
+    zoomIn,
+    zoomOutCircle,
+    zoomOutRectangle,
+    zoomOut,
+  ];
 }
 
 class $AssetsIconsArrowsSolidGen {
@@ -1404,11 +1425,13 @@ class $AssetsIconsArrowsSolidGen {
 
   /// File path: assets/icons/arrows/solid/arrow-transfer-rectangle-1.svg
   SvgGenImage get arrowTransferRectangle1 => const SvgGenImage(
-      'assets/icons/arrows/solid/arrow-transfer-rectangle-1.svg');
+    'assets/icons/arrows/solid/arrow-transfer-rectangle-1.svg',
+  );
 
   /// File path: assets/icons/arrows/solid/arrow-transfer-rectangle.svg
   SvgGenImage get arrowTransferRectangle => const SvgGenImage(
-      'assets/icons/arrows/solid/arrow-transfer-rectangle.svg');
+    'assets/icons/arrows/solid/arrow-transfer-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/solid/arrow-transfer.svg
   SvgGenImage get arrowTransfer =>
@@ -1436,7 +1459,8 @@ class $AssetsIconsArrowsSolidGen {
 
   /// File path: assets/icons/arrows/solid/direction-down-rectangle.svg
   SvgGenImage get directionDownRectangle => const SvgGenImage(
-      'assets/icons/arrows/solid/direction-down-rectangle.svg');
+    'assets/icons/arrows/solid/direction-down-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/solid/direction-down.svg
   SvgGenImage get directionDown =>
@@ -1452,7 +1476,8 @@ class $AssetsIconsArrowsSolidGen {
 
   /// File path: assets/icons/arrows/solid/direction-left-rectangle.svg
   SvgGenImage get directionLeftRectangle => const SvgGenImage(
-      'assets/icons/arrows/solid/direction-left-rectangle.svg');
+    'assets/icons/arrows/solid/direction-left-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/solid/direction-left.svg
   SvgGenImage get directionLeft =>
@@ -1468,7 +1493,8 @@ class $AssetsIconsArrowsSolidGen {
 
   /// File path: assets/icons/arrows/solid/direction-right-rectangle.svg
   SvgGenImage get directionRightRectangle => const SvgGenImage(
-      'assets/icons/arrows/solid/direction-right-rectangle.svg');
+    'assets/icons/arrows/solid/direction-right-rectangle.svg',
+  );
 
   /// File path: assets/icons/arrows/solid/direction-right.svg
   SvgGenImage get directionRight =>
@@ -1643,92 +1669,92 @@ class $AssetsIconsArrowsSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        aIn01,
-        aIn,
-        arrowBackCircle,
-        arrowBackRectangle,
-        arrowBack,
-        arrowDownCircle,
-        arrowDownRectangle,
-        arrowDown,
-        arrowLeftCircle,
-        arrowLeftRectangle,
-        arrowLeft,
-        arrowMoveCircle,
-        arrowMoveRectangle,
-        arrowMove,
-        arrowReturnCircle,
-        arrowReturnRectangle,
-        arrowReturn,
-        arrowRightCircle,
-        arrowRightRectangle,
-        arrowRight,
-        arrowSort1,
-        arrowSortRectangle1,
-        arrowSortRectangle,
-        arrowSort,
-        arrowTransfer1,
-        arrowTransferRectangle1,
-        arrowTransferRectangle,
-        arrowTransfer,
-        arrowUpCircle,
-        arrowUpRectangle,
-        arrowUp,
-        directionDown01,
-        directionDownCircle,
-        directionDownRectangle,
-        directionDown,
-        directionLeft01,
-        directionLeftCircle,
-        directionLeftRectangle,
-        directionLeft,
-        directionRight01,
-        directionRightCircle,
-        directionRightRectangle,
-        directionRight,
-        directionUp01,
-        directionUpCircle,
-        directionUpRectangle,
-        directionUp,
-        downArrow01,
-        downArrow,
-        download01,
-        download,
-        exchangeRectangle,
-        exchange,
-        leftArrow01,
-        leftArrow,
-        maximize01,
-        maximize02,
-        maximize,
-        minimize01,
-        minimize02,
-        minimize,
-        nextArrow,
-        out01,
-        out,
-        previousArrow,
-        redoCircle,
-        redoRectangle01,
-        redoRectangle,
-        redo,
-        reloadCircle,
-        reloadRectangle,
-        reload,
-        rightArrow01,
-        rightArrow,
-        undoCircle,
-        undo,
-        upArrow01,
-        upArrow,
-        upload01,
-        upload,
-        zoomInRectangle,
-        zoomIn,
-        zoomOutCircle,
-        zoomOutRectangle,
-        zoomOut
-      ];
+    aIn01,
+    aIn,
+    arrowBackCircle,
+    arrowBackRectangle,
+    arrowBack,
+    arrowDownCircle,
+    arrowDownRectangle,
+    arrowDown,
+    arrowLeftCircle,
+    arrowLeftRectangle,
+    arrowLeft,
+    arrowMoveCircle,
+    arrowMoveRectangle,
+    arrowMove,
+    arrowReturnCircle,
+    arrowReturnRectangle,
+    arrowReturn,
+    arrowRightCircle,
+    arrowRightRectangle,
+    arrowRight,
+    arrowSort1,
+    arrowSortRectangle1,
+    arrowSortRectangle,
+    arrowSort,
+    arrowTransfer1,
+    arrowTransferRectangle1,
+    arrowTransferRectangle,
+    arrowTransfer,
+    arrowUpCircle,
+    arrowUpRectangle,
+    arrowUp,
+    directionDown01,
+    directionDownCircle,
+    directionDownRectangle,
+    directionDown,
+    directionLeft01,
+    directionLeftCircle,
+    directionLeftRectangle,
+    directionLeft,
+    directionRight01,
+    directionRightCircle,
+    directionRightRectangle,
+    directionRight,
+    directionUp01,
+    directionUpCircle,
+    directionUpRectangle,
+    directionUp,
+    downArrow01,
+    downArrow,
+    download01,
+    download,
+    exchangeRectangle,
+    exchange,
+    leftArrow01,
+    leftArrow,
+    maximize01,
+    maximize02,
+    maximize,
+    minimize01,
+    minimize02,
+    minimize,
+    nextArrow,
+    out01,
+    out,
+    previousArrow,
+    redoCircle,
+    redoRectangle01,
+    redoRectangle,
+    redo,
+    reloadCircle,
+    reloadRectangle,
+    reload,
+    rightArrow01,
+    rightArrow,
+    undoCircle,
+    undo,
+    upArrow01,
+    upArrow,
+    upload01,
+    upload,
+    zoomInRectangle,
+    zoomIn,
+    zoomOutCircle,
+    zoomOutRectangle,
+    zoomOut,
+  ];
 }
 
 class $AssetsIconsBusinessBulkGen {
@@ -1776,7 +1802,8 @@ class $AssetsIconsBusinessBulkGen {
 
   /// File path: assets/icons/business/bulk/chart-arrow-down-rectangle.svg
   SvgGenImage get chartArrowDownRectangle => const SvgGenImage(
-      'assets/icons/business/bulk/chart-arrow-down-rectangle.svg');
+    'assets/icons/business/bulk/chart-arrow-down-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/bulk/chart-arrow-down.svg
   SvgGenImage get chartArrowDown =>
@@ -1788,7 +1815,8 @@ class $AssetsIconsBusinessBulkGen {
 
   /// File path: assets/icons/business/bulk/chart-arrow-up-rectangle.svg
   SvgGenImage get chartArrowUpRectangle => const SvgGenImage(
-      'assets/icons/business/bulk/chart-arrow-up-rectangle.svg');
+    'assets/icons/business/bulk/chart-arrow-up-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/bulk/chart-arrow-up.svg
   SvgGenImage get chartArrowUp =>
@@ -1856,37 +1884,37 @@ class $AssetsIconsBusinessBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        archive,
-        barChart01,
-        barChart,
-        briefcase01,
-        briefcase02,
-        briefcase03,
-        briefcase04,
-        briefcase,
-        calculator,
-        chartArrowDown01,
-        chartArrowDownRectangle,
-        chartArrowDown,
-        chartArrowUp01,
-        chartArrowUpRectangle,
-        chartArrowUp,
-        chartBar01,
-        chartBar,
-        chartLine,
-        chartNotification,
-        chartPie01,
-        chartPie,
-        chartWave01,
-        chartWaveRectangle,
-        chartWave,
-        deal,
-        home01,
-        home,
-        like,
-        presentationChart,
-        target
-      ];
+    archive,
+    barChart01,
+    barChart,
+    briefcase01,
+    briefcase02,
+    briefcase03,
+    briefcase04,
+    briefcase,
+    calculator,
+    chartArrowDown01,
+    chartArrowDownRectangle,
+    chartArrowDown,
+    chartArrowUp01,
+    chartArrowUpRectangle,
+    chartArrowUp,
+    chartBar01,
+    chartBar,
+    chartLine,
+    chartNotification,
+    chartPie01,
+    chartPie,
+    chartWave01,
+    chartWaveRectangle,
+    chartWave,
+    deal,
+    home01,
+    home,
+    like,
+    presentationChart,
+    target,
+  ];
 }
 
 class $AssetsIconsBusinessOutlineGen {
@@ -1930,11 +1958,13 @@ class $AssetsIconsBusinessOutlineGen {
 
   /// File path: assets/icons/business/outline/chart-arrow-down 01.svg
   SvgGenImage get chartArrowDown01 => const SvgGenImage(
-      'assets/icons/business/outline/chart-arrow-down 01.svg');
+    'assets/icons/business/outline/chart-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/business/outline/chart-arrow-down-rectangle.svg
   SvgGenImage get chartArrowDownRectangle => const SvgGenImage(
-      'assets/icons/business/outline/chart-arrow-down-rectangle.svg');
+    'assets/icons/business/outline/chart-arrow-down-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/outline/chart-arrow-down.svg
   SvgGenImage get chartArrowDown =>
@@ -1946,7 +1976,8 @@ class $AssetsIconsBusinessOutlineGen {
 
   /// File path: assets/icons/business/outline/chart-arrow-up-rectangle.svg
   SvgGenImage get chartArrowUpRectangle => const SvgGenImage(
-      'assets/icons/business/outline/chart-arrow-up-rectangle.svg');
+    'assets/icons/business/outline/chart-arrow-up-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/outline/chart-arrow-up.svg
   SvgGenImage get chartArrowUp =>
@@ -1982,7 +2013,8 @@ class $AssetsIconsBusinessOutlineGen {
 
   /// File path: assets/icons/business/outline/chart-wave-rectangle.svg
   SvgGenImage get chartWaveRectangle => const SvgGenImage(
-      'assets/icons/business/outline/chart-wave-rectangle.svg');
+    'assets/icons/business/outline/chart-wave-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/outline/chart-wave.svg
   SvgGenImage get chartWave =>
@@ -2014,37 +2046,37 @@ class $AssetsIconsBusinessOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        archive,
-        barChart01,
-        barChart,
-        briefcase01,
-        briefcase02,
-        briefcase03,
-        briefcase04,
-        briefcase,
-        calculator,
-        chartArrowDown01,
-        chartArrowDownRectangle,
-        chartArrowDown,
-        chartArrowUp01,
-        chartArrowUpRectangle,
-        chartArrowUp,
-        chartBar01,
-        chartBar,
-        chartLine,
-        chartNotification,
-        chartPie01,
-        chartPie,
-        chartWave01,
-        chartWaveRectangle,
-        chartWave,
-        deal,
-        home01,
-        home,
-        like,
-        presentationChart,
-        target
-      ];
+    archive,
+    barChart01,
+    barChart,
+    briefcase01,
+    briefcase02,
+    briefcase03,
+    briefcase04,
+    briefcase,
+    calculator,
+    chartArrowDown01,
+    chartArrowDownRectangle,
+    chartArrowDown,
+    chartArrowUp01,
+    chartArrowUpRectangle,
+    chartArrowUp,
+    chartBar01,
+    chartBar,
+    chartLine,
+    chartNotification,
+    chartPie01,
+    chartPie,
+    chartWave01,
+    chartWaveRectangle,
+    chartWave,
+    deal,
+    home01,
+    home,
+    like,
+    presentationChart,
+    target,
+  ];
 }
 
 class $AssetsIconsBusinessSolidGen {
@@ -2092,7 +2124,8 @@ class $AssetsIconsBusinessSolidGen {
 
   /// File path: assets/icons/business/solid/chart-arrow-down-rectangle.svg
   SvgGenImage get chartArrowDownRectangle => const SvgGenImage(
-      'assets/icons/business/solid/chart-arrow-down-rectangle.svg');
+    'assets/icons/business/solid/chart-arrow-down-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/solid/chart-arrow-down.svg
   SvgGenImage get chartArrowDown =>
@@ -2104,7 +2137,8 @@ class $AssetsIconsBusinessSolidGen {
 
   /// File path: assets/icons/business/solid/chart-arrow-up-rectangle.svg
   SvgGenImage get chartArrowUpRectangle => const SvgGenImage(
-      'assets/icons/business/solid/chart-arrow-up-rectangle.svg');
+    'assets/icons/business/solid/chart-arrow-up-rectangle.svg',
+  );
 
   /// File path: assets/icons/business/solid/chart-arrow-up.svg
   SvgGenImage get chartArrowUp =>
@@ -2172,37 +2206,37 @@ class $AssetsIconsBusinessSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        archive,
-        barChart01,
-        barChart,
-        briefcase01,
-        briefcase02,
-        briefcase03,
-        briefcase04,
-        briefcase,
-        calculator,
-        chartArrowDown01,
-        chartArrowDownRectangle,
-        chartArrowDown,
-        chartArrowUp01,
-        chartArrowUpRectangle,
-        chartArrowUp,
-        chartBar01,
-        chartBar1,
-        chartLine,
-        chartNotification,
-        chartPie01,
-        chartPie,
-        chartWave01,
-        chartWave1,
-        chartWaveRectangle,
-        deal,
-        home01,
-        home,
-        like,
-        presentationChart,
-        target
-      ];
+    archive,
+    barChart01,
+    barChart,
+    briefcase01,
+    briefcase02,
+    briefcase03,
+    briefcase04,
+    briefcase,
+    calculator,
+    chartArrowDown01,
+    chartArrowDownRectangle,
+    chartArrowDown,
+    chartArrowUp01,
+    chartArrowUpRectangle,
+    chartArrowUp,
+    chartBar01,
+    chartBar1,
+    chartLine,
+    chartNotification,
+    chartPie01,
+    chartPie,
+    chartWave01,
+    chartWave1,
+    chartWaveRectangle,
+    deal,
+    home01,
+    home,
+    like,
+    presentationChart,
+    target,
+  ];
 }
 
 class $AssetsIconsCommunicationBulkGen {
@@ -2302,11 +2336,13 @@ class $AssetsIconsCommunicationBulkGen {
 
   /// File path: assets/icons/communication/bulk/chat-notification-1.svg
   SvgGenImage get chatNotification1 => const SvgGenImage(
-      'assets/icons/communication/bulk/chat-notification-1.svg');
+    'assets/icons/communication/bulk/chat-notification-1.svg',
+  );
 
   /// File path: assets/icons/communication/bulk/chat-notification.svg
   SvgGenImage get chatNotification => const SvgGenImage(
-      'assets/icons/communication/bulk/chat-notification.svg');
+    'assets/icons/communication/bulk/chat-notification.svg',
+  );
 
   /// File path: assets/icons/communication/bulk/chat-plus.svg
   SvgGenImage get chatPlus =>
@@ -2390,7 +2426,8 @@ class $AssetsIconsCommunicationBulkGen {
 
   /// File path: assets/icons/communication/bulk/mail-notification.svg
   SvgGenImage get mailNotification => const SvgGenImage(
-      'assets/icons/communication/bulk/mail-notification.svg');
+    'assets/icons/communication/bulk/mail-notification.svg',
+  );
 
   /// File path: assets/icons/communication/bulk/mail-plus.svg
   SvgGenImage get mailPlus =>
@@ -2434,63 +2471,63 @@ class $AssetsIconsCommunicationBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        broadcast,
-        callBlock,
-        callIn01,
-        callIn,
-        callLove,
-        callOut01,
-        callOut,
-        callUser,
-        callVoicemail,
-        call,
-        calling,
-        chat01,
-        chat02,
-        chatAccept,
-        chatArrowDown,
-        chatArrowUp,
-        chatBlock,
-        chatDelay,
-        chatFail,
-        chatFavourite,
-        chatInformation,
-        chatLove,
-        chatNegative,
-        chatNotification1,
-        chatNotification,
-        chatPlus,
-        chatSad,
-        chatSearch,
-        chatSilent,
-        chatSmile,
-        chatUser,
-        chat,
-        chatting,
-        feather,
-        idCard,
-        mailArrowLeft,
-        mailArrowRight,
-        mailArrowDown,
-        mailArrowUp,
-        mailBlock,
-        mailDelay,
-        mailFail,
-        mailFast,
-        mailFavourite,
-        mailNegative,
-        mailNotification,
-        mailPlus,
-        mailSilent,
-        mail,
-        mailbox,
-        sentFast,
-        sent,
-        signal,
-        sticker,
-        voiceMail,
-        wifi
-      ];
+    broadcast,
+    callBlock,
+    callIn01,
+    callIn,
+    callLove,
+    callOut01,
+    callOut,
+    callUser,
+    callVoicemail,
+    call,
+    calling,
+    chat01,
+    chat02,
+    chatAccept,
+    chatArrowDown,
+    chatArrowUp,
+    chatBlock,
+    chatDelay,
+    chatFail,
+    chatFavourite,
+    chatInformation,
+    chatLove,
+    chatNegative,
+    chatNotification1,
+    chatNotification,
+    chatPlus,
+    chatSad,
+    chatSearch,
+    chatSilent,
+    chatSmile,
+    chatUser,
+    chat,
+    chatting,
+    feather,
+    idCard,
+    mailArrowLeft,
+    mailArrowRight,
+    mailArrowDown,
+    mailArrowUp,
+    mailBlock,
+    mailDelay,
+    mailFail,
+    mailFast,
+    mailFavourite,
+    mailNegative,
+    mailNotification,
+    mailPlus,
+    mailSilent,
+    mail,
+    mailbox,
+    sentFast,
+    sent,
+    signal,
+    sticker,
+    voiceMail,
+    wifi,
+  ];
 }
 
 class $AssetsIconsCommunicationOutlineGen {
@@ -2534,7 +2571,8 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/call-voicemail.svg
   SvgGenImage get callVoicemail => const SvgGenImage(
-      'assets/icons/communication/outline/call-voicemail.svg');
+    'assets/icons/communication/outline/call-voicemail.svg',
+  );
 
   /// File path: assets/icons/communication/outline/call.svg
   SvgGenImage get call =>
@@ -2558,7 +2596,8 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/chat-arrow down.svg
   SvgGenImage get chatArrowDown => const SvgGenImage(
-      'assets/icons/communication/outline/chat-arrow down.svg');
+    'assets/icons/communication/outline/chat-arrow down.svg',
+  );
 
   /// File path: assets/icons/communication/outline/chat-arrow up.svg
   SvgGenImage get chatArrowUp =>
@@ -2578,11 +2617,13 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/chat-favourite.svg
   SvgGenImage get chatFavourite => const SvgGenImage(
-      'assets/icons/communication/outline/chat-favourite.svg');
+    'assets/icons/communication/outline/chat-favourite.svg',
+  );
 
   /// File path: assets/icons/communication/outline/chat-information.svg
   SvgGenImage get chatInformation => const SvgGenImage(
-      'assets/icons/communication/outline/chat-information.svg');
+    'assets/icons/communication/outline/chat-information.svg',
+  );
 
   /// File path: assets/icons/communication/outline/chat-lock.svg
   SvgGenImage get chatLock =>
@@ -2598,11 +2639,13 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/chat-notification-1.svg
   SvgGenImage get chatNotification1 => const SvgGenImage(
-      'assets/icons/communication/outline/chat-notification-1.svg');
+    'assets/icons/communication/outline/chat-notification-1.svg',
+  );
 
   /// File path: assets/icons/communication/outline/chat-notification.svg
   SvgGenImage get chatNotification => const SvgGenImage(
-      'assets/icons/communication/outline/chat-notification.svg');
+    'assets/icons/communication/outline/chat-notification.svg',
+  );
 
   /// File path: assets/icons/communication/outline/chat-plus.svg
   SvgGenImage get chatPlus =>
@@ -2646,15 +2689,18 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/mail-arrow left.svg
   SvgGenImage get mailArrowLeft => const SvgGenImage(
-      'assets/icons/communication/outline/mail-arrow left.svg');
+    'assets/icons/communication/outline/mail-arrow left.svg',
+  );
 
   /// File path: assets/icons/communication/outline/mail-arrow right.svg
   SvgGenImage get mailArrowRight => const SvgGenImage(
-      'assets/icons/communication/outline/mail-arrow right.svg');
+    'assets/icons/communication/outline/mail-arrow right.svg',
+  );
 
   /// File path: assets/icons/communication/outline/mail-arrow-down.svg
   SvgGenImage get mailArrowDown => const SvgGenImage(
-      'assets/icons/communication/outline/mail-arrow-down.svg');
+    'assets/icons/communication/outline/mail-arrow-down.svg',
+  );
 
   /// File path: assets/icons/communication/outline/mail-arrow-up.svg
   SvgGenImage get mailArrowUp =>
@@ -2678,7 +2724,8 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/mail-favourite.svg
   SvgGenImage get mailFavourite => const SvgGenImage(
-      'assets/icons/communication/outline/mail-favourite.svg');
+    'assets/icons/communication/outline/mail-favourite.svg',
+  );
 
   /// File path: assets/icons/communication/outline/mail-negative.svg
   SvgGenImage get mailNegative =>
@@ -2686,7 +2733,8 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// File path: assets/icons/communication/outline/mail-notification.svg
   SvgGenImage get mailNotification => const SvgGenImage(
-      'assets/icons/communication/outline/mail-notification.svg');
+    'assets/icons/communication/outline/mail-notification.svg',
+  );
 
   /// File path: assets/icons/communication/outline/mail-plus.svg
   SvgGenImage get mailPlus =>
@@ -2730,65 +2778,65 @@ class $AssetsIconsCommunicationOutlineGen {
 
   /// List of all assets
   List<dynamic> get values => [
-        vector,
-        broadcast,
-        callBlock,
-        callIn01,
-        callIn,
-        callLove,
-        callOut01,
-        callOut,
-        callUser,
-        callVoicemail,
-        call,
-        calling,
-        chat01,
-        chat02,
-        chatAccept,
-        chatArrowDown,
-        chatArrowUp,
-        chatBlock,
-        chatClock,
-        chatClose,
-        chatFavourite,
-        chatInformation,
-        chatLock,
-        chatLove,
-        chatNegative,
-        chatNotification1,
-        chatNotification,
-        chatPlus,
-        chatSad,
-        chatSearch,
-        chatSilent,
-        chatSmile,
-        chatUser,
-        chat,
-        chatting,
-        feather,
-        idCard,
-        mailArrowLeft,
-        mailArrowRight,
-        mailArrowDown,
-        mailArrowUp,
-        mailBlock,
-        mailDelay,
-        mailFail,
-        mailFast,
-        mailFavourite,
-        mailNegative,
-        mailNotification,
-        mailPlus,
-        mailSilent,
-        mail,
-        mailbox,
-        send,
-        sentFast,
-        signal,
-        sticker,
-        voiceMail,
-        wifi
-      ];
+    vector,
+    broadcast,
+    callBlock,
+    callIn01,
+    callIn,
+    callLove,
+    callOut01,
+    callOut,
+    callUser,
+    callVoicemail,
+    call,
+    calling,
+    chat01,
+    chat02,
+    chatAccept,
+    chatArrowDown,
+    chatArrowUp,
+    chatBlock,
+    chatClock,
+    chatClose,
+    chatFavourite,
+    chatInformation,
+    chatLock,
+    chatLove,
+    chatNegative,
+    chatNotification1,
+    chatNotification,
+    chatPlus,
+    chatSad,
+    chatSearch,
+    chatSilent,
+    chatSmile,
+    chatUser,
+    chat,
+    chatting,
+    feather,
+    idCard,
+    mailArrowLeft,
+    mailArrowRight,
+    mailArrowDown,
+    mailArrowUp,
+    mailBlock,
+    mailDelay,
+    mailFail,
+    mailFast,
+    mailFavourite,
+    mailNegative,
+    mailNotification,
+    mailPlus,
+    mailSilent,
+    mail,
+    mailbox,
+    send,
+    sentFast,
+    signal,
+    sticker,
+    voiceMail,
+    wifi,
+  ];
 }
 
 class $AssetsIconsCommunicationSolidGen {
@@ -2880,7 +2928,8 @@ class $AssetsIconsCommunicationSolidGen {
 
   /// File path: assets/icons/communication/solid/chat-information.svg
   SvgGenImage get chatInformation => const SvgGenImage(
-      'assets/icons/communication/solid/chat-information.svg');
+    'assets/icons/communication/solid/chat-information.svg',
+  );
 
   /// File path: assets/icons/communication/solid/chat-lock.svg
   SvgGenImage get chatLock =>
@@ -2896,11 +2945,13 @@ class $AssetsIconsCommunicationSolidGen {
 
   /// File path: assets/icons/communication/solid/chat-notification 1.svg
   SvgGenImage get chatNotification1 => const SvgGenImage(
-      'assets/icons/communication/solid/chat-notification 1.svg');
+    'assets/icons/communication/solid/chat-notification 1.svg',
+  );
 
   /// File path: assets/icons/communication/solid/chat-notification.svg
   SvgGenImage get chatNotification => const SvgGenImage(
-      'assets/icons/communication/solid/chat-notification.svg');
+    'assets/icons/communication/solid/chat-notification.svg',
+  );
 
   /// File path: assets/icons/communication/solid/chat-plus.svg
   SvgGenImage get chatPlus =>
@@ -2944,7 +2995,8 @@ class $AssetsIconsCommunicationSolidGen {
 
   /// File path: assets/icons/communication/solid/mail-arrow right.svg
   SvgGenImage get mailArrowRight => const SvgGenImage(
-      'assets/icons/communication/solid/mail-arrow right.svg');
+    'assets/icons/communication/solid/mail-arrow right.svg',
+  );
 
   /// File path: assets/icons/communication/solid/mail-arrow-down.svg
   SvgGenImage get mailArrowDown =>
@@ -2980,7 +3032,8 @@ class $AssetsIconsCommunicationSolidGen {
 
   /// File path: assets/icons/communication/solid/mail-notification.svg
   SvgGenImage get mailNotification => const SvgGenImage(
-      'assets/icons/communication/solid/mail-notification.svg');
+    'assets/icons/communication/solid/mail-notification.svg',
+  );
 
   /// File path: assets/icons/communication/solid/mail-plus.svg
   SvgGenImage get mailPlus =>
@@ -3024,64 +3077,64 @@ class $AssetsIconsCommunicationSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        broadcast,
-        callBlock,
-        callIn01,
-        callIn,
-        callLove,
-        callOut01,
-        callOut,
-        callUser,
-        callVoicemail,
-        call,
-        calling,
-        chat01,
-        chat02,
-        chat1,
-        chatAccept,
-        chatArrowDown,
-        chatArrowUp,
-        chatBlock,
-        chatDelay,
-        chatFail,
-        chatFavourite,
-        chatInformation,
-        chatLock,
-        chatLove,
-        chatNegative,
-        chatNotification1,
-        chatNotification,
-        chatPlus,
-        chatSad,
-        chatSearch,
-        chatSilent,
-        chatSmile,
-        chatUser,
-        chat,
-        feather,
-        idCard,
-        mailArrowLeft,
-        mailArrowRight,
-        mailArrowDown,
-        mailArrowUp,
-        mailBlock,
-        mailDelay,
-        mailFail,
-        mailFast,
-        mailFavourite,
-        mailNegative,
-        mailNotification,
-        mailPlus,
-        mailSilent,
-        mail,
-        mailbox,
-        sentFast,
-        sent,
-        signal,
-        sticker,
-        voiceMail,
-        wifi
-      ];
+    broadcast,
+    callBlock,
+    callIn01,
+    callIn,
+    callLove,
+    callOut01,
+    callOut,
+    callUser,
+    callVoicemail,
+    call,
+    calling,
+    chat01,
+    chat02,
+    chat1,
+    chatAccept,
+    chatArrowDown,
+    chatArrowUp,
+    chatBlock,
+    chatDelay,
+    chatFail,
+    chatFavourite,
+    chatInformation,
+    chatLock,
+    chatLove,
+    chatNegative,
+    chatNotification1,
+    chatNotification,
+    chatPlus,
+    chatSad,
+    chatSearch,
+    chatSilent,
+    chatSmile,
+    chatUser,
+    chat,
+    feather,
+    idCard,
+    mailArrowLeft,
+    mailArrowRight,
+    mailArrowDown,
+    mailArrowUp,
+    mailBlock,
+    mailDelay,
+    mailFail,
+    mailFast,
+    mailFavourite,
+    mailNegative,
+    mailNotification,
+    mailPlus,
+    mailSilent,
+    mail,
+    mailbox,
+    sentFast,
+    sent,
+    signal,
+    sticker,
+    voiceMail,
+    wifi,
+  ];
 }
 
 class $AssetsIconsDeviceBulkGen {
@@ -3125,7 +3178,8 @@ class $AssetsIconsDeviceBulkGen {
 
   /// File path: assets/icons/device/bulk/battery-horizontal-charging.svg
   SvgGenImage get batteryHorizontalCharging => const SvgGenImage(
-      'assets/icons/device/bulk/battery-horizontal-charging.svg');
+    'assets/icons/device/bulk/battery-horizontal-charging.svg',
+  );
 
   /// File path: assets/icons/device/bulk/battery-horizontal-full.svg
   SvgGenImage get batteryHorizontalFull =>
@@ -3133,11 +3187,13 @@ class $AssetsIconsDeviceBulkGen {
 
   /// File path: assets/icons/device/bulk/battery-horizontal-lowbet.svg
   SvgGenImage get batteryHorizontalLowbet => const SvgGenImage(
-      'assets/icons/device/bulk/battery-horizontal-lowbet.svg');
+    'assets/icons/device/bulk/battery-horizontal-lowbet.svg',
+  );
 
   /// File path: assets/icons/device/bulk/battery-horizontal-saving-mode.svg
   SvgGenImage get batteryHorizontalSavingMode => const SvgGenImage(
-      'assets/icons/device/bulk/battery-horizontal-saving-mode.svg');
+    'assets/icons/device/bulk/battery-horizontal-saving-mode.svg',
+  );
 
   /// File path: assets/icons/device/bulk/battery-horizontal.svg
   SvgGenImage get batteryHorizontal =>
@@ -3356,11 +3412,13 @@ class $AssetsIconsDeviceBulkGen {
 
   /// File path: assets/icons/device/bulk/signal celluler-no internet-1.svg
   SvgGenImage get signalCellulerNoInternet1 => const SvgGenImage(
-      'assets/icons/device/bulk/signal celluler-no internet-1.svg');
+    'assets/icons/device/bulk/signal celluler-no internet-1.svg',
+  );
 
   /// File path: assets/icons/device/bulk/signal celluler-no internet.svg
   SvgGenImage get signalCellulerNoInternet => const SvgGenImage(
-      'assets/icons/device/bulk/signal celluler-no internet.svg');
+    'assets/icons/device/bulk/signal celluler-no internet.svg',
+  );
 
   /// File path: assets/icons/device/bulk/signal celluler-off.svg
   SvgGenImage get signalCellulerOff =>
@@ -3471,103 +3529,103 @@ class $AssetsIconsDeviceBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        aboutPhone,
-        accessibility,
-        airplaneModeOff,
-        airplaneMode,
-        autoRotation,
-        auto,
-        batteryAlert,
-        batteryChargingFull,
-        batteryCharging,
-        batteryHorizontalCharging,
-        batteryHorizontalFull,
-        batteryHorizontalLowbet,
-        batteryHorizontalSavingMode,
-        batteryHorizontal,
-        batteryLowbet,
-        batterySavingMode,
-        battery,
-        bluetoothConnected,
-        bluetoothOff,
-        bluetooth,
-        cameraOff,
-        cameraSwitch,
-        camera,
-        cast,
-        colorInversion,
-        computer,
-        darkMode,
-        devices,
-        digitalHealth,
-        doNotDisturb,
-        filter01,
-        filter,
-        fingerPrint,
-        flashLight,
-        flashAuto,
-        flashOff,
-        flash,
-        gpsOff,
-        gps,
-        graphicEq,
-        hotspotOff,
-        hotspot,
-        laptop,
-        lightMode,
-        location,
-        lock,
-        mobileDataOff,
-        mobileData,
-        mobile,
-        musicOff,
-        music,
-        nightMode,
-        notification01,
-        notificationOff,
-        notification,
-        phoneLock,
-        qrScan,
-        restart,
-        rotateLock,
-        screenRotate,
-        screenshot,
-        sdStorage,
-        security,
-        setting,
-        shutDown,
-        signalCelluler1,
-        signalCellulerBad,
-        signalCellulerNoInternet1,
-        signalCellulerNoInternet,
-        signalCellulerOff,
-        signalCelluler,
-        simCard,
-        standbyMode,
-        storage,
-        tablet,
-        taskCheck,
-        toggle,
-        unlock,
-        usb,
-        userCircle,
-        userRectangle,
-        user,
-        vibrateMode,
-        videoOff,
-        video,
-        viewOff,
-        viewPrivacy,
-        view,
-        widgets,
-        wifiSignalBad,
-        wifiSignalNoInternet,
-        wifiSignalOff,
-        wifiSignal,
-        wifiOff,
-        wifi,
-        wirelessCharging
-      ];
+    aboutPhone,
+    accessibility,
+    airplaneModeOff,
+    airplaneMode,
+    autoRotation,
+    auto,
+    batteryAlert,
+    batteryChargingFull,
+    batteryCharging,
+    batteryHorizontalCharging,
+    batteryHorizontalFull,
+    batteryHorizontalLowbet,
+    batteryHorizontalSavingMode,
+    batteryHorizontal,
+    batteryLowbet,
+    batterySavingMode,
+    battery,
+    bluetoothConnected,
+    bluetoothOff,
+    bluetooth,
+    cameraOff,
+    cameraSwitch,
+    camera,
+    cast,
+    colorInversion,
+    computer,
+    darkMode,
+    devices,
+    digitalHealth,
+    doNotDisturb,
+    filter01,
+    filter,
+    fingerPrint,
+    flashLight,
+    flashAuto,
+    flashOff,
+    flash,
+    gpsOff,
+    gps,
+    graphicEq,
+    hotspotOff,
+    hotspot,
+    laptop,
+    lightMode,
+    location,
+    lock,
+    mobileDataOff,
+    mobileData,
+    mobile,
+    musicOff,
+    music,
+    nightMode,
+    notification01,
+    notificationOff,
+    notification,
+    phoneLock,
+    qrScan,
+    restart,
+    rotateLock,
+    screenRotate,
+    screenshot,
+    sdStorage,
+    security,
+    setting,
+    shutDown,
+    signalCelluler1,
+    signalCellulerBad,
+    signalCellulerNoInternet1,
+    signalCellulerNoInternet,
+    signalCellulerOff,
+    signalCelluler,
+    simCard,
+    standbyMode,
+    storage,
+    tablet,
+    taskCheck,
+    toggle,
+    unlock,
+    usb,
+    userCircle,
+    userRectangle,
+    user,
+    vibrateMode,
+    videoOff,
+    video,
+    viewOff,
+    viewPrivacy,
+    view,
+    widgets,
+    wifiSignalBad,
+    wifiSignalNoInternet,
+    wifiSignalOff,
+    wifiSignal,
+    wifiOff,
+    wifi,
+    wirelessCharging,
+  ];
 }
 
 class $AssetsIconsDeviceOutlineGen {
@@ -3603,7 +3661,8 @@ class $AssetsIconsDeviceOutlineGen {
 
   /// File path: assets/icons/device/outline/battery-charging-full.svg
   SvgGenImage get batteryChargingFull => const SvgGenImage(
-      'assets/icons/device/outline/battery-charging-full.svg');
+    'assets/icons/device/outline/battery-charging-full.svg',
+  );
 
   /// File path: assets/icons/device/outline/battery-charging.svg
   SvgGenImage get batteryCharging =>
@@ -3611,19 +3670,23 @@ class $AssetsIconsDeviceOutlineGen {
 
   /// File path: assets/icons/device/outline/battery-horizontal-charging.svg
   SvgGenImage get batteryHorizontalCharging => const SvgGenImage(
-      'assets/icons/device/outline/battery-horizontal-charging.svg');
+    'assets/icons/device/outline/battery-horizontal-charging.svg',
+  );
 
   /// File path: assets/icons/device/outline/battery-horizontal-full.svg
   SvgGenImage get batteryHorizontalFull => const SvgGenImage(
-      'assets/icons/device/outline/battery-horizontal-full.svg');
+    'assets/icons/device/outline/battery-horizontal-full.svg',
+  );
 
   /// File path: assets/icons/device/outline/battery-horizontal-lowbet.svg
   SvgGenImage get batteryHorizontalLowbet => const SvgGenImage(
-      'assets/icons/device/outline/battery-horizontal-lowbet.svg');
+    'assets/icons/device/outline/battery-horizontal-lowbet.svg',
+  );
 
   /// File path: assets/icons/device/outline/battery-horizontal-saving-mode.svg
   SvgGenImage get batteryHorizontalSavingMode => const SvgGenImage(
-      'assets/icons/device/outline/battery-horizontal-saving-mode.svg');
+    'assets/icons/device/outline/battery-horizontal-saving-mode.svg',
+  );
 
   /// File path: assets/icons/device/outline/battery-horizontal.svg
   SvgGenImage get batteryHorizontal =>
@@ -3851,11 +3914,13 @@ class $AssetsIconsDeviceOutlineGen {
 
   /// File path: assets/icons/device/outline/signal celluler-no internet-1.svg
   SvgGenImage get signalCellulerNoInternet1 => const SvgGenImage(
-      'assets/icons/device/outline/signal celluler-no internet-1.svg');
+    'assets/icons/device/outline/signal celluler-no internet-1.svg',
+  );
 
   /// File path: assets/icons/device/outline/signal celluler-no internet.svg
   SvgGenImage get signalCellulerNoInternet => const SvgGenImage(
-      'assets/icons/device/outline/signal celluler-no internet.svg');
+    'assets/icons/device/outline/signal celluler-no internet.svg',
+  );
 
   /// File path: assets/icons/device/outline/signal celluler-off.svg
   SvgGenImage get signalCellulerOff =>
@@ -3943,7 +4008,8 @@ class $AssetsIconsDeviceOutlineGen {
 
   /// File path: assets/icons/device/outline/wifi signal-no internet.svg
   SvgGenImage get wifiSignalNoInternet => const SvgGenImage(
-      'assets/icons/device/outline/wifi signal-no internet.svg');
+    'assets/icons/device/outline/wifi signal-no internet.svg',
+  );
 
   /// File path: assets/icons/device/outline/wifi signal-off.svg
   SvgGenImage get wifiSignalOff =>
@@ -3967,105 +4033,105 @@ class $AssetsIconsDeviceOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        aboutPhone,
-        accessibility,
-        airplaneModeOff,
-        airplaneMode,
-        autoRotation,
-        auto,
-        batteryAlert,
-        batteryChargingFull,
-        batteryCharging,
-        batteryHorizontalCharging,
-        batteryHorizontalFull,
-        batteryHorizontalLowbet,
-        batteryHorizontalSavingMode,
-        batteryHorizontal,
-        batteryLowbet,
-        batterySavingMode,
-        battery,
-        bluetoothConnected,
-        bluetoothOff,
-        bluetooth,
-        cameraOff,
-        cameraSwitch,
-        camera,
-        cast,
-        colorInversion,
-        computerCloud,
-        computer,
-        darkMode,
-        devices,
-        digitalHealth,
-        doNotDisturb,
-        filter01,
-        filter,
-        fingerPrint,
-        flashLight,
-        flashAuto,
-        flashOff,
-        flash,
-        gpsOff,
-        gps,
-        graphicEq,
-        hardDrive,
-        hotspotOff,
-        hotspot,
-        laptop,
-        lightMode,
-        location,
-        lock,
-        mobileDataOff,
-        mobileData,
-        mobile,
-        musicOff,
-        music,
-        nightMode,
-        notification01,
-        notificationOff,
-        notification,
-        phoneLock,
-        qrScan,
-        restart,
-        rotateLock,
-        screenRotate,
-        screenshot,
-        sdStorage,
-        security,
-        setting,
-        shutDown,
-        signalCelluler2,
-        signalCellulerBad,
-        signalCellulerNoInternet1,
-        signalCellulerNoInternet,
-        signalCellulerOff,
-        signalCelluler,
-        simCard,
-        standbyMode,
-        storage,
-        tablet,
-        taskCheck,
-        toggle,
-        unlock,
-        usb,
-        userCircle,
-        userRectangle,
-        user,
-        vibrateMode,
-        videoOff,
-        video,
-        viewOff,
-        viewPrivacy,
-        view,
-        widgets,
-        wifiSignalBad,
-        wifiSignalNoInternet,
-        wifiSignalOff,
-        wifiSignal,
-        wifiOff,
-        wifi,
-        wirelessCharging
-      ];
+    aboutPhone,
+    accessibility,
+    airplaneModeOff,
+    airplaneMode,
+    autoRotation,
+    auto,
+    batteryAlert,
+    batteryChargingFull,
+    batteryCharging,
+    batteryHorizontalCharging,
+    batteryHorizontalFull,
+    batteryHorizontalLowbet,
+    batteryHorizontalSavingMode,
+    batteryHorizontal,
+    batteryLowbet,
+    batterySavingMode,
+    battery,
+    bluetoothConnected,
+    bluetoothOff,
+    bluetooth,
+    cameraOff,
+    cameraSwitch,
+    camera,
+    cast,
+    colorInversion,
+    computerCloud,
+    computer,
+    darkMode,
+    devices,
+    digitalHealth,
+    doNotDisturb,
+    filter01,
+    filter,
+    fingerPrint,
+    flashLight,
+    flashAuto,
+    flashOff,
+    flash,
+    gpsOff,
+    gps,
+    graphicEq,
+    hardDrive,
+    hotspotOff,
+    hotspot,
+    laptop,
+    lightMode,
+    location,
+    lock,
+    mobileDataOff,
+    mobileData,
+    mobile,
+    musicOff,
+    music,
+    nightMode,
+    notification01,
+    notificationOff,
+    notification,
+    phoneLock,
+    qrScan,
+    restart,
+    rotateLock,
+    screenRotate,
+    screenshot,
+    sdStorage,
+    security,
+    setting,
+    shutDown,
+    signalCelluler2,
+    signalCellulerBad,
+    signalCellulerNoInternet1,
+    signalCellulerNoInternet,
+    signalCellulerOff,
+    signalCelluler,
+    simCard,
+    standbyMode,
+    storage,
+    tablet,
+    taskCheck,
+    toggle,
+    unlock,
+    usb,
+    userCircle,
+    userRectangle,
+    user,
+    vibrateMode,
+    videoOff,
+    video,
+    viewOff,
+    viewPrivacy,
+    view,
+    widgets,
+    wifiSignalBad,
+    wifiSignalNoInternet,
+    wifiSignalOff,
+    wifiSignal,
+    wifiOff,
+    wifi,
+    wirelessCharging,
+  ];
 }
 
 class $AssetsIconsDeviceSolidGen {
@@ -4109,19 +4175,23 @@ class $AssetsIconsDeviceSolidGen {
 
   /// File path: assets/icons/device/solid/battery-horizontal-charging.svg
   SvgGenImage get batteryHorizontalCharging => const SvgGenImage(
-      'assets/icons/device/solid/battery-horizontal-charging.svg');
+    'assets/icons/device/solid/battery-horizontal-charging.svg',
+  );
 
   /// File path: assets/icons/device/solid/battery-horizontal-full.svg
   SvgGenImage get batteryHorizontalFull => const SvgGenImage(
-      'assets/icons/device/solid/battery-horizontal-full.svg');
+    'assets/icons/device/solid/battery-horizontal-full.svg',
+  );
 
   /// File path: assets/icons/device/solid/battery-horizontal-lowbet.svg
   SvgGenImage get batteryHorizontalLowbet => const SvgGenImage(
-      'assets/icons/device/solid/battery-horizontal-lowbet.svg');
+    'assets/icons/device/solid/battery-horizontal-lowbet.svg',
+  );
 
   /// File path: assets/icons/device/solid/battery-horizontal-saving-mode.svg
   SvgGenImage get batteryHorizontalSavingMode => const SvgGenImage(
-      'assets/icons/device/solid/battery-horizontal-saving-mode.svg');
+    'assets/icons/device/solid/battery-horizontal-saving-mode.svg',
+  );
 
   /// File path: assets/icons/device/solid/battery-horizontal.svg
   SvgGenImage get batteryHorizontal =>
@@ -4348,11 +4418,13 @@ class $AssetsIconsDeviceSolidGen {
 
   /// File path: assets/icons/device/solid/signal celluler-no internet-1.svg
   SvgGenImage get signalCellulerNoInternet1 => const SvgGenImage(
-      'assets/icons/device/solid/signal celluler-no internet-1.svg');
+    'assets/icons/device/solid/signal celluler-no internet-1.svg',
+  );
 
   /// File path: assets/icons/device/solid/signal celluler-no internet.svg
   SvgGenImage get signalCellulerNoInternet => const SvgGenImage(
-      'assets/icons/device/solid/signal celluler-no internet.svg');
+    'assets/icons/device/solid/signal celluler-no internet.svg',
+  );
 
   /// File path: assets/icons/device/solid/signal celluler-off.svg
   SvgGenImage get signalCellulerOff =>
@@ -4439,7 +4511,8 @@ class $AssetsIconsDeviceSolidGen {
 
   /// File path: assets/icons/device/solid/wifi signal-no internet.svg
   SvgGenImage get wifiSignalNoInternet => const SvgGenImage(
-      'assets/icons/device/solid/wifi signal-no internet.svg');
+    'assets/icons/device/solid/wifi signal-no internet.svg',
+  );
 
   /// File path: assets/icons/device/solid/wifi signal-off.svg
   SvgGenImage get wifiSignalOff =>
@@ -4463,105 +4536,105 @@ class $AssetsIconsDeviceSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        aboutPhone,
-        accessibility,
-        airplaneModeOff,
-        airplaneMode,
-        autoRotation,
-        auto,
-        batteryAlert,
-        batteryChargingFull,
-        batteryCharging,
-        batteryHorizontalCharging,
-        batteryHorizontalFull,
-        batteryHorizontalLowbet,
-        batteryHorizontalSavingMode,
-        batteryHorizontal,
-        batteryLowbet,
-        batterySavingMode,
-        battery,
-        bluetoothConnected,
-        bluetoothOff,
-        bluetooth,
-        cameraOff,
-        cameraSwitch,
-        camera,
-        cast,
-        colorInversion,
-        computerCloud,
-        computer,
-        darkMode,
-        devices,
-        digitalHealth,
-        doNotDisturb,
-        filter01,
-        filter,
-        fingerPrint,
-        flashLight,
-        flashAuto,
-        flashOff,
-        flash,
-        gpsOff,
-        gps,
-        graphicEq,
-        hardDrive,
-        hotspotOff,
-        hotspot,
-        laptop,
-        lightMode,
-        location,
-        lock,
-        mobileDataOff,
-        mobileData,
-        mobile,
-        musicOff,
-        music,
-        nightMode,
-        notification01,
-        notificationOff,
-        notification,
-        phoneLock,
-        qrScan,
-        restart,
-        rotateLock,
-        screenRotate,
-        screenshot,
-        sdStorage,
-        security,
-        setting,
-        shutDown,
-        signalCelluler1,
-        signalCellulerBad,
-        signalCellulerNoInternet1,
-        signalCellulerNoInternet,
-        signalCellulerOff,
-        signalCelluler,
-        simCard,
-        standbyMode,
-        storage,
-        tablet,
-        taskCheck,
-        toggle,
-        unlock,
-        usb,
-        userCircle,
-        userRectangle,
-        user,
-        vibrateMode,
-        videoOff,
-        video,
-        viewOff,
-        viewPrivacy,
-        view,
-        widgets,
-        wifiSignalBad,
-        wifiSignalNoInternet,
-        wifiSignalOff,
-        wifiSignal,
-        wifiOff,
-        wifi,
-        wirelessCharging
-      ];
+    aboutPhone,
+    accessibility,
+    airplaneModeOff,
+    airplaneMode,
+    autoRotation,
+    auto,
+    batteryAlert,
+    batteryChargingFull,
+    batteryCharging,
+    batteryHorizontalCharging,
+    batteryHorizontalFull,
+    batteryHorizontalLowbet,
+    batteryHorizontalSavingMode,
+    batteryHorizontal,
+    batteryLowbet,
+    batterySavingMode,
+    battery,
+    bluetoothConnected,
+    bluetoothOff,
+    bluetooth,
+    cameraOff,
+    cameraSwitch,
+    camera,
+    cast,
+    colorInversion,
+    computerCloud,
+    computer,
+    darkMode,
+    devices,
+    digitalHealth,
+    doNotDisturb,
+    filter01,
+    filter,
+    fingerPrint,
+    flashLight,
+    flashAuto,
+    flashOff,
+    flash,
+    gpsOff,
+    gps,
+    graphicEq,
+    hardDrive,
+    hotspotOff,
+    hotspot,
+    laptop,
+    lightMode,
+    location,
+    lock,
+    mobileDataOff,
+    mobileData,
+    mobile,
+    musicOff,
+    music,
+    nightMode,
+    notification01,
+    notificationOff,
+    notification,
+    phoneLock,
+    qrScan,
+    restart,
+    rotateLock,
+    screenRotate,
+    screenshot,
+    sdStorage,
+    security,
+    setting,
+    shutDown,
+    signalCelluler1,
+    signalCellulerBad,
+    signalCellulerNoInternet1,
+    signalCellulerNoInternet,
+    signalCellulerOff,
+    signalCelluler,
+    simCard,
+    standbyMode,
+    storage,
+    tablet,
+    taskCheck,
+    toggle,
+    unlock,
+    usb,
+    userCircle,
+    userRectangle,
+    user,
+    vibrateMode,
+    videoOff,
+    video,
+    viewOff,
+    viewPrivacy,
+    view,
+    widgets,
+    wifiSignalBad,
+    wifiSignalNoInternet,
+    wifiSignalOff,
+    wifiSignal,
+    wifiOff,
+    wifi,
+    wirelessCharging,
+  ];
 }
 
 class $AssetsIconsEcommerceBulkGen {
@@ -4749,15 +4822,18 @@ class $AssetsIconsEcommerceBulkGen {
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket-arrow-down.svg
   SvgGenImage get shoppingBasketArrowDown => const SvgGenImage(
-      'assets/icons/ecommerce/bulk/shopping basket-arrow-down.svg');
+    'assets/icons/ecommerce/bulk/shopping basket-arrow-down.svg',
+  );
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket-arrow-out.svg
   SvgGenImage get shoppingBasketArrowOut => const SvgGenImage(
-      'assets/icons/ecommerce/bulk/shopping basket-arrow-out.svg');
+    'assets/icons/ecommerce/bulk/shopping basket-arrow-out.svg',
+  );
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket-check.svg
   SvgGenImage get shoppingBasketCheck => const SvgGenImage(
-      'assets/icons/ecommerce/bulk/shopping basket-check.svg');
+    'assets/icons/ecommerce/bulk/shopping basket-check.svg',
+  );
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket-love.svg
   SvgGenImage get shoppingBasketLove =>
@@ -4765,11 +4841,13 @@ class $AssetsIconsEcommerceBulkGen {
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket-minus.svg
   SvgGenImage get shoppingBasketMinus => const SvgGenImage(
-      'assets/icons/ecommerce/bulk/shopping basket-minus.svg');
+    'assets/icons/ecommerce/bulk/shopping basket-minus.svg',
+  );
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket-remove.svg
   SvgGenImage get shoppingBasketRemove => const SvgGenImage(
-      'assets/icons/ecommerce/bulk/shopping basket-remove.svg');
+    'assets/icons/ecommerce/bulk/shopping basket-remove.svg',
+  );
 
   /// File path: assets/icons/ecommerce/bulk/shopping basket.svg
   SvgGenImage get shoppingBasket =>
@@ -4825,71 +4903,71 @@ class $AssetsIconsEcommerceBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        badgePercent,
-        bag01,
-        bagAdd,
-        bagCheck,
-        bagFavourite,
-        bagMinus,
-        bagRemove,
-        bag,
-        board,
-        bookmark,
-        card,
-        cart01,
-        cart02,
-        cartAdd,
-        cartArrowDown,
-        cartArrowUp,
-        cartCheck,
-        cartMinus,
-        cartRemove,
-        cart,
-        deposit,
-        favourite,
-        glassBroken,
-        hanger,
-        invoice01,
-        invoice,
-        location,
-        money01,
-        moneyBag,
-        money,
-        packageBox01,
-        packageBox,
-        receipt,
-        reward,
-        shield,
-        shoppingBagAdd,
-        shoppingBagCheck,
-        shoppingBagLove,
-        shoppingBagMinus,
-        shoppingBagRemove,
-        shoppingBag,
-        shoppingBasket01,
-        shoppingBasket02,
-        shoppingBasket03,
-        shoppingBasketAdd,
-        shoppingBasketArrowDown,
-        shoppingBasketArrowOut,
-        shoppingBasketCheck,
-        shoppingBasketLove,
-        shoppingBasketMinus,
-        shoppingBasketRemove,
-        shoppingBasket,
-        store01,
-        store02,
-        store03,
-        store,
-        tag01,
-        tag,
-        trolley01,
-        trolley,
-        voucher,
-        wallet01,
-        wallet,
-        withdraw
-      ];
+    badgePercent,
+    bag01,
+    bagAdd,
+    bagCheck,
+    bagFavourite,
+    bagMinus,
+    bagRemove,
+    bag,
+    board,
+    bookmark,
+    card,
+    cart01,
+    cart02,
+    cartAdd,
+    cartArrowDown,
+    cartArrowUp,
+    cartCheck,
+    cartMinus,
+    cartRemove,
+    cart,
+    deposit,
+    favourite,
+    glassBroken,
+    hanger,
+    invoice01,
+    invoice,
+    location,
+    money01,
+    moneyBag,
+    money,
+    packageBox01,
+    packageBox,
+    receipt,
+    reward,
+    shield,
+    shoppingBagAdd,
+    shoppingBagCheck,
+    shoppingBagLove,
+    shoppingBagMinus,
+    shoppingBagRemove,
+    shoppingBag,
+    shoppingBasket01,
+    shoppingBasket02,
+    shoppingBasket03,
+    shoppingBasketAdd,
+    shoppingBasketArrowDown,
+    shoppingBasketArrowOut,
+    shoppingBasketCheck,
+    shoppingBasketLove,
+    shoppingBasketMinus,
+    shoppingBasketRemove,
+    shoppingBasket,
+    store01,
+    store02,
+    store03,
+    store,
+    tag01,
+    tag,
+    trolley01,
+    trolley,
+    voucher,
+    wallet01,
+    wallet,
+    withdraw,
+  ];
 }
 
 class $AssetsIconsEcommerceOutlineGen {
@@ -5041,7 +5119,8 @@ class $AssetsIconsEcommerceOutlineGen {
 
   /// File path: assets/icons/ecommerce/outline/shopping bag-check.svg
   SvgGenImage get shoppingBagCheck => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping bag-check.svg');
+    'assets/icons/ecommerce/outline/shopping bag-check.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping bag-love.svg
   SvgGenImage get shoppingBagLove =>
@@ -5049,11 +5128,13 @@ class $AssetsIconsEcommerceOutlineGen {
 
   /// File path: assets/icons/ecommerce/outline/shopping bag-minus.svg
   SvgGenImage get shoppingBagMinus => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping bag-minus.svg');
+    'assets/icons/ecommerce/outline/shopping bag-minus.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping bag-remove.svg
   SvgGenImage get shoppingBagRemove => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping bag-remove.svg');
+    'assets/icons/ecommerce/outline/shopping bag-remove.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping bag.svg
   SvgGenImage get shoppingBag =>
@@ -5061,43 +5142,53 @@ class $AssetsIconsEcommerceOutlineGen {
 
   /// File path: assets/icons/ecommerce/outline/shopping basket 01.svg
   SvgGenImage get shoppingBasket01 => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket 01.svg');
+    'assets/icons/ecommerce/outline/shopping basket 01.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket 02.svg
   SvgGenImage get shoppingBasket02 => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket 02.svg');
+    'assets/icons/ecommerce/outline/shopping basket 02.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket 03.svg
   SvgGenImage get shoppingBasket03 => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket 03.svg');
+    'assets/icons/ecommerce/outline/shopping basket 03.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-add.svg
   SvgGenImage get shoppingBasketAdd => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-add.svg');
+    'assets/icons/ecommerce/outline/shopping basket-add.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-arrow-down.svg
   SvgGenImage get shoppingBasketArrowDown => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-arrow-down.svg');
+    'assets/icons/ecommerce/outline/shopping basket-arrow-down.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-arrow-out.svg
   SvgGenImage get shoppingBasketArrowOut => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-arrow-out.svg');
+    'assets/icons/ecommerce/outline/shopping basket-arrow-out.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-check.svg
   SvgGenImage get shoppingBasketCheck => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-check.svg');
+    'assets/icons/ecommerce/outline/shopping basket-check.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-love.svg
   SvgGenImage get shoppingBasketLove => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-love.svg');
+    'assets/icons/ecommerce/outline/shopping basket-love.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-minus.svg
   SvgGenImage get shoppingBasketMinus => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-minus.svg');
+    'assets/icons/ecommerce/outline/shopping basket-minus.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket-remove.svg
   SvgGenImage get shoppingBasketRemove => const SvgGenImage(
-      'assets/icons/ecommerce/outline/shopping basket-remove.svg');
+    'assets/icons/ecommerce/outline/shopping basket-remove.svg',
+  );
 
   /// File path: assets/icons/ecommerce/outline/shopping basket.svg
   SvgGenImage get shoppingBasket =>
@@ -5153,71 +5244,71 @@ class $AssetsIconsEcommerceOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        badgePercent,
-        bag01,
-        bagAdd,
-        bagCheck,
-        bagFavourite,
-        bagMinus,
-        bagRemove,
-        bag,
-        board,
-        bookmark,
-        card,
-        cart01,
-        cart02,
-        cartAdd,
-        cartArrowDown,
-        cartArrowUp,
-        cartCheck,
-        cartMinus,
-        cartRemove,
-        cart,
-        deposit,
-        favourite,
-        glassBroken,
-        hanger,
-        invoice01,
-        invoice,
-        location,
-        money01,
-        moneyBag,
-        money,
-        packageBox01,
-        packageBox,
-        receipt,
-        reward,
-        shield,
-        shoppingBagAdd,
-        shoppingBagCheck,
-        shoppingBagLove,
-        shoppingBagMinus,
-        shoppingBagRemove,
-        shoppingBag,
-        shoppingBasket01,
-        shoppingBasket02,
-        shoppingBasket03,
-        shoppingBasketAdd,
-        shoppingBasketArrowDown,
-        shoppingBasketArrowOut,
-        shoppingBasketCheck,
-        shoppingBasketLove,
-        shoppingBasketMinus,
-        shoppingBasketRemove,
-        shoppingBasket,
-        store01,
-        store02,
-        store03,
-        store,
-        tag01,
-        tag,
-        trolley01,
-        trolley,
-        voucher,
-        wallet01,
-        wallet,
-        withdraw
-      ];
+    badgePercent,
+    bag01,
+    bagAdd,
+    bagCheck,
+    bagFavourite,
+    bagMinus,
+    bagRemove,
+    bag,
+    board,
+    bookmark,
+    card,
+    cart01,
+    cart02,
+    cartAdd,
+    cartArrowDown,
+    cartArrowUp,
+    cartCheck,
+    cartMinus,
+    cartRemove,
+    cart,
+    deposit,
+    favourite,
+    glassBroken,
+    hanger,
+    invoice01,
+    invoice,
+    location,
+    money01,
+    moneyBag,
+    money,
+    packageBox01,
+    packageBox,
+    receipt,
+    reward,
+    shield,
+    shoppingBagAdd,
+    shoppingBagCheck,
+    shoppingBagLove,
+    shoppingBagMinus,
+    shoppingBagRemove,
+    shoppingBag,
+    shoppingBasket01,
+    shoppingBasket02,
+    shoppingBasket03,
+    shoppingBasketAdd,
+    shoppingBasketArrowDown,
+    shoppingBasketArrowOut,
+    shoppingBasketCheck,
+    shoppingBasketLove,
+    shoppingBasketMinus,
+    shoppingBasketRemove,
+    shoppingBasket,
+    store01,
+    store02,
+    store03,
+    store,
+    tag01,
+    tag,
+    trolley01,
+    trolley,
+    voucher,
+    wallet01,
+    wallet,
+    withdraw,
+  ];
 }
 
 class $AssetsIconsEcommerceSolidGen {
@@ -5405,27 +5496,33 @@ class $AssetsIconsEcommerceSolidGen {
 
   /// File path: assets/icons/ecommerce/solid/shopping basket-arrow-down.svg
   SvgGenImage get shoppingBasketArrowDown => const SvgGenImage(
-      'assets/icons/ecommerce/solid/shopping basket-arrow-down.svg');
+    'assets/icons/ecommerce/solid/shopping basket-arrow-down.svg',
+  );
 
   /// File path: assets/icons/ecommerce/solid/shopping basket-arrow-out.svg
   SvgGenImage get shoppingBasketArrowOut => const SvgGenImage(
-      'assets/icons/ecommerce/solid/shopping basket-arrow-out.svg');
+    'assets/icons/ecommerce/solid/shopping basket-arrow-out.svg',
+  );
 
   /// File path: assets/icons/ecommerce/solid/shopping basket-check.svg
   SvgGenImage get shoppingBasketCheck => const SvgGenImage(
-      'assets/icons/ecommerce/solid/shopping basket-check.svg');
+    'assets/icons/ecommerce/solid/shopping basket-check.svg',
+  );
 
   /// File path: assets/icons/ecommerce/solid/shopping basket-love.svg
   SvgGenImage get shoppingBasketLove => const SvgGenImage(
-      'assets/icons/ecommerce/solid/shopping basket-love.svg');
+    'assets/icons/ecommerce/solid/shopping basket-love.svg',
+  );
 
   /// File path: assets/icons/ecommerce/solid/shopping basket-minus.svg
   SvgGenImage get shoppingBasketMinus => const SvgGenImage(
-      'assets/icons/ecommerce/solid/shopping basket-minus.svg');
+    'assets/icons/ecommerce/solid/shopping basket-minus.svg',
+  );
 
   /// File path: assets/icons/ecommerce/solid/shopping basket-remove.svg
   SvgGenImage get shoppingBasketRemove => const SvgGenImage(
-      'assets/icons/ecommerce/solid/shopping basket-remove.svg');
+    'assets/icons/ecommerce/solid/shopping basket-remove.svg',
+  );
 
   /// File path: assets/icons/ecommerce/solid/shopping basket.svg
   SvgGenImage get shoppingBasket =>
@@ -5481,71 +5578,71 @@ class $AssetsIconsEcommerceSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        badgePercent,
-        bag01,
-        bagAdd,
-        bagCheck,
-        bagFavourite,
-        bagMinus,
-        bagRemove,
-        bag,
-        board,
-        bookmark,
-        card,
-        cart01,
-        cart02,
-        cartAdd,
-        cartArrowDown,
-        cartArrowUp,
-        cartCheck,
-        cartMinus,
-        cartRemove,
-        cart,
-        deposit,
-        favourite,
-        glassBroken,
-        hanger,
-        invoice01,
-        invoice,
-        location,
-        money01,
-        moneyBag,
-        money,
-        packageBox01,
-        packageBox,
-        receipt,
-        reward,
-        shield,
-        shoppingBagAdd,
-        shoppingBagCheck,
-        shoppingBagLove,
-        shoppingBagMinus,
-        shoppingBagRemove,
-        shoppingBag,
-        shoppingBasket01,
-        shoppingBasket02,
-        shoppingBasket03,
-        shoppingBasketAdd,
-        shoppingBasketArrowDown,
-        shoppingBasketArrowOut,
-        shoppingBasketCheck,
-        shoppingBasketLove,
-        shoppingBasketMinus,
-        shoppingBasketRemove,
-        shoppingBasket,
-        store01,
-        store02,
-        store03,
-        store,
-        tag01,
-        tag,
-        trolley01,
-        trolley,
-        voucher,
-        wallet01,
-        wallet,
-        withdraw
-      ];
+    badgePercent,
+    bag01,
+    bagAdd,
+    bagCheck,
+    bagFavourite,
+    bagMinus,
+    bagRemove,
+    bag,
+    board,
+    bookmark,
+    card,
+    cart01,
+    cart02,
+    cartAdd,
+    cartArrowDown,
+    cartArrowUp,
+    cartCheck,
+    cartMinus,
+    cartRemove,
+    cart,
+    deposit,
+    favourite,
+    glassBroken,
+    hanger,
+    invoice01,
+    invoice,
+    location,
+    money01,
+    moneyBag,
+    money,
+    packageBox01,
+    packageBox,
+    receipt,
+    reward,
+    shield,
+    shoppingBagAdd,
+    shoppingBagCheck,
+    shoppingBagLove,
+    shoppingBagMinus,
+    shoppingBagRemove,
+    shoppingBag,
+    shoppingBasket01,
+    shoppingBasket02,
+    shoppingBasket03,
+    shoppingBasketAdd,
+    shoppingBasketArrowDown,
+    shoppingBasketArrowOut,
+    shoppingBasketCheck,
+    shoppingBasketLove,
+    shoppingBasketMinus,
+    shoppingBasketRemove,
+    shoppingBasket,
+    store01,
+    store02,
+    store03,
+    store,
+    tag01,
+    tag,
+    trolley01,
+    trolley,
+    voucher,
+    wallet01,
+    wallet,
+    withdraw,
+  ];
 }
 
 class $AssetsIconsEditorBulkGen {
@@ -5717,48 +5814,48 @@ class $AssetsIconsEditorBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alignBottom,
-        alignCenter,
-        alignJustify,
-        alignLeft,
-        alignRight,
-        alignTop,
-        article,
-        bold,
-        description,
-        documentText,
-        fontColor,
-        fontRectangle,
-        fontSize01,
-        fontSize,
-        formatClear,
-        formatLineSpacing,
-        formatQuote,
-        formatShapes,
-        heading,
-        indentDecrease,
-        indentIncrease,
-        inputCursorMove,
-        italic,
-        linkUnlink,
-        link,
-        pageSeparator,
-        paragraph,
-        postAdd,
-        spellcheck,
-        stickyNote,
-        strikethrough01,
-        strikethrough,
-        subject,
-        table,
-        textRotationNone,
-        textRotationVertical,
-        textArea,
-        textSpacing,
-        textWrap,
-        text,
-        underline
-      ];
+    alignBottom,
+    alignCenter,
+    alignJustify,
+    alignLeft,
+    alignRight,
+    alignTop,
+    article,
+    bold,
+    description,
+    documentText,
+    fontColor,
+    fontRectangle,
+    fontSize01,
+    fontSize,
+    formatClear,
+    formatLineSpacing,
+    formatQuote,
+    formatShapes,
+    heading,
+    indentDecrease,
+    indentIncrease,
+    inputCursorMove,
+    italic,
+    linkUnlink,
+    link,
+    pageSeparator,
+    paragraph,
+    postAdd,
+    spellcheck,
+    stickyNote,
+    strikethrough01,
+    strikethrough,
+    subject,
+    table,
+    textRotationNone,
+    textRotationVertical,
+    textArea,
+    textSpacing,
+    textWrap,
+    text,
+    underline,
+  ];
 }
 
 class $AssetsIconsEditorOutlineGen {
@@ -5910,7 +6007,8 @@ class $AssetsIconsEditorOutlineGen {
 
   /// File path: assets/icons/editor/outline/text rotation-vertical.svg
   SvgGenImage get textRotationVertical => const SvgGenImage(
-      'assets/icons/editor/outline/text rotation-vertical.svg');
+    'assets/icons/editor/outline/text rotation-vertical.svg',
+  );
 
   /// File path: assets/icons/editor/outline/text-spacing.svg
   SvgGenImage get textSpacing =>
@@ -5930,48 +6028,48 @@ class $AssetsIconsEditorOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alignCenter,
-        alignDown,
-        alignJustify,
-        alignLeft,
-        alignRight,
-        alignTop,
-        article,
-        bold,
-        description,
-        documentText,
-        fontColor,
-        fontRectangle,
-        fontSize01,
-        fontSize,
-        formatQuote,
-        formatShapes,
-        formatClear,
-        formatLineSpacing,
-        heading,
-        indentDecrease,
-        indentIncrease,
-        inputCursorMove,
-        italic,
-        linkUnlink,
-        link,
-        note,
-        pageSeparator,
-        paragraph,
-        postAdd,
-        spellcheck,
-        strikethrough01,
-        strikethrough,
-        subject,
-        table,
-        textArea,
-        textRotationNone,
-        textRotationVertical,
-        textSpacing,
-        textWrap,
-        text,
-        underline
-      ];
+    alignCenter,
+    alignDown,
+    alignJustify,
+    alignLeft,
+    alignRight,
+    alignTop,
+    article,
+    bold,
+    description,
+    documentText,
+    fontColor,
+    fontRectangle,
+    fontSize01,
+    fontSize,
+    formatQuote,
+    formatShapes,
+    formatClear,
+    formatLineSpacing,
+    heading,
+    indentDecrease,
+    indentIncrease,
+    inputCursorMove,
+    italic,
+    linkUnlink,
+    link,
+    note,
+    pageSeparator,
+    paragraph,
+    postAdd,
+    spellcheck,
+    strikethrough01,
+    strikethrough,
+    subject,
+    table,
+    textArea,
+    textRotationNone,
+    textRotationVertical,
+    textSpacing,
+    textWrap,
+    text,
+    underline,
+  ];
 }
 
 class $AssetsIconsEditorSolidGen {
@@ -6139,47 +6237,47 @@ class $AssetsIconsEditorSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alignBottom,
-        alignCenter,
-        alignJustify,
-        alignLeft,
-        alignRight,
-        alignTop,
-        article,
-        bold,
-        description,
-        documentText,
-        fontColor,
-        fontRectangle,
-        fontSize01,
-        fontSize,
-        formatQuote,
-        formatShapes,
-        formatClear,
-        formatLineSpacing,
-        heading,
-        indentDecrease,
-        indentIncrease,
-        inputCursorMove,
-        italic,
-        linkUnlink,
-        link,
-        pageSeparator,
-        paragraph,
-        postAdd,
-        spellCheck,
-        stickyNote,
-        strikethrough01,
-        strikethrough,
-        subject,
-        table,
-        textRotationNone,
-        textRotationVertical,
-        textSpacing,
-        textWrap,
-        text,
-        underLine
-      ];
+    alignBottom,
+    alignCenter,
+    alignJustify,
+    alignLeft,
+    alignRight,
+    alignTop,
+    article,
+    bold,
+    description,
+    documentText,
+    fontColor,
+    fontRectangle,
+    fontSize01,
+    fontSize,
+    formatQuote,
+    formatShapes,
+    formatClear,
+    formatLineSpacing,
+    heading,
+    indentDecrease,
+    indentIncrease,
+    inputCursorMove,
+    italic,
+    linkUnlink,
+    link,
+    pageSeparator,
+    paragraph,
+    postAdd,
+    spellCheck,
+    stickyNote,
+    strikethrough01,
+    strikethrough,
+    subject,
+    table,
+    textRotationNone,
+    textRotationVertical,
+    textSpacing,
+    textWrap,
+    text,
+    underLine,
+  ];
 }
 
 class $AssetsIconsEducationBulkGen {
@@ -6667,127 +6765,127 @@ class $AssetsIconsEducationBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        abacus,
-        announcement,
-        archive,
-        assignment,
-        audioBook,
-        backpack,
-        basketBall,
-        bellSchool,
-        blackboard,
-        board1,
-        board,
-        book01,
-        book02,
-        book03,
-        book04,
-        bookAdd1,
-        bookAdd,
-        bookCheck1,
-        bookCheck,
-        bookDownload1,
-        bookDownload,
-        bookFavourite1,
-        bookFavourite,
-        bookHelp1,
-        bookHelp,
-        bookInfo1,
-        bookInfo,
-        bookMinus1,
-        bookMinus,
-        bookRemove1,
-        bookRemove,
-        bookSearch1,
-        bookSearch,
-        bookUpload1,
-        bookUpload,
-        book,
-        books,
-        browser,
-        bus,
-        calculator1,
-        calculator,
-        calendar,
-        canvas,
-        cartesian,
-        chemistry01,
-        chemistry02,
-        chemistry,
-        clipboard,
-        compass,
-        cubeStack,
-        dashboard,
-        desk,
-        diploma1,
-        diploma,
-        divideCircle,
-        divideRectangle,
-        dna,
-        eLearning,
-        equalityCircle,
-        equalityRectangle,
-        exam,
-        files,
-        flask,
-        fountainPen,
-        glasses,
-        globe1,
-        globe,
-        graduationCap,
-        help01,
-        help02,
-        help,
-        idea,
-        library,
-        lockers,
-        maths,
-        matrix,
-        medal1,
-        medal,
-        microscope,
-        minusCircle,
-        minusRectangle,
-        monitor,
-        multiplyCircle,
-        multiplyRectangle,
-        notebook1,
-        notebook,
-        onlineLearning,
-        paintBoard,
-        pen,
-        pencilBook,
-        pencilPaper,
-        pencil,
-        physics,
-        plusCircle,
-        plusRectangle,
-        projector,
-        protractor1,
-        protractor,
-        quiz,
-        rank,
-        report,
-        ruler,
-        school,
-        smartphoneLearning,
-        squareRoot,
-        stationery,
-        studentCard,
-        student,
-        students,
-        tableLamp,
-        teacher01,
-        teacher,
-        telescope,
-        testTube1,
-        testTube2,
-        testTube,
-        transform,
-        trophy,
-        videoCall,
-        whistle
-      ];
+    abacus,
+    announcement,
+    archive,
+    assignment,
+    audioBook,
+    backpack,
+    basketBall,
+    bellSchool,
+    blackboard,
+    board1,
+    board,
+    book01,
+    book02,
+    book03,
+    book04,
+    bookAdd1,
+    bookAdd,
+    bookCheck1,
+    bookCheck,
+    bookDownload1,
+    bookDownload,
+    bookFavourite1,
+    bookFavourite,
+    bookHelp1,
+    bookHelp,
+    bookInfo1,
+    bookInfo,
+    bookMinus1,
+    bookMinus,
+    bookRemove1,
+    bookRemove,
+    bookSearch1,
+    bookSearch,
+    bookUpload1,
+    bookUpload,
+    book,
+    books,
+    browser,
+    bus,
+    calculator1,
+    calculator,
+    calendar,
+    canvas,
+    cartesian,
+    chemistry01,
+    chemistry02,
+    chemistry,
+    clipboard,
+    compass,
+    cubeStack,
+    dashboard,
+    desk,
+    diploma1,
+    diploma,
+    divideCircle,
+    divideRectangle,
+    dna,
+    eLearning,
+    equalityCircle,
+    equalityRectangle,
+    exam,
+    files,
+    flask,
+    fountainPen,
+    glasses,
+    globe1,
+    globe,
+    graduationCap,
+    help01,
+    help02,
+    help,
+    idea,
+    library,
+    lockers,
+    maths,
+    matrix,
+    medal1,
+    medal,
+    microscope,
+    minusCircle,
+    minusRectangle,
+    monitor,
+    multiplyCircle,
+    multiplyRectangle,
+    notebook1,
+    notebook,
+    onlineLearning,
+    paintBoard,
+    pen,
+    pencilBook,
+    pencilPaper,
+    pencil,
+    physics,
+    plusCircle,
+    plusRectangle,
+    projector,
+    protractor1,
+    protractor,
+    quiz,
+    rank,
+    report,
+    ruler,
+    school,
+    smartphoneLearning,
+    squareRoot,
+    stationery,
+    studentCard,
+    student,
+    students,
+    tableLamp,
+    teacher01,
+    teacher,
+    telescope,
+    testTube1,
+    testTube2,
+    testTube,
+    transform,
+    trophy,
+    videoCall,
+    whistle,
+  ];
 }
 
 class $AssetsIconsEducationOutlineGen {
@@ -7023,7 +7121,8 @@ class $AssetsIconsEducationOutlineGen {
 
   /// File path: assets/icons/education/outline/equality-rectangle.svg
   SvgGenImage get equalityRectangle => const SvgGenImage(
-      'assets/icons/education/outline/equality-rectangle.svg');
+    'assets/icons/education/outline/equality-rectangle.svg',
+  );
 
   /// File path: assets/icons/education/outline/exam.svg
   SvgGenImage get exam =>
@@ -7115,7 +7214,8 @@ class $AssetsIconsEducationOutlineGen {
 
   /// File path: assets/icons/education/outline/multiply-rectangle.svg
   SvgGenImage get multiplyRectangle => const SvgGenImage(
-      'assets/icons/education/outline/multiply-rectangle.svg');
+    'assets/icons/education/outline/multiply-rectangle.svg',
+  );
 
   /// File path: assets/icons/education/outline/notebook-1.svg
   SvgGenImage get notebook1 =>
@@ -7195,7 +7295,8 @@ class $AssetsIconsEducationOutlineGen {
 
   /// File path: assets/icons/education/outline/smartphone-learning.svg
   SvgGenImage get smartphoneLearning => const SvgGenImage(
-      'assets/icons/education/outline/smartphone-learning.svg');
+    'assets/icons/education/outline/smartphone-learning.svg',
+  );
 
   /// File path: assets/icons/education/outline/square-root.svg
   SvgGenImage get squareRoot =>
@@ -7259,123 +7360,123 @@ class $AssetsIconsEducationOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        abacus,
-        announcement,
-        archive,
-        assignment,
-        audioBook,
-        backpack,
-        basketBall,
-        bellSchool,
-        blackboard,
-        board1,
-        board,
-        book01,
-        book02,
-        book03,
-        book04,
-        bookAdd1,
-        bookAdd,
-        bookCheck,
-        bookDownload1,
-        bookDownload,
-        bookFavourite,
-        bookHelp1,
-        bookHelp,
-        bookInfo1,
-        bookInfo,
-        bookMinus1,
-        bookMinus,
-        bookRemove1,
-        bookRemove,
-        bookSearch1,
-        bookSearch,
-        bookUpload1,
-        bookUpload,
-        book,
-        books,
-        browser,
-        bus,
-        calculator1,
-        calculator,
-        calendar,
-        canvas,
-        cartesian,
-        chart,
-        chemistry01,
-        chemistry02,
-        chemistry,
-        clipboard,
-        compass,
-        cubeStack,
-        desk,
-        diploma1,
-        diploma,
-        divideCircle,
-        divideRectangle,
-        dna,
-        eLearning,
-        equalityCircle,
-        equalityRectangle,
-        exam,
-        files,
-        flask,
-        fountainPen,
-        glasses,
-        globe,
-        graduationCap,
-        help01,
-        help02,
-        help,
-        idea,
-        library,
-        lockers,
-        maths,
-        matrix,
-        medal1,
-        medal,
-        microscope,
-        minusCircle,
-        minusRectangle,
-        monitor,
-        multiplyCircle,
-        multiplyRectangle,
-        notebook1,
-        notebook,
-        onlineLearning,
-        paintBoard,
-        pen,
-        pencilBook,
-        pencilPaper,
-        pencil,
-        physics,
-        plusCircle,
-        plusRectangle,
-        projector,
-        protractor1,
-        protractor,
-        quiz,
-        rank,
-        report,
-        ruler,
-        school,
-        smartphoneLearning,
-        squareRoot,
-        stationery,
-        studentCard,
-        student,
-        students,
-        tableLamp,
-        teacher01,
-        teacher,
-        telescope,
-        testTube1,
-        testTube,
-        transform,
-        trophy,
-        videoCall,
-        whistle
-      ];
+    abacus,
+    announcement,
+    archive,
+    assignment,
+    audioBook,
+    backpack,
+    basketBall,
+    bellSchool,
+    blackboard,
+    board1,
+    board,
+    book01,
+    book02,
+    book03,
+    book04,
+    bookAdd1,
+    bookAdd,
+    bookCheck,
+    bookDownload1,
+    bookDownload,
+    bookFavourite,
+    bookHelp1,
+    bookHelp,
+    bookInfo1,
+    bookInfo,
+    bookMinus1,
+    bookMinus,
+    bookRemove1,
+    bookRemove,
+    bookSearch1,
+    bookSearch,
+    bookUpload1,
+    bookUpload,
+    book,
+    books,
+    browser,
+    bus,
+    calculator1,
+    calculator,
+    calendar,
+    canvas,
+    cartesian,
+    chart,
+    chemistry01,
+    chemistry02,
+    chemistry,
+    clipboard,
+    compass,
+    cubeStack,
+    desk,
+    diploma1,
+    diploma,
+    divideCircle,
+    divideRectangle,
+    dna,
+    eLearning,
+    equalityCircle,
+    equalityRectangle,
+    exam,
+    files,
+    flask,
+    fountainPen,
+    glasses,
+    globe,
+    graduationCap,
+    help01,
+    help02,
+    help,
+    idea,
+    library,
+    lockers,
+    maths,
+    matrix,
+    medal1,
+    medal,
+    microscope,
+    minusCircle,
+    minusRectangle,
+    monitor,
+    multiplyCircle,
+    multiplyRectangle,
+    notebook1,
+    notebook,
+    onlineLearning,
+    paintBoard,
+    pen,
+    pencilBook,
+    pencilPaper,
+    pencil,
+    physics,
+    plusCircle,
+    plusRectangle,
+    projector,
+    protractor1,
+    protractor,
+    quiz,
+    rank,
+    report,
+    ruler,
+    school,
+    smartphoneLearning,
+    squareRoot,
+    stationery,
+    studentCard,
+    student,
+    students,
+    tableLamp,
+    teacher01,
+    teacher,
+    telescope,
+    testTube1,
+    testTube,
+    transform,
+    trophy,
+    videoCall,
+    whistle,
+  ];
 }
 
 class $AssetsIconsEducationSolidGen {
@@ -7863,127 +7964,127 @@ class $AssetsIconsEducationSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        abacus,
-        announcement,
-        archive,
-        assignment,
-        audioBook,
-        backpack,
-        basketBall,
-        bellSchool,
-        blackboard,
-        board1,
-        board,
-        book01,
-        book02,
-        book03,
-        book04,
-        bookAdd1,
-        bookAdd,
-        bookCheck1,
-        bookCheck,
-        bookDownload1,
-        bookDownload,
-        bookFavourite1,
-        bookFavourite,
-        bookHelp1,
-        bookHelp,
-        bookInfo1,
-        bookInfo,
-        bookMinus1,
-        bookMinus,
-        bookRemove1,
-        bookRemove,
-        bookSearch1,
-        bookSearch,
-        bookUpload1,
-        bookUpload,
-        book,
-        books,
-        browser,
-        bus,
-        calculator1,
-        calculator,
-        calendar,
-        canvas,
-        cartesian,
-        chart,
-        chemistry01,
-        chemistry02,
-        chemistry,
-        clipboard,
-        compass,
-        cubeStack,
-        desk,
-        diploma1,
-        diploma,
-        divideCircle,
-        divideRectangle,
-        dna,
-        eLearning,
-        equalityCircle,
-        equalityRectangle,
-        exam,
-        files,
-        flask,
-        fountainPen,
-        glasses,
-        globe1,
-        globe,
-        graduationCap,
-        help01,
-        help02,
-        help,
-        idea,
-        library,
-        lockers,
-        maths,
-        matrix,
-        medal1,
-        medal,
-        microscope,
-        minusCircle,
-        minusRectangle,
-        monitor,
-        multiplyCircle,
-        multiplyRectangle,
-        notebook1,
-        notebook,
-        onlineLearning,
-        paintBoard,
-        pen,
-        pencilBook,
-        pencilPaper,
-        pencil,
-        physics,
-        plusCircle,
-        plusRectangle,
-        projector,
-        protractor1,
-        protractor,
-        quiz,
-        rank,
-        report,
-        ruler,
-        school,
-        smartphoneLearning,
-        squareRoot,
-        stationery,
-        studentCard,
-        student,
-        students,
-        tableLamp,
-        teacher01,
-        teacher,
-        telescope,
-        testTube1,
-        testTube2,
-        testTube,
-        transform,
-        trophy,
-        videoCall,
-        whistle
-      ];
+    abacus,
+    announcement,
+    archive,
+    assignment,
+    audioBook,
+    backpack,
+    basketBall,
+    bellSchool,
+    blackboard,
+    board1,
+    board,
+    book01,
+    book02,
+    book03,
+    book04,
+    bookAdd1,
+    bookAdd,
+    bookCheck1,
+    bookCheck,
+    bookDownload1,
+    bookDownload,
+    bookFavourite1,
+    bookFavourite,
+    bookHelp1,
+    bookHelp,
+    bookInfo1,
+    bookInfo,
+    bookMinus1,
+    bookMinus,
+    bookRemove1,
+    bookRemove,
+    bookSearch1,
+    bookSearch,
+    bookUpload1,
+    bookUpload,
+    book,
+    books,
+    browser,
+    bus,
+    calculator1,
+    calculator,
+    calendar,
+    canvas,
+    cartesian,
+    chart,
+    chemistry01,
+    chemistry02,
+    chemistry,
+    clipboard,
+    compass,
+    cubeStack,
+    desk,
+    diploma1,
+    diploma,
+    divideCircle,
+    divideRectangle,
+    dna,
+    eLearning,
+    equalityCircle,
+    equalityRectangle,
+    exam,
+    files,
+    flask,
+    fountainPen,
+    glasses,
+    globe1,
+    globe,
+    graduationCap,
+    help01,
+    help02,
+    help,
+    idea,
+    library,
+    lockers,
+    maths,
+    matrix,
+    medal1,
+    medal,
+    microscope,
+    minusCircle,
+    minusRectangle,
+    monitor,
+    multiplyCircle,
+    multiplyRectangle,
+    notebook1,
+    notebook,
+    onlineLearning,
+    paintBoard,
+    pen,
+    pencilBook,
+    pencilPaper,
+    pencil,
+    physics,
+    plusCircle,
+    plusRectangle,
+    projector,
+    protractor1,
+    protractor,
+    quiz,
+    rank,
+    report,
+    ruler,
+    school,
+    smartphoneLearning,
+    squareRoot,
+    stationery,
+    studentCard,
+    student,
+    students,
+    tableLamp,
+    teacher01,
+    teacher,
+    telescope,
+    testTube1,
+    testTube2,
+    testTube,
+    transform,
+    trophy,
+    videoCall,
+    whistle,
+  ];
 }
 
 class $AssetsIconsFilesAndFolderBulkGen {
@@ -8011,23 +8112,28 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/archive-download.svg
   SvgGenImage get archiveDownload => const SvgGenImage(
-      'assets/icons/files and folder/bulk/archive-download.svg');
+    'assets/icons/files and folder/bulk/archive-download.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/archive-favourite.svg
   SvgGenImage get archiveFavourite => const SvgGenImage(
-      'assets/icons/files and folder/bulk/archive-favourite.svg');
+    'assets/icons/files and folder/bulk/archive-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/archive-remove.svg
   SvgGenImage get archiveRemove => const SvgGenImage(
-      'assets/icons/files and folder/bulk/archive-remove.svg');
+    'assets/icons/files and folder/bulk/archive-remove.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/archive-search.svg
   SvgGenImage get archiveSearch => const SvgGenImage(
-      'assets/icons/files and folder/bulk/archive-search.svg');
+    'assets/icons/files and folder/bulk/archive-search.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/archive-upload.svg
   SvgGenImage get archiveUpload => const SvgGenImage(
-      'assets/icons/files and folder/bulk/archive-upload.svg');
+    'assets/icons/files and folder/bulk/archive-upload.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/archive.svg
   SvgGenImage get archive =>
@@ -8055,7 +8161,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/file-accept 01.svg
   SvgGenImage get fileAccept01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-accept 01.svg');
+    'assets/icons/files and folder/bulk/file-accept 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-accept.svg
   SvgGenImage get fileAccept =>
@@ -8075,7 +8182,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/file-download 01.svg
   SvgGenImage get fileDownload01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-download 01.svg');
+    'assets/icons/files and folder/bulk/file-download 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-download.svg
   SvgGenImage get fileDownload =>
@@ -8083,11 +8191,13 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/file-favourite 01.svg
   SvgGenImage get fileFavourite01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-favourite 01.svg');
+    'assets/icons/files and folder/bulk/file-favourite 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-favourite.svg
   SvgGenImage get fileFavourite => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-favourite.svg');
+    'assets/icons/files and folder/bulk/file-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-jpg.svg
   SvgGenImage get fileJpg =>
@@ -8119,7 +8229,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/file-remove 01.svg
   SvgGenImage get fileRemove01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-remove 01.svg');
+    'assets/icons/files and folder/bulk/file-remove 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-remove.svg
   SvgGenImage get fileRemove =>
@@ -8127,7 +8238,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/file-search 01.svg
   SvgGenImage get fileSearch01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-search 01.svg');
+    'assets/icons/files and folder/bulk/file-search 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-search.svg
   SvgGenImage get fileSearch =>
@@ -8139,7 +8251,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/file-upload 01.svg
   SvgGenImage get fileUpload01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/file-upload 01.svg');
+    'assets/icons/files and folder/bulk/file-upload 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/file-upload.svg
   SvgGenImage get fileUpload =>
@@ -8175,11 +8288,13 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/folder download.svg
   SvgGenImage get folderDownload => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder download.svg');
+    'assets/icons/files and folder/bulk/folder download.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-accept 01.svg
   SvgGenImage get folderAccept01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-accept 01.svg');
+    'assets/icons/files and folder/bulk/folder-accept 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-accept.svg
   SvgGenImage get folderAccept =>
@@ -8195,19 +8310,23 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/folder-download 01.svg
   SvgGenImage get folderDownload01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-download 01.svg');
+    'assets/icons/files and folder/bulk/folder-download 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-favourite 01.svg
   SvgGenImage get folderFavourite01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-favourite 01.svg');
+    'assets/icons/files and folder/bulk/folder-favourite 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-favourite.svg
   SvgGenImage get folderFavourite => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-favourite.svg');
+    'assets/icons/files and folder/bulk/folder-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-minus 01.svg
   SvgGenImage get folderMinus01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-minus 01.svg');
+    'assets/icons/files and folder/bulk/folder-minus 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-minus.svg
   SvgGenImage get folderMinus =>
@@ -8219,7 +8338,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/folder-remove 01.svg
   SvgGenImage get folderRemove01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-remove 01.svg');
+    'assets/icons/files and folder/bulk/folder-remove 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-remove.svg
   SvgGenImage get folderRemove =>
@@ -8227,7 +8347,8 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/folder-search 01.svg
   SvgGenImage get folderSearch01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-search 01.svg');
+    'assets/icons/files and folder/bulk/folder-search 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-search.svg
   SvgGenImage get folderSearch =>
@@ -8239,11 +8360,13 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// File path: assets/icons/files and folder/bulk/folder-share@2x.png
   AssetGenImage get folderShare2x => const AssetGenImage(
-      'assets/icons/files and folder/bulk/folder-share@2x.png');
+    'assets/icons/files and folder/bulk/folder-share@2x.png',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-upload 01.svg
   SvgGenImage get folderUpload01 => const SvgGenImage(
-      'assets/icons/files and folder/bulk/folder-upload 01.svg');
+    'assets/icons/files and folder/bulk/folder-upload 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/bulk/folder-upload.svg
   SvgGenImage get folderUpload =>
@@ -8255,73 +8378,73 @@ class $AssetsIconsFilesAndFolderBulkGen {
 
   /// List of all assets
   List<dynamic> get values => [
-        archive01,
-        archive1,
-        archiveAdd,
-        archiveClear,
-        archiveDone,
-        archiveDownload,
-        archiveFavourite,
-        archiveRemove,
-        archiveSearch,
-        archiveUpload,
-        archive,
-        attachment,
-        file01,
-        file02,
-        file03,
-        file04,
-        fileAccept01,
-        fileAccept,
-        fileAdd01,
-        fileAdd,
-        fileDoc,
-        fileDownload01,
-        fileDownload,
-        fileFavourite01,
-        fileFavourite,
-        fileJpg,
-        fileMinus01,
-        fileMinus,
-        fileMusic,
-        filePdf,
-        filePng,
-        fileReload,
-        fileRemove01,
-        fileRemove,
-        fileSearch01,
-        fileSearch,
-        fileSharing,
-        fileUpload01,
-        fileUpload,
-        fileVideo,
-        file,
-        files01,
-        files,
-        folder01,
-        folder02,
-        folder03,
-        folderDownload,
-        folderAccept01,
-        folderAccept,
-        folderAdd01,
-        folderAdd,
-        folderDownload01,
-        folderFavourite01,
-        folderFavourite,
-        folderMinus01,
-        folderMinus,
-        folderReload,
-        folderRemove01,
-        folderRemove,
-        folderSearch01,
-        folderSearch,
-        folderShare,
-        folderShare2x,
-        folderUpload01,
-        folderUpload,
-        folder
-      ];
+    archive01,
+    archive1,
+    archiveAdd,
+    archiveClear,
+    archiveDone,
+    archiveDownload,
+    archiveFavourite,
+    archiveRemove,
+    archiveSearch,
+    archiveUpload,
+    archive,
+    attachment,
+    file01,
+    file02,
+    file03,
+    file04,
+    fileAccept01,
+    fileAccept,
+    fileAdd01,
+    fileAdd,
+    fileDoc,
+    fileDownload01,
+    fileDownload,
+    fileFavourite01,
+    fileFavourite,
+    fileJpg,
+    fileMinus01,
+    fileMinus,
+    fileMusic,
+    filePdf,
+    filePng,
+    fileReload,
+    fileRemove01,
+    fileRemove,
+    fileSearch01,
+    fileSearch,
+    fileSharing,
+    fileUpload01,
+    fileUpload,
+    fileVideo,
+    file,
+    files01,
+    files,
+    folder01,
+    folder02,
+    folder03,
+    folderDownload,
+    folderAccept01,
+    folderAccept,
+    folderAdd01,
+    folderAdd,
+    folderDownload01,
+    folderFavourite01,
+    folderFavourite,
+    folderMinus01,
+    folderMinus,
+    folderReload,
+    folderRemove01,
+    folderRemove,
+    folderSearch01,
+    folderSearch,
+    folderShare,
+    folderShare2x,
+    folderUpload01,
+    folderUpload,
+    folder,
+  ];
 }
 
 class $AssetsIconsFilesAndFolderOutlineGen {
@@ -8337,35 +8460,43 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/archive-add.svg
   SvgGenImage get archiveAdd => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-add.svg');
+    'assets/icons/files and folder/outline/archive-add.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-clear.svg
   SvgGenImage get archiveClear => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-clear.svg');
+    'assets/icons/files and folder/outline/archive-clear.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-done.svg
   SvgGenImage get archiveDone => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-done.svg');
+    'assets/icons/files and folder/outline/archive-done.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-download.svg
   SvgGenImage get archiveDownload => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-download.svg');
+    'assets/icons/files and folder/outline/archive-download.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-favourite.svg
   SvgGenImage get archiveFavourite => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-favourite.svg');
+    'assets/icons/files and folder/outline/archive-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-remove.svg
   SvgGenImage get archiveRemove => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-remove.svg');
+    'assets/icons/files and folder/outline/archive-remove.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-search.svg
   SvgGenImage get archiveSearch => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-search.svg');
+    'assets/icons/files and folder/outline/archive-search.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive-upload.svg
   SvgGenImage get archiveUpload => const SvgGenImage(
-      'assets/icons/files and folder/outline/archive-upload.svg');
+    'assets/icons/files and folder/outline/archive-upload.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/archive.svg
   SvgGenImage get archive =>
@@ -8393,15 +8524,18 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/file-accept 01.svg
   SvgGenImage get fileAccept01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-accept 01.svg');
+    'assets/icons/files and folder/outline/file-accept 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-accept.svg
   SvgGenImage get fileAccept => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-accept.svg');
+    'assets/icons/files and folder/outline/file-accept.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-add 01.svg
   SvgGenImage get fileAdd01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-add 01.svg');
+    'assets/icons/files and folder/outline/file-add 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-add.svg
   SvgGenImage get fileAdd =>
@@ -8413,19 +8547,23 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/file-download 01.svg
   SvgGenImage get fileDownload01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-download 01.svg');
+    'assets/icons/files and folder/outline/file-download 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-download.svg
   SvgGenImage get fileDownload => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-download.svg');
+    'assets/icons/files and folder/outline/file-download.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-favourite 01.svg
   SvgGenImage get fileFavourite01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-favourite 01.svg');
+    'assets/icons/files and folder/outline/file-favourite 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-favourite.svg
   SvgGenImage get fileFavourite => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-favourite.svg');
+    'assets/icons/files and folder/outline/file-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-jpg.svg
   SvgGenImage get fileJpg =>
@@ -8433,7 +8571,8 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/file-minus 01.svg
   SvgGenImage get fileMinus01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-minus 01.svg');
+    'assets/icons/files and folder/outline/file-minus 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-minus.svg
   SvgGenImage get fileMinus =>
@@ -8457,35 +8596,43 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/file-reload.svg
   SvgGenImage get fileReload => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-reload.svg');
+    'assets/icons/files and folder/outline/file-reload.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-remove 01.svg
   SvgGenImage get fileRemove01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-remove 01.svg');
+    'assets/icons/files and folder/outline/file-remove 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-remove.svg
   SvgGenImage get fileRemove => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-remove.svg');
+    'assets/icons/files and folder/outline/file-remove.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-search 01.svg
   SvgGenImage get fileSearch01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-search 01.svg');
+    'assets/icons/files and folder/outline/file-search 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-search.svg
   SvgGenImage get fileSearch => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-search.svg');
+    'assets/icons/files and folder/outline/file-search.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-sharing.svg
   SvgGenImage get fileSharing => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-sharing.svg');
+    'assets/icons/files and folder/outline/file-sharing.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-upload 01.svg
   SvgGenImage get fileUpload01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-upload 01.svg');
+    'assets/icons/files and folder/outline/file-upload 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-upload.svg
   SvgGenImage get fileUpload => const SvgGenImage(
-      'assets/icons/files and folder/outline/file-upload.svg');
+    'assets/icons/files and folder/outline/file-upload.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/file-video.svg
   SvgGenImage get fileVideo =>
@@ -8517,19 +8664,23 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/folder download.svg
   SvgGenImage get folderDownload => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder download.svg');
+    'assets/icons/files and folder/outline/folder download.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-accept 01.svg
   SvgGenImage get folderAccept01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-accept 01.svg');
+    'assets/icons/files and folder/outline/folder-accept 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-accept.svg
   SvgGenImage get folderAccept => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-accept.svg');
+    'assets/icons/files and folder/outline/folder-accept.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-add 01.svg
   SvgGenImage get folderAdd01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-add 01.svg');
+    'assets/icons/files and folder/outline/folder-add 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-add.svg
   SvgGenImage get folderAdd =>
@@ -8537,55 +8688,68 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// File path: assets/icons/files and folder/outline/folder-download 01.svg
   SvgGenImage get folderDownload01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-download 01.svg');
+    'assets/icons/files and folder/outline/folder-download 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-favourite 01.svg
   SvgGenImage get folderFavourite01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-favourite 01.svg');
+    'assets/icons/files and folder/outline/folder-favourite 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-favourite.svg
   SvgGenImage get folderFavourite => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-favourite.svg');
+    'assets/icons/files and folder/outline/folder-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-minus 01.svg
   SvgGenImage get folderMinus01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-minus 01.svg');
+    'assets/icons/files and folder/outline/folder-minus 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-minus.svg
   SvgGenImage get folderMinus => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-minus.svg');
+    'assets/icons/files and folder/outline/folder-minus.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-reload.svg
   SvgGenImage get folderReload => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-reload.svg');
+    'assets/icons/files and folder/outline/folder-reload.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-remove 01.svg
   SvgGenImage get folderRemove01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-remove 01.svg');
+    'assets/icons/files and folder/outline/folder-remove 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-remove.svg
   SvgGenImage get folderRemove => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-remove.svg');
+    'assets/icons/files and folder/outline/folder-remove.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-search 01.svg
   SvgGenImage get folderSearch01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-search 01.svg');
+    'assets/icons/files and folder/outline/folder-search 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-search.svg
   SvgGenImage get folderSearch => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-search.svg');
+    'assets/icons/files and folder/outline/folder-search.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-share.svg
   SvgGenImage get folderShare => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-share.svg');
+    'assets/icons/files and folder/outline/folder-share.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-upload 01.svg
   SvgGenImage get folderUpload01 => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-upload 01.svg');
+    'assets/icons/files and folder/outline/folder-upload 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder-upload.svg
   SvgGenImage get folderUpload => const SvgGenImage(
-      'assets/icons/files and folder/outline/folder-upload.svg');
+    'assets/icons/files and folder/outline/folder-upload.svg',
+  );
 
   /// File path: assets/icons/files and folder/outline/folder.svg
   SvgGenImage get folder =>
@@ -8593,73 +8757,73 @@ class $AssetsIconsFilesAndFolderOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        archive01,
-        archive1,
-        archiveAdd,
-        archiveClear,
-        archiveDone,
-        archiveDownload,
-        archiveFavourite,
-        archiveRemove,
-        archiveSearch,
-        archiveUpload,
-        archive,
-        attachment,
-        file01,
-        file02,
-        file03,
-        file04,
-        fileAccept01,
-        fileAccept,
-        fileAdd01,
-        fileAdd,
-        fileDoc,
-        fileDownload01,
-        fileDownload,
-        fileFavourite01,
-        fileFavourite,
-        fileJpg,
-        fileMinus01,
-        fileMinus,
-        fileMusic,
-        filePaste,
-        filePdf,
-        filePng,
-        fileReload,
-        fileRemove01,
-        fileRemove,
-        fileSearch01,
-        fileSearch,
-        fileSharing,
-        fileUpload01,
-        fileUpload,
-        fileVideo,
-        file,
-        files01,
-        files,
-        folder01,
-        folder02,
-        folder03,
-        folderDownload,
-        folderAccept01,
-        folderAccept,
-        folderAdd01,
-        folderAdd,
-        folderDownload01,
-        folderFavourite01,
-        folderFavourite,
-        folderMinus01,
-        folderMinus,
-        folderReload,
-        folderRemove01,
-        folderRemove,
-        folderSearch01,
-        folderSearch,
-        folderShare,
-        folderUpload01,
-        folderUpload,
-        folder
-      ];
+    archive01,
+    archive1,
+    archiveAdd,
+    archiveClear,
+    archiveDone,
+    archiveDownload,
+    archiveFavourite,
+    archiveRemove,
+    archiveSearch,
+    archiveUpload,
+    archive,
+    attachment,
+    file01,
+    file02,
+    file03,
+    file04,
+    fileAccept01,
+    fileAccept,
+    fileAdd01,
+    fileAdd,
+    fileDoc,
+    fileDownload01,
+    fileDownload,
+    fileFavourite01,
+    fileFavourite,
+    fileJpg,
+    fileMinus01,
+    fileMinus,
+    fileMusic,
+    filePaste,
+    filePdf,
+    filePng,
+    fileReload,
+    fileRemove01,
+    fileRemove,
+    fileSearch01,
+    fileSearch,
+    fileSharing,
+    fileUpload01,
+    fileUpload,
+    fileVideo,
+    file,
+    files01,
+    files,
+    folder01,
+    folder02,
+    folder03,
+    folderDownload,
+    folderAccept01,
+    folderAccept,
+    folderAdd01,
+    folderAdd,
+    folderDownload01,
+    folderFavourite01,
+    folderFavourite,
+    folderMinus01,
+    folderMinus,
+    folderReload,
+    folderRemove01,
+    folderRemove,
+    folderSearch01,
+    folderSearch,
+    folderShare,
+    folderUpload01,
+    folderUpload,
+    folder,
+  ];
 }
 
 class $AssetsIconsFilesAndFolderSolidGen {
@@ -8679,7 +8843,8 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/archive-clear.svg
   SvgGenImage get archiveClear => const SvgGenImage(
-      'assets/icons/files and folder/solid/archive-clear.svg');
+    'assets/icons/files and folder/solid/archive-clear.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/archive-done.svg
   SvgGenImage get archiveDone =>
@@ -8687,23 +8852,28 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/archive-download.svg
   SvgGenImage get archiveDownload => const SvgGenImage(
-      'assets/icons/files and folder/solid/archive-download.svg');
+    'assets/icons/files and folder/solid/archive-download.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/archive-favourite.svg
   SvgGenImage get archiveFavourite => const SvgGenImage(
-      'assets/icons/files and folder/solid/archive-favourite.svg');
+    'assets/icons/files and folder/solid/archive-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/archive-remove.svg
   SvgGenImage get archiveRemove => const SvgGenImage(
-      'assets/icons/files and folder/solid/archive-remove.svg');
+    'assets/icons/files and folder/solid/archive-remove.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/archive-search.svg
   SvgGenImage get archiveSearch => const SvgGenImage(
-      'assets/icons/files and folder/solid/archive-search.svg');
+    'assets/icons/files and folder/solid/archive-search.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/archive-upload.svg
   SvgGenImage get archiveUpload => const SvgGenImage(
-      'assets/icons/files and folder/solid/archive-upload.svg');
+    'assets/icons/files and folder/solid/archive-upload.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/archive.svg
   SvgGenImage get archive =>
@@ -8731,7 +8901,8 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/file-accept 01.svg
   SvgGenImage get fileAccept01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-accept 01.svg');
+    'assets/icons/files and folder/solid/file-accept 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-accept.svg
   SvgGenImage get fileAccept =>
@@ -8751,19 +8922,23 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/file-download 01.svg
   SvgGenImage get fileDownload01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-download 01.svg');
+    'assets/icons/files and folder/solid/file-download 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-download.svg
   SvgGenImage get fileDownload => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-download.svg');
+    'assets/icons/files and folder/solid/file-download.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-favourite 01.svg
   SvgGenImage get fileFavourite01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-favourite 01.svg');
+    'assets/icons/files and folder/solid/file-favourite 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-favourite.svg
   SvgGenImage get fileFavourite => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-favourite.svg');
+    'assets/icons/files and folder/solid/file-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-jpg.svg
   SvgGenImage get fileJpg =>
@@ -8771,7 +8946,8 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/file-minus 01.svg
   SvgGenImage get fileMinus01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-minus 01.svg');
+    'assets/icons/files and folder/solid/file-minus 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-minus.svg
   SvgGenImage get fileMinus =>
@@ -8795,7 +8971,8 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/file-remove 01.svg
   SvgGenImage get fileRemove01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-remove 01.svg');
+    'assets/icons/files and folder/solid/file-remove 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-remove.svg
   SvgGenImage get fileRemove =>
@@ -8803,7 +8980,8 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/file-search 01.svg
   SvgGenImage get fileSearch01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-search 01.svg');
+    'assets/icons/files and folder/solid/file-search 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-search.svg
   SvgGenImage get fileSearch =>
@@ -8815,7 +8993,8 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/file-upload 01.svg
   SvgGenImage get fileUpload01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/file-upload 01.svg');
+    'assets/icons/files and folder/solid/file-upload 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/file-upload.svg
   SvgGenImage get fileUpload =>
@@ -8851,19 +9030,23 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/folder download.svg
   SvgGenImage get folderDownload => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder download.svg');
+    'assets/icons/files and folder/solid/folder download.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-accept 01.svg
   SvgGenImage get folderAccept01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-accept 01.svg');
+    'assets/icons/files and folder/solid/folder-accept 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-accept.svg
   SvgGenImage get folderAccept => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-accept.svg');
+    'assets/icons/files and folder/solid/folder-accept.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-add 01.svg
   SvgGenImage get folderAdd01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-add 01.svg');
+    'assets/icons/files and folder/solid/folder-add 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-add.svg
   SvgGenImage get folderAdd =>
@@ -8871,19 +9054,23 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/folder-download 01.svg
   SvgGenImage get folderDownload01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-download 01.svg');
+    'assets/icons/files and folder/solid/folder-download 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-favourite 01.svg
   SvgGenImage get folderFavourite01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-favourite 01.svg');
+    'assets/icons/files and folder/solid/folder-favourite 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-favourite.svg
   SvgGenImage get folderFavourite => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-favourite.svg');
+    'assets/icons/files and folder/solid/folder-favourite.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-minus 01.svg
   SvgGenImage get folderMinus01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-minus 01.svg');
+    'assets/icons/files and folder/solid/folder-minus 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-minus.svg
   SvgGenImage get folderMinus =>
@@ -8891,23 +9078,28 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/folder-reload.svg
   SvgGenImage get folderReload => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-reload.svg');
+    'assets/icons/files and folder/solid/folder-reload.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-remove 01.svg
   SvgGenImage get folderRemove01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-remove 01.svg');
+    'assets/icons/files and folder/solid/folder-remove 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-remove.svg
   SvgGenImage get folderRemove => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-remove.svg');
+    'assets/icons/files and folder/solid/folder-remove.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-search 01.svg
   SvgGenImage get folderSearch01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-search 01.svg');
+    'assets/icons/files and folder/solid/folder-search 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-search.svg
   SvgGenImage get folderSearch => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-search.svg');
+    'assets/icons/files and folder/solid/folder-search.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-share.svg
   SvgGenImage get folderShare =>
@@ -8915,11 +9107,13 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// File path: assets/icons/files and folder/solid/folder-upload 01.svg
   SvgGenImage get folderUpload01 => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-upload 01.svg');
+    'assets/icons/files and folder/solid/folder-upload 01.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder-upload.svg
   SvgGenImage get folderUpload => const SvgGenImage(
-      'assets/icons/files and folder/solid/folder-upload.svg');
+    'assets/icons/files and folder/solid/folder-upload.svg',
+  );
 
   /// File path: assets/icons/files and folder/solid/folder.svg
   SvgGenImage get folder =>
@@ -8927,72 +9121,72 @@ class $AssetsIconsFilesAndFolderSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        archive01,
-        archive2,
-        archiveAdd,
-        archiveClear,
-        archiveDone,
-        archiveDownload,
-        archiveFavourite,
-        archiveRemove,
-        archiveSearch,
-        archiveUpload,
-        archive,
-        attachment,
-        file01,
-        file02,
-        file03,
-        file04,
-        fileAccept01,
-        fileAccept,
-        fileAdd01,
-        fileAdd,
-        fileDoc,
-        fileDownload01,
-        fileDownload,
-        fileFavourite01,
-        fileFavourite,
-        fileJpg,
-        fileMinus01,
-        fileMinus,
-        fileMusic,
-        filePdf,
-        filePng,
-        fileReload,
-        fileRemove01,
-        fileRemove,
-        fileSearch01,
-        fileSearch,
-        fileSharing,
-        fileUpload01,
-        fileUpload,
-        fileVideo,
-        file,
-        files01,
-        files,
-        folder01,
-        folder02,
-        folder03,
-        folderDownload,
-        folderAccept01,
-        folderAccept,
-        folderAdd01,
-        folderAdd,
-        folderDownload01,
-        folderFavourite01,
-        folderFavourite,
-        folderMinus01,
-        folderMinus,
-        folderReload,
-        folderRemove01,
-        folderRemove,
-        folderSearch01,
-        folderSearch,
-        folderShare,
-        folderUpload01,
-        folderUpload,
-        folder
-      ];
+    archive01,
+    archive2,
+    archiveAdd,
+    archiveClear,
+    archiveDone,
+    archiveDownload,
+    archiveFavourite,
+    archiveRemove,
+    archiveSearch,
+    archiveUpload,
+    archive,
+    attachment,
+    file01,
+    file02,
+    file03,
+    file04,
+    fileAccept01,
+    fileAccept,
+    fileAdd01,
+    fileAdd,
+    fileDoc,
+    fileDownload01,
+    fileDownload,
+    fileFavourite01,
+    fileFavourite,
+    fileJpg,
+    fileMinus01,
+    fileMinus,
+    fileMusic,
+    filePdf,
+    filePng,
+    fileReload,
+    fileRemove01,
+    fileRemove,
+    fileSearch01,
+    fileSearch,
+    fileSharing,
+    fileUpload01,
+    fileUpload,
+    fileVideo,
+    file,
+    files01,
+    files,
+    folder01,
+    folder02,
+    folder03,
+    folderDownload,
+    folderAccept01,
+    folderAccept,
+    folderAdd01,
+    folderAdd,
+    folderDownload01,
+    folderFavourite01,
+    folderFavourite,
+    folderMinus01,
+    folderMinus,
+    folderReload,
+    folderRemove01,
+    folderRemove,
+    folderSearch01,
+    folderSearch,
+    folderShare,
+    folderUpload01,
+    folderUpload,
+    folder,
+  ];
 }
 
 class $AssetsIconsFinanceAndPaymentBulkGen {
@@ -9008,7 +9202,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/bar chart 01.svg
   SvgGenImage get barChart01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/bar chart 01.svg');
+    'assets/icons/finance and payment/bulk/bar chart 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/bar chart.svg
   SvgGenImage get barChart =>
@@ -9020,7 +9215,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/briefcase 01.svg
   SvgGenImage get briefcase01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/briefcase 01.svg');
+    'assets/icons/finance and payment/bulk/briefcase 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/briefcase.svg
   SvgGenImage get briefcase =>
@@ -9032,19 +9228,23 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/card-arrow-down.svg
   SvgGenImage get cardArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/card-arrow-down.svg');
+    'assets/icons/finance and payment/bulk/card-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/card-arrow-left.svg
   SvgGenImage get cardArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/card-arrow-left.svg');
+    'assets/icons/finance and payment/bulk/card-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/card-arrow-right.svg
   SvgGenImage get cardArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/card-arrow-right.svg');
+    'assets/icons/finance and payment/bulk/card-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/card-arrow-up.svg
   SvgGenImage get cardArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/card-arrow-up.svg');
+    'assets/icons/finance and payment/bulk/card-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/card-check.svg
   SvgGenImage get cardCheck =>
@@ -9056,7 +9256,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/card-remove.svg
   SvgGenImage get cardRemove => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/card-remove.svg');
+    'assets/icons/finance and payment/bulk/card-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/card-user.svg
   SvgGenImage get cardUser =>
@@ -9064,7 +9265,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/card-withdraw.svg
   SvgGenImage get cardWithdraw => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/card-withdraw.svg');
+    'assets/icons/finance and payment/bulk/card-withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/card.svg
   SvgGenImage get card =>
@@ -9072,19 +9274,23 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/chart-arrow-down.svg
   SvgGenImage get chartArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/chart-arrow-down.svg');
+    'assets/icons/finance and payment/bulk/chart-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/chart-arrow-up.svg
   SvgGenImage get chartArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/chart-arrow-up.svg');
+    'assets/icons/finance and payment/bulk/chart-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/chart-histogram.svg
   SvgGenImage get chartHistogram => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/chart-histogram.svg');
+    'assets/icons/finance and payment/bulk/chart-histogram.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/coin-dollar.svg
   SvgGenImage get coinDollar => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/coin-dollar.svg');
+    'assets/icons/finance and payment/bulk/coin-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/coin-euro.svg
   SvgGenImage get coinEuro =>
@@ -9112,7 +9318,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/donate-coin.svg
   SvgGenImage get donateCoin => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/donate-coin.svg');
+    'assets/icons/finance and payment/bulk/donate-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/donate.svg
   SvgGenImage get donate =>
@@ -9132,11 +9339,13 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/line chart 01.svg
   SvgGenImage get lineChart01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/line chart 01.svg');
+    'assets/icons/finance and payment/bulk/line chart 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/line chart 02.svg
   SvgGenImage get lineChart02 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/line chart 02.svg');
+    'assets/icons/finance and payment/bulk/line chart 02.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/line chart.svg
   SvgGenImage get lineChart =>
@@ -9144,11 +9353,13 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/master card.svg
   SvgGenImage get masterCard => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/master card.svg');
+    'assets/icons/finance and payment/bulk/master card.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/mobile payment.svg
   SvgGenImage get mobilePayment => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/mobile payment.svg');
+    'assets/icons/finance and payment/bulk/mobile payment.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money 01.svg
   SvgGenImage get money01 =>
@@ -9160,27 +9371,33 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/money bag-coin-1.svg
   SvgGenImage get moneyBagCoin1 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money bag-coin-1.svg');
+    'assets/icons/finance and payment/bulk/money bag-coin-1.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money bag-coin.svg
   SvgGenImage get moneyBagCoin => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money bag-coin.svg');
+    'assets/icons/finance and payment/bulk/money bag-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money bag-dollar.svg
   SvgGenImage get moneyBagDollar => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money bag-dollar.svg');
+    'assets/icons/finance and payment/bulk/money bag-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money bag-euro.svg
   SvgGenImage get moneyBagEuro => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money bag-euro.svg');
+    'assets/icons/finance and payment/bulk/money bag-euro.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money bag-pound.svg
   SvgGenImage get moneyBagPound => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money bag-pound.svg');
+    'assets/icons/finance and payment/bulk/money bag-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money bag-yen.svg
   SvgGenImage get moneyBagYen => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money bag-yen.svg');
+    'assets/icons/finance and payment/bulk/money bag-yen.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money bag.svg
   SvgGenImage get moneyBag =>
@@ -9192,23 +9409,28 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/money-arrow-down.svg
   SvgGenImage get moneyArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-arrow-down.svg');
+    'assets/icons/finance and payment/bulk/money-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-arrow-left.svg
   SvgGenImage get moneyArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-arrow-left.svg');
+    'assets/icons/finance and payment/bulk/money-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-arrow-right.svg
   SvgGenImage get moneyArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-arrow-right.svg');
+    'assets/icons/finance and payment/bulk/money-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-arrow-up.svg
   SvgGenImage get moneyArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-arrow-up.svg');
+    'assets/icons/finance and payment/bulk/money-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-check.svg
   SvgGenImage get moneyCheck => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-check.svg');
+    'assets/icons/finance and payment/bulk/money-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-coin.svg
   SvgGenImage get moneyCoin =>
@@ -9216,7 +9438,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/money-dollar.svg
   SvgGenImage get moneyDollar => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-dollar.svg');
+    'assets/icons/finance and payment/bulk/money-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-euro.svg
   SvgGenImage get moneyEuro =>
@@ -9224,31 +9447,38 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/money-favourite.svg
   SvgGenImage get moneyFavourite => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-favourite.svg');
+    'assets/icons/finance and payment/bulk/money-favourite.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-income.svg
   SvgGenImage get moneyIncome => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-income.svg');
+    'assets/icons/finance and payment/bulk/money-income.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-minus.svg
   SvgGenImage get moneyMinus => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-minus.svg');
+    'assets/icons/finance and payment/bulk/money-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-pound.svg
   SvgGenImage get moneyPound => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-pound.svg');
+    'assets/icons/finance and payment/bulk/money-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-profit 01.svg
   SvgGenImage get moneyProfit01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-profit 01.svg');
+    'assets/icons/finance and payment/bulk/money-profit 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-profit.svg
   SvgGenImage get moneyProfit => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-profit.svg');
+    'assets/icons/finance and payment/bulk/money-profit.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-remove.svg
   SvgGenImage get moneyRemove => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-remove.svg');
+    'assets/icons/finance and payment/bulk/money-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-user.svg
   SvgGenImage get moneyUser =>
@@ -9256,7 +9486,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/money-withdraw.svg
   SvgGenImage get moneyWithdraw => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/money-withdraw.svg');
+    'assets/icons/finance and payment/bulk/money-withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/money-yen.svg
   SvgGenImage get moneyYen =>
@@ -9292,7 +9523,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/safe box 01.svg
   SvgGenImage get safeBox01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/safe box 01.svg');
+    'assets/icons/finance and payment/bulk/safe box 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/safe box.svg
   SvgGenImage get safeBox =>
@@ -9316,7 +9548,8 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/wallet-add 01.svg
   SvgGenImage get walletAdd01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-add 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-add 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-add.svg
   SvgGenImage get walletAdd =>
@@ -9324,67 +9557,83 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-down 01.svg
   SvgGenImage get walletArrowDown01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-down 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-down.svg
   SvgGenImage get walletArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-down.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-left 01.svg
   SvgGenImage get walletArrowLeft01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-left 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-left 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-left.svg
   SvgGenImage get walletArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-left.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-right 01.svg
   SvgGenImage get walletArrowRight01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-right 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-right 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-right.svg
   SvgGenImage get walletArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-right.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-up 01.svg
   SvgGenImage get walletArrowUp01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-up 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-up 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-arrow-up.svg
   SvgGenImage get walletArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-arrow-up.svg');
+    'assets/icons/finance and payment/bulk/wallet-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-check 01.svg
   SvgGenImage get walletCheck01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-check 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-check 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-check.svg
   SvgGenImage get walletCheck => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-check.svg');
+    'assets/icons/finance and payment/bulk/wallet-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-minus 01.svg
   SvgGenImage get walletMinus01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-minus 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-minus 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-minus.svg
   SvgGenImage get walletMinus => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-minus.svg');
+    'assets/icons/finance and payment/bulk/wallet-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-remove 01.svg
   SvgGenImage get walletRemove01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-remove 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-remove 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-remove.svg
   SvgGenImage get walletRemove => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-remove.svg');
+    'assets/icons/finance and payment/bulk/wallet-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-user 01.svg
   SvgGenImage get walletUser01 => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-user 01.svg');
+    'assets/icons/finance and payment/bulk/wallet-user 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet-user.svg
   SvgGenImage get walletUser => const SvgGenImage(
-      'assets/icons/finance and payment/bulk/wallet-user.svg');
+    'assets/icons/finance and payment/bulk/wallet-user.svg',
+  );
 
   /// File path: assets/icons/finance and payment/bulk/wallet.svg
   SvgGenImage get wallet =>
@@ -9400,107 +9649,107 @@ class $AssetsIconsFinanceAndPaymentBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        atm,
-        bank,
-        barChart01,
-        barChart,
-        bill,
-        briefcase01,
-        briefcase,
-        cardAdd,
-        cardArrowDown,
-        cardArrowLeft,
-        cardArrowRight,
-        cardArrowUp,
-        cardCheck,
-        cardMinus,
-        cardRemove,
-        cardUser,
-        cardWithdraw,
-        card,
-        chartArrowDown,
-        chartArrowUp,
-        chartHistogram,
-        coinDollar,
-        coinEuro,
-        coinPound,
-        coinYen,
-        coin,
-        cube,
-        dollar,
-        donateCoin,
-        donate,
-        earnings,
-        euro,
-        gold,
-        lineChart01,
-        lineChart02,
-        lineChart,
-        masterCard,
-        mobilePayment,
-        money01,
-        money02,
-        moneyBagCoin1,
-        moneyBagCoin,
-        moneyBagDollar,
-        moneyBagEuro,
-        moneyBagPound,
-        moneyBagYen,
-        moneyBag,
-        moneyAdd,
-        moneyArrowDown,
-        moneyArrowLeft,
-        moneyArrowRight,
-        moneyArrowUp,
-        moneyCheck,
-        moneyCoin,
-        moneyDollar,
-        moneyEuro,
-        moneyFavourite,
-        moneyIncome,
-        moneyMinus,
-        moneyPound,
-        moneyProfit01,
-        moneyProfit,
-        moneyRemove,
-        moneyUser,
-        moneyWithdraw,
-        moneyYen,
-        money,
-        pieChart,
-        pound,
-        profit01,
-        profit02,
-        profit,
-        pyramid,
-        safeBox01,
-        safeBox,
-        shield,
-        transfer,
-        umbrella,
-        wallet01,
-        walletAdd01,
-        walletAdd,
-        walletArrowDown01,
-        walletArrowDown,
-        walletArrowLeft01,
-        walletArrowLeft,
-        walletArrowRight01,
-        walletArrowRight,
-        walletArrowUp01,
-        walletArrowUp,
-        walletCheck01,
-        walletCheck,
-        walletMinus01,
-        walletMinus,
-        walletRemove01,
-        walletRemove,
-        walletUser01,
-        walletUser,
-        wallet,
-        withdraw,
-        yen
-      ];
+    atm,
+    bank,
+    barChart01,
+    barChart,
+    bill,
+    briefcase01,
+    briefcase,
+    cardAdd,
+    cardArrowDown,
+    cardArrowLeft,
+    cardArrowRight,
+    cardArrowUp,
+    cardCheck,
+    cardMinus,
+    cardRemove,
+    cardUser,
+    cardWithdraw,
+    card,
+    chartArrowDown,
+    chartArrowUp,
+    chartHistogram,
+    coinDollar,
+    coinEuro,
+    coinPound,
+    coinYen,
+    coin,
+    cube,
+    dollar,
+    donateCoin,
+    donate,
+    earnings,
+    euro,
+    gold,
+    lineChart01,
+    lineChart02,
+    lineChart,
+    masterCard,
+    mobilePayment,
+    money01,
+    money02,
+    moneyBagCoin1,
+    moneyBagCoin,
+    moneyBagDollar,
+    moneyBagEuro,
+    moneyBagPound,
+    moneyBagYen,
+    moneyBag,
+    moneyAdd,
+    moneyArrowDown,
+    moneyArrowLeft,
+    moneyArrowRight,
+    moneyArrowUp,
+    moneyCheck,
+    moneyCoin,
+    moneyDollar,
+    moneyEuro,
+    moneyFavourite,
+    moneyIncome,
+    moneyMinus,
+    moneyPound,
+    moneyProfit01,
+    moneyProfit,
+    moneyRemove,
+    moneyUser,
+    moneyWithdraw,
+    moneyYen,
+    money,
+    pieChart,
+    pound,
+    profit01,
+    profit02,
+    profit,
+    pyramid,
+    safeBox01,
+    safeBox,
+    shield,
+    transfer,
+    umbrella,
+    wallet01,
+    walletAdd01,
+    walletAdd,
+    walletArrowDown01,
+    walletArrowDown,
+    walletArrowLeft01,
+    walletArrowLeft,
+    walletArrowRight01,
+    walletArrowRight,
+    walletArrowUp01,
+    walletArrowUp,
+    walletCheck01,
+    walletCheck,
+    walletMinus01,
+    walletMinus,
+    walletRemove01,
+    walletRemove,
+    walletUser01,
+    walletUser,
+    wallet,
+    withdraw,
+    yen,
+  ];
 }
 
 class $AssetsIconsFinanceAndPaymentOutlineGen {
@@ -9516,11 +9765,13 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/bar chart 01.svg
   SvgGenImage get barChart01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/bar chart 01.svg');
+    'assets/icons/finance and payment/outline/bar chart 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/bar chart.svg
   SvgGenImage get barChart => const SvgGenImage(
-      'assets/icons/finance and payment/outline/bar chart.svg');
+    'assets/icons/finance and payment/outline/bar chart.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/bill.svg
   SvgGenImage get bill =>
@@ -9528,51 +9779,63 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/briefcase 01.svg
   SvgGenImage get briefcase01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/briefcase 01.svg');
+    'assets/icons/finance and payment/outline/briefcase 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/briefcase.svg
   SvgGenImage get briefcase => const SvgGenImage(
-      'assets/icons/finance and payment/outline/briefcase.svg');
+    'assets/icons/finance and payment/outline/briefcase.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-add.svg
   SvgGenImage get cardAdd => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-add.svg');
+    'assets/icons/finance and payment/outline/card-add.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-arrow-down.svg
   SvgGenImage get cardArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-arrow-down.svg');
+    'assets/icons/finance and payment/outline/card-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-arrow-left.svg
   SvgGenImage get cardArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-arrow-left.svg');
+    'assets/icons/finance and payment/outline/card-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-arrow-right.svg
   SvgGenImage get cardArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-arrow-right.svg');
+    'assets/icons/finance and payment/outline/card-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-arrow-up.svg
   SvgGenImage get cardArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-arrow-up.svg');
+    'assets/icons/finance and payment/outline/card-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-check.svg
   SvgGenImage get cardCheck => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-check.svg');
+    'assets/icons/finance and payment/outline/card-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-minus.svg
   SvgGenImage get cardMinus => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-minus.svg');
+    'assets/icons/finance and payment/outline/card-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-remove.svg
   SvgGenImage get cardRemove => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-remove.svg');
+    'assets/icons/finance and payment/outline/card-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-user.svg
   SvgGenImage get cardUser => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-user.svg');
+    'assets/icons/finance and payment/outline/card-user.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card-withdraw.svg
   SvgGenImage get cardWithdraw => const SvgGenImage(
-      'assets/icons/finance and payment/outline/card-withdraw.svg');
+    'assets/icons/finance and payment/outline/card-withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/card.svg
   SvgGenImage get card =>
@@ -9580,19 +9843,23 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/coin-dollar.svg
   SvgGenImage get coinDollar => const SvgGenImage(
-      'assets/icons/finance and payment/outline/coin-dollar.svg');
+    'assets/icons/finance and payment/outline/coin-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/coin-euro.svg
   SvgGenImage get coinEuro => const SvgGenImage(
-      'assets/icons/finance and payment/outline/coin-euro.svg');
+    'assets/icons/finance and payment/outline/coin-euro.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/coin-pound.svg
   SvgGenImage get coinPound => const SvgGenImage(
-      'assets/icons/finance and payment/outline/coin-pound.svg');
+    'assets/icons/finance and payment/outline/coin-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/coin-yen.svg
   SvgGenImage get coinYen => const SvgGenImage(
-      'assets/icons/finance and payment/outline/coin-yen.svg');
+    'assets/icons/finance and payment/outline/coin-yen.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/coin.svg
   SvgGenImage get coin =>
@@ -9608,7 +9875,8 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/donate-coin.svg
   SvgGenImage get donateCoin => const SvgGenImage(
-      'assets/icons/finance and payment/outline/donate-coin.svg');
+    'assets/icons/finance and payment/outline/donate-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/donate.svg
   SvgGenImage get donate =>
@@ -9616,7 +9884,8 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/earnings.svg
   SvgGenImage get earnings => const SvgGenImage(
-      'assets/icons/finance and payment/outline/earnings.svg');
+    'assets/icons/finance and payment/outline/earnings.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/euro.svg
   SvgGenImage get euro =>
@@ -9628,147 +9897,183 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/hart-arrow-down.svg
   SvgGenImage get hartArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/outline/hart-arrow-down.svg');
+    'assets/icons/finance and payment/outline/hart-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/hart-arrow-up.svg
   SvgGenImage get hartArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/outline/hart-arrow-up.svg');
+    'assets/icons/finance and payment/outline/hart-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/hart-histogram.svg
   SvgGenImage get hartHistogram => const SvgGenImage(
-      'assets/icons/finance and payment/outline/hart-histogram.svg');
+    'assets/icons/finance and payment/outline/hart-histogram.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/line chart 01.svg
   SvgGenImage get lineChart01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/line chart 01.svg');
+    'assets/icons/finance and payment/outline/line chart 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/line chart 02.svg
   SvgGenImage get lineChart02 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/line chart 02.svg');
+    'assets/icons/finance and payment/outline/line chart 02.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/line chart.svg
   SvgGenImage get lineChart => const SvgGenImage(
-      'assets/icons/finance and payment/outline/line chart.svg');
+    'assets/icons/finance and payment/outline/line chart.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/master card.svg
   SvgGenImage get masterCard => const SvgGenImage(
-      'assets/icons/finance and payment/outline/master card.svg');
+    'assets/icons/finance and payment/outline/master card.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/mobile payment.svg
   SvgGenImage get mobilePayment => const SvgGenImage(
-      'assets/icons/finance and payment/outline/mobile payment.svg');
+    'assets/icons/finance and payment/outline/mobile payment.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money 01.svg
   SvgGenImage get money01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money 01.svg');
+    'assets/icons/finance and payment/outline/money 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money 02.svg
   SvgGenImage get money02 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money 02.svg');
+    'assets/icons/finance and payment/outline/money 02.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag-coin-1.svg
   SvgGenImage get moneyBagCoin1 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag-coin-1.svg');
+    'assets/icons/finance and payment/outline/money bag-coin-1.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag-coin.svg
   SvgGenImage get moneyBagCoin => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag-coin.svg');
+    'assets/icons/finance and payment/outline/money bag-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag-dollar.svg
   SvgGenImage get moneyBagDollar => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag-dollar.svg');
+    'assets/icons/finance and payment/outline/money bag-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag-euro.svg
   SvgGenImage get moneyBagEuro => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag-euro.svg');
+    'assets/icons/finance and payment/outline/money bag-euro.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag-pound.svg
   SvgGenImage get moneyBagPound => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag-pound.svg');
+    'assets/icons/finance and payment/outline/money bag-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag-yen.svg
   SvgGenImage get moneyBagYen => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag-yen.svg');
+    'assets/icons/finance and payment/outline/money bag-yen.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money bag.svg
   SvgGenImage get moneyBag => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money bag.svg');
+    'assets/icons/finance and payment/outline/money bag.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-add.svg
   SvgGenImage get moneyAdd => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-add.svg');
+    'assets/icons/finance and payment/outline/money-add.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-arrow-down.svg
   SvgGenImage get moneyArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-arrow-down.svg');
+    'assets/icons/finance and payment/outline/money-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-arrow-left.svg
   SvgGenImage get moneyArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-arrow-left.svg');
+    'assets/icons/finance and payment/outline/money-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-arrow-right.svg
   SvgGenImage get moneyArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-arrow-right.svg');
+    'assets/icons/finance and payment/outline/money-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-arrow-up.svg
   SvgGenImage get moneyArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-arrow-up.svg');
+    'assets/icons/finance and payment/outline/money-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-check.svg
   SvgGenImage get moneyCheck => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-check.svg');
+    'assets/icons/finance and payment/outline/money-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-coin.svg
   SvgGenImage get moneyCoin => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-coin.svg');
+    'assets/icons/finance and payment/outline/money-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-dollar.svg
   SvgGenImage get moneyDollar => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-dollar.svg');
+    'assets/icons/finance and payment/outline/money-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-euro.svg
   SvgGenImage get moneyEuro => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-euro.svg');
+    'assets/icons/finance and payment/outline/money-euro.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-favourite.svg
   SvgGenImage get moneyFavourite => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-favourite.svg');
+    'assets/icons/finance and payment/outline/money-favourite.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-income.svg
   SvgGenImage get moneyIncome => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-income.svg');
+    'assets/icons/finance and payment/outline/money-income.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-minus.svg
   SvgGenImage get moneyMinus => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-minus.svg');
+    'assets/icons/finance and payment/outline/money-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-pound.svg
   SvgGenImage get moneyPound => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-pound.svg');
+    'assets/icons/finance and payment/outline/money-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-profit 01.svg
   SvgGenImage get moneyProfit01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-profit 01.svg');
+    'assets/icons/finance and payment/outline/money-profit 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-profit.svg
   SvgGenImage get moneyProfit => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-profit.svg');
+    'assets/icons/finance and payment/outline/money-profit.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-remove.svg
   SvgGenImage get moneyRemove => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-remove.svg');
+    'assets/icons/finance and payment/outline/money-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-user.svg
   SvgGenImage get moneyUser => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-user.svg');
+    'assets/icons/finance and payment/outline/money-user.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-withdraw.svg
   SvgGenImage get moneyWithdraw => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-withdraw.svg');
+    'assets/icons/finance and payment/outline/money-withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money-yen.svg
   SvgGenImage get moneyYen => const SvgGenImage(
-      'assets/icons/finance and payment/outline/money-yen.svg');
+    'assets/icons/finance and payment/outline/money-yen.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/money.svg
   SvgGenImage get money =>
@@ -9776,7 +10081,8 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/pie chart.svg
   SvgGenImage get pieChart => const SvgGenImage(
-      'assets/icons/finance and payment/outline/pie chart.svg');
+    'assets/icons/finance and payment/outline/pie chart.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/pound.svg
   SvgGenImage get pound =>
@@ -9784,11 +10090,13 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/profit 01.svg
   SvgGenImage get profit01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/profit 01.svg');
+    'assets/icons/finance and payment/outline/profit 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/profit 02.svg
   SvgGenImage get profit02 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/profit 02.svg');
+    'assets/icons/finance and payment/outline/profit 02.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/profit.svg
   SvgGenImage get profit =>
@@ -9800,11 +10108,13 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/safe box 01.svg
   SvgGenImage get safeBox01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/safe box 01.svg');
+    'assets/icons/finance and payment/outline/safe box 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/safe box.svg
   SvgGenImage get safeBox => const SvgGenImage(
-      'assets/icons/finance and payment/outline/safe box.svg');
+    'assets/icons/finance and payment/outline/safe box.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/shield.svg
   SvgGenImage get shield =>
@@ -9812,87 +10122,108 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/transfer.svg
   SvgGenImage get transfer => const SvgGenImage(
-      'assets/icons/finance and payment/outline/transfer.svg');
+    'assets/icons/finance and payment/outline/transfer.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/umbrella.svg
   SvgGenImage get umbrella => const SvgGenImage(
-      'assets/icons/finance and payment/outline/umbrella.svg');
+    'assets/icons/finance and payment/outline/umbrella.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet 01.svg
   SvgGenImage get wallet01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet 01.svg');
+    'assets/icons/finance and payment/outline/wallet 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-add 01.svg
   SvgGenImage get walletAdd01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-add 01.svg');
+    'assets/icons/finance and payment/outline/wallet-add 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-add.svg
   SvgGenImage get walletAdd => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-add.svg');
+    'assets/icons/finance and payment/outline/wallet-add.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-down 01.svg
   SvgGenImage get walletArrowDown01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-down 01.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-down.svg
   SvgGenImage get walletArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-down.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-left 01.svg
   SvgGenImage get walletArrowLeft01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-left 01.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-left 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-left.svg
   SvgGenImage get walletArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-left.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-right 01.svg
   SvgGenImage get walletArrowRight01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-right 01.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-right 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-right.svg
   SvgGenImage get walletArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-right.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-up 01.svg
   SvgGenImage get walletArrowUp01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-up 01.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-up 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-arrow-up.svg
   SvgGenImage get walletArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-arrow-up.svg');
+    'assets/icons/finance and payment/outline/wallet-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-check 01.svg
   SvgGenImage get walletCheck01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-check 01.svg');
+    'assets/icons/finance and payment/outline/wallet-check 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-check.svg
   SvgGenImage get walletCheck => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-check.svg');
+    'assets/icons/finance and payment/outline/wallet-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-minus 01.svg
   SvgGenImage get walletMinus01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-minus 01.svg');
+    'assets/icons/finance and payment/outline/wallet-minus 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-minus.svg
   SvgGenImage get walletMinus => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-minus.svg');
+    'assets/icons/finance and payment/outline/wallet-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-remove 01.svg
   SvgGenImage get walletRemove01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-remove 01.svg');
+    'assets/icons/finance and payment/outline/wallet-remove 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-remove.svg
   SvgGenImage get walletRemove => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-remove.svg');
+    'assets/icons/finance and payment/outline/wallet-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-user 01.svg
   SvgGenImage get walletUser01 => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-user 01.svg');
+    'assets/icons/finance and payment/outline/wallet-user 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet-user.svg
   SvgGenImage get walletUser => const SvgGenImage(
-      'assets/icons/finance and payment/outline/wallet-user.svg');
+    'assets/icons/finance and payment/outline/wallet-user.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/wallet.svg
   SvgGenImage get wallet =>
@@ -9900,7 +10231,8 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// File path: assets/icons/finance and payment/outline/withdraw.svg
   SvgGenImage get withdraw => const SvgGenImage(
-      'assets/icons/finance and payment/outline/withdraw.svg');
+    'assets/icons/finance and payment/outline/withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/outline/yen.svg
   SvgGenImage get yen =>
@@ -9908,107 +10240,107 @@ class $AssetsIconsFinanceAndPaymentOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        atm,
-        bank,
-        barChart01,
-        barChart,
-        bill,
-        briefcase01,
-        briefcase,
-        cardAdd,
-        cardArrowDown,
-        cardArrowLeft,
-        cardArrowRight,
-        cardArrowUp,
-        cardCheck,
-        cardMinus,
-        cardRemove,
-        cardUser,
-        cardWithdraw,
-        card,
-        coinDollar,
-        coinEuro,
-        coinPound,
-        coinYen,
-        coin,
-        cube,
-        dollar,
-        donateCoin,
-        donate,
-        earnings,
-        euro,
-        gold,
-        hartArrowDown,
-        hartArrowUp,
-        hartHistogram,
-        lineChart01,
-        lineChart02,
-        lineChart,
-        masterCard,
-        mobilePayment,
-        money01,
-        money02,
-        moneyBagCoin1,
-        moneyBagCoin,
-        moneyBagDollar,
-        moneyBagEuro,
-        moneyBagPound,
-        moneyBagYen,
-        moneyBag,
-        moneyAdd,
-        moneyArrowDown,
-        moneyArrowLeft,
-        moneyArrowRight,
-        moneyArrowUp,
-        moneyCheck,
-        moneyCoin,
-        moneyDollar,
-        moneyEuro,
-        moneyFavourite,
-        moneyIncome,
-        moneyMinus,
-        moneyPound,
-        moneyProfit01,
-        moneyProfit,
-        moneyRemove,
-        moneyUser,
-        moneyWithdraw,
-        moneyYen,
-        money,
-        pieChart,
-        pound,
-        profit01,
-        profit02,
-        profit,
-        pyramid,
-        safeBox01,
-        safeBox,
-        shield,
-        transfer,
-        umbrella,
-        wallet01,
-        walletAdd01,
-        walletAdd,
-        walletArrowDown01,
-        walletArrowDown,
-        walletArrowLeft01,
-        walletArrowLeft,
-        walletArrowRight01,
-        walletArrowRight,
-        walletArrowUp01,
-        walletArrowUp,
-        walletCheck01,
-        walletCheck,
-        walletMinus01,
-        walletMinus,
-        walletRemove01,
-        walletRemove,
-        walletUser01,
-        walletUser,
-        wallet,
-        withdraw,
-        yen
-      ];
+    atm,
+    bank,
+    barChart01,
+    barChart,
+    bill,
+    briefcase01,
+    briefcase,
+    cardAdd,
+    cardArrowDown,
+    cardArrowLeft,
+    cardArrowRight,
+    cardArrowUp,
+    cardCheck,
+    cardMinus,
+    cardRemove,
+    cardUser,
+    cardWithdraw,
+    card,
+    coinDollar,
+    coinEuro,
+    coinPound,
+    coinYen,
+    coin,
+    cube,
+    dollar,
+    donateCoin,
+    donate,
+    earnings,
+    euro,
+    gold,
+    hartArrowDown,
+    hartArrowUp,
+    hartHistogram,
+    lineChart01,
+    lineChart02,
+    lineChart,
+    masterCard,
+    mobilePayment,
+    money01,
+    money02,
+    moneyBagCoin1,
+    moneyBagCoin,
+    moneyBagDollar,
+    moneyBagEuro,
+    moneyBagPound,
+    moneyBagYen,
+    moneyBag,
+    moneyAdd,
+    moneyArrowDown,
+    moneyArrowLeft,
+    moneyArrowRight,
+    moneyArrowUp,
+    moneyCheck,
+    moneyCoin,
+    moneyDollar,
+    moneyEuro,
+    moneyFavourite,
+    moneyIncome,
+    moneyMinus,
+    moneyPound,
+    moneyProfit01,
+    moneyProfit,
+    moneyRemove,
+    moneyUser,
+    moneyWithdraw,
+    moneyYen,
+    money,
+    pieChart,
+    pound,
+    profit01,
+    profit02,
+    profit,
+    pyramid,
+    safeBox01,
+    safeBox,
+    shield,
+    transfer,
+    umbrella,
+    wallet01,
+    walletAdd01,
+    walletAdd,
+    walletArrowDown01,
+    walletArrowDown,
+    walletArrowLeft01,
+    walletArrowLeft,
+    walletArrowRight01,
+    walletArrowRight,
+    walletArrowUp01,
+    walletArrowUp,
+    walletCheck01,
+    walletCheck,
+    walletMinus01,
+    walletMinus,
+    walletRemove01,
+    walletRemove,
+    walletUser01,
+    walletUser,
+    wallet,
+    withdraw,
+    yen,
+  ];
 }
 
 class $AssetsIconsFinanceAndPaymentSolidGen {
@@ -10024,7 +10356,8 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/bar chart 01.svg
   SvgGenImage get barChart01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/bar chart 01.svg');
+    'assets/icons/finance and payment/solid/bar chart 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/bar chart.svg
   SvgGenImage get barChart =>
@@ -10036,7 +10369,8 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/briefcase 01.svg
   SvgGenImage get briefcase01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/briefcase 01.svg');
+    'assets/icons/finance and payment/solid/briefcase 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/briefcase.svg
   SvgGenImage get briefcase =>
@@ -10048,31 +10382,38 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/card-arrow-down.svg
   SvgGenImage get cardArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-arrow-down.svg');
+    'assets/icons/finance and payment/solid/card-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-arrow-left.svg
   SvgGenImage get cardArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-arrow-left.svg');
+    'assets/icons/finance and payment/solid/card-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-arrow-right.svg
   SvgGenImage get cardArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-arrow-right.svg');
+    'assets/icons/finance and payment/solid/card-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-arrow-up.svg
   SvgGenImage get cardArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-arrow-up.svg');
+    'assets/icons/finance and payment/solid/card-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-check.svg
   SvgGenImage get cardCheck => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-check.svg');
+    'assets/icons/finance and payment/solid/card-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-minus.svg
   SvgGenImage get cardMinus => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-minus.svg');
+    'assets/icons/finance and payment/solid/card-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-remove.svg
   SvgGenImage get cardRemove => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-remove.svg');
+    'assets/icons/finance and payment/solid/card-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card-user.svg
   SvgGenImage get cardUser =>
@@ -10080,7 +10421,8 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/card-withdraw.svg
   SvgGenImage get cardWithdraw => const SvgGenImage(
-      'assets/icons/finance and payment/solid/card-withdraw.svg');
+    'assets/icons/finance and payment/solid/card-withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/card.svg
   SvgGenImage get card =>
@@ -10088,19 +10430,23 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/chart-arrow-down.svg
   SvgGenImage get chartArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/solid/chart-arrow-down.svg');
+    'assets/icons/finance and payment/solid/chart-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/chart-arrow-up.svg
   SvgGenImage get chartArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/solid/chart-arrow-up.svg');
+    'assets/icons/finance and payment/solid/chart-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/chart-histogram.svg
   SvgGenImage get chartHistogram => const SvgGenImage(
-      'assets/icons/finance and payment/solid/chart-histogram.svg');
+    'assets/icons/finance and payment/solid/chart-histogram.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/coin-dollar.svg
   SvgGenImage get coinDollar => const SvgGenImage(
-      'assets/icons/finance and payment/solid/coin-dollar.svg');
+    'assets/icons/finance and payment/solid/coin-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/coin-euro.svg
   SvgGenImage get coinEuro =>
@@ -10108,7 +10454,8 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/coin-pound.svg
   SvgGenImage get coinPound => const SvgGenImage(
-      'assets/icons/finance and payment/solid/coin-pound.svg');
+    'assets/icons/finance and payment/solid/coin-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/coin-yen.svg
   SvgGenImage get coinYen =>
@@ -10144,23 +10491,28 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/line chart 01.svg
   SvgGenImage get lineChart01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/line chart 01.svg');
+    'assets/icons/finance and payment/solid/line chart 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/line chart 02.svg
   SvgGenImage get lineChart02 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/line chart 02.svg');
+    'assets/icons/finance and payment/solid/line chart 02.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/line chart.svg
   SvgGenImage get lineChart => const SvgGenImage(
-      'assets/icons/finance and payment/solid/line chart.svg');
+    'assets/icons/finance and payment/solid/line chart.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/master card.svg
   SvgGenImage get masterCard => const SvgGenImage(
-      'assets/icons/finance and payment/solid/master card.svg');
+    'assets/icons/finance and payment/solid/master card.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/mobile payment.svg
   SvgGenImage get mobilePayment => const SvgGenImage(
-      'assets/icons/finance and payment/solid/mobile payment.svg');
+    'assets/icons/finance and payment/solid/mobile payment.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money 01.svg
   SvgGenImage get money01 =>
@@ -10172,27 +10524,33 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/money bag-coin-1.svg
   SvgGenImage get moneyBagCoin1 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money bag-coin-1.svg');
+    'assets/icons/finance and payment/solid/money bag-coin-1.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money bag-coin.svg
   SvgGenImage get moneyBagCoin => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money bag-coin.svg');
+    'assets/icons/finance and payment/solid/money bag-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money bag-dollar.svg
   SvgGenImage get moneyBagDollar => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money bag-dollar.svg');
+    'assets/icons/finance and payment/solid/money bag-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money bag-euro.svg
   SvgGenImage get moneyBagEuro => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money bag-euro.svg');
+    'assets/icons/finance and payment/solid/money bag-euro.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money bag-pound.svg
   SvgGenImage get moneyBagPound => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money bag-pound.svg');
+    'assets/icons/finance and payment/solid/money bag-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money bag-yen.svg
   SvgGenImage get moneyBagYen => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money bag-yen.svg');
+    'assets/icons/finance and payment/solid/money bag-yen.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money bag.svg
   SvgGenImage get moneyBag =>
@@ -10204,71 +10562,88 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/money-arrow-down.svg
   SvgGenImage get moneyArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-arrow-down.svg');
+    'assets/icons/finance and payment/solid/money-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-arrow-left.svg
   SvgGenImage get moneyArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-arrow-left.svg');
+    'assets/icons/finance and payment/solid/money-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-arrow-right.svg
   SvgGenImage get moneyArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-arrow-right.svg');
+    'assets/icons/finance and payment/solid/money-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-arrow-up.svg
   SvgGenImage get moneyArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-arrow-up.svg');
+    'assets/icons/finance and payment/solid/money-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-check.svg
   SvgGenImage get moneyCheck => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-check.svg');
+    'assets/icons/finance and payment/solid/money-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-coin.svg
   SvgGenImage get moneyCoin => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-coin.svg');
+    'assets/icons/finance and payment/solid/money-coin.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-dollar.svg
   SvgGenImage get moneyDollar => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-dollar.svg');
+    'assets/icons/finance and payment/solid/money-dollar.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-euro.svg
   SvgGenImage get moneyEuro => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-euro.svg');
+    'assets/icons/finance and payment/solid/money-euro.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-favourite.svg
   SvgGenImage get moneyFavourite => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-favourite.svg');
+    'assets/icons/finance and payment/solid/money-favourite.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-income.svg
   SvgGenImage get moneyIncome => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-income.svg');
+    'assets/icons/finance and payment/solid/money-income.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-minus.svg
   SvgGenImage get moneyMinus => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-minus.svg');
+    'assets/icons/finance and payment/solid/money-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-pound.svg
   SvgGenImage get moneyPound => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-pound.svg');
+    'assets/icons/finance and payment/solid/money-pound.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-profit 01.svg
   SvgGenImage get moneyProfit01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-profit 01.svg');
+    'assets/icons/finance and payment/solid/money-profit 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-profit.svg
   SvgGenImage get moneyProfit => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-profit.svg');
+    'assets/icons/finance and payment/solid/money-profit.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-remove.svg
   SvgGenImage get moneyRemove => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-remove.svg');
+    'assets/icons/finance and payment/solid/money-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-user.svg
   SvgGenImage get moneyUser => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-user.svg');
+    'assets/icons/finance and payment/solid/money-user.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-withdraw.svg
   SvgGenImage get moneyWithdraw => const SvgGenImage(
-      'assets/icons/finance and payment/solid/money-withdraw.svg');
+    'assets/icons/finance and payment/solid/money-withdraw.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/money-yen.svg
   SvgGenImage get moneyYen =>
@@ -10304,7 +10679,8 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/safe box 01.svg
   SvgGenImage get safeBox01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/safe box 01.svg');
+    'assets/icons/finance and payment/solid/safe box 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/safe box.svg
   SvgGenImage get safeBox =>
@@ -10328,75 +10704,93 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// File path: assets/icons/finance and payment/solid/wallet-add 01.svg
   SvgGenImage get walletAdd01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-add 01.svg');
+    'assets/icons/finance and payment/solid/wallet-add 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-add.svg
   SvgGenImage get walletAdd => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-add.svg');
+    'assets/icons/finance and payment/solid/wallet-add.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-down 01.svg
   SvgGenImage get walletArrowDown01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-down 01.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-down.svg
   SvgGenImage get walletArrowDown => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-down.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-down.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-left 01.svg
   SvgGenImage get walletArrowLeft01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-left 01.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-left 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-left.svg
   SvgGenImage get walletArrowLeft => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-left.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-left.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-right 01.svg
   SvgGenImage get walletArrowRight01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-right 01.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-right 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-right.svg
   SvgGenImage get walletArrowRight => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-right.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-right.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-up 01.svg
   SvgGenImage get walletArrowUp01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-up 01.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-up 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-arrow-up.svg
   SvgGenImage get walletArrowUp => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-arrow-up.svg');
+    'assets/icons/finance and payment/solid/wallet-arrow-up.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-check 01.svg
   SvgGenImage get walletCheck01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-check 01.svg');
+    'assets/icons/finance and payment/solid/wallet-check 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-check.svg
   SvgGenImage get walletCheck => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-check.svg');
+    'assets/icons/finance and payment/solid/wallet-check.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-minus 01.svg
   SvgGenImage get walletMinus01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-minus 01.svg');
+    'assets/icons/finance and payment/solid/wallet-minus 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-minus.svg
   SvgGenImage get walletMinus => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-minus.svg');
+    'assets/icons/finance and payment/solid/wallet-minus.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-remove 01.svg
   SvgGenImage get walletRemove01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-remove 01.svg');
+    'assets/icons/finance and payment/solid/wallet-remove 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-remove.svg
   SvgGenImage get walletRemove => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-remove.svg');
+    'assets/icons/finance and payment/solid/wallet-remove.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-user 01.svg
   SvgGenImage get walletUser01 => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-user 01.svg');
+    'assets/icons/finance and payment/solid/wallet-user 01.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet-user.svg
   SvgGenImage get walletUser => const SvgGenImage(
-      'assets/icons/finance and payment/solid/wallet-user.svg');
+    'assets/icons/finance and payment/solid/wallet-user.svg',
+  );
 
   /// File path: assets/icons/finance and payment/solid/wallet.svg
   SvgGenImage get wallet =>
@@ -10412,106 +10806,106 @@ class $AssetsIconsFinanceAndPaymentSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        atm,
-        bank,
-        barChart01,
-        barChart,
-        bill,
-        briefcase01,
-        briefcase,
-        cardAdd,
-        cardArrowDown,
-        cardArrowLeft,
-        cardArrowRight,
-        cardArrowUp,
-        cardCheck,
-        cardMinus,
-        cardRemove,
-        cardUser,
-        cardWithdraw,
-        card,
-        chartArrowDown,
-        chartArrowUp,
-        chartHistogram,
-        coinDollar,
-        coinEuro,
-        coinPound,
-        coinYen,
-        coin,
-        cube,
-        dollar,
-        donate,
-        earnings,
-        euro,
-        gold,
-        lineChart01,
-        lineChart02,
-        lineChart,
-        masterCard,
-        mobilePayment,
-        money01,
-        money02,
-        moneyBagCoin1,
-        moneyBagCoin,
-        moneyBagDollar,
-        moneyBagEuro,
-        moneyBagPound,
-        moneyBagYen,
-        moneyBag,
-        moneyAdd,
-        moneyArrowDown,
-        moneyArrowLeft,
-        moneyArrowRight,
-        moneyArrowUp,
-        moneyCheck,
-        moneyCoin,
-        moneyDollar,
-        moneyEuro,
-        moneyFavourite,
-        moneyIncome,
-        moneyMinus,
-        moneyPound,
-        moneyProfit01,
-        moneyProfit,
-        moneyRemove,
-        moneyUser,
-        moneyWithdraw,
-        moneyYen,
-        money,
-        pieChart,
-        pound,
-        profit01,
-        profit02,
-        profit,
-        pyramid,
-        safeBox01,
-        safeBox,
-        shield,
-        transfer,
-        umbrella,
-        wallet01,
-        walletAdd01,
-        walletAdd,
-        walletArrowDown01,
-        walletArrowDown,
-        walletArrowLeft01,
-        walletArrowLeft,
-        walletArrowRight01,
-        walletArrowRight,
-        walletArrowUp01,
-        walletArrowUp,
-        walletCheck01,
-        walletCheck,
-        walletMinus01,
-        walletMinus,
-        walletRemove01,
-        walletRemove,
-        walletUser01,
-        walletUser,
-        wallet,
-        withdraw,
-        yen
-      ];
+    atm,
+    bank,
+    barChart01,
+    barChart,
+    bill,
+    briefcase01,
+    briefcase,
+    cardAdd,
+    cardArrowDown,
+    cardArrowLeft,
+    cardArrowRight,
+    cardArrowUp,
+    cardCheck,
+    cardMinus,
+    cardRemove,
+    cardUser,
+    cardWithdraw,
+    card,
+    chartArrowDown,
+    chartArrowUp,
+    chartHistogram,
+    coinDollar,
+    coinEuro,
+    coinPound,
+    coinYen,
+    coin,
+    cube,
+    dollar,
+    donate,
+    earnings,
+    euro,
+    gold,
+    lineChart01,
+    lineChart02,
+    lineChart,
+    masterCard,
+    mobilePayment,
+    money01,
+    money02,
+    moneyBagCoin1,
+    moneyBagCoin,
+    moneyBagDollar,
+    moneyBagEuro,
+    moneyBagPound,
+    moneyBagYen,
+    moneyBag,
+    moneyAdd,
+    moneyArrowDown,
+    moneyArrowLeft,
+    moneyArrowRight,
+    moneyArrowUp,
+    moneyCheck,
+    moneyCoin,
+    moneyDollar,
+    moneyEuro,
+    moneyFavourite,
+    moneyIncome,
+    moneyMinus,
+    moneyPound,
+    moneyProfit01,
+    moneyProfit,
+    moneyRemove,
+    moneyUser,
+    moneyWithdraw,
+    moneyYen,
+    money,
+    pieChart,
+    pound,
+    profit01,
+    profit02,
+    profit,
+    pyramid,
+    safeBox01,
+    safeBox,
+    shield,
+    transfer,
+    umbrella,
+    wallet01,
+    walletAdd01,
+    walletAdd,
+    walletArrowDown01,
+    walletArrowDown,
+    walletArrowLeft01,
+    walletArrowLeft,
+    walletArrowRight01,
+    walletArrowRight,
+    walletArrowUp01,
+    walletArrowUp,
+    walletCheck01,
+    walletCheck,
+    walletMinus01,
+    walletMinus,
+    walletRemove01,
+    walletRemove,
+    walletUser01,
+    walletUser,
+    wallet,
+    withdraw,
+    yen,
+  ];
 }
 
 class $AssetsIconsGridBulkGen {
@@ -10637,37 +11031,37 @@ class $AssetsIconsGridBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alignBottom,
-        alignCenter1,
-        alignCenter,
-        alignLeft,
-        alignRight,
-        alignTop,
-        grid01,
-        grid02,
-        grid,
-        landscape01,
-        landscape02,
-        landscape,
-        layout01,
-        layout02,
-        layout03,
-        layout04,
-        layout05,
-        layout06,
-        layout07,
-        layout08,
-        layout09,
-        layout10,
-        layout,
-        left,
-        pixelGridCircle,
-        pixelGridRectangle,
-        potrait01,
-        potrait02,
-        potrait,
-        right
-      ];
+    alignBottom,
+    alignCenter1,
+    alignCenter,
+    alignLeft,
+    alignRight,
+    alignTop,
+    grid01,
+    grid02,
+    grid,
+    landscape01,
+    landscape02,
+    landscape,
+    layout01,
+    layout02,
+    layout03,
+    layout04,
+    layout05,
+    layout06,
+    layout07,
+    layout08,
+    layout09,
+    layout10,
+    layout,
+    left,
+    pixelGridCircle,
+    pixelGridRectangle,
+    potrait01,
+    potrait02,
+    potrait,
+    right,
+  ];
 }
 
 class $AssetsIconsGridOutlineGen {
@@ -10795,37 +11189,37 @@ class $AssetsIconsGridOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alignTop,
-        alignBottom,
-        alignCenter1,
-        alignCenter,
-        alignLeft,
-        alignRight,
-        grid01,
-        grid02,
-        grid,
-        landscape01,
-        landscape02,
-        landscape,
-        layout01,
-        layout02,
-        layout03,
-        layout04,
-        layout05,
-        layout06,
-        layout07,
-        layout08,
-        layout09,
-        layout10,
-        layout,
-        left,
-        pixelGridCircle,
-        pixelGridRectangle,
-        potrait01,
-        potrait02,
-        potrait,
-        right
-      ];
+    alignTop,
+    alignBottom,
+    alignCenter1,
+    alignCenter,
+    alignLeft,
+    alignRight,
+    grid01,
+    grid02,
+    grid,
+    landscape01,
+    landscape02,
+    landscape,
+    layout01,
+    layout02,
+    layout03,
+    layout04,
+    layout05,
+    layout06,
+    layout07,
+    layout08,
+    layout09,
+    layout10,
+    layout,
+    left,
+    pixelGridCircle,
+    pixelGridRectangle,
+    potrait01,
+    potrait02,
+    potrait,
+    right,
+  ];
 }
 
 class $AssetsIconsGridSolidGen {
@@ -10951,37 +11345,37 @@ class $AssetsIconsGridSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alignBottom,
-        alignCenter1,
-        alignCenter,
-        alignLeft,
-        alignRight,
-        alignTop,
-        grid01,
-        grid02,
-        grid,
-        landscape01,
-        landscape02,
-        landscape,
-        layout01,
-        layout02,
-        layout03,
-        layout04,
-        layout05,
-        layout06,
-        layout07,
-        layout08,
-        layout09,
-        layout10,
-        layout,
-        left,
-        pixelGridCircle,
-        pixelGridRectangle,
-        potrait01,
-        potrait02,
-        potrait,
-        right
-      ];
+    alignBottom,
+    alignCenter1,
+    alignCenter,
+    alignLeft,
+    alignRight,
+    alignTop,
+    grid01,
+    grid02,
+    grid,
+    landscape01,
+    landscape02,
+    landscape,
+    layout01,
+    layout02,
+    layout03,
+    layout04,
+    layout05,
+    layout06,
+    layout07,
+    layout08,
+    layout09,
+    layout10,
+    layout,
+    left,
+    pixelGridCircle,
+    pixelGridRectangle,
+    potrait01,
+    potrait02,
+    potrait,
+    right,
+  ];
 }
 
 class $AssetsIconsHealthBulkGen {
@@ -11139,45 +11533,45 @@ class $AssetsIconsHealthBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        activity,
-        ambulance,
-        blood01,
-        blood,
-        callHospital,
-        capsule01,
-        capsule,
-        cardiogram,
-        clipboardActivity,
-        dna,
-        eyeDropper,
-        eye,
-        giveBlood,
-        givePill,
-        healthCare,
-        heart,
-        honey,
-        hospital01,
-        hospitalBed,
-        hospital,
-        injection,
-        locationHospital,
-        mask,
-        medicalBook,
-        medicalInformation,
-        medicalService,
-        pillTablet,
-        pills01,
-        pills,
-        plaster,
-        stethoscope,
-        syrup,
-        testTube,
-        thermometer,
-        tooth,
-        transfusion,
-        wheelChair01,
-        wheelChair
-      ];
+    activity,
+    ambulance,
+    blood01,
+    blood,
+    callHospital,
+    capsule01,
+    capsule,
+    cardiogram,
+    clipboardActivity,
+    dna,
+    eyeDropper,
+    eye,
+    giveBlood,
+    givePill,
+    healthCare,
+    heart,
+    honey,
+    hospital01,
+    hospitalBed,
+    hospital,
+    injection,
+    locationHospital,
+    mask,
+    medicalBook,
+    medicalInformation,
+    medicalService,
+    pillTablet,
+    pills01,
+    pills,
+    plaster,
+    stethoscope,
+    syrup,
+    testTube,
+    thermometer,
+    tooth,
+    transfusion,
+    wheelChair01,
+    wheelChair,
+  ];
 }
 
 class $AssetsIconsHealthOutlineGen {
@@ -11337,45 +11731,45 @@ class $AssetsIconsHealthOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        activity,
-        ambulance,
-        blood01,
-        blood,
-        callHospital,
-        capsule01,
-        capsule,
-        cardiogram,
-        clipboardActivity,
-        dna,
-        eyeDropper,
-        eye,
-        giveBlood,
-        givePill,
-        healthCare,
-        heart,
-        honey,
-        hospital01,
-        hospitalBed,
-        hospital,
-        injection,
-        locationHospital,
-        mask,
-        medicalBook,
-        medicalInformation,
-        medicalService,
-        pillTablet,
-        pills01,
-        pills,
-        plaster,
-        stethoscope,
-        syrup,
-        testTube,
-        thermometer,
-        tooth,
-        transfusion,
-        wheelChair01,
-        wheelChair
-      ];
+    activity,
+    ambulance,
+    blood01,
+    blood,
+    callHospital,
+    capsule01,
+    capsule,
+    cardiogram,
+    clipboardActivity,
+    dna,
+    eyeDropper,
+    eye,
+    giveBlood,
+    givePill,
+    healthCare,
+    heart,
+    honey,
+    hospital01,
+    hospitalBed,
+    hospital,
+    injection,
+    locationHospital,
+    mask,
+    medicalBook,
+    medicalInformation,
+    medicalService,
+    pillTablet,
+    pills01,
+    pills,
+    plaster,
+    stethoscope,
+    syrup,
+    testTube,
+    thermometer,
+    tooth,
+    transfusion,
+    wheelChair01,
+    wheelChair,
+  ];
 }
 
 class $AssetsIconsHealthSolidGen {
@@ -11533,45 +11927,45 @@ class $AssetsIconsHealthSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        activity,
-        ambulance,
-        blood01,
-        blood,
-        callHospital,
-        capsule01,
-        capsule1,
-        cardiogram,
-        clipboardActivity,
-        dna,
-        eyeDropper,
-        eye,
-        giveBlood,
-        givePill,
-        healthCare,
-        heart,
-        honey,
-        hospital01,
-        hospitalBed,
-        hospital,
-        injection,
-        locationHospital,
-        mask,
-        medicalBook,
-        medicalInformation,
-        medicalService,
-        pillTablet,
-        pills01,
-        pills,
-        plaster,
-        stethoscope,
-        syrup,
-        testTube,
-        thermometer,
-        tooth,
-        transfusion,
-        wheelChair01,
-        wheelChair
-      ];
+    activity,
+    ambulance,
+    blood01,
+    blood,
+    callHospital,
+    capsule01,
+    capsule1,
+    cardiogram,
+    clipboardActivity,
+    dna,
+    eyeDropper,
+    eye,
+    giveBlood,
+    givePill,
+    healthCare,
+    heart,
+    honey,
+    hospital01,
+    hospitalBed,
+    hospital,
+    injection,
+    locationHospital,
+    mask,
+    medicalBook,
+    medicalInformation,
+    medicalService,
+    pillTablet,
+    pills01,
+    pills,
+    plaster,
+    stethoscope,
+    syrup,
+    testTube,
+    thermometer,
+    tooth,
+    transfusion,
+    wheelChair01,
+    wheelChair,
+  ];
 }
 
 class $AssetsIconsInterfaceBulkGen {
@@ -11823,7 +12217,8 @@ class $AssetsIconsInterfaceBulkGen {
 
   /// File path: assets/icons/interface/bulk/information-rectangle.svg
   SvgGenImage get informationRectangle => const SvgGenImage(
-      'assets/icons/interface/bulk/information-rectangle.svg');
+    'assets/icons/interface/bulk/information-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/bulk/information.svg
   SvgGenImage get information =>
@@ -11979,11 +12374,13 @@ class $AssetsIconsInterfaceBulkGen {
 
   /// File path: assets/icons/interface/bulk/notification-rectangle.svg
   SvgGenImage get notificationRectangle => const SvgGenImage(
-      'assets/icons/interface/bulk/notification-rectangle.svg');
+    'assets/icons/interface/bulk/notification-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/bulk/notification-ringing-1.svg
   SvgGenImage get notificationRinging1 => const SvgGenImage(
-      'assets/icons/interface/bulk/notification-ringing-1.svg');
+    'assets/icons/interface/bulk/notification-ringing-1.svg',
+  );
 
   /// File path: assets/icons/interface/bulk/notification-ringing.svg
   SvgGenImage get notificationRinging =>
@@ -11991,7 +12388,8 @@ class $AssetsIconsInterfaceBulkGen {
 
   /// File path: assets/icons/interface/bulk/notification-silent-1.svg
   SvgGenImage get notificationSilent1 => const SvgGenImage(
-      'assets/icons/interface/bulk/notification-silent-1.svg');
+    'assets/icons/interface/bulk/notification-silent-1.svg',
+  );
 
   /// File path: assets/icons/interface/bulk/notification-silent.svg
   SvgGenImage get notificationSilent =>
@@ -12247,174 +12645,174 @@ class $AssetsIconsInterfaceBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        checkMarkCircle,
-        addCircle,
-        addRectangle,
-        agenda,
-        alarm,
-        appsAdd,
-        appsRemove,
-        apps,
-        board,
-        bookmark,
-        brightness,
-        browser,
-        calendar,
-        cameraOff,
-        camera,
-        checkMarkRectangle,
-        checkCircle,
-        checkRectangle,
-        clearCircle,
-        clearRectangle,
-        clockCircle1,
-        clockCircle,
-        clockRectangle1,
-        clockRectangle,
-        collection,
-        compass,
-        computer,
-        copyCheck,
-        copy,
-        cpu,
-        diamond,
-        disk,
-        dislike,
-        editRectangle,
-        edit,
-        eye01,
-        eyeDisable,
-        eye,
-        feedRectangle,
-        filter01,
-        filter02,
-        filter03,
-        filter04,
-        filter05,
-        filter06,
-        filter07,
-        filter,
-        flag,
-        focus,
-        gift,
-        globe,
-        helpPolygon,
-        help,
-        home01,
-        home02,
-        home03,
-        home04,
-        imageCircle,
-        imageRectangle,
-        informationCircle,
-        informationPolygon,
-        informationRectangle,
-        information,
-        interactive,
-        invoice,
-        layers,
-        lifebuoy,
-        like,
-        listViewCircle,
-        listViewRectangle,
-        loading01,
-        loading,
-        location01,
-        location02,
-        location03,
-        lock01,
-        lock,
-        login01,
-        login,
-        logout01,
-        logout,
-        love,
-        micMute,
-        mic,
-        microphoneMute,
-        microphone,
-        minus01,
-        minus,
-        money,
-        moreHorizontal,
-        moreVertical,
-        mouse,
-        nib,
-        notepad,
-        notification01,
-        notification02,
-        notification03,
-        notification04,
-        notification05,
-        notificationCircle,
-        notificationRectangle,
-        notificationRinging1,
-        notificationRinging,
-        notificationSilent1,
-        notificationSilent,
-        notification,
-        openBook,
-        paintBucket,
-        pin,
-        plugin,
-        plus01,
-        plus,
-        powerCircle,
-        powerRectangle,
-        presentation,
-        remove01,
-        remove02,
-        removeCircle,
-        removeRectangle,
-        remove,
-        replyRectangle,
-        sadCircle,
-        sadRectangle,
-        search01,
-        search02,
-        search03,
-        searchMinus,
-        searchPlus,
-        searchRemove,
-        setting,
-        shareRectangle,
-        share,
-        shieldCheck,
-        shieldWarning,
-        shield,
-        shoppingBag,
-        shoppingBasket,
-        smileEllipse,
-        smileRectangle,
-        sortArrowDown01,
-        sortArrowDown,
-        sortArrowUp01,
-        sortArrowUp,
-        sortCircle,
-        sortRectangle,
-        speedTest,
-        star,
-        target,
-        tickDouble,
-        tick,
-        ticketPercent,
-        ticket,
-        training,
-        trash01,
-        trash,
-        unlock01,
-        unlock,
-        userCircle,
-        userRectangle,
-        user,
-        warningError,
-        warningPolygon,
-        warning,
-        zoomIn,
-        zoomOut,
-        zoomText,
-        zoom
-      ];
+    checkMarkCircle,
+    addCircle,
+    addRectangle,
+    agenda,
+    alarm,
+    appsAdd,
+    appsRemove,
+    apps,
+    board,
+    bookmark,
+    brightness,
+    browser,
+    calendar,
+    cameraOff,
+    camera,
+    checkMarkRectangle,
+    checkCircle,
+    checkRectangle,
+    clearCircle,
+    clearRectangle,
+    clockCircle1,
+    clockCircle,
+    clockRectangle1,
+    clockRectangle,
+    collection,
+    compass,
+    computer,
+    copyCheck,
+    copy,
+    cpu,
+    diamond,
+    disk,
+    dislike,
+    editRectangle,
+    edit,
+    eye01,
+    eyeDisable,
+    eye,
+    feedRectangle,
+    filter01,
+    filter02,
+    filter03,
+    filter04,
+    filter05,
+    filter06,
+    filter07,
+    filter,
+    flag,
+    focus,
+    gift,
+    globe,
+    helpPolygon,
+    help,
+    home01,
+    home02,
+    home03,
+    home04,
+    imageCircle,
+    imageRectangle,
+    informationCircle,
+    informationPolygon,
+    informationRectangle,
+    information,
+    interactive,
+    invoice,
+    layers,
+    lifebuoy,
+    like,
+    listViewCircle,
+    listViewRectangle,
+    loading01,
+    loading,
+    location01,
+    location02,
+    location03,
+    lock01,
+    lock,
+    login01,
+    login,
+    logout01,
+    logout,
+    love,
+    micMute,
+    mic,
+    microphoneMute,
+    microphone,
+    minus01,
+    minus,
+    money,
+    moreHorizontal,
+    moreVertical,
+    mouse,
+    nib,
+    notepad,
+    notification01,
+    notification02,
+    notification03,
+    notification04,
+    notification05,
+    notificationCircle,
+    notificationRectangle,
+    notificationRinging1,
+    notificationRinging,
+    notificationSilent1,
+    notificationSilent,
+    notification,
+    openBook,
+    paintBucket,
+    pin,
+    plugin,
+    plus01,
+    plus,
+    powerCircle,
+    powerRectangle,
+    presentation,
+    remove01,
+    remove02,
+    removeCircle,
+    removeRectangle,
+    remove,
+    replyRectangle,
+    sadCircle,
+    sadRectangle,
+    search01,
+    search02,
+    search03,
+    searchMinus,
+    searchPlus,
+    searchRemove,
+    setting,
+    shareRectangle,
+    share,
+    shieldCheck,
+    shieldWarning,
+    shield,
+    shoppingBag,
+    shoppingBasket,
+    smileEllipse,
+    smileRectangle,
+    sortArrowDown01,
+    sortArrowDown,
+    sortArrowUp01,
+    sortArrowUp,
+    sortCircle,
+    sortRectangle,
+    speedTest,
+    star,
+    target,
+    tickDouble,
+    tick,
+    ticketPercent,
+    ticket,
+    training,
+    trash01,
+    trash,
+    unlock01,
+    unlock,
+    userCircle,
+    userRectangle,
+    user,
+    warningError,
+    warningPolygon,
+    warning,
+    zoomIn,
+    zoomOut,
+    zoomText,
+    zoom,
+  ];
 }
 
 class $AssetsIconsInterfaceOutlineGen {
@@ -12482,7 +12880,8 @@ class $AssetsIconsInterfaceOutlineGen {
 
   /// File path: assets/icons/interface/outline/check mark-rectangle.svg
   SvgGenImage get checkMarkRectangle => const SvgGenImage(
-      'assets/icons/interface/outline/check mark-rectangle.svg');
+    'assets/icons/interface/outline/check mark-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/outline/check-circle.svg
   SvgGenImage get checkCircle =>
@@ -12658,15 +13057,18 @@ class $AssetsIconsInterfaceOutlineGen {
 
   /// File path: assets/icons/interface/outline/information-circle.svg
   SvgGenImage get informationCircle => const SvgGenImage(
-      'assets/icons/interface/outline/information-circle.svg');
+    'assets/icons/interface/outline/information-circle.svg',
+  );
 
   /// File path: assets/icons/interface/outline/information-polygon.svg
   SvgGenImage get informationPolygon => const SvgGenImage(
-      'assets/icons/interface/outline/information-polygon.svg');
+    'assets/icons/interface/outline/information-polygon.svg',
+  );
 
   /// File path: assets/icons/interface/outline/information-rectangle.svg
   SvgGenImage get informationRectangle => const SvgGenImage(
-      'assets/icons/interface/outline/information-rectangle.svg');
+    'assets/icons/interface/outline/information-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/outline/information.svg
   SvgGenImage get information =>
@@ -12698,7 +13100,8 @@ class $AssetsIconsInterfaceOutlineGen {
 
   /// File path: assets/icons/interface/outline/list view-rectangle.svg
   SvgGenImage get listViewRectangle => const SvgGenImage(
-      'assets/icons/interface/outline/list view-rectangle.svg');
+    'assets/icons/interface/outline/list view-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/outline/loading 01.svg
   SvgGenImage get loading01 =>
@@ -12822,27 +13225,33 @@ class $AssetsIconsInterfaceOutlineGen {
 
   /// File path: assets/icons/interface/outline/notification circle.svg
   SvgGenImage get notificationCircle => const SvgGenImage(
-      'assets/icons/interface/outline/notification circle.svg');
+    'assets/icons/interface/outline/notification circle.svg',
+  );
 
   /// File path: assets/icons/interface/outline/notification-rectangle.svg
   SvgGenImage get notificationRectangle => const SvgGenImage(
-      'assets/icons/interface/outline/notification-rectangle.svg');
+    'assets/icons/interface/outline/notification-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/outline/notification-ringing-1.svg
   SvgGenImage get notificationRinging1 => const SvgGenImage(
-      'assets/icons/interface/outline/notification-ringing-1.svg');
+    'assets/icons/interface/outline/notification-ringing-1.svg',
+  );
 
   /// File path: assets/icons/interface/outline/notification-ringing.svg
   SvgGenImage get notificationRinging => const SvgGenImage(
-      'assets/icons/interface/outline/notification-ringing.svg');
+    'assets/icons/interface/outline/notification-ringing.svg',
+  );
 
   /// File path: assets/icons/interface/outline/notification-silent-1.svg
   SvgGenImage get notificationSilent1 => const SvgGenImage(
-      'assets/icons/interface/outline/notification-silent-1.svg');
+    'assets/icons/interface/outline/notification-silent-1.svg',
+  );
 
   /// File path: assets/icons/interface/outline/notification-silent.svg
   SvgGenImage get notificationSilent => const SvgGenImage(
-      'assets/icons/interface/outline/notification-silent.svg');
+    'assets/icons/interface/outline/notification-silent.svg',
+  );
 
   /// File path: assets/icons/interface/outline/open book.svg
   SvgGenImage get openBook =>
@@ -12978,7 +13387,8 @@ class $AssetsIconsInterfaceOutlineGen {
 
   /// File path: assets/icons/interface/outline/sort-arrow-down 01.svg
   SvgGenImage get sortArrowDown01 => const SvgGenImage(
-      'assets/icons/interface/outline/sort-arrow-down 01.svg');
+    'assets/icons/interface/outline/sort-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/interface/outline/sort-arrow-down.svg
   SvgGenImage get sortArrowDown =>
@@ -13090,174 +13500,174 @@ class $AssetsIconsInterfaceOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        addCircle,
-        addRectangle,
-        agenda,
-        alarm,
-        appsAdd,
-        appsRemove,
-        apps,
-        board,
-        bookmark,
-        brightness,
-        browser,
-        calendar,
-        cameraOff,
-        camera,
-        checkMarkCircle,
-        checkMarkRectangle,
-        checkCircle,
-        checkRectangle,
-        clearCircle,
-        clearRectangle,
-        clockCircle1,
-        clockCircle,
-        clockRectangle1,
-        clockRectangle,
-        collection,
-        compass,
-        computer,
-        copyCheck,
-        copy,
-        cpu,
-        diamond,
-        disk,
-        dislike,
-        editRectangle,
-        edit,
-        eye01,
-        eyeDisable,
-        eye,
-        feedRectangle,
-        filter01,
-        filter02,
-        filter03,
-        filter04,
-        filter05,
-        filter06,
-        filter07,
-        filter,
-        flag,
-        focus,
-        gift,
-        globe,
-        helpPolygon,
-        help,
-        home01,
-        home02,
-        home03,
-        home04,
-        imageCircle,
-        imageRectangle,
-        informationCircle,
-        informationPolygon,
-        informationRectangle,
-        information,
-        interactive,
-        invoice,
-        layers,
-        lifebuoy,
-        like,
-        listViewCircle,
-        listViewRectangle,
-        loading01,
-        loading,
-        location01,
-        location02,
-        location03,
-        lock01,
-        lock,
-        login01,
-        login,
-        logout01,
-        logout,
-        love,
-        micMute,
-        mic,
-        microphoneMute,
-        microphone,
-        minus01,
-        minus,
-        money,
-        moreHorizontal,
-        moreVertical,
-        mouse,
-        nib,
-        notepad,
-        notification,
-        notification01,
-        notification02,
-        notification03,
-        notification04,
-        notification05,
-        notificationCircle,
-        notificationRectangle,
-        notificationRinging1,
-        notificationRinging,
-        notificationSilent1,
-        notificationSilent,
-        openBook,
-        paintBucket,
-        pin,
-        plugin,
-        plus01,
-        plus,
-        powerCircle,
-        powerRectangle,
-        presentation,
-        remove01,
-        remove02,
-        removeCircle,
-        removeRectangle,
-        remove,
-        replyRectangle,
-        sadCircle,
-        sadRectangle,
-        search01,
-        search02,
-        search03,
-        searchMinus,
-        searchPlus,
-        searchRemove,
-        setting,
-        shareRectangle,
-        share,
-        shieldCheck,
-        shieldWarning,
-        shield,
-        shoppingBag,
-        shoppingBasket,
-        smileEllipse,
-        smileRectangle,
-        sortArrowDown01,
-        sortArrowDown,
-        sortArrowUp01,
-        sortArrowUp,
-        sortCircle,
-        sortRectangle,
-        speedTest,
-        star,
-        target,
-        tickDouble,
-        tick,
-        ticketPercent,
-        ticket,
-        training,
-        trash01,
-        trash,
-        unlock01,
-        unlock,
-        userCircle,
-        userRectangle,
-        user,
-        warningError,
-        warningPolygon,
-        warning,
-        zoomIn,
-        zoomOut,
-        zoomText,
-        zoom
-      ];
+    addCircle,
+    addRectangle,
+    agenda,
+    alarm,
+    appsAdd,
+    appsRemove,
+    apps,
+    board,
+    bookmark,
+    brightness,
+    browser,
+    calendar,
+    cameraOff,
+    camera,
+    checkMarkCircle,
+    checkMarkRectangle,
+    checkCircle,
+    checkRectangle,
+    clearCircle,
+    clearRectangle,
+    clockCircle1,
+    clockCircle,
+    clockRectangle1,
+    clockRectangle,
+    collection,
+    compass,
+    computer,
+    copyCheck,
+    copy,
+    cpu,
+    diamond,
+    disk,
+    dislike,
+    editRectangle,
+    edit,
+    eye01,
+    eyeDisable,
+    eye,
+    feedRectangle,
+    filter01,
+    filter02,
+    filter03,
+    filter04,
+    filter05,
+    filter06,
+    filter07,
+    filter,
+    flag,
+    focus,
+    gift,
+    globe,
+    helpPolygon,
+    help,
+    home01,
+    home02,
+    home03,
+    home04,
+    imageCircle,
+    imageRectangle,
+    informationCircle,
+    informationPolygon,
+    informationRectangle,
+    information,
+    interactive,
+    invoice,
+    layers,
+    lifebuoy,
+    like,
+    listViewCircle,
+    listViewRectangle,
+    loading01,
+    loading,
+    location01,
+    location02,
+    location03,
+    lock01,
+    lock,
+    login01,
+    login,
+    logout01,
+    logout,
+    love,
+    micMute,
+    mic,
+    microphoneMute,
+    microphone,
+    minus01,
+    minus,
+    money,
+    moreHorizontal,
+    moreVertical,
+    mouse,
+    nib,
+    notepad,
+    notification,
+    notification01,
+    notification02,
+    notification03,
+    notification04,
+    notification05,
+    notificationCircle,
+    notificationRectangle,
+    notificationRinging1,
+    notificationRinging,
+    notificationSilent1,
+    notificationSilent,
+    openBook,
+    paintBucket,
+    pin,
+    plugin,
+    plus01,
+    plus,
+    powerCircle,
+    powerRectangle,
+    presentation,
+    remove01,
+    remove02,
+    removeCircle,
+    removeRectangle,
+    remove,
+    replyRectangle,
+    sadCircle,
+    sadRectangle,
+    search01,
+    search02,
+    search03,
+    searchMinus,
+    searchPlus,
+    searchRemove,
+    setting,
+    shareRectangle,
+    share,
+    shieldCheck,
+    shieldWarning,
+    shield,
+    shoppingBag,
+    shoppingBasket,
+    smileEllipse,
+    smileRectangle,
+    sortArrowDown01,
+    sortArrowDown,
+    sortArrowUp01,
+    sortArrowUp,
+    sortCircle,
+    sortRectangle,
+    speedTest,
+    star,
+    target,
+    tickDouble,
+    tick,
+    ticketPercent,
+    ticket,
+    training,
+    trash01,
+    trash,
+    unlock01,
+    unlock,
+    userCircle,
+    userRectangle,
+    user,
+    warningError,
+    warningPolygon,
+    warning,
+    zoomIn,
+    zoomOut,
+    zoomText,
+    zoom,
+  ];
 }
 
 class $AssetsIconsInterfaceSolidGen {
@@ -13325,7 +13735,8 @@ class $AssetsIconsInterfaceSolidGen {
 
   /// File path: assets/icons/interface/solid/check mark-rectangle.svg
   SvgGenImage get checkMarkRectangle => const SvgGenImage(
-      'assets/icons/interface/solid/check mark-rectangle.svg');
+    'assets/icons/interface/solid/check mark-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/solid/check-circle.svg
   SvgGenImage get checkCircle =>
@@ -13509,7 +13920,8 @@ class $AssetsIconsInterfaceSolidGen {
 
   /// File path: assets/icons/interface/solid/information-rectangle.svg
   SvgGenImage get informationRectangle => const SvgGenImage(
-      'assets/icons/interface/solid/information-rectangle.svg');
+    'assets/icons/interface/solid/information-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/solid/information.svg
   SvgGenImage get information =>
@@ -13669,19 +14081,23 @@ class $AssetsIconsInterfaceSolidGen {
 
   /// File path: assets/icons/interface/solid/notification-rectangle.svg
   SvgGenImage get notificationRectangle => const SvgGenImage(
-      'assets/icons/interface/solid/notification-rectangle.svg');
+    'assets/icons/interface/solid/notification-rectangle.svg',
+  );
 
   /// File path: assets/icons/interface/solid/notification-ringing-1.svg
   SvgGenImage get notificationRinging1 => const SvgGenImage(
-      'assets/icons/interface/solid/notification-ringing-1.svg');
+    'assets/icons/interface/solid/notification-ringing-1.svg',
+  );
 
   /// File path: assets/icons/interface/solid/notification-ringing.svg
   SvgGenImage get notificationRinging => const SvgGenImage(
-      'assets/icons/interface/solid/notification-ringing.svg');
+    'assets/icons/interface/solid/notification-ringing.svg',
+  );
 
   /// File path: assets/icons/interface/solid/notification-silent-1.svg
   SvgGenImage get notificationSilent1 => const SvgGenImage(
-      'assets/icons/interface/solid/notification-silent-1.svg');
+    'assets/icons/interface/solid/notification-silent-1.svg',
+  );
 
   /// File path: assets/icons/interface/solid/notification-silent.svg
   SvgGenImage get notificationSilent =>
@@ -13933,174 +14349,174 @@ class $AssetsIconsInterfaceSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        addCircle,
-        addRectangle,
-        agenda,
-        alarm,
-        appsAdd,
-        appsRemove,
-        apps,
-        board,
-        bookmark,
-        brightness,
-        browser,
-        calendar,
-        cameraOff,
-        camera,
-        checkMarkCircle,
-        checkMarkRectangle,
-        checkCircle,
-        checkRectangle,
-        clearCircle,
-        clearRectangle,
-        clockCircle1,
-        clockCircle,
-        clockRectangle1,
-        clockRectangle,
-        collection,
-        compass,
-        computer,
-        copyCheck,
-        copy,
-        cpu,
-        diamond,
-        disk,
-        dislike,
-        editRectangle,
-        edit,
-        eyeDisable,
-        eye,
-        eye1,
-        feedRectangle,
-        filter01,
-        filter02,
-        filter03,
-        filter04,
-        filter05,
-        filter06,
-        filter07,
-        filter,
-        flag,
-        focus,
-        gift,
-        globe,
-        helpPolygon,
-        help,
-        home01,
-        home02,
-        home03,
-        home04,
-        imageCircle,
-        imageRectangle,
-        informationCircle,
-        informationPolygon,
-        informationRectangle,
-        information,
-        interactive,
-        invoice,
-        layers,
-        lifebuoy,
-        like,
-        listViewCircle,
-        listViewRectangle,
-        loading01,
-        loading,
-        location01,
-        location02,
-        location03,
-        lock01,
-        lock,
-        login01,
-        login,
-        logout01,
-        logout,
-        love,
-        micMute,
-        mic,
-        microphoneMute,
-        microphone,
-        minus01,
-        minus,
-        money,
-        moreHorizontal,
-        moreVertical,
-        mouse,
-        nib,
-        notepad,
-        notification,
-        notification01,
-        notification02,
-        notification03,
-        notification04,
-        notification05,
-        notificationCircle,
-        notificationRectangle,
-        notificationRinging1,
-        notificationRinging,
-        notificationSilent1,
-        notificationSilent,
-        openBook,
-        paintBucket,
-        pin,
-        plugin,
-        plus01,
-        plus,
-        powerCircle,
-        powerRectangle,
-        presentation,
-        remove01,
-        remove02,
-        removeCircle,
-        removeRectangle,
-        remove,
-        replyRectangle,
-        sadCircle,
-        sadRectangle,
-        search01,
-        search02,
-        search03,
-        searchMinus,
-        searchPlus,
-        searchRemove,
-        setting,
-        shareRectangle,
-        share,
-        shieldCheck,
-        shieldWarning,
-        shield,
-        shoppingBag,
-        shoppingBasket,
-        smileEllipse,
-        smileRectangle,
-        sortArrowDown01,
-        sortArrowDown,
-        sortArrowUp01,
-        sortArrowUp,
-        sortCircle,
-        sortRectangle,
-        speedTest,
-        star,
-        target,
-        tickDouble,
-        tick,
-        ticketPercent,
-        ticket,
-        training,
-        trash01,
-        trash,
-        unlock01,
-        unlock,
-        userCircle,
-        userRectangle,
-        user,
-        warningError,
-        warningPolygon,
-        warning,
-        zoomIn,
-        zoomOut,
-        zoomText,
-        zoom
-      ];
+    addCircle,
+    addRectangle,
+    agenda,
+    alarm,
+    appsAdd,
+    appsRemove,
+    apps,
+    board,
+    bookmark,
+    brightness,
+    browser,
+    calendar,
+    cameraOff,
+    camera,
+    checkMarkCircle,
+    checkMarkRectangle,
+    checkCircle,
+    checkRectangle,
+    clearCircle,
+    clearRectangle,
+    clockCircle1,
+    clockCircle,
+    clockRectangle1,
+    clockRectangle,
+    collection,
+    compass,
+    computer,
+    copyCheck,
+    copy,
+    cpu,
+    diamond,
+    disk,
+    dislike,
+    editRectangle,
+    edit,
+    eyeDisable,
+    eye,
+    eye1,
+    feedRectangle,
+    filter01,
+    filter02,
+    filter03,
+    filter04,
+    filter05,
+    filter06,
+    filter07,
+    filter,
+    flag,
+    focus,
+    gift,
+    globe,
+    helpPolygon,
+    help,
+    home01,
+    home02,
+    home03,
+    home04,
+    imageCircle,
+    imageRectangle,
+    informationCircle,
+    informationPolygon,
+    informationRectangle,
+    information,
+    interactive,
+    invoice,
+    layers,
+    lifebuoy,
+    like,
+    listViewCircle,
+    listViewRectangle,
+    loading01,
+    loading,
+    location01,
+    location02,
+    location03,
+    lock01,
+    lock,
+    login01,
+    login,
+    logout01,
+    logout,
+    love,
+    micMute,
+    mic,
+    microphoneMute,
+    microphone,
+    minus01,
+    minus,
+    money,
+    moreHorizontal,
+    moreVertical,
+    mouse,
+    nib,
+    notepad,
+    notification,
+    notification01,
+    notification02,
+    notification03,
+    notification04,
+    notification05,
+    notificationCircle,
+    notificationRectangle,
+    notificationRinging1,
+    notificationRinging,
+    notificationSilent1,
+    notificationSilent,
+    openBook,
+    paintBucket,
+    pin,
+    plugin,
+    plus01,
+    plus,
+    powerCircle,
+    powerRectangle,
+    presentation,
+    remove01,
+    remove02,
+    removeCircle,
+    removeRectangle,
+    remove,
+    replyRectangle,
+    sadCircle,
+    sadRectangle,
+    search01,
+    search02,
+    search03,
+    searchMinus,
+    searchPlus,
+    searchRemove,
+    setting,
+    shareRectangle,
+    share,
+    shieldCheck,
+    shieldWarning,
+    shield,
+    shoppingBag,
+    shoppingBasket,
+    smileEllipse,
+    smileRectangle,
+    sortArrowDown01,
+    sortArrowDown,
+    sortArrowUp01,
+    sortArrowUp,
+    sortCircle,
+    sortRectangle,
+    speedTest,
+    star,
+    target,
+    tickDouble,
+    tick,
+    ticketPercent,
+    ticket,
+    training,
+    trash01,
+    trash,
+    unlock01,
+    unlock,
+    userCircle,
+    userRectangle,
+    user,
+    warningError,
+    warningPolygon,
+    warning,
+    zoomIn,
+    zoomOut,
+    zoomText,
+    zoom,
+  ];
 }
 
 class $AssetsIconsMenuBulkGen {
@@ -14155,19 +14571,19 @@ class $AssetsIconsMenuBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        apps01,
-        appsCircle,
-        appsRectangle,
-        apps,
-        menuCircleVertical01,
-        menuCircleVertical,
-        menuHome,
-        menuLineHorizontal01,
-        menuLineHorizontal,
-        menuLineVertical01,
-        menuLineVertical,
-        menuUser
-      ];
+    apps01,
+    appsCircle,
+    appsRectangle,
+    apps,
+    menuCircleVertical01,
+    menuCircleVertical,
+    menuHome,
+    menuLineHorizontal01,
+    menuLineHorizontal,
+    menuLineVertical01,
+    menuLineVertical,
+    menuUser,
+  ];
 }
 
 class $AssetsIconsMenuOutlineGen {
@@ -14191,7 +14607,8 @@ class $AssetsIconsMenuOutlineGen {
 
   /// File path: assets/icons/menu/outline/menu-circle-vertical 01.svg
   SvgGenImage get menuCircleVertical01 => const SvgGenImage(
-      'assets/icons/menu/outline/menu-circle-vertical 01.svg');
+    'assets/icons/menu/outline/menu-circle-vertical 01.svg',
+  );
 
   /// File path: assets/icons/menu/outline/menu-circle-vertical.svg
   SvgGenImage get menuCircleVertical =>
@@ -14203,7 +14620,8 @@ class $AssetsIconsMenuOutlineGen {
 
   /// File path: assets/icons/menu/outline/menu-line-horizontal 01.svg
   SvgGenImage get menuLineHorizontal01 => const SvgGenImage(
-      'assets/icons/menu/outline/menu-line-horizontal 01.svg');
+    'assets/icons/menu/outline/menu-line-horizontal 01.svg',
+  );
 
   /// File path: assets/icons/menu/outline/menu-line-horizontal.svg
   SvgGenImage get menuLineHorizontal =>
@@ -14223,19 +14641,19 @@ class $AssetsIconsMenuOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        apps01,
-        appsCircle,
-        appsRectangle,
-        apps,
-        menuCircleVertical01,
-        menuCircleVertical,
-        menuHome,
-        menuLineHorizontal01,
-        menuLineHorizontal,
-        menuLineVertical01,
-        menuLineVertical,
-        menuUser
-      ];
+    apps01,
+    appsCircle,
+    appsRectangle,
+    apps,
+    menuCircleVertical01,
+    menuCircleVertical,
+    menuHome,
+    menuLineHorizontal01,
+    menuLineHorizontal,
+    menuLineVertical01,
+    menuLineVertical,
+    menuUser,
+  ];
 }
 
 class $AssetsIconsMenuSolidGen {
@@ -14290,19 +14708,19 @@ class $AssetsIconsMenuSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        apps01,
-        appsCircle,
-        appsRectangle,
-        apps,
-        menuCircleVertical01,
-        menuCircleVertical,
-        menuHome,
-        menuLineHorizontal01,
-        menuLineHorizontal,
-        menuLineVertical01,
-        menuLineVertical,
-        menuUser
-      ];
+    apps01,
+    appsCircle,
+    appsRectangle,
+    apps,
+    menuCircleVertical01,
+    menuCircleVertical,
+    menuHome,
+    menuLineHorizontal01,
+    menuLineHorizontal,
+    menuLineVertical01,
+    menuLineVertical,
+    menuUser,
+  ];
 }
 
 class $AssetsIconsMultimediaAndAudioBulkGen {
@@ -14314,23 +14732,28 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/camera video 01.svg
   SvgGenImage get cameraVideo01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/camera video 01.svg');
+    'assets/icons/multimedia and audio/bulk/camera video 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/camera video-silent.svg
   SvgGenImage get cameraVideoSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/camera video-silent.svg');
+    'assets/icons/multimedia and audio/bulk/camera video-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/camera video.svg
   SvgGenImage get cameraVideo => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/camera video.svg');
+    'assets/icons/multimedia and audio/bulk/camera video.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/camera-silent 01.svg
   SvgGenImage get cameraSilent01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/camera-silent 01.svg');
+    'assets/icons/multimedia and audio/bulk/camera-silent 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/camera-silent.svg
   SvgGenImage get cameraSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/camera-silent.svg');
+    'assets/icons/multimedia and audio/bulk/camera-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/camera.svg
   SvgGenImage get camera =>
@@ -14338,11 +14761,13 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/cd burning.svg
   SvgGenImage get cdBurning => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/cd burning.svg');
+    'assets/icons/multimedia and audio/bulk/cd burning.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/clapperboard.svg
   SvgGenImage get clapperboard => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/clapperboard.svg');
+    'assets/icons/multimedia and audio/bulk/clapperboard.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/earphone.svg
   SvgGenImage get earphone =>
@@ -14350,7 +14775,8 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/equalizer 01.svg
   SvgGenImage get equalizer01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/equalizer 01.svg');
+    'assets/icons/multimedia and audio/bulk/equalizer 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/equalizer.svg
   SvgGenImage get equalizer =>
@@ -14378,19 +14804,23 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/floppy disk.svg
   SvgGenImage get floppyDisk => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/floppy disk.svg');
+    'assets/icons/multimedia and audio/bulk/floppy disk.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/headphones-1.svg
   SvgGenImage get headphones1 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/headphones-1.svg');
+    'assets/icons/multimedia and audio/bulk/headphones-1.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/headphones-silent.svg
   SvgGenImage get headphonesSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/headphones-silent.svg');
+    'assets/icons/multimedia and audio/bulk/headphones-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/headphones.svg
   SvgGenImage get headphones => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/headphones.svg');
+    'assets/icons/multimedia and audio/bulk/headphones.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image 01.svg
   SvgGenImage get image01 =>
@@ -14402,31 +14832,38 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/image-download.svg
   SvgGenImage get imageDownload => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-download.svg');
+    'assets/icons/multimedia and audio/bulk/image-download.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image-edit.svg
   SvgGenImage get imageEdit => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-edit.svg');
+    'assets/icons/multimedia and audio/bulk/image-edit.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image-favourite.svg
   SvgGenImage get imageFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-favourite.svg');
+    'assets/icons/multimedia and audio/bulk/image-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image-minus.svg
   SvgGenImage get imageMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-minus.svg');
+    'assets/icons/multimedia and audio/bulk/image-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image-remove.svg
   SvgGenImage get imageRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-remove.svg');
+    'assets/icons/multimedia and audio/bulk/image-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image-tick.svg
   SvgGenImage get imageTick => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-tick.svg');
+    'assets/icons/multimedia and audio/bulk/image-tick.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image-upload.svg
   SvgGenImage get imageUpload => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/image-upload.svg');
+    'assets/icons/multimedia and audio/bulk/image-upload.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/image.svg
   SvgGenImage get image =>
@@ -14438,7 +14875,8 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/loudspeaker.svg
   SvgGenImage get loudspeaker => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/loudspeaker.svg');
+    'assets/icons/multimedia and audio/bulk/loudspeaker.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/music 01.svg
   SvgGenImage get music01 =>
@@ -14482,15 +14920,18 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/play-favourite.svg
   SvgGenImage get playFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/play-favourite.svg');
+    'assets/icons/multimedia and audio/bulk/play-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/play-remove 01.svg
   SvgGenImage get playRemove01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/play-remove 01.svg');
+    'assets/icons/multimedia and audio/bulk/play-remove 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/play-remove.svg
   SvgGenImage get playRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/play-remove.svg');
+    'assets/icons/multimedia and audio/bulk/play-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/play.svg
   SvgGenImage get play =>
@@ -14498,7 +14939,8 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/playlist 01.svg
   SvgGenImage get playlist01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/playlist 01.svg');
+    'assets/icons/multimedia and audio/bulk/playlist 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/playlist.svg
   SvgGenImage get playlist =>
@@ -14506,7 +14948,8 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/previous 01.svg
   SvgGenImage get previous01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/previous 01.svg');
+    'assets/icons/multimedia and audio/bulk/previous 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/previous.svg
   SvgGenImage get previous =>
@@ -14546,19 +14989,23 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/speaker-disable.svg
   SvgGenImage get speakerDisable => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/speaker-disable.svg');
+    'assets/icons/multimedia and audio/bulk/speaker-disable.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/speaker-minus.svg
   SvgGenImage get speakerMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/speaker-minus.svg');
+    'assets/icons/multimedia and audio/bulk/speaker-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/speaker-mute.svg
   SvgGenImage get speakerMute => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/speaker-mute.svg');
+    'assets/icons/multimedia and audio/bulk/speaker-mute.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/speaker-plus.svg
   SvgGenImage get speakerPlus => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/speaker-plus.svg');
+    'assets/icons/multimedia and audio/bulk/speaker-plus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/speaker.svg
   SvgGenImage get speaker =>
@@ -14574,19 +15021,23 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// File path: assets/icons/multimedia and audio/bulk/video-favourite.svg
   SvgGenImage get videoFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/video-favourite.svg');
+    'assets/icons/multimedia and audio/bulk/video-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/video-minus.svg
   SvgGenImage get videoMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/video-minus.svg');
+    'assets/icons/multimedia and audio/bulk/video-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/video-remove.svg
   SvgGenImage get videoRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/video-remove.svg');
+    'assets/icons/multimedia and audio/bulk/video-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/video-tick.svg
   SvgGenImage get videoTick => const SvgGenImage(
-      'assets/icons/multimedia and audio/bulk/video-tick.svg');
+    'assets/icons/multimedia and audio/bulk/video-tick.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/bulk/vynil 01.svg
   SvgGenImage get vynil01 =>
@@ -14602,80 +15053,80 @@ class $AssetsIconsMultimediaAndAudioBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        camera01,
-        cameraVideo01,
-        cameraVideoSilent,
-        cameraVideo,
-        cameraSilent01,
-        cameraSilent,
-        camera,
-        cdBurning,
-        clapperboard,
-        earphone,
-        equalizer01,
-        equalizer,
-        favourite,
-        film01,
-        film02,
-        film03,
-        film,
-        floppyDisk,
-        headphones1,
-        headphonesSilent,
-        headphones,
-        image01,
-        imageAdd,
-        imageDownload,
-        imageEdit,
-        imageFavourite,
-        imageMinus,
-        imageRemove,
-        imageTick,
-        imageUpload,
-        image,
-        ipod,
-        loudspeaker,
-        music01,
-        music02,
-        music03,
-        music04,
-        music05,
-        music,
-        next01,
-        next,
-        pause,
-        playAdd,
-        playFavourite,
-        playRemove01,
-        playRemove,
-        play,
-        playlist01,
-        playlist,
-        previous01,
-        previous,
-        projector,
-        queue,
-        record,
-        repeat,
-        replay,
-        shuffle,
-        song01,
-        song,
-        speakerDisable,
-        speakerMinus,
-        speakerMute,
-        speakerPlus,
-        speaker,
-        stop,
-        videoAdd,
-        videoFavourite,
-        videoMinus,
-        videoRemove,
-        videoTick,
-        vynil01,
-        vynil,
-        waves
-      ];
+    camera01,
+    cameraVideo01,
+    cameraVideoSilent,
+    cameraVideo,
+    cameraSilent01,
+    cameraSilent,
+    camera,
+    cdBurning,
+    clapperboard,
+    earphone,
+    equalizer01,
+    equalizer,
+    favourite,
+    film01,
+    film02,
+    film03,
+    film,
+    floppyDisk,
+    headphones1,
+    headphonesSilent,
+    headphones,
+    image01,
+    imageAdd,
+    imageDownload,
+    imageEdit,
+    imageFavourite,
+    imageMinus,
+    imageRemove,
+    imageTick,
+    imageUpload,
+    image,
+    ipod,
+    loudspeaker,
+    music01,
+    music02,
+    music03,
+    music04,
+    music05,
+    music,
+    next01,
+    next,
+    pause,
+    playAdd,
+    playFavourite,
+    playRemove01,
+    playRemove,
+    play,
+    playlist01,
+    playlist,
+    previous01,
+    previous,
+    projector,
+    queue,
+    record,
+    repeat,
+    replay,
+    shuffle,
+    song01,
+    song,
+    speakerDisable,
+    speakerMinus,
+    speakerMute,
+    speakerPlus,
+    speaker,
+    stop,
+    videoAdd,
+    videoFavourite,
+    videoMinus,
+    videoRemove,
+    videoTick,
+    vynil01,
+    vynil,
+    waves,
+  ];
 }
 
 class $AssetsIconsMultimediaAndAudioOutlineGen {
@@ -14683,27 +15134,33 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/camera 01.svg
   SvgGenImage get camera01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/camera 01.svg');
+    'assets/icons/multimedia and audio/outline/camera 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/camera video 01.svg
   SvgGenImage get cameraVideo01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/camera video 01.svg');
+    'assets/icons/multimedia and audio/outline/camera video 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/camera video-silent.svg
   SvgGenImage get cameraVideoSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/camera video-silent.svg');
+    'assets/icons/multimedia and audio/outline/camera video-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/camera video.svg
   SvgGenImage get cameraVideo => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/camera video.svg');
+    'assets/icons/multimedia and audio/outline/camera video.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/camera-silent 01.svg
   SvgGenImage get cameraSilent01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/camera-silent 01.svg');
+    'assets/icons/multimedia and audio/outline/camera-silent 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/camera-silent.svg
   SvgGenImage get cameraSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/camera-silent.svg');
+    'assets/icons/multimedia and audio/outline/camera-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/camera.svg
   SvgGenImage get camera =>
@@ -14711,39 +15168,48 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/cd burning.svg
   SvgGenImage get cdBurning => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/cd burning.svg');
+    'assets/icons/multimedia and audio/outline/cd burning.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/clapperboard.svg
   SvgGenImage get clapperboard => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/clapperboard.svg');
+    'assets/icons/multimedia and audio/outline/clapperboard.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/earphone.svg
   SvgGenImage get earphone => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/earphone.svg');
+    'assets/icons/multimedia and audio/outline/earphone.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/equalizer 01.svg
   SvgGenImage get equalizer01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/equalizer 01.svg');
+    'assets/icons/multimedia and audio/outline/equalizer 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/equalizer.svg
   SvgGenImage get equalizer => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/equalizer.svg');
+    'assets/icons/multimedia and audio/outline/equalizer.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/favourite.svg
   SvgGenImage get favourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/favourite.svg');
+    'assets/icons/multimedia and audio/outline/favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/film 01.svg
   SvgGenImage get film01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/film 01.svg');
+    'assets/icons/multimedia and audio/outline/film 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/film 02.svg
   SvgGenImage get film02 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/film 02.svg');
+    'assets/icons/multimedia and audio/outline/film 02.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/film 03.svg
   SvgGenImage get film03 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/film 03.svg');
+    'assets/icons/multimedia and audio/outline/film 03.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/film.svg
   SvgGenImage get film =>
@@ -14751,55 +15217,68 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/floppy disk.svg
   SvgGenImage get floppyDisk => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/floppy disk.svg');
+    'assets/icons/multimedia and audio/outline/floppy disk.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/headphones-1.svg
   SvgGenImage get headphones1 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/headphones-1.svg');
+    'assets/icons/multimedia and audio/outline/headphones-1.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/headphones-silent.svg
   SvgGenImage get headphonesSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/headphones-silent.svg');
+    'assets/icons/multimedia and audio/outline/headphones-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/headphones.svg
   SvgGenImage get headphones => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/headphones.svg');
+    'assets/icons/multimedia and audio/outline/headphones.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image 01.svg
   SvgGenImage get image01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image 01.svg');
+    'assets/icons/multimedia and audio/outline/image 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-add.svg
   SvgGenImage get imageAdd => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-add.svg');
+    'assets/icons/multimedia and audio/outline/image-add.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-download.svg
   SvgGenImage get imageDownload => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-download.svg');
+    'assets/icons/multimedia and audio/outline/image-download.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-edit.svg
   SvgGenImage get imageEdit => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-edit.svg');
+    'assets/icons/multimedia and audio/outline/image-edit.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-favourite.svg
   SvgGenImage get imageFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-favourite.svg');
+    'assets/icons/multimedia and audio/outline/image-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-minus.svg
   SvgGenImage get imageMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-minus.svg');
+    'assets/icons/multimedia and audio/outline/image-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-remove.svg
   SvgGenImage get imageRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-remove.svg');
+    'assets/icons/multimedia and audio/outline/image-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-tick.svg
   SvgGenImage get imageTick => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-tick.svg');
+    'assets/icons/multimedia and audio/outline/image-tick.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image-upload.svg
   SvgGenImage get imageUpload => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/image-upload.svg');
+    'assets/icons/multimedia and audio/outline/image-upload.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/image.svg
   SvgGenImage get image =>
@@ -14811,11 +15290,13 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/loudspeaker.svg
   SvgGenImage get loudspeaker => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/loudspeaker.svg');
+    'assets/icons/multimedia and audio/outline/loudspeaker.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/music  05.svg
   SvgGenImage get music05 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/music  05.svg');
+    'assets/icons/multimedia and audio/outline/music  05.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/music .svg
   SvgGenImage get music =>
@@ -14823,23 +15304,28 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/music 01.svg
   SvgGenImage get music01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/music 01.svg');
+    'assets/icons/multimedia and audio/outline/music 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/music 02.svg
   SvgGenImage get music02 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/music 02.svg');
+    'assets/icons/multimedia and audio/outline/music 02.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/music 03.svg
   SvgGenImage get music03 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/music 03.svg');
+    'assets/icons/multimedia and audio/outline/music 03.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/music 04.svg
   SvgGenImage get music04 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/music 04.svg');
+    'assets/icons/multimedia and audio/outline/music 04.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/next 01.svg
   SvgGenImage get next01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/next 01.svg');
+    'assets/icons/multimedia and audio/outline/next 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/next.svg
   SvgGenImage get next =>
@@ -14851,19 +15337,23 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/play-add.svg
   SvgGenImage get playAdd => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/play-add.svg');
+    'assets/icons/multimedia and audio/outline/play-add.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/play-favourite.svg
   SvgGenImage get playFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/play-favourite.svg');
+    'assets/icons/multimedia and audio/outline/play-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/play-remove 01.svg
   SvgGenImage get playRemove01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/play-remove 01.svg');
+    'assets/icons/multimedia and audio/outline/play-remove 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/play-remove.svg
   SvgGenImage get playRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/play-remove.svg');
+    'assets/icons/multimedia and audio/outline/play-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/play.svg
   SvgGenImage get play =>
@@ -14871,23 +15361,28 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/playlist 01.svg
   SvgGenImage get playlist01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/playlist 01.svg');
+    'assets/icons/multimedia and audio/outline/playlist 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/playlist.svg
   SvgGenImage get playlist => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/playlist.svg');
+    'assets/icons/multimedia and audio/outline/playlist.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/previous 01.svg
   SvgGenImage get previous01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/previous 01.svg');
+    'assets/icons/multimedia and audio/outline/previous 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/previous.svg
   SvgGenImage get previous => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/previous.svg');
+    'assets/icons/multimedia and audio/outline/previous.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/projector.svg
   SvgGenImage get projector => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/projector.svg');
+    'assets/icons/multimedia and audio/outline/projector.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/queue.svg
   SvgGenImage get queue =>
@@ -14907,11 +15402,13 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/shuffle.svg
   SvgGenImage get shuffle => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/shuffle.svg');
+    'assets/icons/multimedia and audio/outline/shuffle.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/song 01.svg
   SvgGenImage get song01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/song 01.svg');
+    'assets/icons/multimedia and audio/outline/song 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/song.svg
   SvgGenImage get song =>
@@ -14919,23 +15416,28 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/speaker-disable.svg
   SvgGenImage get speakerDisable => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/speaker-disable.svg');
+    'assets/icons/multimedia and audio/outline/speaker-disable.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/speaker-minus.svg
   SvgGenImage get speakerMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/speaker-minus.svg');
+    'assets/icons/multimedia and audio/outline/speaker-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/speaker-mute.svg
   SvgGenImage get speakerMute => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/speaker-mute.svg');
+    'assets/icons/multimedia and audio/outline/speaker-mute.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/speaker-plus.svg
   SvgGenImage get speakerPlus => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/speaker-plus.svg');
+    'assets/icons/multimedia and audio/outline/speaker-plus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/speaker.svg
   SvgGenImage get speaker => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/speaker.svg');
+    'assets/icons/multimedia and audio/outline/speaker.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/stop.svg
   SvgGenImage get stop =>
@@ -14943,27 +15445,33 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// File path: assets/icons/multimedia and audio/outline/video-add.svg
   SvgGenImage get videoAdd => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/video-add.svg');
+    'assets/icons/multimedia and audio/outline/video-add.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/video-favourite.svg
   SvgGenImage get videoFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/video-favourite.svg');
+    'assets/icons/multimedia and audio/outline/video-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/video-minus.svg
   SvgGenImage get videoMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/video-minus.svg');
+    'assets/icons/multimedia and audio/outline/video-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/video-remove.svg
   SvgGenImage get videoRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/video-remove.svg');
+    'assets/icons/multimedia and audio/outline/video-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/video-tick.svg
   SvgGenImage get videoTick => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/video-tick.svg');
+    'assets/icons/multimedia and audio/outline/video-tick.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/vynil 01.svg
   SvgGenImage get vynil01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/outline/vynil 01.svg');
+    'assets/icons/multimedia and audio/outline/vynil 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/outline/vynil.svg
   SvgGenImage get vynil =>
@@ -14975,80 +15483,80 @@ class $AssetsIconsMultimediaAndAudioOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        camera01,
-        cameraVideo01,
-        cameraVideoSilent,
-        cameraVideo,
-        cameraSilent01,
-        cameraSilent,
-        camera,
-        cdBurning,
-        clapperboard,
-        earphone,
-        equalizer01,
-        equalizer,
-        favourite,
-        film01,
-        film02,
-        film03,
-        film,
-        floppyDisk,
-        headphones1,
-        headphonesSilent,
-        headphones,
-        image01,
-        imageAdd,
-        imageDownload,
-        imageEdit,
-        imageFavourite,
-        imageMinus,
-        imageRemove,
-        imageTick,
-        imageUpload,
-        image,
-        ipod,
-        loudspeaker,
-        music05,
-        music,
-        music01,
-        music02,
-        music03,
-        music04,
-        next01,
-        next,
-        pause,
-        playAdd,
-        playFavourite,
-        playRemove01,
-        playRemove,
-        play,
-        playlist01,
-        playlist,
-        previous01,
-        previous,
-        projector,
-        queue,
-        record,
-        repeat,
-        replay,
-        shuffle,
-        song01,
-        song,
-        speakerDisable,
-        speakerMinus,
-        speakerMute,
-        speakerPlus,
-        speaker,
-        stop,
-        videoAdd,
-        videoFavourite,
-        videoMinus,
-        videoRemove,
-        videoTick,
-        vynil01,
-        vynil,
-        waves
-      ];
+    camera01,
+    cameraVideo01,
+    cameraVideoSilent,
+    cameraVideo,
+    cameraSilent01,
+    cameraSilent,
+    camera,
+    cdBurning,
+    clapperboard,
+    earphone,
+    equalizer01,
+    equalizer,
+    favourite,
+    film01,
+    film02,
+    film03,
+    film,
+    floppyDisk,
+    headphones1,
+    headphonesSilent,
+    headphones,
+    image01,
+    imageAdd,
+    imageDownload,
+    imageEdit,
+    imageFavourite,
+    imageMinus,
+    imageRemove,
+    imageTick,
+    imageUpload,
+    image,
+    ipod,
+    loudspeaker,
+    music05,
+    music,
+    music01,
+    music02,
+    music03,
+    music04,
+    next01,
+    next,
+    pause,
+    playAdd,
+    playFavourite,
+    playRemove01,
+    playRemove,
+    play,
+    playlist01,
+    playlist,
+    previous01,
+    previous,
+    projector,
+    queue,
+    record,
+    repeat,
+    replay,
+    shuffle,
+    song01,
+    song,
+    speakerDisable,
+    speakerMinus,
+    speakerMute,
+    speakerPlus,
+    speaker,
+    stop,
+    videoAdd,
+    videoFavourite,
+    videoMinus,
+    videoRemove,
+    videoTick,
+    vynil01,
+    vynil,
+    waves,
+  ];
 }
 
 class $AssetsIconsMultimediaAndAudioSolidGen {
@@ -15056,27 +15564,33 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/camera 01.svg
   SvgGenImage get camera01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/camera 01.svg');
+    'assets/icons/multimedia and audio/solid/camera 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/camera video  01.svg
   SvgGenImage get cameraVideo01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/camera video  01.svg');
+    'assets/icons/multimedia and audio/solid/camera video  01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/camera video-silent.svg
   SvgGenImage get cameraVideoSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/camera video-silent.svg');
+    'assets/icons/multimedia and audio/solid/camera video-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/camera video.svg
   SvgGenImage get cameraVideo => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/camera video.svg');
+    'assets/icons/multimedia and audio/solid/camera video.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/camera-silent 01.svg
   SvgGenImage get cameraSilent01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/camera-silent 01.svg');
+    'assets/icons/multimedia and audio/solid/camera-silent 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/camera-silent.svg
   SvgGenImage get cameraSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/camera-silent.svg');
+    'assets/icons/multimedia and audio/solid/camera-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/camera.svg
   SvgGenImage get camera =>
@@ -15084,11 +15598,13 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/cd burning.svg
   SvgGenImage get cdBurning => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/cd burning.svg');
+    'assets/icons/multimedia and audio/solid/cd burning.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/clapperboard.svg
   SvgGenImage get clapperboard => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/clapperboard.svg');
+    'assets/icons/multimedia and audio/solid/clapperboard.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/earphone.svg
   SvgGenImage get earphone =>
@@ -15096,15 +15612,18 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/equalizer 01.svg
   SvgGenImage get equalizer01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/equalizer 01.svg');
+    'assets/icons/multimedia and audio/solid/equalizer 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/equalizer.svg
   SvgGenImage get equalizer => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/equalizer.svg');
+    'assets/icons/multimedia and audio/solid/equalizer.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/favourite.svg
   SvgGenImage get favourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/favourite.svg');
+    'assets/icons/multimedia and audio/solid/favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/film 01.svg
   SvgGenImage get film01 =>
@@ -15124,19 +15643,23 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/floppy disk.svg
   SvgGenImage get floppyDisk => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/floppy disk.svg');
+    'assets/icons/multimedia and audio/solid/floppy disk.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/headphones-1.svg
   SvgGenImage get headphones1 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/headphones-1.svg');
+    'assets/icons/multimedia and audio/solid/headphones-1.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/headphones-silent.svg
   SvgGenImage get headphonesSilent => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/headphones-silent.svg');
+    'assets/icons/multimedia and audio/solid/headphones-silent.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/headphones.svg
   SvgGenImage get headphones => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/headphones.svg');
+    'assets/icons/multimedia and audio/solid/headphones.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image 01.svg
   SvgGenImage get image01 =>
@@ -15144,35 +15667,43 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/image-add.svg
   SvgGenImage get imageAdd => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-add.svg');
+    'assets/icons/multimedia and audio/solid/image-add.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-download.svg
   SvgGenImage get imageDownload => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-download.svg');
+    'assets/icons/multimedia and audio/solid/image-download.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-edit.svg
   SvgGenImage get imageEdit => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-edit.svg');
+    'assets/icons/multimedia and audio/solid/image-edit.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-favourite.svg
   SvgGenImage get imageFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-favourite.svg');
+    'assets/icons/multimedia and audio/solid/image-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-minus.svg
   SvgGenImage get imageMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-minus.svg');
+    'assets/icons/multimedia and audio/solid/image-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-remove.svg
   SvgGenImage get imageRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-remove.svg');
+    'assets/icons/multimedia and audio/solid/image-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-tick.svg
   SvgGenImage get imageTick => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-tick.svg');
+    'assets/icons/multimedia and audio/solid/image-tick.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image-upload.svg
   SvgGenImage get imageUpload => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/image-upload.svg');
+    'assets/icons/multimedia and audio/solid/image-upload.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/image.svg
   SvgGenImage get image =>
@@ -15184,7 +15715,8 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/loudspeaker.svg
   SvgGenImage get loudspeaker => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/loudspeaker.svg');
+    'assets/icons/multimedia and audio/solid/loudspeaker.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/music 01.svg
   SvgGenImage get music01 =>
@@ -15228,15 +15760,18 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/play-favourite.svg
   SvgGenImage get playFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/play-favourite.svg');
+    'assets/icons/multimedia and audio/solid/play-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/play-remove 01.svg
   SvgGenImage get playRemove01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/play-remove 01.svg');
+    'assets/icons/multimedia and audio/solid/play-remove 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/play-remove.svg
   SvgGenImage get playRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/play-remove.svg');
+    'assets/icons/multimedia and audio/solid/play-remove.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/play.svg
   SvgGenImage get play =>
@@ -15244,7 +15779,8 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/playlist 01.svg
   SvgGenImage get playlist01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/playlist 01.svg');
+    'assets/icons/multimedia and audio/solid/playlist 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/playlist.svg
   SvgGenImage get playlist =>
@@ -15252,7 +15788,8 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/previous 01.svg
   SvgGenImage get previous01 => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/previous 01.svg');
+    'assets/icons/multimedia and audio/solid/previous 01.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/previous.svg
   SvgGenImage get previous =>
@@ -15260,7 +15797,8 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/projector.svg
   SvgGenImage get projector => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/projector.svg');
+    'assets/icons/multimedia and audio/solid/projector.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/queue.svg
   SvgGenImage get queue =>
@@ -15292,19 +15830,23 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/speaker-disable.svg
   SvgGenImage get speakerDisable => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/speaker-disable.svg');
+    'assets/icons/multimedia and audio/solid/speaker-disable.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/speaker-minus.svg
   SvgGenImage get speakerMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/speaker-minus.svg');
+    'assets/icons/multimedia and audio/solid/speaker-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/speaker-mute.svg
   SvgGenImage get speakerMute => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/speaker-mute.svg');
+    'assets/icons/multimedia and audio/solid/speaker-mute.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/speaker-plus.svg
   SvgGenImage get speakerPlus => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/speaker-plus.svg');
+    'assets/icons/multimedia and audio/solid/speaker-plus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/speaker.svg
   SvgGenImage get speaker =>
@@ -15316,23 +15858,28 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// File path: assets/icons/multimedia and audio/solid/video-add.svg
   SvgGenImage get videoAdd => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/video-add.svg');
+    'assets/icons/multimedia and audio/solid/video-add.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/video-favourite.svg
   SvgGenImage get videoFavourite => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/video-favourite.svg');
+    'assets/icons/multimedia and audio/solid/video-favourite.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/video-minus.svg
   SvgGenImage get videoMinus => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/video-minus.svg');
+    'assets/icons/multimedia and audio/solid/video-minus.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/video-remove .svg
   SvgGenImage get videoRemove => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/video-remove .svg');
+    'assets/icons/multimedia and audio/solid/video-remove .svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/video-tick.svg
   SvgGenImage get videoTick => const SvgGenImage(
-      'assets/icons/multimedia and audio/solid/video-tick.svg');
+    'assets/icons/multimedia and audio/solid/video-tick.svg',
+  );
 
   /// File path: assets/icons/multimedia and audio/solid/vynil 01.svg
   SvgGenImage get vynil01 =>
@@ -15348,80 +15895,80 @@ class $AssetsIconsMultimediaAndAudioSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        camera01,
-        cameraVideo01,
-        cameraVideoSilent,
-        cameraVideo,
-        cameraSilent01,
-        cameraSilent,
-        camera,
-        cdBurning,
-        clapperboard,
-        earphone,
-        equalizer01,
-        equalizer,
-        favourite,
-        film01,
-        film02,
-        film03,
-        film,
-        floppyDisk,
-        headphones1,
-        headphonesSilent,
-        headphones,
-        image01,
-        imageAdd,
-        imageDownload,
-        imageEdit,
-        imageFavourite,
-        imageMinus,
-        imageRemove,
-        imageTick,
-        imageUpload,
-        image,
-        ipod,
-        loudspeaker,
-        music01,
-        music02,
-        music03,
-        music04,
-        music05,
-        music,
-        next01,
-        next,
-        pause,
-        playAdd,
-        playFavourite,
-        playRemove01,
-        playRemove,
-        play,
-        playlist01,
-        playlist,
-        previous01,
-        previous,
-        projector,
-        queue,
-        record,
-        repeat,
-        replay,
-        shuffle,
-        song01,
-        song,
-        speakerDisable,
-        speakerMinus,
-        speakerMute,
-        speakerPlus,
-        speaker,
-        stop,
-        videoAdd,
-        videoFavourite,
-        videoMinus,
-        videoRemove,
-        videoTick,
-        vynil01,
-        vynil,
-        waves
-      ];
+    camera01,
+    cameraVideo01,
+    cameraVideoSilent,
+    cameraVideo,
+    cameraSilent01,
+    cameraSilent,
+    camera,
+    cdBurning,
+    clapperboard,
+    earphone,
+    equalizer01,
+    equalizer,
+    favourite,
+    film01,
+    film02,
+    film03,
+    film,
+    floppyDisk,
+    headphones1,
+    headphonesSilent,
+    headphones,
+    image01,
+    imageAdd,
+    imageDownload,
+    imageEdit,
+    imageFavourite,
+    imageMinus,
+    imageRemove,
+    imageTick,
+    imageUpload,
+    image,
+    ipod,
+    loudspeaker,
+    music01,
+    music02,
+    music03,
+    music04,
+    music05,
+    music,
+    next01,
+    next,
+    pause,
+    playAdd,
+    playFavourite,
+    playRemove01,
+    playRemove,
+    play,
+    playlist01,
+    playlist,
+    previous01,
+    previous,
+    projector,
+    queue,
+    record,
+    repeat,
+    replay,
+    shuffle,
+    song01,
+    song,
+    speakerDisable,
+    speakerMinus,
+    speakerMute,
+    speakerPlus,
+    speaker,
+    stop,
+    videoAdd,
+    videoFavourite,
+    videoMinus,
+    videoRemove,
+    videoTick,
+    vynil01,
+    vynil,
+    waves,
+  ];
 }
 
 class $AssetsIconsNavigationMapsBulkGen {
@@ -15473,7 +16020,8 @@ class $AssetsIconsNavigationMapsBulkGen {
 
   /// File path: assets/icons/navigation maps/bulk/home-location 01.svg
   SvgGenImage get homeLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/home-location 01.svg');
+    'assets/icons/navigation maps/bulk/home-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/home-location.svg
   SvgGenImage get homeLocation =>
@@ -15489,7 +16037,8 @@ class $AssetsIconsNavigationMapsBulkGen {
 
   /// File path: assets/icons/navigation maps/bulk/location-remove.svg
   SvgGenImage get locationRemove => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/location-remove.svg');
+    'assets/icons/navigation maps/bulk/location-remove.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/location-share.svg
   SvgGenImage get locationShare =>
@@ -15517,47 +16066,58 @@ class $AssetsIconsNavigationMapsBulkGen {
 
   /// File path: assets/icons/navigation maps/bulk/map-gps-navigation 01.svg
   SvgGenImage get mapGpsNavigation01 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-gps-navigation 01.svg');
+    'assets/icons/navigation maps/bulk/map-gps-navigation 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-gps-navigation 03.svg
   SvgGenImage get mapGpsNavigation03 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-gps-navigation 03.svg');
+    'assets/icons/navigation maps/bulk/map-gps-navigation 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-gps-navigation 04.svg
   SvgGenImage get mapGpsNavigation04 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-gps-navigation 04.svg');
+    'assets/icons/navigation maps/bulk/map-gps-navigation 04.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-gps-navigation.svg
   SvgGenImage get mapGpsNavigation => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-gps-navigation.svg');
+    'assets/icons/navigation maps/bulk/map-gps-navigation.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 01.svg
   SvgGenImage get mapLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 01.svg');
+    'assets/icons/navigation maps/bulk/map-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 02.svg
   SvgGenImage get mapLocation02 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 02.svg');
+    'assets/icons/navigation maps/bulk/map-location 02.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 03.svg
   SvgGenImage get mapLocation03 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 03.svg');
+    'assets/icons/navigation maps/bulk/map-location 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 04.svg
   SvgGenImage get mapLocation04 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 04.svg');
+    'assets/icons/navigation maps/bulk/map-location 04.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 05.svg
   SvgGenImage get mapLocation05 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 05.svg');
+    'assets/icons/navigation maps/bulk/map-location 05.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 06.svg
   SvgGenImage get mapLocation06 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 06.svg');
+    'assets/icons/navigation maps/bulk/map-location 06.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location 07.svg
   SvgGenImage get mapLocation07 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/map-location 07.svg');
+    'assets/icons/navigation maps/bulk/map-location 07.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/map-location.svg
   SvgGenImage get mapLocation =>
@@ -15621,7 +16181,8 @@ class $AssetsIconsNavigationMapsBulkGen {
 
   /// File path: assets/icons/navigation maps/bulk/road-location 01.svg
   SvgGenImage get roadLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/bulk/road-location 01.svg');
+    'assets/icons/navigation maps/bulk/road-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/bulk/road-location.svg
   SvgGenImage get roadLocation =>
@@ -15685,71 +16246,71 @@ class $AssetsIconsNavigationMapsBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        destination01,
-        destination02,
-        destination03,
-        destination,
-        flag01,
-        flag,
-        globe01,
-        globe,
-        gps01,
-        gpsOff,
-        gps,
-        homeLocation01,
-        homeLocation,
-        locationAdd,
-        locationMinus,
-        locationRemove,
-        locationShare,
-        locationUser,
-        location,
-        map01,
-        map02,
-        map03,
-        mapGpsNavigation01,
-        mapGpsNavigation03,
-        mapGpsNavigation04,
-        mapGpsNavigation,
-        mapLocation01,
-        mapLocation02,
-        mapLocation03,
-        mapLocation04,
-        mapLocation05,
-        mapLocation06,
-        mapLocation07,
-        mapLocation,
-        mapPeople01,
-        mapPeople,
-        mapPin01,
-        mapPin02,
-        mapPin03,
-        mapPin,
-        map,
-        navigation,
-        people01,
-        people,
-        pin01,
-        pin02,
-        pin,
-        road01,
-        roadLocation01,
-        roadLocation,
-        roadPin01,
-        roadPin,
-        road,
-        signpost01,
-        signpost02,
-        signpost03,
-        signpost04,
-        signpost,
-        turn01,
-        turnLeft,
-        turnRight,
-        turn,
-        uTurn01,
-        uTurn
-      ];
+    destination01,
+    destination02,
+    destination03,
+    destination,
+    flag01,
+    flag,
+    globe01,
+    globe,
+    gps01,
+    gpsOff,
+    gps,
+    homeLocation01,
+    homeLocation,
+    locationAdd,
+    locationMinus,
+    locationRemove,
+    locationShare,
+    locationUser,
+    location,
+    map01,
+    map02,
+    map03,
+    mapGpsNavigation01,
+    mapGpsNavigation03,
+    mapGpsNavigation04,
+    mapGpsNavigation,
+    mapLocation01,
+    mapLocation02,
+    mapLocation03,
+    mapLocation04,
+    mapLocation05,
+    mapLocation06,
+    mapLocation07,
+    mapLocation,
+    mapPeople01,
+    mapPeople,
+    mapPin01,
+    mapPin02,
+    mapPin03,
+    mapPin,
+    map,
+    navigation,
+    people01,
+    people,
+    pin01,
+    pin02,
+    pin,
+    road01,
+    roadLocation01,
+    roadLocation,
+    roadPin01,
+    roadPin,
+    road,
+    signpost01,
+    signpost02,
+    signpost03,
+    signpost04,
+    signpost,
+    turn01,
+    turnLeft,
+    turnRight,
+    turn,
+    uTurn01,
+    uTurn,
+  ];
 }
 
 class $AssetsIconsNavigationMapsOutlineGen {
@@ -15757,15 +16318,18 @@ class $AssetsIconsNavigationMapsOutlineGen {
 
   /// File path: assets/icons/navigation maps/outline/destination 01.svg
   SvgGenImage get destination01 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/destination 01.svg');
+    'assets/icons/navigation maps/outline/destination 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/destination 02.svg
   SvgGenImage get destination02 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/destination 02.svg');
+    'assets/icons/navigation maps/outline/destination 02.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/destination 03.svg
   SvgGenImage get destination03 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/destination 03.svg');
+    'assets/icons/navigation maps/outline/destination 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/destination.svg
   SvgGenImage get destination =>
@@ -15801,31 +16365,38 @@ class $AssetsIconsNavigationMapsOutlineGen {
 
   /// File path: assets/icons/navigation maps/outline/home-location 01.svg
   SvgGenImage get homeLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/home-location 01.svg');
+    'assets/icons/navigation maps/outline/home-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/home-location.svg
   SvgGenImage get homeLocation => const SvgGenImage(
-      'assets/icons/navigation maps/outline/home-location.svg');
+    'assets/icons/navigation maps/outline/home-location.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/location-add.svg
   SvgGenImage get locationAdd => const SvgGenImage(
-      'assets/icons/navigation maps/outline/location-add.svg');
+    'assets/icons/navigation maps/outline/location-add.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/location-minus.svg
   SvgGenImage get locationMinus => const SvgGenImage(
-      'assets/icons/navigation maps/outline/location-minus.svg');
+    'assets/icons/navigation maps/outline/location-minus.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/location-remove.svg
   SvgGenImage get locationRemove => const SvgGenImage(
-      'assets/icons/navigation maps/outline/location-remove.svg');
+    'assets/icons/navigation maps/outline/location-remove.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/location-share.svg
   SvgGenImage get locationShare => const SvgGenImage(
-      'assets/icons/navigation maps/outline/location-share.svg');
+    'assets/icons/navigation maps/outline/location-share.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/location-user.svg
   SvgGenImage get locationUser => const SvgGenImage(
-      'assets/icons/navigation maps/outline/location-user.svg');
+    'assets/icons/navigation maps/outline/location-user.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/location.svg
   SvgGenImage get location =>
@@ -15845,55 +16416,68 @@ class $AssetsIconsNavigationMapsOutlineGen {
 
   /// File path: assets/icons/navigation maps/outline/map-gps-navigation 01.svg
   SvgGenImage get mapGpsNavigation01 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-gps-navigation 01.svg');
+    'assets/icons/navigation maps/outline/map-gps-navigation 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-gps-navigation 03.svg
   SvgGenImage get mapGpsNavigation03 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-gps-navigation 03.svg');
+    'assets/icons/navigation maps/outline/map-gps-navigation 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-gps-navigation 04.svg
   SvgGenImage get mapGpsNavigation04 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-gps-navigation 04.svg');
+    'assets/icons/navigation maps/outline/map-gps-navigation 04.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-gps-navigation.svg
   SvgGenImage get mapGpsNavigation => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-gps-navigation.svg');
+    'assets/icons/navigation maps/outline/map-gps-navigation.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 01.svg
   SvgGenImage get mapLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 01.svg');
+    'assets/icons/navigation maps/outline/map-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 02.svg
   SvgGenImage get mapLocation02 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 02.svg');
+    'assets/icons/navigation maps/outline/map-location 02.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 03.svg
   SvgGenImage get mapLocation03 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 03.svg');
+    'assets/icons/navigation maps/outline/map-location 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 04.svg
   SvgGenImage get mapLocation04 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 04.svg');
+    'assets/icons/navigation maps/outline/map-location 04.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 05.svg
   SvgGenImage get mapLocation05 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 05.svg');
+    'assets/icons/navigation maps/outline/map-location 05.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 06.svg
   SvgGenImage get mapLocation06 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 06.svg');
+    'assets/icons/navigation maps/outline/map-location 06.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location 07.svg
   SvgGenImage get mapLocation07 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location 07.svg');
+    'assets/icons/navigation maps/outline/map-location 07.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-location.svg
   SvgGenImage get mapLocation => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-location.svg');
+    'assets/icons/navigation maps/outline/map-location.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-people 01.svg
   SvgGenImage get mapPeople01 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/map-people 01.svg');
+    'assets/icons/navigation maps/outline/map-people 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/map-people.svg
   SvgGenImage get mapPeople =>
@@ -15949,11 +16533,13 @@ class $AssetsIconsNavigationMapsOutlineGen {
 
   /// File path: assets/icons/navigation maps/outline/road-location 01.svg
   SvgGenImage get roadLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/outline/road-location 01.svg');
+    'assets/icons/navigation maps/outline/road-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/road-location.svg
   SvgGenImage get roadLocation => const SvgGenImage(
-      'assets/icons/navigation maps/outline/road-location.svg');
+    'assets/icons/navigation maps/outline/road-location.svg',
+  );
 
   /// File path: assets/icons/navigation maps/outline/road-pin 01.svg
   SvgGenImage get roadPin01 =>
@@ -16013,71 +16599,71 @@ class $AssetsIconsNavigationMapsOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        destination01,
-        destination02,
-        destination03,
-        destination,
-        flag01,
-        flag,
-        globe01,
-        globe,
-        gps01,
-        gpsOff,
-        gps,
-        homeLocation01,
-        homeLocation,
-        locationAdd,
-        locationMinus,
-        locationRemove,
-        locationShare,
-        locationUser,
-        location,
-        map01,
-        map02,
-        map03,
-        mapGpsNavigation01,
-        mapGpsNavigation03,
-        mapGpsNavigation04,
-        mapGpsNavigation,
-        mapLocation01,
-        mapLocation02,
-        mapLocation03,
-        mapLocation04,
-        mapLocation05,
-        mapLocation06,
-        mapLocation07,
-        mapLocation,
-        mapPeople01,
-        mapPeople,
-        mapPin01,
-        mapPin02,
-        mapPin03,
-        mapPin,
-        map,
-        navigation,
-        people01,
-        people,
-        pin01,
-        pin02,
-        pin,
-        road01,
-        roadLocation01,
-        roadLocation,
-        roadPin01,
-        roadPin,
-        road,
-        signpost01,
-        signpost02,
-        signpost03,
-        signpost04,
-        signpost,
-        turn01,
-        turnLeft,
-        turnRight,
-        turn,
-        uTurn01,
-        uTurn
-      ];
+    destination01,
+    destination02,
+    destination03,
+    destination,
+    flag01,
+    flag,
+    globe01,
+    globe,
+    gps01,
+    gpsOff,
+    gps,
+    homeLocation01,
+    homeLocation,
+    locationAdd,
+    locationMinus,
+    locationRemove,
+    locationShare,
+    locationUser,
+    location,
+    map01,
+    map02,
+    map03,
+    mapGpsNavigation01,
+    mapGpsNavigation03,
+    mapGpsNavigation04,
+    mapGpsNavigation,
+    mapLocation01,
+    mapLocation02,
+    mapLocation03,
+    mapLocation04,
+    mapLocation05,
+    mapLocation06,
+    mapLocation07,
+    mapLocation,
+    mapPeople01,
+    mapPeople,
+    mapPin01,
+    mapPin02,
+    mapPin03,
+    mapPin,
+    map,
+    navigation,
+    people01,
+    people,
+    pin01,
+    pin02,
+    pin,
+    road01,
+    roadLocation01,
+    roadLocation,
+    roadPin01,
+    roadPin,
+    road,
+    signpost01,
+    signpost02,
+    signpost03,
+    signpost04,
+    signpost,
+    turn01,
+    turnLeft,
+    turnRight,
+    turn,
+    uTurn01,
+    uTurn,
+  ];
 }
 
 class $AssetsIconsNavigationMapsSolidGen {
@@ -16085,15 +16671,18 @@ class $AssetsIconsNavigationMapsSolidGen {
 
   /// File path: assets/icons/navigation maps/solid/destination 01.svg
   SvgGenImage get destination01 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/destination 01.svg');
+    'assets/icons/navigation maps/solid/destination 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/destination 02.svg
   SvgGenImage get destination02 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/destination 02.svg');
+    'assets/icons/navigation maps/solid/destination 02.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/destination 03.svg
   SvgGenImage get destination03 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/destination 03.svg');
+    'assets/icons/navigation maps/solid/destination 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/destination.svg
   SvgGenImage get destination =>
@@ -16129,7 +16718,8 @@ class $AssetsIconsNavigationMapsSolidGen {
 
   /// File path: assets/icons/navigation maps/solid/home-location 01.svg
   SvgGenImage get homeLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/home-location 01.svg');
+    'assets/icons/navigation maps/solid/home-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/home-location.svg
   SvgGenImage get homeLocation =>
@@ -16141,15 +16731,18 @@ class $AssetsIconsNavigationMapsSolidGen {
 
   /// File path: assets/icons/navigation maps/solid/location-minus.svg
   SvgGenImage get locationMinus => const SvgGenImage(
-      'assets/icons/navigation maps/solid/location-minus.svg');
+    'assets/icons/navigation maps/solid/location-minus.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/location-remove.svg
   SvgGenImage get locationRemove => const SvgGenImage(
-      'assets/icons/navigation maps/solid/location-remove.svg');
+    'assets/icons/navigation maps/solid/location-remove.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/location-share.svg
   SvgGenImage get locationShare => const SvgGenImage(
-      'assets/icons/navigation maps/solid/location-share.svg');
+    'assets/icons/navigation maps/solid/location-share.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/location-user.svg
   SvgGenImage get locationUser =>
@@ -16173,47 +16766,58 @@ class $AssetsIconsNavigationMapsSolidGen {
 
   /// File path: assets/icons/navigation maps/solid/map-gps-navigation 01.svg
   SvgGenImage get mapGpsNavigation01 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-gps-navigation 01.svg');
+    'assets/icons/navigation maps/solid/map-gps-navigation 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-gps-navigation 03.svg
   SvgGenImage get mapGpsNavigation03 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-gps-navigation 03.svg');
+    'assets/icons/navigation maps/solid/map-gps-navigation 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-gps-navigation 04.svg
   SvgGenImage get mapGpsNavigation04 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-gps-navigation 04.svg');
+    'assets/icons/navigation maps/solid/map-gps-navigation 04.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-gps-navigation.svg
   SvgGenImage get mapGpsNavigation => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-gps-navigation.svg');
+    'assets/icons/navigation maps/solid/map-gps-navigation.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 01.svg
   SvgGenImage get mapLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 01.svg');
+    'assets/icons/navigation maps/solid/map-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 02.svg
   SvgGenImage get mapLocation02 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 02.svg');
+    'assets/icons/navigation maps/solid/map-location 02.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 03.svg
   SvgGenImage get mapLocation03 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 03.svg');
+    'assets/icons/navigation maps/solid/map-location 03.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 04.svg
   SvgGenImage get mapLocation04 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 04.svg');
+    'assets/icons/navigation maps/solid/map-location 04.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 05.svg
   SvgGenImage get mapLocation05 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 05.svg');
+    'assets/icons/navigation maps/solid/map-location 05.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 06.svg
   SvgGenImage get mapLocation06 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 06.svg');
+    'assets/icons/navigation maps/solid/map-location 06.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location 07.svg
   SvgGenImage get mapLocation07 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/map-location 07.svg');
+    'assets/icons/navigation maps/solid/map-location 07.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/map-location.svg
   SvgGenImage get mapLocation =>
@@ -16277,7 +16881,8 @@ class $AssetsIconsNavigationMapsSolidGen {
 
   /// File path: assets/icons/navigation maps/solid/road-location 01.svg
   SvgGenImage get roadLocation01 => const SvgGenImage(
-      'assets/icons/navigation maps/solid/road-location 01.svg');
+    'assets/icons/navigation maps/solid/road-location 01.svg',
+  );
 
   /// File path: assets/icons/navigation maps/solid/road-location.svg
   SvgGenImage get roadLocation =>
@@ -16341,71 +16946,71 @@ class $AssetsIconsNavigationMapsSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        destination01,
-        destination02,
-        destination03,
-        destination,
-        flag01,
-        flag,
-        globe01,
-        globe,
-        gps01,
-        gpsOff,
-        gps,
-        homeLocation01,
-        homeLocation,
-        locationAdd,
-        locationMinus,
-        locationRemove,
-        locationShare,
-        locationUser,
-        location,
-        map01,
-        map02,
-        map03,
-        mapGpsNavigation01,
-        mapGpsNavigation03,
-        mapGpsNavigation04,
-        mapGpsNavigation,
-        mapLocation01,
-        mapLocation02,
-        mapLocation03,
-        mapLocation04,
-        mapLocation05,
-        mapLocation06,
-        mapLocation07,
-        mapLocation,
-        mapPeople01,
-        mapPeople,
-        mapPin01,
-        mapPin02,
-        mapPin03,
-        mapPin,
-        map,
-        navigation,
-        people01,
-        people,
-        pin01,
-        pin02,
-        pin,
-        road01,
-        roadLocation01,
-        roadLocation,
-        roadPin01,
-        roadPin,
-        road,
-        signpost01,
-        signpost02,
-        signpost03,
-        signpost04,
-        signpost,
-        turn01,
-        turnLeft,
-        turnRight,
-        turn,
-        uTurn01,
-        uTurn
-      ];
+    destination01,
+    destination02,
+    destination03,
+    destination,
+    flag01,
+    flag,
+    globe01,
+    globe,
+    gps01,
+    gpsOff,
+    gps,
+    homeLocation01,
+    homeLocation,
+    locationAdd,
+    locationMinus,
+    locationRemove,
+    locationShare,
+    locationUser,
+    location,
+    map01,
+    map02,
+    map03,
+    mapGpsNavigation01,
+    mapGpsNavigation03,
+    mapGpsNavigation04,
+    mapGpsNavigation,
+    mapLocation01,
+    mapLocation02,
+    mapLocation03,
+    mapLocation04,
+    mapLocation05,
+    mapLocation06,
+    mapLocation07,
+    mapLocation,
+    mapPeople01,
+    mapPeople,
+    mapPin01,
+    mapPin02,
+    mapPin03,
+    mapPin,
+    map,
+    navigation,
+    people01,
+    people,
+    pin01,
+    pin02,
+    pin,
+    road01,
+    roadLocation01,
+    roadLocation,
+    roadPin01,
+    roadPin,
+    road,
+    signpost01,
+    signpost02,
+    signpost03,
+    signpost04,
+    signpost,
+    turn01,
+    turnLeft,
+    turnRight,
+    turn,
+    uTurn01,
+    uTurn,
+  ];
 }
 
 class $AssetsIconsNotesAndTaskBulkGen {
@@ -16441,31 +17046,38 @@ class $AssetsIconsNotesAndTaskBulkGen {
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-check.svg
   SvgGenImage get notesEditCheck => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-check.svg');
+    'assets/icons/notes and task/bulk/notes-edit-check.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-delete.svg
   SvgGenImage get notesEditDelete => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-delete.svg');
+    'assets/icons/notes and task/bulk/notes-edit-delete.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-download.svg
   SvgGenImage get notesEditDownload => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-download.svg');
+    'assets/icons/notes and task/bulk/notes-edit-download.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-favourite.svg
   SvgGenImage get notesEditFavourite => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-favourite.svg');
+    'assets/icons/notes and task/bulk/notes-edit-favourite.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-minus.svg
   SvgGenImage get notesEditMinus => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-minus.svg');
+    'assets/icons/notes and task/bulk/notes-edit-minus.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-search.svg
   SvgGenImage get notesEditSearch => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-search.svg');
+    'assets/icons/notes and task/bulk/notes-edit-search.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit-upload.svg
   SvgGenImage get notesEditUpload => const SvgGenImage(
-      'assets/icons/notes and task/bulk/notes-edit-upload.svg');
+    'assets/icons/notes and task/bulk/notes-edit-upload.svg',
+  );
 
   /// File path: assets/icons/notes and task/bulk/notes-edit.svg
   SvgGenImage get notesEdit =>
@@ -16533,37 +17145,37 @@ class $AssetsIconsNotesAndTaskBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        notes01,
-        notesAdd,
-        notesCheck,
-        notesDelete,
-        notesDownload,
-        notesEdit01,
-        notesEditAdd,
-        notesEditCheck,
-        notesEditDelete,
-        notesEditDownload,
-        notesEditFavourite,
-        notesEditMinus,
-        notesEditSearch,
-        notesEditUpload,
-        notesEdit,
-        notesFavourite,
-        notesRemove,
-        notesSearch,
-        notesUpload,
-        notes,
-        task01,
-        taskAdd,
-        taskCheck,
-        taskDelete,
-        taskDownload,
-        taskFavourite,
-        taskMinus,
-        taskSearch,
-        taskUpload,
-        task
-      ];
+    notes01,
+    notesAdd,
+    notesCheck,
+    notesDelete,
+    notesDownload,
+    notesEdit01,
+    notesEditAdd,
+    notesEditCheck,
+    notesEditDelete,
+    notesEditDownload,
+    notesEditFavourite,
+    notesEditMinus,
+    notesEditSearch,
+    notesEditUpload,
+    notesEdit,
+    notesFavourite,
+    notesRemove,
+    notesSearch,
+    notesUpload,
+    notes,
+    task01,
+    taskAdd,
+    taskCheck,
+    taskDelete,
+    taskDownload,
+    taskFavourite,
+    taskMinus,
+    taskSearch,
+    taskUpload,
+    task,
+  ];
 }
 
 class $AssetsIconsNotesAndTaskOutlineGen {
@@ -16587,43 +17199,53 @@ class $AssetsIconsNotesAndTaskOutlineGen {
 
   /// File path: assets/icons/notes and task/outline/notes-download.svg
   SvgGenImage get notesDownload => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-download.svg');
+    'assets/icons/notes and task/outline/notes-download.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit 01.svg
   SvgGenImage get notesEdit01 => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit 01.svg');
+    'assets/icons/notes and task/outline/notes-edit 01.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-add.svg
   SvgGenImage get notesEditAdd => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-add.svg');
+    'assets/icons/notes and task/outline/notes-edit-add.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-check.svg
   SvgGenImage get notesEditCheck => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-check.svg');
+    'assets/icons/notes and task/outline/notes-edit-check.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-delete.svg
   SvgGenImage get notesEditDelete => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-delete.svg');
+    'assets/icons/notes and task/outline/notes-edit-delete.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-download.svg
   SvgGenImage get notesEditDownload => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-download.svg');
+    'assets/icons/notes and task/outline/notes-edit-download.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-favourite.svg
   SvgGenImage get notesEditFavourite => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-favourite.svg');
+    'assets/icons/notes and task/outline/notes-edit-favourite.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-minus.svg
   SvgGenImage get notesEditMinus => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-minus.svg');
+    'assets/icons/notes and task/outline/notes-edit-minus.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-search.svg
   SvgGenImage get notesEditSearch => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-search.svg');
+    'assets/icons/notes and task/outline/notes-edit-search.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit-upload.svg
   SvgGenImage get notesEditUpload => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-edit-upload.svg');
+    'assets/icons/notes and task/outline/notes-edit-upload.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-edit.svg
   SvgGenImage get notesEdit =>
@@ -16631,7 +17253,8 @@ class $AssetsIconsNotesAndTaskOutlineGen {
 
   /// File path: assets/icons/notes and task/outline/notes-favourite.svg
   SvgGenImage get notesFavourite => const SvgGenImage(
-      'assets/icons/notes and task/outline/notes-favourite.svg');
+    'assets/icons/notes and task/outline/notes-favourite.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/notes-remove.svg
   SvgGenImage get notesRemove =>
@@ -16667,11 +17290,13 @@ class $AssetsIconsNotesAndTaskOutlineGen {
 
   /// File path: assets/icons/notes and task/outline/task-download.svg
   SvgGenImage get taskDownload => const SvgGenImage(
-      'assets/icons/notes and task/outline/task-download.svg');
+    'assets/icons/notes and task/outline/task-download.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/task-favourite.svg
   SvgGenImage get taskFavourite => const SvgGenImage(
-      'assets/icons/notes and task/outline/task-favourite.svg');
+    'assets/icons/notes and task/outline/task-favourite.svg',
+  );
 
   /// File path: assets/icons/notes and task/outline/task-minus.svg
   SvgGenImage get taskMinus =>
@@ -16691,37 +17316,37 @@ class $AssetsIconsNotesAndTaskOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        notes01,
-        notesAdd,
-        notesCheck,
-        notesDelete,
-        notesDownload,
-        notesEdit01,
-        notesEditAdd,
-        notesEditCheck,
-        notesEditDelete,
-        notesEditDownload,
-        notesEditFavourite,
-        notesEditMinus,
-        notesEditSearch,
-        notesEditUpload,
-        notesEdit,
-        notesFavourite,
-        notesRemove,
-        notesSearch,
-        notesUpload,
-        notes,
-        task01,
-        taskAdd,
-        taskCheck,
-        taskDelete,
-        taskDownload,
-        taskFavourite,
-        taskMinus,
-        taskSearch,
-        taskUpload,
-        task
-      ];
+    notes01,
+    notesAdd,
+    notesCheck,
+    notesDelete,
+    notesDownload,
+    notesEdit01,
+    notesEditAdd,
+    notesEditCheck,
+    notesEditDelete,
+    notesEditDownload,
+    notesEditFavourite,
+    notesEditMinus,
+    notesEditSearch,
+    notesEditUpload,
+    notesEdit,
+    notesFavourite,
+    notesRemove,
+    notesSearch,
+    notesUpload,
+    notes,
+    task01,
+    taskAdd,
+    taskCheck,
+    taskDelete,
+    taskDownload,
+    taskFavourite,
+    taskMinus,
+    taskSearch,
+    taskUpload,
+    task,
+  ];
 }
 
 class $AssetsIconsNotesAndTaskSolidGen {
@@ -16745,7 +17370,8 @@ class $AssetsIconsNotesAndTaskSolidGen {
 
   /// File path: assets/icons/notes and task/solid/notes download-1.svg
   SvgGenImage get notesDownload1 => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes download-1.svg');
+    'assets/icons/notes and task/solid/notes download-1.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes download.svg
   SvgGenImage get notesDownload =>
@@ -16761,23 +17387,28 @@ class $AssetsIconsNotesAndTaskSolidGen {
 
   /// File path: assets/icons/notes and task/solid/notes edit check.svg
   SvgGenImage get notesEditCheck => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes edit check.svg');
+    'assets/icons/notes and task/solid/notes edit check.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes edit delete.svg
   SvgGenImage get notesEditDelete => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes edit delete.svg');
+    'assets/icons/notes and task/solid/notes edit delete.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes edit favourite.svg
   SvgGenImage get notesEditFavourite => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes edit favourite.svg');
+    'assets/icons/notes and task/solid/notes edit favourite.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes edit minus.svg
   SvgGenImage get notesEditMinus => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes edit minus.svg');
+    'assets/icons/notes and task/solid/notes edit minus.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes edit upload.svg
   SvgGenImage get notesEditUpload => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes edit upload.svg');
+    'assets/icons/notes and task/solid/notes edit upload.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes edit.svg
   SvgGenImage get notesEdit =>
@@ -16785,7 +17416,8 @@ class $AssetsIconsNotesAndTaskSolidGen {
 
   /// File path: assets/icons/notes and task/solid/notes favourite.svg
   SvgGenImage get notesFavourite => const SvgGenImage(
-      'assets/icons/notes and task/solid/notes favourite.svg');
+    'assets/icons/notes and task/solid/notes favourite.svg',
+  );
 
   /// File path: assets/icons/notes and task/solid/notes remove.svg
   SvgGenImage get notesRemove =>
@@ -16849,37 +17481,37 @@ class $AssetsIconsNotesAndTaskSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        notes01,
-        notesAdd,
-        notesCheck,
-        notesDelete,
-        notesDownload1,
-        notesDownload,
-        notesEdit01,
-        notesEditAdd,
-        notesEditCheck,
-        notesEditDelete,
-        notesEditFavourite,
-        notesEditMinus,
-        notesEditUpload,
-        notesEdit,
-        notesFavourite,
-        notesRemove,
-        notesSearch1,
-        notesSearch,
-        notesUpload,
-        notes,
-        task01,
-        taskAdd,
-        taskCheck,
-        taskDelete,
-        taskDowload,
-        taskFavourite,
-        taskMinus,
-        taskSearch,
-        taskUpload,
-        task
-      ];
+    notes01,
+    notesAdd,
+    notesCheck,
+    notesDelete,
+    notesDownload1,
+    notesDownload,
+    notesEdit01,
+    notesEditAdd,
+    notesEditCheck,
+    notesEditDelete,
+    notesEditFavourite,
+    notesEditMinus,
+    notesEditUpload,
+    notesEdit,
+    notesFavourite,
+    notesRemove,
+    notesSearch1,
+    notesSearch,
+    notesUpload,
+    notes,
+    task01,
+    taskAdd,
+    taskCheck,
+    taskDelete,
+    taskDowload,
+    taskFavourite,
+    taskMinus,
+    taskSearch,
+    taskUpload,
+    task,
+  ];
 }
 
 class $AssetsIconsShippingAndDeliveryBulkGen {
@@ -16891,7 +17523,8 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/air plane.svg
   SvgGenImage get airPlane => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/air plane.svg');
+    'assets/icons/shipping and delivery/bulk/air plane.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-add.svg
   SvgGenImage get boxAdd =>
@@ -16899,15 +17532,18 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/box-arrow-down.svg
   SvgGenImage get boxArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/box-arrow-down.svg');
+    'assets/icons/shipping and delivery/bulk/box-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-arrow-up.svg
   SvgGenImage get boxArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/box-arrow-up.svg');
+    'assets/icons/shipping and delivery/bulk/box-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-cancel.svg
   SvgGenImage get boxCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/box-cancel.svg');
+    'assets/icons/shipping and delivery/bulk/box-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-done.svg
   SvgGenImage get boxDone =>
@@ -16915,7 +17551,8 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/box-location.svg
   SvgGenImage get boxLocation => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/box-location.svg');
+    'assets/icons/shipping and delivery/bulk/box-location.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-love.svg
   SvgGenImage get boxLove =>
@@ -16923,11 +17560,13 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/box-minus.svg
   SvgGenImage get boxMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/box-minus.svg');
+    'assets/icons/shipping and delivery/bulk/box-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-search.svg
   SvgGenImage get boxSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/box-search.svg');
+    'assets/icons/shipping and delivery/bulk/box-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/box-time.svg
   SvgGenImage get boxTime =>
@@ -16935,7 +17574,8 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/cargo ship.svg
   SvgGenImage get cargoShip => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/cargo ship.svg');
+    'assets/icons/shipping and delivery/bulk/cargo ship.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/cargo.svg
   SvgGenImage get cargo =>
@@ -16943,27 +17583,33 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery-air plane.svg
   SvgGenImage get deliveryAirPlane => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/delivery-air plane.svg');
+    'assets/icons/shipping and delivery/bulk/delivery-air plane.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery-cancel.svg
   SvgGenImage get deliveryCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/delivery-cancel.svg');
+    'assets/icons/shipping and delivery/bulk/delivery-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery-conveyor.svg
   SvgGenImage get deliveryConveyor => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/delivery-conveyor.svg');
+    'assets/icons/shipping and delivery/bulk/delivery-conveyor.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery-done.svg
   SvgGenImage get deliveryDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/delivery-done.svg');
+    'assets/icons/shipping and delivery/bulk/delivery-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery-parachute.svg
   SvgGenImage get deliveryParachute => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/delivery-parachute.svg');
+    'assets/icons/shipping and delivery/bulk/delivery-parachute.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery-time.svg
   SvgGenImage get deliveryTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/delivery-time.svg');
+    'assets/icons/shipping and delivery/bulk/delivery-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/delivery.svg
   SvgGenImage get delivery =>
@@ -16975,47 +17621,58 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/fast delivery.svg
   SvgGenImage get fastDelivery => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/fast delivery.svg');
+    'assets/icons/shipping and delivery/bulk/fast delivery.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/fast time.svg
   SvgGenImage get fastTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/fast time.svg');
+    'assets/icons/shipping and delivery/bulk/fast time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box 01.svg
   SvgGenImage get openBox01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box 01.svg');
+    'assets/icons/shipping and delivery/bulk/open box 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-add.svg
   SvgGenImage get openBoxAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-add.svg');
+    'assets/icons/shipping and delivery/bulk/open box-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-arrow-down.svg
   SvgGenImage get openBoxArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-arrow-down.svg');
+    'assets/icons/shipping and delivery/bulk/open box-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-arrow-up.svg
   SvgGenImage get openBoxArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-arrow-up.svg');
+    'assets/icons/shipping and delivery/bulk/open box-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-done.svg
   SvgGenImage get openBoxDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-done.svg');
+    'assets/icons/shipping and delivery/bulk/open box-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-love.svg
   SvgGenImage get openBoxLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-love.svg');
+    'assets/icons/shipping and delivery/bulk/open box-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-minus.svg
   SvgGenImage get openBoxMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-minus.svg');
+    'assets/icons/shipping and delivery/bulk/open box-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-remove.svg
   SvgGenImage get openBoxRemove => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-remove.svg');
+    'assets/icons/shipping and delivery/bulk/open box-remove.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box-search.svg
   SvgGenImage get openBoxSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/open box-search.svg');
+    'assets/icons/shipping and delivery/bulk/open box-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/open box.svg
   SvgGenImage get openBox =>
@@ -17023,43 +17680,53 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/package 01.svg
   SvgGenImage get package01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package 01.svg');
+    'assets/icons/shipping and delivery/bulk/package 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package 02.svg
   SvgGenImage get package02 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package 02.svg');
+    'assets/icons/shipping and delivery/bulk/package 02.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 01.svg
   SvgGenImage get packageBox01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 01.svg');
+    'assets/icons/shipping and delivery/bulk/package box 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 02.svg
   SvgGenImage get packageBox02 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 02.svg');
+    'assets/icons/shipping and delivery/bulk/package box 02.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 03.svg
   SvgGenImage get packageBox03 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 03.svg');
+    'assets/icons/shipping and delivery/bulk/package box 03.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 04.svg
   SvgGenImage get packageBox04 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 04.svg');
+    'assets/icons/shipping and delivery/bulk/package box 04.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 05.svg
   SvgGenImage get packageBox05 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 05.svg');
+    'assets/icons/shipping and delivery/bulk/package box 05.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 06.svg
   SvgGenImage get packageBox06 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 06.svg');
+    'assets/icons/shipping and delivery/bulk/package box 06.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box 07.svg
   SvgGenImage get packageBox07 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box 07.svg');
+    'assets/icons/shipping and delivery/bulk/package box 07.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package box.svg
   SvgGenImage get packageBox => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/package box.svg');
+    'assets/icons/shipping and delivery/bulk/package box.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/package.svg
   SvgGenImage get package =>
@@ -17067,51 +17734,63 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-add.svg
   SvgGenImage get packagingAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-add.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-arrow-down.svg
   SvgGenImage get packagingArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-arrow-down.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-arrow-up.svg
   SvgGenImage get packagingArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-arrow-up.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-cancel.svg
   SvgGenImage get packagingCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-cancel.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-done.svg
   SvgGenImage get packagingDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-done.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-location-2.svg
   SvgGenImage get packagingLocation2 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-location-2.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-location-2.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-location.svg
   SvgGenImage get packagingLocation => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-location.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-location.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-love.svg
   SvgGenImage get packagingLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-love.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-minus.svg
   SvgGenImage get packagingMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-minus.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-search.svg
   SvgGenImage get packagingSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-search.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging-time.svg
   SvgGenImage get packagingTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging-time.svg');
+    'assets/icons/shipping and delivery/bulk/packaging-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/packaging.svg
   SvgGenImage get packaging => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/packaging.svg');
+    'assets/icons/shipping and delivery/bulk/packaging.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/parcel.svg
   SvgGenImage get parcel =>
@@ -17119,7 +17798,8 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/s-return 01.svg
   SvgGenImage get sReturn01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/s-return 01.svg');
+    'assets/icons/shipping and delivery/bulk/s-return 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/bulk/s-return.svg
   SvgGenImage get sReturn =>
@@ -17135,74 +17815,75 @@ class $AssetsIconsShippingAndDeliveryBulkGen {
 
   /// File path: assets/icons/shipping and delivery/bulk/warehouse.svg
   SvgGenImage get warehouse => const SvgGenImage(
-      'assets/icons/shipping and delivery/bulk/warehouse.svg');
+    'assets/icons/shipping and delivery/bulk/warehouse.svg',
+  );
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        addTo,
-        airPlane,
-        boxAdd,
-        boxArrowDown,
-        boxArrowUp,
-        boxCancel,
-        boxDone,
-        boxLocation,
-        boxLove,
-        boxMinus,
-        boxSearch,
-        boxTime,
-        cargoShip,
-        cargo,
-        deliveryAirPlane,
-        deliveryCancel,
-        deliveryConveyor,
-        deliveryDone,
-        deliveryParachute,
-        deliveryTime,
-        delivery,
-        donation,
-        fastDelivery,
-        fastTime,
-        openBox01,
-        openBoxAdd,
-        openBoxArrowDown,
-        openBoxArrowUp,
-        openBoxDone,
-        openBoxLove,
-        openBoxMinus,
-        openBoxRemove,
-        openBoxSearch,
-        openBox,
-        package01,
-        package02,
-        packageBox01,
-        packageBox02,
-        packageBox03,
-        packageBox04,
-        packageBox05,
-        packageBox06,
-        packageBox07,
-        packageBox,
-        package,
-        packagingAdd,
-        packagingArrowDown,
-        packagingArrowUp,
-        packagingCancel,
-        packagingDone,
-        packagingLocation2,
-        packagingLocation,
-        packagingLove,
-        packagingMinus,
-        packagingSearch,
-        packagingTime,
-        packaging,
-        parcel,
-        sReturn01,
-        sReturn,
-        shipping,
-        trolley,
-        warehouse
-      ];
+    addTo,
+    airPlane,
+    boxAdd,
+    boxArrowDown,
+    boxArrowUp,
+    boxCancel,
+    boxDone,
+    boxLocation,
+    boxLove,
+    boxMinus,
+    boxSearch,
+    boxTime,
+    cargoShip,
+    cargo,
+    deliveryAirPlane,
+    deliveryCancel,
+    deliveryConveyor,
+    deliveryDone,
+    deliveryParachute,
+    deliveryTime,
+    delivery,
+    donation,
+    fastDelivery,
+    fastTime,
+    openBox01,
+    openBoxAdd,
+    openBoxArrowDown,
+    openBoxArrowUp,
+    openBoxDone,
+    openBoxLove,
+    openBoxMinus,
+    openBoxRemove,
+    openBoxSearch,
+    openBox,
+    package01,
+    package02,
+    packageBox01,
+    packageBox02,
+    packageBox03,
+    packageBox04,
+    packageBox05,
+    packageBox06,
+    packageBox07,
+    packageBox,
+    package,
+    packagingAdd,
+    packagingArrowDown,
+    packagingArrowUp,
+    packagingCancel,
+    packagingDone,
+    packagingLocation2,
+    packagingLocation,
+    packagingLove,
+    packagingMinus,
+    packagingSearch,
+    packagingTime,
+    packaging,
+    parcel,
+    sReturn01,
+    sReturn,
+    shipping,
+    trolley,
+    warehouse,
+  ];
 }
 
 class $AssetsIconsShippingAndDeliveryOutlineGen {
@@ -17210,55 +17891,68 @@ class $AssetsIconsShippingAndDeliveryOutlineGen {
 
   /// File path: assets/icons/shipping and delivery/outline/add to.svg
   SvgGenImage get addTo => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/add to.svg');
+    'assets/icons/shipping and delivery/outline/add to.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/air plane.svg
   SvgGenImage get airPlane => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/air plane.svg');
+    'assets/icons/shipping and delivery/outline/air plane.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-add.svg
   SvgGenImage get boxAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-add.svg');
+    'assets/icons/shipping and delivery/outline/box-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-arrow-down.svg
   SvgGenImage get boxArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-arrow-down.svg');
+    'assets/icons/shipping and delivery/outline/box-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-arrow-up.svg
   SvgGenImage get boxArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-arrow-up.svg');
+    'assets/icons/shipping and delivery/outline/box-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-cancel.svg
   SvgGenImage get boxCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-cancel.svg');
+    'assets/icons/shipping and delivery/outline/box-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-done.svg
   SvgGenImage get boxDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-done.svg');
+    'assets/icons/shipping and delivery/outline/box-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-location.svg
   SvgGenImage get boxLocation => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-location.svg');
+    'assets/icons/shipping and delivery/outline/box-location.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-love.svg
   SvgGenImage get boxLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-love.svg');
+    'assets/icons/shipping and delivery/outline/box-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-minus.svg
   SvgGenImage get boxMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-minus.svg');
+    'assets/icons/shipping and delivery/outline/box-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-search.svg
   SvgGenImage get boxSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-search.svg');
+    'assets/icons/shipping and delivery/outline/box-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/box-time.svg
   SvgGenImage get boxTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/box-time.svg');
+    'assets/icons/shipping and delivery/outline/box-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/cargo ship.svg
   SvgGenImage get cargoShip => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/cargo ship.svg');
+    'assets/icons/shipping and delivery/outline/cargo ship.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/cargo.svg
   SvgGenImage get cargo =>
@@ -17266,266 +17960,315 @@ class $AssetsIconsShippingAndDeliveryOutlineGen {
 
   /// File path: assets/icons/shipping and delivery/outline/delivery-air plane.svg
   SvgGenImage get deliveryAirPlane => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery-air plane.svg');
+    'assets/icons/shipping and delivery/outline/delivery-air plane.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/delivery-cancel.svg
   SvgGenImage get deliveryCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery-cancel.svg');
+    'assets/icons/shipping and delivery/outline/delivery-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/delivery-conveyor.svg
   SvgGenImage get deliveryConveyor => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery-conveyor.svg');
+    'assets/icons/shipping and delivery/outline/delivery-conveyor.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/delivery-done.svg
   SvgGenImage get deliveryDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery-done.svg');
+    'assets/icons/shipping and delivery/outline/delivery-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/delivery-parachute.svg
   SvgGenImage get deliveryParachute => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery-parachute.svg');
+    'assets/icons/shipping and delivery/outline/delivery-parachute.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/delivery-time.svg
   SvgGenImage get deliveryTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery-time.svg');
+    'assets/icons/shipping and delivery/outline/delivery-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/delivery.svg
   SvgGenImage get delivery => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/delivery.svg');
+    'assets/icons/shipping and delivery/outline/delivery.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/donation.svg
   SvgGenImage get donation => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/donation.svg');
+    'assets/icons/shipping and delivery/outline/donation.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/fast delivery.svg
   SvgGenImage get fastDelivery => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/fast delivery.svg');
+    'assets/icons/shipping and delivery/outline/fast delivery.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/fast time.svg
   SvgGenImage get fastTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/fast time.svg');
+    'assets/icons/shipping and delivery/outline/fast time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box 01.svg
   SvgGenImage get openBox01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box 01.svg');
+    'assets/icons/shipping and delivery/outline/open box 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-add.svg
   SvgGenImage get openBoxAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-add.svg');
+    'assets/icons/shipping and delivery/outline/open box-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-arrow-down.svg
   SvgGenImage get openBoxArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-arrow-down.svg');
+    'assets/icons/shipping and delivery/outline/open box-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-arrow-up.svg
   SvgGenImage get openBoxArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-arrow-up.svg');
+    'assets/icons/shipping and delivery/outline/open box-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-done.svg
   SvgGenImage get openBoxDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-done.svg');
+    'assets/icons/shipping and delivery/outline/open box-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-love.svg
   SvgGenImage get openBoxLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-love.svg');
+    'assets/icons/shipping and delivery/outline/open box-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-minus.svg
   SvgGenImage get openBoxMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-minus.svg');
+    'assets/icons/shipping and delivery/outline/open box-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-remove.svg
   SvgGenImage get openBoxRemove => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-remove.svg');
+    'assets/icons/shipping and delivery/outline/open box-remove.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box-search.svg
   SvgGenImage get openBoxSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box-search.svg');
+    'assets/icons/shipping and delivery/outline/open box-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/open box.svg
   SvgGenImage get openBox => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/open box.svg');
+    'assets/icons/shipping and delivery/outline/open box.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package 01.svg
   SvgGenImage get package01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package 01.svg');
+    'assets/icons/shipping and delivery/outline/package 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package 02.svg
   SvgGenImage get package02 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package 02.svg');
+    'assets/icons/shipping and delivery/outline/package 02.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 01.svg
   SvgGenImage get packageBox01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 01.svg');
+    'assets/icons/shipping and delivery/outline/package box 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 02.svg
   SvgGenImage get packageBox02 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 02.svg');
+    'assets/icons/shipping and delivery/outline/package box 02.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 03.svg
   SvgGenImage get packageBox03 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 03.svg');
+    'assets/icons/shipping and delivery/outline/package box 03.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 04.svg
   SvgGenImage get packageBox04 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 04.svg');
+    'assets/icons/shipping and delivery/outline/package box 04.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 05.svg
   SvgGenImage get packageBox05 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 05.svg');
+    'assets/icons/shipping and delivery/outline/package box 05.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 06.svg
   SvgGenImage get packageBox06 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 06.svg');
+    'assets/icons/shipping and delivery/outline/package box 06.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box 07.svg
   SvgGenImage get packageBox07 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box 07.svg');
+    'assets/icons/shipping and delivery/outline/package box 07.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package box.svg
   SvgGenImage get packageBox => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package box.svg');
+    'assets/icons/shipping and delivery/outline/package box.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/package.svg
   SvgGenImage get package => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/package.svg');
+    'assets/icons/shipping and delivery/outline/package.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-add.svg
   SvgGenImage get packagingAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-add.svg');
+    'assets/icons/shipping and delivery/outline/packaging-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-arrow-down.svg
   SvgGenImage get packagingArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-arrow-down.svg');
+    'assets/icons/shipping and delivery/outline/packaging-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-arrow-up.svg
   SvgGenImage get packagingArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-arrow-up.svg');
+    'assets/icons/shipping and delivery/outline/packaging-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-cancel.svg
   SvgGenImage get packagingCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-cancel.svg');
+    'assets/icons/shipping and delivery/outline/packaging-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-done.svg
   SvgGenImage get packagingDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-done.svg');
+    'assets/icons/shipping and delivery/outline/packaging-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-location-2.svg
   SvgGenImage get packagingLocation2 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-location-2.svg');
+    'assets/icons/shipping and delivery/outline/packaging-location-2.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-location.svg
   SvgGenImage get packagingLocation => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-location.svg');
+    'assets/icons/shipping and delivery/outline/packaging-location.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-love.svg
   SvgGenImage get packagingLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-love.svg');
+    'assets/icons/shipping and delivery/outline/packaging-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-minus.svg
   SvgGenImage get packagingMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-minus.svg');
+    'assets/icons/shipping and delivery/outline/packaging-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-search.svg
   SvgGenImage get packagingSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-search.svg');
+    'assets/icons/shipping and delivery/outline/packaging-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging-time.svg
   SvgGenImage get packagingTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging-time.svg');
+    'assets/icons/shipping and delivery/outline/packaging-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/packaging.svg
   SvgGenImage get packaging => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/packaging.svg');
+    'assets/icons/shipping and delivery/outline/packaging.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/parcel.svg
   SvgGenImage get parcel => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/parcel.svg');
+    'assets/icons/shipping and delivery/outline/parcel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/s-return 01.svg
   SvgGenImage get sReturn01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/s-return 01.svg');
+    'assets/icons/shipping and delivery/outline/s-return 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/s-return.svg
   SvgGenImage get sReturn => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/s-return.svg');
+    'assets/icons/shipping and delivery/outline/s-return.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/shipping.svg
   SvgGenImage get shipping => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/shipping.svg');
+    'assets/icons/shipping and delivery/outline/shipping.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/trolley.svg
   SvgGenImage get trolley => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/trolley.svg');
+    'assets/icons/shipping and delivery/outline/trolley.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/outline/warehouse.svg
   SvgGenImage get warehouse => const SvgGenImage(
-      'assets/icons/shipping and delivery/outline/warehouse.svg');
+    'assets/icons/shipping and delivery/outline/warehouse.svg',
+  );
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        addTo,
-        airPlane,
-        boxAdd,
-        boxArrowDown,
-        boxArrowUp,
-        boxCancel,
-        boxDone,
-        boxLocation,
-        boxLove,
-        boxMinus,
-        boxSearch,
-        boxTime,
-        cargoShip,
-        cargo,
-        deliveryAirPlane,
-        deliveryCancel,
-        deliveryConveyor,
-        deliveryDone,
-        deliveryParachute,
-        deliveryTime,
-        delivery,
-        donation,
-        fastDelivery,
-        fastTime,
-        openBox01,
-        openBoxAdd,
-        openBoxArrowDown,
-        openBoxArrowUp,
-        openBoxDone,
-        openBoxLove,
-        openBoxMinus,
-        openBoxRemove,
-        openBoxSearch,
-        openBox,
-        package01,
-        package02,
-        packageBox01,
-        packageBox02,
-        packageBox03,
-        packageBox04,
-        packageBox05,
-        packageBox06,
-        packageBox07,
-        packageBox,
-        package,
-        packagingAdd,
-        packagingArrowDown,
-        packagingArrowUp,
-        packagingCancel,
-        packagingDone,
-        packagingLocation2,
-        packagingLocation,
-        packagingLove,
-        packagingMinus,
-        packagingSearch,
-        packagingTime,
-        packaging,
-        parcel,
-        sReturn01,
-        sReturn,
-        shipping,
-        trolley,
-        warehouse
-      ];
+    addTo,
+    airPlane,
+    boxAdd,
+    boxArrowDown,
+    boxArrowUp,
+    boxCancel,
+    boxDone,
+    boxLocation,
+    boxLove,
+    boxMinus,
+    boxSearch,
+    boxTime,
+    cargoShip,
+    cargo,
+    deliveryAirPlane,
+    deliveryCancel,
+    deliveryConveyor,
+    deliveryDone,
+    deliveryParachute,
+    deliveryTime,
+    delivery,
+    donation,
+    fastDelivery,
+    fastTime,
+    openBox01,
+    openBoxAdd,
+    openBoxArrowDown,
+    openBoxArrowUp,
+    openBoxDone,
+    openBoxLove,
+    openBoxMinus,
+    openBoxRemove,
+    openBoxSearch,
+    openBox,
+    package01,
+    package02,
+    packageBox01,
+    packageBox02,
+    packageBox03,
+    packageBox04,
+    packageBox05,
+    packageBox06,
+    packageBox07,
+    packageBox,
+    package,
+    packagingAdd,
+    packagingArrowDown,
+    packagingArrowUp,
+    packagingCancel,
+    packagingDone,
+    packagingLocation2,
+    packagingLocation,
+    packagingLove,
+    packagingMinus,
+    packagingSearch,
+    packagingTime,
+    packaging,
+    parcel,
+    sReturn01,
+    sReturn,
+    shipping,
+    trolley,
+    warehouse,
+  ];
 }
 
 class $AssetsIconsShippingAndDeliverySolidGen {
@@ -17537,7 +18280,8 @@ class $AssetsIconsShippingAndDeliverySolidGen {
 
   /// File path: assets/icons/shipping and delivery/solid/air plane.svg
   SvgGenImage get airPlane => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/air plane.svg');
+    'assets/icons/shipping and delivery/solid/air plane.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-add.svg
   SvgGenImage get boxAdd =>
@@ -17545,43 +18289,53 @@ class $AssetsIconsShippingAndDeliverySolidGen {
 
   /// File path: assets/icons/shipping and delivery/solid/box-arrow-down.svg
   SvgGenImage get boxArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-arrow-down.svg');
+    'assets/icons/shipping and delivery/solid/box-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-arrow-up.svg
   SvgGenImage get boxArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-arrow-up.svg');
+    'assets/icons/shipping and delivery/solid/box-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-cancel.svg
   SvgGenImage get boxCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-cancel.svg');
+    'assets/icons/shipping and delivery/solid/box-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-done.svg
   SvgGenImage get boxDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-done.svg');
+    'assets/icons/shipping and delivery/solid/box-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-location.svg
   SvgGenImage get boxLocation => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-location.svg');
+    'assets/icons/shipping and delivery/solid/box-location.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-love.svg
   SvgGenImage get boxLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-love.svg');
+    'assets/icons/shipping and delivery/solid/box-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-minus.svg
   SvgGenImage get boxMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-minus.svg');
+    'assets/icons/shipping and delivery/solid/box-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-search.svg
   SvgGenImage get boxSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-search.svg');
+    'assets/icons/shipping and delivery/solid/box-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/box-time.svg
   SvgGenImage get boxTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/box-time.svg');
+    'assets/icons/shipping and delivery/solid/box-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/cargo ship.svg
   SvgGenImage get cargoShip => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/cargo ship.svg');
+    'assets/icons/shipping and delivery/solid/cargo ship.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/cargo.svg
   SvgGenImage get cargo =>
@@ -17589,123 +18343,153 @@ class $AssetsIconsShippingAndDeliverySolidGen {
 
   /// File path: assets/icons/shipping and delivery/solid/delivery-air plane.svg
   SvgGenImage get deliveryAirPlane => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery-air plane.svg');
+    'assets/icons/shipping and delivery/solid/delivery-air plane.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/delivery-cancel.svg
   SvgGenImage get deliveryCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery-cancel.svg');
+    'assets/icons/shipping and delivery/solid/delivery-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/delivery-conveyor.svg
   SvgGenImage get deliveryConveyor => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery-conveyor.svg');
+    'assets/icons/shipping and delivery/solid/delivery-conveyor.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/delivery-done.svg
   SvgGenImage get deliveryDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery-done.svg');
+    'assets/icons/shipping and delivery/solid/delivery-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/delivery-parachute.svg
   SvgGenImage get deliveryParachute => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery-parachute.svg');
+    'assets/icons/shipping and delivery/solid/delivery-parachute.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/delivery-time.svg
   SvgGenImage get deliveryTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery-time.svg');
+    'assets/icons/shipping and delivery/solid/delivery-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/delivery.svg
   SvgGenImage get delivery => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/delivery.svg');
+    'assets/icons/shipping and delivery/solid/delivery.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/donation.svg
   SvgGenImage get donation => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/donation.svg');
+    'assets/icons/shipping and delivery/solid/donation.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/fast delivery.svg
   SvgGenImage get fastDelivery => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/fast delivery.svg');
+    'assets/icons/shipping and delivery/solid/fast delivery.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/fast time.svg
   SvgGenImage get fastTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/fast time.svg');
+    'assets/icons/shipping and delivery/solid/fast time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box 01.svg
   SvgGenImage get openBox01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box 01.svg');
+    'assets/icons/shipping and delivery/solid/open box 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-add.svg
   SvgGenImage get openBoxAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-add.svg');
+    'assets/icons/shipping and delivery/solid/open box-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-arrow-down.svg
   SvgGenImage get openBoxArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-arrow-down.svg');
+    'assets/icons/shipping and delivery/solid/open box-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-arrow-up.svg
   SvgGenImage get openBoxArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-arrow-up.svg');
+    'assets/icons/shipping and delivery/solid/open box-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-done.svg
   SvgGenImage get openBoxDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-done.svg');
+    'assets/icons/shipping and delivery/solid/open box-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-love.svg
   SvgGenImage get openBoxLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-love.svg');
+    'assets/icons/shipping and delivery/solid/open box-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-minus.svg
   SvgGenImage get openBoxMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-minus.svg');
+    'assets/icons/shipping and delivery/solid/open box-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-remove.svg
   SvgGenImage get openBoxRemove => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-remove.svg');
+    'assets/icons/shipping and delivery/solid/open box-remove.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box-search.svg
   SvgGenImage get openBoxSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box-search.svg');
+    'assets/icons/shipping and delivery/solid/open box-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/open box.svg
   SvgGenImage get openBox => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/open box.svg');
+    'assets/icons/shipping and delivery/solid/open box.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package 01.svg
   SvgGenImage get package01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package 01.svg');
+    'assets/icons/shipping and delivery/solid/package 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package 02.svg
   SvgGenImage get package02 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package 02.svg');
+    'assets/icons/shipping and delivery/solid/package 02.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 01.svg
   SvgGenImage get packageBox01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 01.svg');
+    'assets/icons/shipping and delivery/solid/package box 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 02.svg
   SvgGenImage get packageBox02 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 02.svg');
+    'assets/icons/shipping and delivery/solid/package box 02.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 03.svg
   SvgGenImage get packageBox03 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 03.svg');
+    'assets/icons/shipping and delivery/solid/package box 03.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 04.svg
   SvgGenImage get packageBox04 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 04.svg');
+    'assets/icons/shipping and delivery/solid/package box 04.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 05.svg
   SvgGenImage get packageBox05 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 05.svg');
+    'assets/icons/shipping and delivery/solid/package box 05.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 06.svg
   SvgGenImage get packageBox06 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 06.svg');
+    'assets/icons/shipping and delivery/solid/package box 06.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box 07.svg
   SvgGenImage get packageBox07 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box 07.svg');
+    'assets/icons/shipping and delivery/solid/package box 07.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package box.svg
   SvgGenImage get packageBox => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/package box.svg');
+    'assets/icons/shipping and delivery/solid/package box.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/package.svg
   SvgGenImage get package =>
@@ -17713,47 +18497,58 @@ class $AssetsIconsShippingAndDeliverySolidGen {
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-add.svg
   SvgGenImage get packagingAdd => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-add.svg');
+    'assets/icons/shipping and delivery/solid/packaging-add.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-arrow-down.svg
   SvgGenImage get packagingArrowDown => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-arrow-down.svg');
+    'assets/icons/shipping and delivery/solid/packaging-arrow-down.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-arrow-up.svg
   SvgGenImage get packagingArrowUp => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-arrow-up.svg');
+    'assets/icons/shipping and delivery/solid/packaging-arrow-up.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-cancel.svg
   SvgGenImage get packagingCancel => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-cancel.svg');
+    'assets/icons/shipping and delivery/solid/packaging-cancel.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-done.svg
   SvgGenImage get packagingDone => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-done.svg');
+    'assets/icons/shipping and delivery/solid/packaging-done.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-location-2.svg
   SvgGenImage get packagingLocation2 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-location-2.svg');
+    'assets/icons/shipping and delivery/solid/packaging-location-2.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-location.svg
   SvgGenImage get packagingLocation => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-location.svg');
+    'assets/icons/shipping and delivery/solid/packaging-location.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-love.svg
   SvgGenImage get packagingLove => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-love.svg');
+    'assets/icons/shipping and delivery/solid/packaging-love.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-minus.svg
   SvgGenImage get packagingMinus => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-minus.svg');
+    'assets/icons/shipping and delivery/solid/packaging-minus.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-search.svg
   SvgGenImage get packagingSearch => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-search.svg');
+    'assets/icons/shipping and delivery/solid/packaging-search.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/packaging-time.svg
   SvgGenImage get packagingTime => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/packaging-time.svg');
+    'assets/icons/shipping and delivery/solid/packaging-time.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/parcel.svg
   SvgGenImage get parcel =>
@@ -17761,19 +18556,23 @@ class $AssetsIconsShippingAndDeliverySolidGen {
 
   /// File path: assets/icons/shipping and delivery/solid/s-return 01.svg
   SvgGenImage get sReturn01 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/s-return 01.svg');
+    'assets/icons/shipping and delivery/solid/s-return 01.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/s-return-1.svg
   SvgGenImage get sReturn1 => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/s-return-1.svg');
+    'assets/icons/shipping and delivery/solid/s-return-1.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/s-return.svg
   SvgGenImage get sReturn => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/s-return.svg');
+    'assets/icons/shipping and delivery/solid/s-return.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/shipping.svg
   SvgGenImage get shipping => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/shipping.svg');
+    'assets/icons/shipping and delivery/solid/shipping.svg',
+  );
 
   /// File path: assets/icons/shipping and delivery/solid/trolley.svg
   SvgGenImage get trolley =>
@@ -17781,74 +18580,75 @@ class $AssetsIconsShippingAndDeliverySolidGen {
 
   /// File path: assets/icons/shipping and delivery/solid/warehouse.svg
   SvgGenImage get warehouse => const SvgGenImage(
-      'assets/icons/shipping and delivery/solid/warehouse.svg');
+    'assets/icons/shipping and delivery/solid/warehouse.svg',
+  );
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        addTo,
-        airPlane,
-        boxAdd,
-        boxArrowDown,
-        boxArrowUp,
-        boxCancel,
-        boxDone,
-        boxLocation,
-        boxLove,
-        boxMinus,
-        boxSearch,
-        boxTime,
-        cargoShip,
-        cargo,
-        deliveryAirPlane,
-        deliveryCancel,
-        deliveryConveyor,
-        deliveryDone,
-        deliveryParachute,
-        deliveryTime,
-        delivery,
-        donation,
-        fastDelivery,
-        fastTime,
-        openBox01,
-        openBoxAdd,
-        openBoxArrowDown,
-        openBoxArrowUp,
-        openBoxDone,
-        openBoxLove,
-        openBoxMinus,
-        openBoxRemove,
-        openBoxSearch,
-        openBox,
-        package01,
-        package02,
-        packageBox01,
-        packageBox02,
-        packageBox03,
-        packageBox04,
-        packageBox05,
-        packageBox06,
-        packageBox07,
-        packageBox,
-        package,
-        packagingAdd,
-        packagingArrowDown,
-        packagingArrowUp,
-        packagingCancel,
-        packagingDone,
-        packagingLocation2,
-        packagingLocation,
-        packagingLove,
-        packagingMinus,
-        packagingSearch,
-        packagingTime,
-        parcel,
-        sReturn01,
-        sReturn1,
-        sReturn,
-        shipping,
-        trolley,
-        warehouse
-      ];
+    addTo,
+    airPlane,
+    boxAdd,
+    boxArrowDown,
+    boxArrowUp,
+    boxCancel,
+    boxDone,
+    boxLocation,
+    boxLove,
+    boxMinus,
+    boxSearch,
+    boxTime,
+    cargoShip,
+    cargo,
+    deliveryAirPlane,
+    deliveryCancel,
+    deliveryConveyor,
+    deliveryDone,
+    deliveryParachute,
+    deliveryTime,
+    delivery,
+    donation,
+    fastDelivery,
+    fastTime,
+    openBox01,
+    openBoxAdd,
+    openBoxArrowDown,
+    openBoxArrowUp,
+    openBoxDone,
+    openBoxLove,
+    openBoxMinus,
+    openBoxRemove,
+    openBoxSearch,
+    openBox,
+    package01,
+    package02,
+    packageBox01,
+    packageBox02,
+    packageBox03,
+    packageBox04,
+    packageBox05,
+    packageBox06,
+    packageBox07,
+    packageBox,
+    package,
+    packagingAdd,
+    packagingArrowDown,
+    packagingArrowUp,
+    packagingCancel,
+    packagingDone,
+    packagingLocation2,
+    packagingLocation,
+    packagingLove,
+    packagingMinus,
+    packagingSearch,
+    packagingTime,
+    parcel,
+    sReturn01,
+    sReturn1,
+    sReturn,
+    shipping,
+    trolley,
+    warehouse,
+  ];
 }
 
 class $AssetsIconsSmartHouseBulkGen {
@@ -17992,7 +18792,8 @@ class $AssetsIconsSmartHouseBulkGen {
 
   /// File path: assets/icons/smart house/bulk/home-information 01.svg
   SvgGenImage get homeInformation01 => const SvgGenImage(
-      'assets/icons/smart house/bulk/home-information 01.svg');
+    'assets/icons/smart house/bulk/home-information 01.svg',
+  );
 
   /// File path: assets/icons/smart house/bulk/home-information.svg
   SvgGenImage get homeInformation =>
@@ -18040,7 +18841,8 @@ class $AssetsIconsSmartHouseBulkGen {
 
   /// File path: assets/icons/smart house/bulk/home-notification 01.svg
   SvgGenImage get homeNotification01 => const SvgGenImage(
-      'assets/icons/smart house/bulk/home-notification 01.svg');
+    'assets/icons/smart house/bulk/home-notification 01.svg',
+  );
 
   /// File path: assets/icons/smart house/bulk/home-notification.svg
   SvgGenImage get homeNotification =>
@@ -18196,92 +18998,92 @@ class $AssetsIconsSmartHouseBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        ac,
-        barcode,
-        cam,
-        door,
-        eyeScanner,
-        fingerprint,
-        hSwitch,
-        home01,
-        homeAdd01,
-        homeAdd,
-        homeArrowDown01,
-        homeArrowDown,
-        homeArrowUp01,
-        homeArrowUp,
-        homeCelcius01,
-        homeCelcius,
-        homeCheck01,
-        homeCheck,
-        homeCloud01,
-        homeCloud,
-        homeDownload01,
-        homeDownload,
-        homeEye01,
-        homeEye,
-        homeFavourite01,
-        homeFavourite,
-        homeFilter01,
-        homeFilter,
-        homeFlash01,
-        homeFlash,
-        homeFluid01,
-        homeFluid,
-        homeGraph01,
-        homeGraph,
-        homeInformation01,
-        homeInformation,
-        homeLink01,
-        homeLink,
-        homeLocation01,
-        homeLocation,
-        homeLock01,
-        homeLock,
-        homeMail01,
-        homeMail,
-        homeMinus01,
-        homeMinus,
-        homeNotification01,
-        homeNotification,
-        homePower01,
-        homePower,
-        homeRemove01,
-        homeRemove,
-        homeSetting01,
-        homeSetting,
-        homeShare01,
-        homeShare,
-        homeShield01,
-        homeShield,
-        homeUpload01,
-        homeUpload,
-        homeWarning01,
-        homeWarning,
-        homeWave01,
-        homeWave,
-        homeWifi01,
-        homeWifi,
-        home,
-        humidity,
-        internet,
-        music,
-        power,
-        press,
-        remote,
-        sensor,
-        smartKey1,
-        smartKey,
-        smartLight,
-        smartLock,
-        smartPhone,
-        smartPlug,
-        smartTv,
-        smartWatch,
-        solarPanel,
-        speaker,
-        thermostat
-      ];
+    ac,
+    barcode,
+    cam,
+    door,
+    eyeScanner,
+    fingerprint,
+    hSwitch,
+    home01,
+    homeAdd01,
+    homeAdd,
+    homeArrowDown01,
+    homeArrowDown,
+    homeArrowUp01,
+    homeArrowUp,
+    homeCelcius01,
+    homeCelcius,
+    homeCheck01,
+    homeCheck,
+    homeCloud01,
+    homeCloud,
+    homeDownload01,
+    homeDownload,
+    homeEye01,
+    homeEye,
+    homeFavourite01,
+    homeFavourite,
+    homeFilter01,
+    homeFilter,
+    homeFlash01,
+    homeFlash,
+    homeFluid01,
+    homeFluid,
+    homeGraph01,
+    homeGraph,
+    homeInformation01,
+    homeInformation,
+    homeLink01,
+    homeLink,
+    homeLocation01,
+    homeLocation,
+    homeLock01,
+    homeLock,
+    homeMail01,
+    homeMail,
+    homeMinus01,
+    homeMinus,
+    homeNotification01,
+    homeNotification,
+    homePower01,
+    homePower,
+    homeRemove01,
+    homeRemove,
+    homeSetting01,
+    homeSetting,
+    homeShare01,
+    homeShare,
+    homeShield01,
+    homeShield,
+    homeUpload01,
+    homeUpload,
+    homeWarning01,
+    homeWarning,
+    homeWave01,
+    homeWave,
+    homeWifi01,
+    homeWifi,
+    home,
+    humidity,
+    internet,
+    music,
+    power,
+    press,
+    remote,
+    sensor,
+    smartKey1,
+    smartKey,
+    smartLight,
+    smartLock,
+    smartPhone,
+    smartPlug,
+    smartTv,
+    smartWatch,
+    solarPanel,
+    speaker,
+    thermostat,
+  ];
 }
 
 class $AssetsIconsSmartHouseOutlineGen {
@@ -18333,7 +19135,8 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-arrow-down 01.svg
   SvgGenImage get homeArrowDown01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-arrow-down 01.svg');
+    'assets/icons/smart house/outline/home-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-arrow-down.svg
   SvgGenImage get homeArrowDown =>
@@ -18341,7 +19144,8 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-arrow-up 01.svg
   SvgGenImage get homeArrowUp01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-arrow-up 01.svg');
+    'assets/icons/smart house/outline/home-arrow-up 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-celcius 01.svg
   SvgGenImage get homeCelcius01 =>
@@ -18369,7 +19173,8 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-download 01.svg
   SvgGenImage get homeDownload01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-download 01.svg');
+    'assets/icons/smart house/outline/home-download 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-download.svg
   SvgGenImage get homeDownload =>
@@ -18385,7 +19190,8 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-favourite 01.svg
   SvgGenImage get homeFavourite01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-favourite 01.svg');
+    'assets/icons/smart house/outline/home-favourite 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-favourite.svg
   SvgGenImage get homeFavourite =>
@@ -18425,11 +19231,13 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-information 01.svg
   SvgGenImage get homeInformation01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-information 01.svg');
+    'assets/icons/smart house/outline/home-information 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-information.svg
   SvgGenImage get homeInformation => const SvgGenImage(
-      'assets/icons/smart house/outline/home-information.svg');
+    'assets/icons/smart house/outline/home-information.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-link 01.svg
   SvgGenImage get homeLink01 =>
@@ -18441,7 +19249,8 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-location 01.svg
   SvgGenImage get homeLocation01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-location 01.svg');
+    'assets/icons/smart house/outline/home-location 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-location.svg
   SvgGenImage get homeLocation =>
@@ -18473,11 +19282,13 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// File path: assets/icons/smart house/outline/home-notification 01.svg
   SvgGenImage get homeNotification01 => const SvgGenImage(
-      'assets/icons/smart house/outline/home-notification 01.svg');
+    'assets/icons/smart house/outline/home-notification 01.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-notification.svg
   SvgGenImage get homeNotification => const SvgGenImage(
-      'assets/icons/smart house/outline/home-notification.svg');
+    'assets/icons/smart house/outline/home-notification.svg',
+  );
 
   /// File path: assets/icons/smart house/outline/home-power 01.svg
   SvgGenImage get homePower01 =>
@@ -18629,92 +19440,92 @@ class $AssetsIconsSmartHouseOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        ac,
-        barcode,
-        cam,
-        compas,
-        door,
-        eyeScanner,
-        fingerprint,
-        hSwitch,
-        home01,
-        homeAdd01,
-        homeAdd,
-        homeArrowDown01,
-        homeArrowDown,
-        homeArrowUp01,
-        homeCelcius01,
-        homeCelcius,
-        homeCheck01,
-        homeCheck,
-        homeCloud01,
-        homeCloud,
-        homeDownload01,
-        homeDownload,
-        homeEye01,
-        homeEye,
-        homeFavourite01,
-        homeFavourite,
-        homeFilter01,
-        homeFilter,
-        homeFlash01,
-        homeFlash,
-        homeFluid01,
-        homeFluid,
-        homeGraph01,
-        homeGraph,
-        homeInformation01,
-        homeInformation,
-        homeLink01,
-        homeLink,
-        homeLocation01,
-        homeLocation,
-        homeLock01,
-        homeLock,
-        homeMail01,
-        homeMail,
-        homeMinus01,
-        homeMinus,
-        homeNotification01,
-        homeNotification,
-        homePower01,
-        homePower,
-        homeRemove01,
-        homeRemove,
-        homeSetting01,
-        homeSetting,
-        homeShare01,
-        homeShare,
-        homeShield01,
-        homeShield,
-        homeUpload01,
-        homeUpload,
-        homeWarning01,
-        homeWarning,
-        homeWave01,
-        homeWave1,
-        homeWave,
-        homeWifi01,
-        homeWifi,
-        home,
-        humidity,
-        music,
-        power,
-        press,
-        remote,
-        sensor,
-        smartKey2,
-        smartKey,
-        smartLight,
-        smartLock,
-        smartPhone,
-        smartPlug,
-        smartTv,
-        smartWatch,
-        solarPanel,
-        speaker,
-        thermostat
-      ];
+    ac,
+    barcode,
+    cam,
+    compas,
+    door,
+    eyeScanner,
+    fingerprint,
+    hSwitch,
+    home01,
+    homeAdd01,
+    homeAdd,
+    homeArrowDown01,
+    homeArrowDown,
+    homeArrowUp01,
+    homeCelcius01,
+    homeCelcius,
+    homeCheck01,
+    homeCheck,
+    homeCloud01,
+    homeCloud,
+    homeDownload01,
+    homeDownload,
+    homeEye01,
+    homeEye,
+    homeFavourite01,
+    homeFavourite,
+    homeFilter01,
+    homeFilter,
+    homeFlash01,
+    homeFlash,
+    homeFluid01,
+    homeFluid,
+    homeGraph01,
+    homeGraph,
+    homeInformation01,
+    homeInformation,
+    homeLink01,
+    homeLink,
+    homeLocation01,
+    homeLocation,
+    homeLock01,
+    homeLock,
+    homeMail01,
+    homeMail,
+    homeMinus01,
+    homeMinus,
+    homeNotification01,
+    homeNotification,
+    homePower01,
+    homePower,
+    homeRemove01,
+    homeRemove,
+    homeSetting01,
+    homeSetting,
+    homeShare01,
+    homeShare,
+    homeShield01,
+    homeShield,
+    homeUpload01,
+    homeUpload,
+    homeWarning01,
+    homeWarning,
+    homeWave01,
+    homeWave1,
+    homeWave,
+    homeWifi01,
+    homeWifi,
+    home,
+    humidity,
+    music,
+    power,
+    press,
+    remote,
+    sensor,
+    smartKey2,
+    smartKey,
+    smartLight,
+    smartLock,
+    smartPhone,
+    smartPlug,
+    smartTv,
+    smartWatch,
+    solarPanel,
+    speaker,
+    thermostat,
+  ];
 }
 
 class $AssetsIconsSmartHouseSolidGen {
@@ -18762,7 +19573,8 @@ class $AssetsIconsSmartHouseSolidGen {
 
   /// File path: assets/icons/smart house/solid/home-arrow-down 01.svg
   SvgGenImage get homeArrowDown01 => const SvgGenImage(
-      'assets/icons/smart house/solid/home-arrow-down 01.svg');
+    'assets/icons/smart house/solid/home-arrow-down 01.svg',
+  );
 
   /// File path: assets/icons/smart house/solid/home-arrow-down.svg
   SvgGenImage get homeArrowDown =>
@@ -18858,7 +19670,8 @@ class $AssetsIconsSmartHouseSolidGen {
 
   /// File path: assets/icons/smart house/solid/home-information 01.svg
   SvgGenImage get homeInformation01 => const SvgGenImage(
-      'assets/icons/smart house/solid/home-information 01.svg');
+    'assets/icons/smart house/solid/home-information 01.svg',
+  );
 
   /// File path: assets/icons/smart house/solid/home-information.svg
   SvgGenImage get homeInformation =>
@@ -18906,7 +19719,8 @@ class $AssetsIconsSmartHouseSolidGen {
 
   /// File path: assets/icons/smart house/solid/home-notification 01.svg
   SvgGenImage get homeNotification01 => const SvgGenImage(
-      'assets/icons/smart house/solid/home-notification 01.svg');
+    'assets/icons/smart house/solid/home-notification 01.svg',
+  );
 
   /// File path: assets/icons/smart house/solid/home-notification.svg
   SvgGenImage get homeNotification =>
@@ -19062,92 +19876,92 @@ class $AssetsIconsSmartHouseSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        ac,
-        barcode,
-        cam,
-        door,
-        eyeScanner,
-        fingerprint,
-        hSwitch,
-        home01,
-        homeAdd01,
-        homeAdd,
-        homeArrowDown01,
-        homeArrowDown,
-        homeArrowUp01,
-        homeArrowUp,
-        homeCelcius01,
-        homeCelcius,
-        homeCheck01,
-        homeCheck,
-        homeCloud01,
-        homeCloud,
-        homeDownload01,
-        homeDownload,
-        homeEye01,
-        homeEye,
-        homeFavourite01,
-        homeFavourite,
-        homeFilter01,
-        homeFilter,
-        homeFlash01,
-        homeFlash,
-        homeFluid01,
-        homeFluid,
-        homeGraph01,
-        homeGraph,
-        homeInformation01,
-        homeInformation,
-        homeLink01,
-        homeLink,
-        homeLocation01,
-        homeLocation,
-        homeLock01,
-        homeLock,
-        homeMail01,
-        homeMail,
-        homeMinus01,
-        homeMinus,
-        homeNotification01,
-        homeNotification,
-        homePower01,
-        homePower,
-        homeRemove01,
-        homeRemove,
-        homeSetting01,
-        homeSetting,
-        homeShare01,
-        homeShare,
-        homeShield01,
-        homeShield,
-        homeUpload01,
-        homeUpload,
-        homeWarning01,
-        homeWarning,
-        homeWave01,
-        homeWave,
-        homeWifi01,
-        homeWifi,
-        home,
-        humidity,
-        internet,
-        music,
-        power,
-        press,
-        remote,
-        sensor,
-        smartKey1,
-        smartKey,
-        smartLight,
-        smartLock,
-        smartPhone,
-        smartPlug,
-        smartTv,
-        smartWatch,
-        solarPanel,
-        speaker,
-        thermostat
-      ];
+    ac,
+    barcode,
+    cam,
+    door,
+    eyeScanner,
+    fingerprint,
+    hSwitch,
+    home01,
+    homeAdd01,
+    homeAdd,
+    homeArrowDown01,
+    homeArrowDown,
+    homeArrowUp01,
+    homeArrowUp,
+    homeCelcius01,
+    homeCelcius,
+    homeCheck01,
+    homeCheck,
+    homeCloud01,
+    homeCloud,
+    homeDownload01,
+    homeDownload,
+    homeEye01,
+    homeEye,
+    homeFavourite01,
+    homeFavourite,
+    homeFilter01,
+    homeFilter,
+    homeFlash01,
+    homeFlash,
+    homeFluid01,
+    homeFluid,
+    homeGraph01,
+    homeGraph,
+    homeInformation01,
+    homeInformation,
+    homeLink01,
+    homeLink,
+    homeLocation01,
+    homeLocation,
+    homeLock01,
+    homeLock,
+    homeMail01,
+    homeMail,
+    homeMinus01,
+    homeMinus,
+    homeNotification01,
+    homeNotification,
+    homePower01,
+    homePower,
+    homeRemove01,
+    homeRemove,
+    homeSetting01,
+    homeSetting,
+    homeShare01,
+    homeShare,
+    homeShield01,
+    homeShield,
+    homeUpload01,
+    homeUpload,
+    homeWarning01,
+    homeWarning,
+    homeWave01,
+    homeWave,
+    homeWifi01,
+    homeWifi,
+    home,
+    humidity,
+    internet,
+    music,
+    power,
+    press,
+    remote,
+    sensor,
+    smartKey1,
+    smartKey,
+    smartLight,
+    smartLock,
+    smartPhone,
+    smartPlug,
+    smartTv,
+    smartWatch,
+    solarPanel,
+    speaker,
+    thermostat,
+  ];
 }
 
 class $AssetsIconsSocialBulkGen {
@@ -19271,36 +20085,36 @@ class $AssetsIconsSocialBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        dribbble,
-        drive,
-        facebook01,
-        facebook,
-        figma,
-        fiverr,
-        gmail,
-        google,
-        googlePlus,
-        hangout,
-        instagram,
-        linkedln,
-        messenger,
-        netflix,
-        payoneer,
-        paypal,
-        pinterest01,
-        pinterest,
-        skype,
-        slack,
-        snapchat,
-        spotify,
-        telegram,
-        tiktok,
-        twitter01,
-        twitter02,
-        twitter,
-        whatsapp,
-        youtube
-      ];
+    dribbble,
+    drive,
+    facebook01,
+    facebook,
+    figma,
+    fiverr,
+    gmail,
+    google,
+    googlePlus,
+    hangout,
+    instagram,
+    linkedln,
+    messenger,
+    netflix,
+    payoneer,
+    paypal,
+    pinterest01,
+    pinterest,
+    skype,
+    slack,
+    snapchat,
+    spotify,
+    telegram,
+    tiktok,
+    twitter01,
+    twitter02,
+    twitter,
+    whatsapp,
+    youtube,
+  ];
 }
 
 class $AssetsIconsSocialOutlineGen {
@@ -19424,36 +20238,36 @@ class $AssetsIconsSocialOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        dribbble,
-        drive,
-        facebook01,
-        facebook,
-        figma,
-        fiverr,
-        gmail,
-        google,
-        googlePlus,
-        hangout,
-        instagram,
-        linkedln,
-        messenger,
-        netflix,
-        payoneer,
-        paypal,
-        pinterest01,
-        pinterest,
-        skype,
-        slack,
-        snapchat,
-        spotify,
-        telegram,
-        tiktok,
-        twitter,
-        twitter01,
-        twitter02,
-        whatsapp,
-        youtube
-      ];
+    dribbble,
+    drive,
+    facebook01,
+    facebook,
+    figma,
+    fiverr,
+    gmail,
+    google,
+    googlePlus,
+    hangout,
+    instagram,
+    linkedln,
+    messenger,
+    netflix,
+    payoneer,
+    paypal,
+    pinterest01,
+    pinterest,
+    skype,
+    slack,
+    snapchat,
+    spotify,
+    telegram,
+    tiktok,
+    twitter,
+    twitter01,
+    twitter02,
+    whatsapp,
+    youtube,
+  ];
 }
 
 class $AssetsIconsSocialSolidGen {
@@ -19577,36 +20391,36 @@ class $AssetsIconsSocialSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        dribbble,
-        drive,
-        facebook01,
-        facebook,
-        figma,
-        fiverr,
-        gmail,
-        google,
-        googlePlus,
-        hangout,
-        instagram,
-        linkedln,
-        messenger,
-        netflix,
-        payoneer,
-        paypal,
-        pinterest01,
-        pinterest,
-        skype,
-        slack,
-        snapchat,
-        spotify,
-        telegram,
-        tiktok,
-        twitter01,
-        twitter02,
-        twitter,
-        whatsapp,
-        youtube
-      ];
+    dribbble,
+    drive,
+    facebook01,
+    facebook,
+    figma,
+    fiverr,
+    gmail,
+    google,
+    googlePlus,
+    hangout,
+    instagram,
+    linkedln,
+    messenger,
+    netflix,
+    payoneer,
+    paypal,
+    pinterest01,
+    pinterest,
+    skype,
+    slack,
+    snapchat,
+    spotify,
+    telegram,
+    tiktok,
+    twitter01,
+    twitter02,
+    twitter,
+    whatsapp,
+    youtube,
+  ];
 }
 
 class $AssetsIconsTimeAndDateBulkGen {
@@ -19742,7 +20556,8 @@ class $AssetsIconsTimeAndDateBulkGen {
 
   /// File path: assets/icons/time and date/bulk/time-quarter past.svg
   SvgGenImage get timeQuarterPast => const SvgGenImage(
-      'assets/icons/time and date/bulk/time-quarter past.svg');
+    'assets/icons/time and date/bulk/time-quarter past.svg',
+  );
 
   /// File path: assets/icons/time and date/bulk/watch 01.svg
   SvgGenImage get watch01 =>
@@ -19754,42 +20569,42 @@ class $AssetsIconsTimeAndDateBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alarmAdd,
-        alarmCheck,
-        alarmDelete,
-        alarmMinus,
-        alarm,
-        calendar01,
-        calendarAdd,
-        calendarCheck,
-        calendarDelete,
-        calendarMinus,
-        calendar,
-        hourglassEnd,
-        hourglassStart,
-        hourglass,
-        stopwatchAdd,
-        stopwatchCheck,
-        stopwatchDelete,
-        stopwatchFast,
-        stopwatchMinus,
-        stopwatch,
-        timeQuarter,
-        time10,
-        time24,
-        time60,
-        timeAdd,
-        timeCheck,
-        timeDelete,
-        timeFast,
-        timeForward,
-        timeHalfPast,
-        timeMinus,
-        timeOclock,
-        timeQuarterPast,
-        watch01,
-        watch
-      ];
+    alarmAdd,
+    alarmCheck,
+    alarmDelete,
+    alarmMinus,
+    alarm,
+    calendar01,
+    calendarAdd,
+    calendarCheck,
+    calendarDelete,
+    calendarMinus,
+    calendar,
+    hourglassEnd,
+    hourglassStart,
+    hourglass,
+    stopwatchAdd,
+    stopwatchCheck,
+    stopwatchDelete,
+    stopwatchFast,
+    stopwatchMinus,
+    stopwatch,
+    timeQuarter,
+    time10,
+    time24,
+    time60,
+    timeAdd,
+    timeCheck,
+    timeDelete,
+    timeFast,
+    timeForward,
+    timeHalfPast,
+    timeMinus,
+    timeOclock,
+    timeQuarterPast,
+    watch01,
+    watch,
+  ];
 }
 
 class $AssetsIconsTimeAndDateOutlineGen {
@@ -19825,15 +20640,18 @@ class $AssetsIconsTimeAndDateOutlineGen {
 
   /// File path: assets/icons/time and date/outline/calendar-check.svg
   SvgGenImage get calendarCheck => const SvgGenImage(
-      'assets/icons/time and date/outline/calendar-check.svg');
+    'assets/icons/time and date/outline/calendar-check.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/calendar-delete.svg
   SvgGenImage get calendarDelete => const SvgGenImage(
-      'assets/icons/time and date/outline/calendar-delete.svg');
+    'assets/icons/time and date/outline/calendar-delete.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/calendar-minus.svg
   SvgGenImage get calendarMinus => const SvgGenImage(
-      'assets/icons/time and date/outline/calendar-minus.svg');
+    'assets/icons/time and date/outline/calendar-minus.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/calendar.svg
   SvgGenImage get calendar =>
@@ -19845,7 +20663,8 @@ class $AssetsIconsTimeAndDateOutlineGen {
 
   /// File path: assets/icons/time and date/outline/hourglass-start.svg
   SvgGenImage get hourglassStart => const SvgGenImage(
-      'assets/icons/time and date/outline/hourglass-start.svg');
+    'assets/icons/time and date/outline/hourglass-start.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/hourglass.svg
   SvgGenImage get hourglass =>
@@ -19857,19 +20676,23 @@ class $AssetsIconsTimeAndDateOutlineGen {
 
   /// File path: assets/icons/time and date/outline/stopwatch-check.svg
   SvgGenImage get stopwatchCheck => const SvgGenImage(
-      'assets/icons/time and date/outline/stopwatch-check.svg');
+    'assets/icons/time and date/outline/stopwatch-check.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/stopwatch-delete.svg
   SvgGenImage get stopwatchDelete => const SvgGenImage(
-      'assets/icons/time and date/outline/stopwatch-delete.svg');
+    'assets/icons/time and date/outline/stopwatch-delete.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/stopwatch-fast.svg
   SvgGenImage get stopwatchFast => const SvgGenImage(
-      'assets/icons/time and date/outline/stopwatch-fast.svg');
+    'assets/icons/time and date/outline/stopwatch-fast.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/stopwatch-minus.svg
   SvgGenImage get stopwatchMinus => const SvgGenImage(
-      'assets/icons/time and date/outline/stopwatch-minus.svg');
+    'assets/icons/time and date/outline/stopwatch-minus.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/stopwatch.svg
   SvgGenImage get stopwatch =>
@@ -19913,7 +20736,8 @@ class $AssetsIconsTimeAndDateOutlineGen {
 
   /// File path: assets/icons/time and date/outline/time-half past.svg
   SvgGenImage get timeHalfPast => const SvgGenImage(
-      'assets/icons/time and date/outline/time-half past.svg');
+    'assets/icons/time and date/outline/time-half past.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/time-minus.svg
   SvgGenImage get timeMinus =>
@@ -19925,7 +20749,8 @@ class $AssetsIconsTimeAndDateOutlineGen {
 
   /// File path: assets/icons/time and date/outline/time-quarter past.svg
   SvgGenImage get timeQuarterPast => const SvgGenImage(
-      'assets/icons/time and date/outline/time-quarter past.svg');
+    'assets/icons/time and date/outline/time-quarter past.svg',
+  );
 
   /// File path: assets/icons/time and date/outline/watch 01.svg
   SvgGenImage get watch01 =>
@@ -19937,42 +20762,42 @@ class $AssetsIconsTimeAndDateOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alarmAdd,
-        alarmCheck,
-        alarmDelete,
-        alarmMinus,
-        alarm,
-        calendar01,
-        calendarAdd,
-        calendarCheck,
-        calendarDelete,
-        calendarMinus,
-        calendar,
-        hourglassEnd,
-        hourglassStart,
-        hourglass,
-        stopwatchAdd,
-        stopwatchCheck,
-        stopwatchDelete,
-        stopwatchFast,
-        stopwatchMinus,
-        stopwatch,
-        timeQuarter,
-        time10,
-        time24,
-        time60,
-        timeAdd,
-        timeCheck,
-        timeDelete,
-        timeFast,
-        timeForward,
-        timeHalfPast,
-        timeMinus,
-        timeOclock,
-        timeQuarterPast,
-        watch01,
-        watch
-      ];
+    alarmAdd,
+    alarmCheck,
+    alarmDelete,
+    alarmMinus,
+    alarm,
+    calendar01,
+    calendarAdd,
+    calendarCheck,
+    calendarDelete,
+    calendarMinus,
+    calendar,
+    hourglassEnd,
+    hourglassStart,
+    hourglass,
+    stopwatchAdd,
+    stopwatchCheck,
+    stopwatchDelete,
+    stopwatchFast,
+    stopwatchMinus,
+    stopwatch,
+    timeQuarter,
+    time10,
+    time24,
+    time60,
+    timeAdd,
+    timeCheck,
+    timeDelete,
+    timeFast,
+    timeForward,
+    timeHalfPast,
+    timeMinus,
+    timeOclock,
+    timeQuarterPast,
+    watch01,
+    watch,
+  ];
 }
 
 class $AssetsIconsTimeAndDateSolidGen {
@@ -20044,7 +20869,8 @@ class $AssetsIconsTimeAndDateSolidGen {
 
   /// File path: assets/icons/time and date/solid/stopwatch-delete.svg
   SvgGenImage get stopwatchDelete => const SvgGenImage(
-      'assets/icons/time and date/solid/stopwatch-delete.svg');
+    'assets/icons/time and date/solid/stopwatch-delete.svg',
+  );
 
   /// File path: assets/icons/time and date/solid/stopwatch-fast.svg
   SvgGenImage get stopwatchFast =>
@@ -20108,7 +20934,8 @@ class $AssetsIconsTimeAndDateSolidGen {
 
   /// File path: assets/icons/time and date/solid/time-quarter past.svg
   SvgGenImage get timeQuarterPast => const SvgGenImage(
-      'assets/icons/time and date/solid/time-quarter past.svg');
+    'assets/icons/time and date/solid/time-quarter past.svg',
+  );
 
   /// File path: assets/icons/time and date/solid/watch 01.svg
   SvgGenImage get watch01 =>
@@ -20120,42 +20947,42 @@ class $AssetsIconsTimeAndDateSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        alarmAdd,
-        alarmCheck,
-        alarmDelete,
-        alarmMinus,
-        alarm,
-        calendar01,
-        calendarAdd,
-        calendarCheck,
-        calendarDelete,
-        calendarMinus,
-        calendar,
-        hourglassEnd,
-        hourglassStart,
-        hourglass,
-        stopwatchAdd,
-        stopwatchCheck,
-        stopwatchDelete,
-        stopwatchFast,
-        stopwatchMinus,
-        stopwatch,
-        timeQuarter,
-        time10,
-        time24,
-        time60,
-        timeAdd,
-        timeCheck,
-        timeDelete,
-        timeFast,
-        timeForward,
-        timeHalfPast,
-        timeMinus,
-        timeOclock,
-        timeQuarterPast,
-        watch01,
-        watch
-      ];
+    alarmAdd,
+    alarmCheck,
+    alarmDelete,
+    alarmMinus,
+    alarm,
+    calendar01,
+    calendarAdd,
+    calendarCheck,
+    calendarDelete,
+    calendarMinus,
+    calendar,
+    hourglassEnd,
+    hourglassStart,
+    hourglass,
+    stopwatchAdd,
+    stopwatchCheck,
+    stopwatchDelete,
+    stopwatchFast,
+    stopwatchMinus,
+    stopwatch,
+    timeQuarter,
+    time10,
+    time24,
+    time60,
+    timeAdd,
+    timeCheck,
+    timeDelete,
+    timeFast,
+    timeForward,
+    timeHalfPast,
+    timeMinus,
+    timeOclock,
+    timeQuarterPast,
+    watch01,
+    watch,
+  ];
 }
 
 class $AssetsIconsUserBulkGen {
@@ -20222,22 +21049,22 @@ class $AssetsIconsUserBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        connection,
-        userAdd,
-        userBlock,
-        userCircleAdd,
-        userCircleBlock,
-        userCircleMinus,
-        userCircleRemove,
-        userCircle,
-        userPolygon,
-        userRectangle,
-        userRemove01,
-        userRemove,
-        user,
-        users01,
-        users02
-      ];
+    connection,
+    userAdd,
+    userBlock,
+    userCircleAdd,
+    userCircleBlock,
+    userCircleMinus,
+    userCircleRemove,
+    userCircle,
+    userPolygon,
+    userRectangle,
+    userRemove01,
+    userRemove,
+    user,
+    users01,
+    users02,
+  ];
 }
 
 class $AssetsIconsUserOutlineGen {
@@ -20305,22 +21132,22 @@ class $AssetsIconsUserOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        community,
-        userAdd,
-        userBlock,
-        userCircleAdd,
-        userCircleBlock,
-        userCircleMinus,
-        userCircleRemove,
-        userCircle,
-        userPolygon,
-        userRectangle,
-        userRemove01,
-        userRemove,
-        user,
-        users01,
-        users02
-      ];
+    community,
+    userAdd,
+    userBlock,
+    userCircleAdd,
+    userCircleBlock,
+    userCircleMinus,
+    userCircleRemove,
+    userCircle,
+    userPolygon,
+    userRectangle,
+    userRemove01,
+    userRemove,
+    user,
+    users01,
+    users02,
+  ];
 }
 
 class $AssetsIconsUserSolidGen {
@@ -20387,22 +21214,22 @@ class $AssetsIconsUserSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        connection,
-        userAdd,
-        userBlock,
-        userCircleAdd,
-        userCircleBlock,
-        userCircleMinus,
-        userCircleRemove,
-        userCircle,
-        userPolygon,
-        userRectangle,
-        userRemove01,
-        userRemove,
-        user,
-        users01,
-        users02
-      ];
+    connection,
+    userAdd,
+    userBlock,
+    userCircleAdd,
+    userCircleBlock,
+    userCircleMinus,
+    userCircleRemove,
+    userCircle,
+    userPolygon,
+    userRectangle,
+    userRemove01,
+    userRemove,
+    user,
+    users01,
+    users02,
+  ];
 }
 
 class $AssetsIconsWeatherBulkGen {
@@ -20418,7 +21245,8 @@ class $AssetsIconsWeatherBulkGen {
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-flash-rain.svg
   SvgGenImage get cloudHalfMoonFlashRain => const SvgGenImage(
-      'assets/icons/weather/bulk/cloud-half moon-flash-rain.svg');
+    'assets/icons/weather/bulk/cloud-half moon-flash-rain.svg',
+  );
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-flash.svg
   SvgGenImage get cloudHalfMoonFlash =>
@@ -20426,15 +21254,18 @@ class $AssetsIconsWeatherBulkGen {
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-rain-high.svg
   SvgGenImage get cloudHalfMoonRainHigh => const SvgGenImage(
-      'assets/icons/weather/bulk/cloud-half moon-rain-high.svg');
+    'assets/icons/weather/bulk/cloud-half moon-rain-high.svg',
+  );
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-rain-low.svg
   SvgGenImage get cloudHalfMoonRainLow => const SvgGenImage(
-      'assets/icons/weather/bulk/cloud-half moon-rain-low.svg');
+    'assets/icons/weather/bulk/cloud-half moon-rain-low.svg',
+  );
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-rain-mid.svg
   SvgGenImage get cloudHalfMoonRainMid => const SvgGenImage(
-      'assets/icons/weather/bulk/cloud-half moon-rain-mid.svg');
+    'assets/icons/weather/bulk/cloud-half moon-rain-mid.svg',
+  );
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-snow.svg
   SvgGenImage get cloudHalfMoonSnow =>
@@ -20442,7 +21273,8 @@ class $AssetsIconsWeatherBulkGen {
 
   /// File path: assets/icons/weather/bulk/cloud-half moon-wind rain.svg
   SvgGenImage get cloudHalfMoonWindRain => const SvgGenImage(
-      'assets/icons/weather/bulk/cloud-half moon-wind rain.svg');
+    'assets/icons/weather/bulk/cloud-half moon-wind rain.svg',
+  );
 
   /// File path: assets/icons/weather/bulk/cloud-half-moon.svg
   SvgGenImage get cloudHalfMoon =>
@@ -20609,57 +21441,57 @@ class $AssetsIconsWeatherBulkGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        cloudFlashRain,
-        cloudFlash,
-        cloudHalfMoonFlashRain,
-        cloudHalfMoonFlash,
-        cloudHalfMoonRainHigh,
-        cloudHalfMoonRainLow,
-        cloudHalfMoonRainMid,
-        cloudHalfMoonSnow,
-        cloudHalfMoonWindRain,
-        cloudHalfMoon,
-        cloudMoonFlashRain,
-        cloudMoonFlash,
-        cloudMoonRainHigh,
-        cloudMoonRainLow,
-        cloudMoonRainMid,
-        cloudMoonSnow,
-        cloudMoonWindRain,
-        cloudMoon,
-        cloudRainHigh,
-        cloudRainLow,
-        cloudRainMid,
-        cloudSnow,
-        cloudSunFlashRain,
-        cloudSunFlash,
-        cloudSunRainHigh,
-        cloudSunRainLow,
-        cloudSunRainMid,
-        cloudSunSnow,
-        cloudSunWindRain,
-        cloudSun,
-        cloudWindRain,
-        cloudWind,
-        cloud,
-        clouds,
-        flash,
-        halfMoon,
-        halfMoonPhase,
-        lastQuarterMoon,
-        snow,
-        sun,
-        sunrise,
-        sunset,
-        temperatureCold,
-        temperatureMinus,
-        temperaturePlus,
-        tornado,
-        wave,
-        windHigh,
-        windLow,
-        windMid
-      ];
+    cloudFlashRain,
+    cloudFlash,
+    cloudHalfMoonFlashRain,
+    cloudHalfMoonFlash,
+    cloudHalfMoonRainHigh,
+    cloudHalfMoonRainLow,
+    cloudHalfMoonRainMid,
+    cloudHalfMoonSnow,
+    cloudHalfMoonWindRain,
+    cloudHalfMoon,
+    cloudMoonFlashRain,
+    cloudMoonFlash,
+    cloudMoonRainHigh,
+    cloudMoonRainLow,
+    cloudMoonRainMid,
+    cloudMoonSnow,
+    cloudMoonWindRain,
+    cloudMoon,
+    cloudRainHigh,
+    cloudRainLow,
+    cloudRainMid,
+    cloudSnow,
+    cloudSunFlashRain,
+    cloudSunFlash,
+    cloudSunRainHigh,
+    cloudSunRainLow,
+    cloudSunRainMid,
+    cloudSunSnow,
+    cloudSunWindRain,
+    cloudSun,
+    cloudWindRain,
+    cloudWind,
+    cloud,
+    clouds,
+    flash,
+    halfMoon,
+    halfMoonPhase,
+    lastQuarterMoon,
+    snow,
+    sun,
+    sunrise,
+    sunset,
+    temperatureCold,
+    temperatureMinus,
+    temperaturePlus,
+    tornado,
+    wave,
+    windHigh,
+    windLow,
+    windMid,
+  ];
 }
 
 class $AssetsIconsWeatherOutlineGen {
@@ -20675,31 +21507,38 @@ class $AssetsIconsWeatherOutlineGen {
 
   /// File path: assets/icons/weather/outline/cloud-half moon-flash-rain.svg
   SvgGenImage get cloudHalfMoonFlashRain => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-flash-rain.svg');
+    'assets/icons/weather/outline/cloud-half moon-flash-rain.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half moon-flash.svg
   SvgGenImage get cloudHalfMoonFlash => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-flash.svg');
+    'assets/icons/weather/outline/cloud-half moon-flash.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half moon-rain-high.svg
   SvgGenImage get cloudHalfMoonRainHigh => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-rain-high.svg');
+    'assets/icons/weather/outline/cloud-half moon-rain-high.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half moon-rain-low.svg
   SvgGenImage get cloudHalfMoonRainLow => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-rain-low.svg');
+    'assets/icons/weather/outline/cloud-half moon-rain-low.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half moon-rain-mid.svg
   SvgGenImage get cloudHalfMoonRainMid => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-rain-mid.svg');
+    'assets/icons/weather/outline/cloud-half moon-rain-mid.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half moon-snow.svg
   SvgGenImage get cloudHalfMoonSnow => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-snow.svg');
+    'assets/icons/weather/outline/cloud-half moon-snow.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half moon-wind rain.svg
   SvgGenImage get cloudHalfMoonWindRain => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-half moon-wind rain.svg');
+    'assets/icons/weather/outline/cloud-half moon-wind rain.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-half-moon.svg
   SvgGenImage get cloudHalfMoon =>
@@ -20707,7 +21546,8 @@ class $AssetsIconsWeatherOutlineGen {
 
   /// File path: assets/icons/weather/outline/cloud-moon-flash-rain.svg
   SvgGenImage get cloudMoonFlashRain => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-moon-flash-rain.svg');
+    'assets/icons/weather/outline/cloud-moon-flash-rain.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-moon-flash.svg
   SvgGenImage get cloudMoonFlash =>
@@ -20715,7 +21555,8 @@ class $AssetsIconsWeatherOutlineGen {
 
   /// File path: assets/icons/weather/outline/cloud-moon-rain-high.svg
   SvgGenImage get cloudMoonRainHigh => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-moon-rain-high.svg');
+    'assets/icons/weather/outline/cloud-moon-rain-high.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-moon-rain-low.svg
   SvgGenImage get cloudMoonRainLow =>
@@ -20731,7 +21572,8 @@ class $AssetsIconsWeatherOutlineGen {
 
   /// File path: assets/icons/weather/outline/cloud-moon-wind rain.svg
   SvgGenImage get cloudMoonWindRain => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-moon-wind rain.svg');
+    'assets/icons/weather/outline/cloud-moon-wind rain.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-moon.svg
   SvgGenImage get cloudMoon =>
@@ -20755,7 +21597,8 @@ class $AssetsIconsWeatherOutlineGen {
 
   /// File path: assets/icons/weather/outline/cloud-sun-flash-rain.svg
   SvgGenImage get cloudSunFlashRain => const SvgGenImage(
-      'assets/icons/weather/outline/cloud-sun-flash-rain.svg');
+    'assets/icons/weather/outline/cloud-sun-flash-rain.svg',
+  );
 
   /// File path: assets/icons/weather/outline/cloud-sun-flash.svg
   SvgGenImage get cloudSunFlash =>
@@ -20867,57 +21710,57 @@ class $AssetsIconsWeatherOutlineGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        cloudFlashRain,
-        cloudFlash,
-        cloudHalfMoonFlashRain,
-        cloudHalfMoonFlash,
-        cloudHalfMoonRainHigh,
-        cloudHalfMoonRainLow,
-        cloudHalfMoonRainMid,
-        cloudHalfMoonSnow,
-        cloudHalfMoonWindRain,
-        cloudHalfMoon,
-        cloudMoonFlashRain,
-        cloudMoonFlash,
-        cloudMoonRainHigh,
-        cloudMoonRainLow,
-        cloudMoonRainMid,
-        cloudMoonSnow,
-        cloudMoonWindRain,
-        cloudMoon,
-        cloudRainHigh,
-        cloudRainLow,
-        cloudRainMid,
-        cloudSnow,
-        cloudSunFlashRain,
-        cloudSunFlash,
-        cloudSunRainHigh,
-        cloudSunRainLow,
-        cloudSunRainMid,
-        cloudSunSnow,
-        cloudSunWindRain,
-        cloudSun,
-        cloudWindRain,
-        cloudWind,
-        cloud,
-        clouds,
-        flash,
-        halfMoon,
-        halfMoonPhase,
-        lastQuarterMoon,
-        snow,
-        sun,
-        sunrise,
-        sunset,
-        temperatureCold,
-        temperatureMinus,
-        temperaturePlus,
-        tornado,
-        wave,
-        windHigh,
-        windLow,
-        windMid
-      ];
+    cloudFlashRain,
+    cloudFlash,
+    cloudHalfMoonFlashRain,
+    cloudHalfMoonFlash,
+    cloudHalfMoonRainHigh,
+    cloudHalfMoonRainLow,
+    cloudHalfMoonRainMid,
+    cloudHalfMoonSnow,
+    cloudHalfMoonWindRain,
+    cloudHalfMoon,
+    cloudMoonFlashRain,
+    cloudMoonFlash,
+    cloudMoonRainHigh,
+    cloudMoonRainLow,
+    cloudMoonRainMid,
+    cloudMoonSnow,
+    cloudMoonWindRain,
+    cloudMoon,
+    cloudRainHigh,
+    cloudRainLow,
+    cloudRainMid,
+    cloudSnow,
+    cloudSunFlashRain,
+    cloudSunFlash,
+    cloudSunRainHigh,
+    cloudSunRainLow,
+    cloudSunRainMid,
+    cloudSunSnow,
+    cloudSunWindRain,
+    cloudSun,
+    cloudWindRain,
+    cloudWind,
+    cloud,
+    clouds,
+    flash,
+    halfMoon,
+    halfMoonPhase,
+    lastQuarterMoon,
+    snow,
+    sun,
+    sunrise,
+    sunset,
+    temperatureCold,
+    temperatureMinus,
+    temperaturePlus,
+    tornado,
+    wave,
+    windHigh,
+    windLow,
+    windMid,
+  ];
 }
 
 class $AssetsIconsWeatherSolidGen {
@@ -20937,7 +21780,8 @@ class $AssetsIconsWeatherSolidGen {
 
   /// File path: assets/icons/weather/solid/cloud-half moon-flash-rain.svg
   SvgGenImage get cloudHalfMoonFlashRain => const SvgGenImage(
-      'assets/icons/weather/solid/cloud-half moon-flash-rain.svg');
+    'assets/icons/weather/solid/cloud-half moon-flash-rain.svg',
+  );
 
   /// File path: assets/icons/weather/solid/cloud-half moon-flash.svg
   SvgGenImage get cloudHalfMoonFlash =>
@@ -20945,15 +21789,18 @@ class $AssetsIconsWeatherSolidGen {
 
   /// File path: assets/icons/weather/solid/cloud-half moon-rain-high.svg
   SvgGenImage get cloudHalfMoonRainHigh => const SvgGenImage(
-      'assets/icons/weather/solid/cloud-half moon-rain-high.svg');
+    'assets/icons/weather/solid/cloud-half moon-rain-high.svg',
+  );
 
   /// File path: assets/icons/weather/solid/cloud-half moon-rain-low.svg
   SvgGenImage get cloudHalfMoonRainLow => const SvgGenImage(
-      'assets/icons/weather/solid/cloud-half moon-rain-low.svg');
+    'assets/icons/weather/solid/cloud-half moon-rain-low.svg',
+  );
 
   /// File path: assets/icons/weather/solid/cloud-half moon-rain-mid.svg
   SvgGenImage get cloudHalfMoonRainMid => const SvgGenImage(
-      'assets/icons/weather/solid/cloud-half moon-rain-mid.svg');
+    'assets/icons/weather/solid/cloud-half moon-rain-mid.svg',
+  );
 
   /// File path: assets/icons/weather/solid/cloud-half moon-snow.svg
   SvgGenImage get cloudHalfMoonSnow =>
@@ -20961,7 +21808,8 @@ class $AssetsIconsWeatherSolidGen {
 
   /// File path: assets/icons/weather/solid/cloud-half moon-wind rain.svg
   SvgGenImage get cloudHalfMoonWindRain => const SvgGenImage(
-      'assets/icons/weather/solid/cloud-half moon-wind rain.svg');
+    'assets/icons/weather/solid/cloud-half moon-wind rain.svg',
+  );
 
   /// File path: assets/icons/weather/solid/cloud-half-moon.svg
   SvgGenImage get cloudHalfMoon =>
@@ -21125,57 +21973,57 @@ class $AssetsIconsWeatherSolidGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        cloudSunSnow,
-        cloudFlash,
-        cloudFlashRain,
-        cloudHalfMoonFlashRain,
-        cloudHalfMoonFlash,
-        cloudHalfMoonRainHigh,
-        cloudHalfMoonRainLow,
-        cloudHalfMoonRainMid,
-        cloudHalfMoonSnow,
-        cloudHalfMoonWindRain,
-        cloudHalfMoon,
-        cloudMoonFlashRain,
-        cloudMoonFlash,
-        cloudMoonRainHigh,
-        cloudMoonRainLow,
-        cloudMoonRainMid,
-        cloudMoonSnow,
-        cloudMoonWindRain,
-        cloudMoon,
-        cloudRainHigh,
-        cloudRainLow,
-        cloudRainMid,
-        cloudSnow,
-        cloudSunFlashRain,
-        cloudSunFlash,
-        cloudSunRainHigh,
-        cloudSunRainLow,
-        cloudSunRainMid,
-        cloudSunWindRain,
-        cloudSun,
-        cloudWindRain,
-        cloudWind,
-        cloud,
-        clouds,
-        flash,
-        halfMoon,
-        halfMoonPhase,
-        lastQuarterMoon,
-        snow,
-        sun,
-        sunrise,
-        sunset,
-        temperatureCold,
-        temperatureMinus,
-        temperaturePlus,
-        tornado,
-        wave,
-        windHigh,
-        windLow,
-        windMid
-      ];
+    cloudSunSnow,
+    cloudFlash,
+    cloudFlashRain,
+    cloudHalfMoonFlashRain,
+    cloudHalfMoonFlash,
+    cloudHalfMoonRainHigh,
+    cloudHalfMoonRainLow,
+    cloudHalfMoonRainMid,
+    cloudHalfMoonSnow,
+    cloudHalfMoonWindRain,
+    cloudHalfMoon,
+    cloudMoonFlashRain,
+    cloudMoonFlash,
+    cloudMoonRainHigh,
+    cloudMoonRainLow,
+    cloudMoonRainMid,
+    cloudMoonSnow,
+    cloudMoonWindRain,
+    cloudMoon,
+    cloudRainHigh,
+    cloudRainLow,
+    cloudRainMid,
+    cloudSnow,
+    cloudSunFlashRain,
+    cloudSunFlash,
+    cloudSunRainHigh,
+    cloudSunRainLow,
+    cloudSunRainMid,
+    cloudSunWindRain,
+    cloudSun,
+    cloudWindRain,
+    cloudWind,
+    cloud,
+    clouds,
+    flash,
+    halfMoon,
+    halfMoonPhase,
+    lastQuarterMoon,
+    snow,
+    sun,
+    sunrise,
+    sunset,
+    temperatureCold,
+    temperatureMinus,
+    temperaturePlus,
+    tornado,
+    wave,
+    windHigh,
+    windLow,
+    windMid,
+  ];
 }
 
 class Assets {
@@ -21185,11 +22033,7 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
 
@@ -21249,15 +22093,8 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({
-    AssetBundle? bundle,
-    String? package,
-  }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;
@@ -21266,17 +22103,11 @@ class AssetGenImage {
 }
 
 class SvgGenImage {
-  const SvgGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  }) : _isVecFormat = false;
+  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = false;
 
-  const SvgGenImage.vec(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  }) : _isVecFormat = true;
+  const SvgGenImage.vec(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = true;
 
   final String _assetName;
   final Size? size;
@@ -21330,7 +22161,8 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      colorFilter: colorFilter ??
+      colorFilter:
+          colorFilter ??
           (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,

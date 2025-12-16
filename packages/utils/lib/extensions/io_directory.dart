@@ -20,10 +20,7 @@ extension DirectoryExtension on io.Directory {
     ProgressCallback? onProgress,
     VoidCallback? onDone,
   }) async {
-    final files = await list(
-      recursive: true,
-      followLinks: false,
-    ).toList();
+    final files = await list(recursive: true, followLinks: false).toList();
 
     final total = files.length;
     for (final file in files) {

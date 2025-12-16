@@ -1,4 +1,4 @@
-library local_entity_provider;
+library;
 
 import 'dart:async';
 import 'dart:io' as io;
@@ -99,9 +99,7 @@ class LocalEntityProvider extends EntityProvider {
       }
     }
 
-    result.sort(
-      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
-    );
+    result.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     folders.sort(
       (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
     );

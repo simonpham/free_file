@@ -59,7 +59,7 @@ class KeyParser {
       'KeyX' => LogicalKeyboardKey.keyX,
       'KeyY' => LogicalKeyboardKey.keyY,
       'KeyZ' => LogicalKeyboardKey.keyZ,
-      _ => null
+      _ => null,
     };
   }
 }

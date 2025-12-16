@@ -74,17 +74,16 @@ class Button extends StatelessWidget {
     bool enableHover = true,
     String? tooltip,
     String? semanticLabel,
-  }) =>
-      PrimaryButton(
-        style: AppButtonStyle.primary,
-        onPressed: onPressed,
-        icon: icon,
-        tooltip: tooltip,
-        enable: enable,
-        enableHover: enableHover,
-        text: text,
-        semanticLabel: semanticLabel,
-      );
+  }) => PrimaryButton(
+    style: AppButtonStyle.primary,
+    onPressed: onPressed,
+    icon: icon,
+    tooltip: tooltip,
+    enable: enable,
+    enableHover: enableHover,
+    text: text,
+    semanticLabel: semanticLabel,
+  );
 
   factory Button.secondary({
     Function? onPressed,
@@ -94,17 +93,16 @@ class Button extends StatelessWidget {
     bool enableHover = true,
     String? tooltip,
     String? semanticLabel,
-  }) =>
-      SecondaryButton(
-        style: AppButtonStyle.secondary,
-        onPressed: onPressed,
-        icon: icon,
-        tooltip: tooltip,
-        enable: enable,
-        enableHover: enableHover,
-        text: text,
-        semanticLabel: semanticLabel,
-      );
+  }) => SecondaryButton(
+    style: AppButtonStyle.secondary,
+    onPressed: onPressed,
+    icon: icon,
+    tooltip: tooltip,
+    enable: enable,
+    enableHover: enableHover,
+    text: text,
+    semanticLabel: semanticLabel,
+  );
 
   factory Button.outline({
     Function? onPressed,
@@ -114,17 +112,16 @@ class Button extends StatelessWidget {
     bool enableHover = true,
     String? tooltip,
     String? semanticLabel,
-  }) =>
-      OutlineButton(
-        style: AppButtonStyle.outline,
-        onPressed: onPressed,
-        icon: icon,
-        tooltip: tooltip,
-        enable: enable,
-        enableHover: enableHover,
-        text: text,
-        semanticLabel: semanticLabel,
-      );
+  }) => OutlineButton(
+    style: AppButtonStyle.outline,
+    onPressed: onPressed,
+    icon: icon,
+    tooltip: tooltip,
+    enable: enable,
+    enableHover: enableHover,
+    text: text,
+    semanticLabel: semanticLabel,
+  );
 
   factory Button.text({
     Function? onPressed,
@@ -134,17 +131,16 @@ class Button extends StatelessWidget {
     bool enableHover = true,
     String? tooltip,
     String? semanticLabel,
-  }) =>
-      LabelButton(
-        style: AppButtonStyle.label,
-        onPressed: onPressed,
-        icon: icon,
-        tooltip: tooltip,
-        enable: enable,
-        enableHover: enableHover,
-        text: text,
-        semanticLabel: semanticLabel,
-      );
+  }) => LabelButton(
+    style: AppButtonStyle.label,
+    onPressed: onPressed,
+    icon: icon,
+    tooltip: tooltip,
+    enable: enable,
+    enableHover: enableHover,
+    text: text,
+    semanticLabel: semanticLabel,
+  );
 
   factory Button.chip({
     Function? onPressed,
@@ -154,17 +150,16 @@ class Button extends StatelessWidget {
     bool enableHover = true,
     String? tooltip,
     String? semanticLabel,
-  }) =>
-      ChipButton(
-        style: AppButtonStyle.chip,
-        onPressed: onPressed,
-        icon: icon,
-        tooltip: tooltip,
-        enable: enable,
-        enableHover: enableHover,
-        text: text,
-        semanticLabel: semanticLabel,
-      );
+  }) => ChipButton(
+    style: AppButtonStyle.chip,
+    onPressed: onPressed,
+    icon: icon,
+    tooltip: tooltip,
+    enable: enable,
+    enableHover: enableHover,
+    text: text,
+    semanticLabel: semanticLabel,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +178,8 @@ class Button extends StatelessWidget {
           height: height,
           duration: FludaDuration.ms4,
           curve: Curves.easeOut,
-          padding: padding ??
+          padding:
+              padding ??
               EdgeInsets.symmetric(
                 horizontal: Spacing.d24,
                 vertical: Spacing.d12,
@@ -202,20 +198,13 @@ class Button extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               if (icon != null) icon!,
-              if (icon != null && child != null)
-                SizedBox(
-                  width: Spacing.d8,
-                ),
+              if (icon != null && child != null) SizedBox(width: Spacing.d8),
               if (child != null && trailingIcon != null && expandTitle)
-                Expanded(
-                  child: child!,
-                ),
+                Expanded(child: child!),
               if (child != null && trailingIcon != null && !expandTitle) child!,
               if (child != null && trailingIcon == null) child!,
               if (trailingIcon != null) ...[
-                SizedBox(
-                  width: Spacing.d8,
-                ),
+                SizedBox(width: Spacing.d8),
                 trailingIcon!,
               ],
             ],

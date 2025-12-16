@@ -34,7 +34,5 @@ Future<void> main(List<String> args) async {
     }
   }
 
-  runApp(
-    const FreeFile(),
-  );
+  runApp(const FreeFile());
 }

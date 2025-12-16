@@ -3,15 +3,7 @@
 ///
 /// To see IANA's official registry of MIME types, check out:
 /// https://www.iana.org/assignments/media-types/media-types.xhtml
-enum ContentType {
-  audio,
-  video,
-  image,
-  text,
-  application,
-  font,
-  unknown,
-}
+enum ContentType { audio, video, image, text, application, font, unknown }
 
 const List<FileType> kImageMimeTypes = [
   FileType.avif,
@@ -25,16 +17,10 @@ const List<FileType> kImageMimeTypes = [
   FileType.webp,
 ];
 
-const List<FileType> kThumbnailSupportedTypes = [
-  ...kImageMimeTypes,
-];
+const List<FileType> kThumbnailSupportedTypes = [...kImageMimeTypes];
 
 enum FileType {
-  aac(
-    extension: 'aac',
-    mimeType: 'audio/aac',
-    contentType: ContentType.audio,
-  ),
+  aac(extension: 'aac', mimeType: 'audio/aac', contentType: ContentType.audio),
   abw(
     extension: 'abw',
     mimeType: 'application/x-abiword',
@@ -65,11 +51,7 @@ enum FileType {
     mimeType: 'application/octet-stream',
     contentType: ContentType.application,
   ),
-  bmp(
-    extension: 'bmp',
-    mimeType: 'image/bmp',
-    contentType: ContentType.image,
-  ),
+  bmp(extension: 'bmp', mimeType: 'image/bmp', contentType: ContentType.image),
   bz(
     extension: 'bz',
     mimeType: 'application/x-bzip',
@@ -90,16 +72,8 @@ enum FileType {
     mimeType: 'application/x-csh',
     contentType: ContentType.application,
   ),
-  css(
-    extension: 'css',
-    mimeType: 'text/css',
-    contentType: ContentType.text,
-  ),
-  csv(
-    extension: 'csv',
-    mimeType: 'text/csv',
-    contentType: ContentType.text,
-  ),
+  css(extension: 'css', mimeType: 'text/css', contentType: ContentType.text),
+  csv(extension: 'csv', mimeType: 'text/csv', contentType: ContentType.text),
   doc(
     extension: 'doc',
     mimeType: 'application/msword',
@@ -131,16 +105,8 @@ enum FileType {
     mimeType: 'application/gzip',
     contentType: ContentType.application,
   ),
-  gif(
-    extension: 'gif',
-    mimeType: 'image/gif',
-    contentType: ContentType.image,
-  ),
-  html(
-    extension: 'html',
-    mimeType: 'text/html',
-    contentType: ContentType.text,
-  ),
+  gif(extension: 'gif', mimeType: 'image/gif', contentType: ContentType.image),
+  html(extension: 'html', mimeType: 'text/html', contentType: ContentType.text),
   ico(
     extension: 'ico',
     mimeType: 'image/vnd.microsoft.icon',
@@ -176,11 +142,7 @@ enum FileType {
     mimeType: 'application/ld+json',
     contentType: ContentType.application,
   ),
-  mid(
-    extension: 'mid',
-    mimeType: 'audio/midi',
-    contentType: ContentType.audio,
-  ),
+  mid(extension: 'mid', mimeType: 'audio/midi', contentType: ContentType.audio),
   midi(
     extension: 'midi',
     mimeType: 'audio/x-midi',
@@ -191,16 +153,8 @@ enum FileType {
     mimeType: 'video/x-matroska',
     contentType: ContentType.video,
   ),
-  mp3(
-    extension: 'mp3',
-    mimeType: 'audio/mpeg',
-    contentType: ContentType.audio,
-  ),
-  mp4(
-    extension: 'mp4',
-    mimeType: 'video/mp4',
-    contentType: ContentType.video,
-  ),
+  mp3(extension: 'mp3', mimeType: 'audio/mpeg', contentType: ContentType.audio),
+  mp4(extension: 'mp4', mimeType: 'video/mp4', contentType: ContentType.video),
   mpeg(
     extension: 'mpeg',
     mimeType: 'video/mpeg',
@@ -226,16 +180,8 @@ enum FileType {
     mimeType: 'application/vnd.oasis.opendocument.text',
     contentType: ContentType.application,
   ),
-  oga(
-    extension: 'oga',
-    mimeType: 'audio/ogg',
-    contentType: ContentType.audio,
-  ),
-  ogg(
-    extension: 'ogg',
-    mimeType: 'video/ogg',
-    contentType: ContentType.video,
-  ),
+  oga(extension: 'oga', mimeType: 'audio/ogg', contentType: ContentType.audio),
+  ogg(extension: 'ogg', mimeType: 'video/ogg', contentType: ContentType.video),
   ogx(
     extension: 'ogx',
     mimeType: 'application/ogg',
@@ -246,11 +192,7 @@ enum FileType {
     mimeType: 'audio/opus',
     contentType: ContentType.audio,
   ),
-  otf(
-    extension: 'otf',
-    mimeType: 'font/otf',
-    contentType: ContentType.font,
-  ),
+  otf(extension: 'otf', mimeType: 'font/otf', contentType: ContentType.font),
   pdf(
     extension: 'pdf',
     mimeType: 'application/pdf',
@@ -261,11 +203,7 @@ enum FileType {
     mimeType: 'application/x-httpd-php',
     contentType: ContentType.application,
   ),
-  png(
-    extension: 'png',
-    mimeType: 'image/png',
-    contentType: ContentType.image,
-  ),
+  png(extension: 'png', mimeType: 'image/png', contentType: ContentType.image),
   ppt(
     extension: 'ppt',
     mimeType: 'application/vnd.ms-powerpoint',
@@ -302,41 +240,21 @@ enum FileType {
     mimeType: 'application/x-tar',
     contentType: ContentType.application,
   ),
-  tif(
-    extension: 'tif',
-    mimeType: 'image/tiff',
-    contentType: ContentType.image,
-  ),
+  tif(extension: 'tif', mimeType: 'image/tiff', contentType: ContentType.image),
   tiff(
     extension: 'tiff',
     mimeType: 'image/tiff',
     contentType: ContentType.image,
   ),
-  ts(
-    extension: 'ts',
-    mimeType: 'video/mp2t',
-    contentType: ContentType.video,
-  ),
-  ttf(
-    extension: 'ttf',
-    mimeType: 'font/ttf',
-    contentType: ContentType.font,
-  ),
-  txt(
-    extension: 'txt',
-    mimeType: 'text/plain',
-    contentType: ContentType.text,
-  ),
+  ts(extension: 'ts', mimeType: 'video/mp2t', contentType: ContentType.video),
+  ttf(extension: 'ttf', mimeType: 'font/ttf', contentType: ContentType.font),
+  txt(extension: 'txt', mimeType: 'text/plain', contentType: ContentType.text),
   vsd(
     extension: 'vsd',
     mimeType: 'application/vnd.visio',
     contentType: ContentType.application,
   ),
-  wav(
-    extension: 'wav',
-    mimeType: 'audio/wav',
-    contentType: ContentType.audio,
-  ),
+  wav(extension: 'wav', mimeType: 'audio/wav', contentType: ContentType.audio),
   weba(
     extension: 'weba',
     mimeType: 'audio/webm',
@@ -352,11 +270,7 @@ enum FileType {
     mimeType: 'image/webp',
     contentType: ContentType.image,
   ),
-  woff(
-    extension: 'woff',
-    mimeType: 'font/woff',
-    contentType: ContentType.font,
-  ),
+  woff(extension: 'woff', mimeType: 'font/woff', contentType: ContentType.font),
   woff2(
     extension: 'woff2',
     mimeType: 'font/woff2',
@@ -408,11 +322,8 @@ enum FileType {
     mimeType: 'application/x-7z-compressed',
     contentType: ContentType.application,
   ),
-  unknown(
-    extension: '',
-    mimeType: '',
-    contentType: ContentType.unknown,
-  );
+  unknown(extension: '', mimeType: '', contentType: ContentType.unknown)
+  ;
 
   final String extension;
   final String mimeType;

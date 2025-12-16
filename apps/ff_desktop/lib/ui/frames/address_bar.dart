@@ -7,9 +7,7 @@ import 'package:ff_desktop/features/features.dart';
 import 'package:ff_desktop/constants/constants.dart';
 
 class AddressBar extends StatefulWidget {
-  const AddressBar({
-    super.key,
-  });
+  const AddressBar({super.key});
 
   @override
   State<AddressBar> createState() => _AddressBarState();
@@ -26,9 +24,7 @@ class _AddressBarState extends State<AddressBar> {
     controller.selection = TextSelection.collapsed(
       offset: controller.text.length,
     );
-    scrollController.jumpTo(
-      scrollController.position.maxScrollExtent,
-    );
+    scrollController.jumpTo(scrollController.position.maxScrollExtent);
   }
 
   bool _isEditing = false;
@@ -41,16 +37,10 @@ class _AddressBarState extends State<AddressBar> {
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         color: context.appTheme.color.mainBackground.withTransparency,
-        borderRadius: BorderRadius.circular(
-          Spacing.d8,
-        ),
+        borderRadius: BorderRadius.circular(Spacing.d8),
       ),
-      margin: EdgeInsets.all(
-        Spacing.d4,
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d8,
-      ),
+      margin: EdgeInsets.all(Spacing.d4),
+      padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
       child: _isEditing
           ? TextField(
               scrollController: scrollController,
@@ -79,10 +69,12 @@ class _AddressBarState extends State<AddressBar> {
                     child: Selector<ExploreViewModel, Uri>(
                       selector: (_, viewModel) => viewModel.currentUri,
                       builder: (context, uri, _) {
-                        final isIcloud = icloudPath.isNotEmpty &&
+                        final isIcloud =
+                            icloudPath.isNotEmpty &&
                             uri.toRealPath().startsWith(icloudPath);
-                        final icloudSegmentCount =
-                            isIcloud ? icloudPath.split(kSlash).length : 0;
+                        final icloudSegmentCount = isIcloud
+                            ? icloudPath.split(kSlash).length
+                            : 0;
                         final segments = uri.path.split(kSlash);
                         Future.delayed(Duration.zero, () {
                           scrollController.animateTo(
@@ -106,18 +98,19 @@ class _AddressBarState extends State<AddressBar> {
                             final segment = segments[index];
                             final isFirst = index == 0;
                             final isLast = index == segments.length - 1;
-                            final shouldTruncate = !isLast &&
+                            final shouldTruncate =
+                                !isLast &&
                                 segment.length > kMaxDisplayAddressNameLength;
                             if (index > 0 && index < icloudSegmentCount) {
                               return const SizedBox();
                             }
                             final displaySegment = isFirst
                                 ? isIcloud
-                                    ? 'iCloud Drive'
-                                    : 'Root'
+                                      ? 'iCloud Drive'
+                                      : 'Root'
                                 : shouldTruncate
-                                    ? '${segment.substring(0, kMaxDisplayAddressNameLength)}...'
-                                    : segment;
+                                ? '${segment.substring(0, kMaxDisplayAddressNameLength)}...'
+                                : segment;
                             return Tooltip(
                               message: isLast ? controller.text : segment,
                               child: Tappable(
@@ -129,10 +122,7 @@ class _AddressBarState extends State<AddressBar> {
                                     _enableEditMode();
                                     return;
                                   }
-                                  _handleSegmentTapped(
-                                    index,
-                                    segments,
-                                  );
+                                  _handleSegmentTapped(index, segments);
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
@@ -140,13 +130,17 @@ class _AddressBarState extends State<AddressBar> {
                                     displaySegment,
                                     style: context.theme.textTheme.bodyMedium
                                         ?.copyWith(
-                                      color: isLast
-                                          ? context.theme.colorScheme
-                                              .onSurfaceVariant
-                                          : context.theme.colorScheme
-                                              .onSurfaceVariant
-                                              .withOpacity(0.5),
-                                    ),
+                                          color: isLast
+                                              ? context
+                                                    .theme
+                                                    .colorScheme
+                                                    .onSurfaceVariant
+                                              : context
+                                                    .theme
+                                                    .colorScheme
+                                                    .onSurfaceVariant
+                                                    .withOpacity(0.5),
+                                        ),
                                     maxLines: 1,
                                   ),
                                 ),
@@ -181,26 +175,20 @@ class _AddressBarState extends State<AddressBar> {
   }
 
   void _handleSegmentTapped(int index, List<String> segments) {
-    final uri = Uri.parse(
-      segments.sublist(0, index + 1).join('/'),
-    ).trim();
+    final uri = Uri.parse(segments.sublist(0, index + 1).join('/')).trim();
     context.read<ExploreViewModel>().goTo(uri);
   }
 }
 
 class AddressDivider extends StatelessWidget {
-  const AddressDivider({
-    super.key,
-  });
+  const AddressDivider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: Spacing.d16,
       alignment: Alignment.center,
-      padding: EdgeInsets.only(
-        top: Spacing.d2 + Spacing.d1,
-      ),
+      padding: EdgeInsets.only(top: Spacing.d2 + Spacing.d1),
       child: ImageView(
         Assets.icons.arrows.solid.directionRight01,
         color: context.theme.colorScheme.onSurfaceVariant.withOpacity(0.5),

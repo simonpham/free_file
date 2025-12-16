@@ -18,7 +18,7 @@ class TsCard extends StatelessWidget {
   final double additionElevation;
 
   const TsCard({
-    Key? key,
+    super.key,
     this.child,
     this.radius,
     this.borderSize,
@@ -31,7 +31,7 @@ class TsCard extends StatelessWidget {
     this.margin = const EdgeInsets.all(FludaX.x),
     this.padding,
     this.additionElevation = 0.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +46,7 @@ class TsCard extends StatelessWidget {
         gradient: gradient,
         borderRadius: flatten
             ? null
-            : BorderRadius.circular(
-                radius ?? Spacing.d12,
-              ),
+            : BorderRadius.circular(radius ?? Spacing.d12),
         border: enableBorder
             ? Border.all(
                 color:
@@ -67,8 +65,9 @@ class TsCard extends StatelessWidget {
                   ),
                   blurRadius: (additionElevation * Spacing.d1) + Spacing.d24,
                   spreadRadius: additionElevation + 0.0,
-                  color: const Color(0xff17271B)
-                      .withOpacity(0.03 + 0.03 * additionElevation),
+                  color: const Color(
+                    0xff17271B,
+                  ).withOpacity(0.03 + 0.03 * additionElevation),
                 ),
               ],
       ),
@@ -76,10 +75,7 @@ class TsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           flatten ? 0.0 : radius ?? Spacing.d12,
         ),
-        child: Padding(
-          padding: padding ?? EdgeInsets.zero,
-          child: child,
-        ),
+        child: Padding(padding: padding ?? EdgeInsets.zero, child: child),
       ),
     );
   }

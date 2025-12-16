@@ -27,10 +27,7 @@ class PrimaryButton extends Button {
       enable: enable,
       enableHover: enableHover,
       semanticLabel: semanticLabel,
-      child: Text(
-        text ?? '',
-        style: context.theme.primaryTextTheme.labelLarge,
-      ),
+      child: Text(text ?? '', style: context.theme.primaryTextTheme.labelLarge),
     );
   }
 }

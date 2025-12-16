@@ -1,7 +1,8 @@
 enum HiddenStatus {
   normal,
   hidden,
-  hiddenSystem;
+  hiddenSystem
+  ;
 
   bool get isHidden => this != HiddenStatus.normal;
 }

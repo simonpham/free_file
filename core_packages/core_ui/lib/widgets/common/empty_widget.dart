@@ -22,24 +22,12 @@ class EmptyWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         if (image != null)
-          ImageView(
-            image!,
-            size: Spacing.d1 * 172,
-            fit: BoxFit.contain,
-          ),
+          ImageView(image!, size: Spacing.d1 * 172, fit: BoxFit.contain),
         Padding(
-          padding: EdgeInsets.only(
-            top: image != null ? Spacing.d24 : 0,
-          ),
-          child: Text(
-            title,
-            style: context.theme.textTheme.titleLarge,
-          ),
+          padding: EdgeInsets.only(top: image != null ? Spacing.d24 : 0),
+          child: Text(title, style: context.theme.textTheme.titleLarge),
         ),
-        Text(
-          subtitle,
-          style: context.theme.textTheme.labelLarge,
-        ),
+        Text(subtitle, style: context.theme.textTheme.labelLarge),
       ],
     );
   }

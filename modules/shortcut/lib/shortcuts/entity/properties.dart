@@ -9,9 +9,7 @@ class PropertiesAction extends Action<PropertiesIntent> {
 
   @override
   void invoke(covariant PropertiesIntent intent) {
-    injector<EventBus>().fire(
-      const PropertiesEvent(),
-    );
+    injector<EventBus>().fire(const PropertiesEvent());
   }
 }
 

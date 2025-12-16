@@ -6,10 +6,7 @@ import 'package:shortcut/shortcut.dart';
 class GlobalShortcutWrapper extends StatefulWidget {
   final Widget child;
 
-  const GlobalShortcutWrapper({
-    super.key,
-    required this.child,
-  });
+  const GlobalShortcutWrapper({super.key, required this.child});
 
   @override
   State<GlobalShortcutWrapper> createState() => _GlobalShortcutWrapperState();
@@ -42,9 +39,7 @@ class _GlobalShortcutWrapperState extends State<GlobalShortcutWrapper> {
       case LogicalKeyboardKey.shift:
       case LogicalKeyboardKey.shiftLeft:
       case LogicalKeyboardKey.shiftRight:
-        injector<EventBus>().fire(
-          HoldShiftEvent(isKeyDown),
-        );
+        injector<EventBus>().fire(HoldShiftEvent(isKeyDown));
         break;
       case LogicalKeyboardKey.meta:
       case LogicalKeyboardKey.metaLeft:
@@ -52,16 +47,12 @@ class _GlobalShortcutWrapperState extends State<GlobalShortcutWrapper> {
       case LogicalKeyboardKey.control:
       case LogicalKeyboardKey.controlLeft:
       case LogicalKeyboardKey.controlRight:
-        injector<EventBus>().fire(
-          HoldControlCommandEvent(isKeyDown),
-        );
+        injector<EventBus>().fire(HoldControlCommandEvent(isKeyDown));
         break;
       case LogicalKeyboardKey.alt:
       case LogicalKeyboardKey.altLeft:
       case LogicalKeyboardKey.altRight:
-        injector<EventBus>().fire(
-          HoldAltOptionEvent(isKeyDown),
-        );
+        injector<EventBus>().fire(HoldAltOptionEvent(isKeyDown));
         break;
       default:
         break;

@@ -27,10 +27,7 @@ class SecondaryButton extends Button {
       enable: enable,
       enableHover: enableHover,
       semanticLabel: semanticLabel,
-      child: Text(
-        text ?? '',
-        style: context.theme.textTheme.bodySmall,
-      ),
+      child: Text(text ?? '', style: context.theme.textTheme.bodySmall),
     );
   }
 }

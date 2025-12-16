@@ -1,4 +1,4 @@
-library theme;
+library;
 
 export 'package:system_theme/system_theme.dart';
 

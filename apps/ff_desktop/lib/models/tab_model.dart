@@ -21,18 +21,21 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
 
   TabViewModel() {
     _shortcutSubscription?.cancel();
-    _shortcutSubscription =
-        eventBus.on<ShortcutEvent>().listen(_handleShortcut);
-    itemPositionsListener.itemPositions
-        .addListener(_handleItemPositionsChanged);
+    _shortcutSubscription = eventBus.on<ShortcutEvent>().listen(
+      _handleShortcut,
+    );
+    itemPositionsListener.itemPositions.addListener(
+      _handleItemPositionsChanged,
+    );
   }
 
   @override
   void dispose() {
     _shortcutSubscription?.cancel();
     _shortcutSubscription = null;
-    itemPositionsListener.itemPositions
-        .removeListener(_handleItemPositionsChanged);
+    itemPositionsListener.itemPositions.removeListener(
+      _handleItemPositionsChanged,
+    );
     for (var element in _exploreViewModels) {
       element.dispose();
     }
@@ -49,16 +52,14 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
   void _handleItemPositionsChanged() {
     // Check if _currentIndex is still in view. If not, scroll to it.
     final itemPositions = itemPositionsListener.itemPositions.value;
-    final isCurrentIndexInView =
-        itemPositions.where((item) => item.index == _currentIndex).isNotEmpty;
+    final isCurrentIndexInView = itemPositions
+        .where((item) => item.index == _currentIndex)
+        .isNotEmpty;
     if (isCurrentIndexInView) {
       return;
     }
     final align = _currentIndex == 0 ? 0.0 : 0.5;
-    tabScrollController.jumpTo(
-      index: _currentIndex,
-      alignment: align,
-    );
+    tabScrollController.jumpTo(index: _currentIndex, alignment: align);
   }
 
   void _setIndex(int index) {
@@ -88,9 +89,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
     changeTab(_currentIndex - 1);
   }
 
-  final List<ExploreViewModel> _exploreViewModels = [
-    ExploreViewModel(),
-  ];
+  final List<ExploreViewModel> _exploreViewModels = [ExploreViewModel()];
 
   @override
   ExploreViewModel get currentExploreViewModel =>
@@ -240,8 +239,10 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
     }
 
     await currentExploreViewModel.refresh();
-    currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => item.path.toRealPath() == zipFile)
-        .toSet());
+    currentExploreViewModel.selectBatch(
+      currentExploreViewModel.entities
+          .where((item) => item.path.toRealPath() == zipFile)
+          .toSet(),
+    );
   }
 }

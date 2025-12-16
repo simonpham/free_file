@@ -17,9 +17,7 @@ class WorkspaceShortcuts {
         PreviousTabIntent.keySet: PreviousTabIntent(),
       };
 
-  static Map<Type, Action<Intent>> getWorkspaceActions(
-    BuildContext context,
-  ) {
+  static Map<Type, Action<Intent>> getWorkspaceActions(BuildContext context) {
     return <Type, Action<Intent>>{
       AddTabIntent: AddTabAction(),
       CloseTabIntent: CloseTabAction(),

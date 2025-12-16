@@ -9,9 +9,7 @@ class OpenInNewTabAction extends Action<OpenInNewTabIntent> {
 
   @override
   void invoke(covariant OpenInNewTabIntent intent) {
-    injector<EventBus>().fire(
-      const OpenInNewTabEvent(),
-    );
+    injector<EventBus>().fire(const OpenInNewTabEvent());
   }
 }
 

@@ -9,9 +9,7 @@ class DeleteAction extends Action<DeleteIntent> {
 
   @override
   void invoke(covariant DeleteIntent intent) {
-    injector<EventBus>().fire(
-      const DeleteEvent(),
-    );
+    injector<EventBus>().fire(const DeleteEvent());
   }
 }
 

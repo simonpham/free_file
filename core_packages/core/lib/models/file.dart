@@ -16,6 +16,6 @@ class File extends Entity {
     required super.hiddenStatus,
     required super.createdAt,
     required super.updatedAt,
-  })  : fileType = fileType ?? FileType.unknown,
-        super(type: EntityType.file);
+  }) : fileType = fileType ?? FileType.unknown,
+       super(type: EntityType.file);
 }

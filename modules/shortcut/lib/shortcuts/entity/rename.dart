@@ -9,9 +9,7 @@ class RenameAction extends Action<RenameIntent> {
 
   @override
   void invoke(covariant RenameIntent intent) {
-    injector<EventBus>().fire(
-      const RenameEvent(),
-    );
+    injector<EventBus>().fire(const RenameEvent());
   }
 }
 

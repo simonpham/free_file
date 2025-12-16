@@ -7,7 +7,8 @@ enum WorkspaceActions {
   closeTab,
   closeAllTabs,
   nextTab,
-  previousTab;
+  previousTab
+  ;
 
   List<LogicalKeyboardKey> get shortcutKey {
     return ThemeConfigs().workspaceShortcut.items[name]?.shortcutKey ??
@@ -20,8 +21,6 @@ enum WorkspaceActions {
       return null;
     }
 
-    return LogicalKeySet.fromSet(
-      shortcutKey.toSet(),
-    );
+    return LogicalKeySet.fromSet(shortcutKey.toSet());
   }
 }

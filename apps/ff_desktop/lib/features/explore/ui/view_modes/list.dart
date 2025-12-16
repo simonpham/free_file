@@ -50,12 +50,7 @@ class EntityViewList extends StatelessWidget {
     for (var i = 0; i < entities.length; i++) {
       final entityX = (i ~/ maxItemsPerColumn) * itemWidth;
       final entityY = (i % maxItemsPerColumn) * itemHeight;
-      final entityRect = Rect.fromLTWH(
-        entityX,
-        entityY,
-        itemWidth,
-        itemHeight,
-      );
+      final entityRect = Rect.fromLTWH(entityX, entityY, itemWidth, itemHeight);
 
       if (rect.overlaps(entityRect)) {
         selectedIndexes.add(i);
@@ -85,8 +80,9 @@ class EntityViewList extends StatelessWidget {
       (containerHeight / mode.itemHeight).floor(),
     );
     final backgroundColor = context.appTheme.color.background;
-    final selectedBackgroundColor =
-        context.appTheme.color.primary.withOpacity(0.2);
+    final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(
+      0.2,
+    );
     final appTheme = context.appTheme;
 
     final selectedEntities = selectedEntitiesGetter.call();
@@ -131,10 +127,7 @@ class EntityViewList extends StatelessWidget {
           pinnedUrisGetter: () => Settings().pinnedUris,
           onAction: onAction,
           child: GridView.builder(
-            padding: EdgeInsets.only(
-              top: Spacing.d8,
-              bottom: Spacing.d16,
-            ),
+            padding: EdgeInsets.only(top: Spacing.d8, bottom: Spacing.d16),
             controller: scrollController,
             itemCount: entities.length,
             scrollDirection: Axis.horizontal,
@@ -148,15 +141,14 @@ class EntityViewList extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final Entity entity = entities[index];
               final isSelected = selectedEntities.contains(entity);
-              final shouldEnableNameEdit = isRenaming &&
+              final shouldEnableNameEdit =
+                  isRenaming &&
                   selectedEntities.isNotEmpty &&
                   selectedEntities.firstOrNull?.path.toRealPath() ==
                       entity.path.toRealPath();
               return Container(
                 key: ValueKey(entity.path.toRealPath()),
-                padding: EdgeInsets.symmetric(
-                  horizontal: Spacing.d8,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
                 child: Listener(
                   onPointerDown: (event) {
                     if (isSelected && event.buttons != kPrimaryMouseButton) {
@@ -169,24 +161,21 @@ class EntityViewList extends StatelessWidget {
                     behavior: HitTestBehavior.translucent,
                     mouseCursor: SystemMouseCursors.basic,
                     height: mode.itemHeight - Spacing.d4,
-                    backgroundColor:
-                        isSelected ? selectedBackgroundColor : backgroundColor,
+                    backgroundColor: isSelected
+                        ? selectedBackgroundColor
+                        : backgroundColor,
                     onDoubleTap: () => onEntityDoubleTap(entity),
                     enableAnimation: false,
                     leading: EntityIconWidget(
                       entity: entity,
                       size: Spacing.d20,
                     ),
-                    titlePadding: EdgeInsets.only(
-                      left: Spacing.d8,
-                    ),
+                    titlePadding: EdgeInsets.only(left: Spacing.d8),
                     padding: EdgeInsets.symmetric(
                       horizontal: Spacing.d8,
                       vertical: Spacing.d4,
                     ),
-                    hoverOverlayPadding: EdgeInsets.only(
-                      bottom: Spacing.d4,
-                    ),
+                    hoverOverlayPadding: EdgeInsets.only(bottom: Spacing.d4),
                     title: shouldEnableNameEdit
                         ? TextField(
                             enabled: true,

@@ -50,3 +50,6 @@ linter:
     avoid_private_typedef_functions: true # prefer
     hash_and_equals: true
     avoid_null_checks_in_equality_operators: true
+
+formatter:
+  trailing_commas: preserve

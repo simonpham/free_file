@@ -7,9 +7,7 @@ class AddTabAction extends Action<AddTabIntent> {
 
   @override
   void invoke(covariant AddTabIntent intent) {
-    injector<EventBus>().fire(
-      const AddTabEvent(),
-    );
+    injector<EventBus>().fire(const AddTabEvent());
   }
 }
 

@@ -9,9 +9,7 @@ class DeletePermanentlyAction extends Action<DeletePermanentlyIntent> {
 
   @override
   void invoke(covariant DeletePermanentlyIntent intent) {
-    injector<EventBus>().fire(
-      const DeletePermanentlyEvent(),
-    );
+    injector<EventBus>().fire(const DeletePermanentlyEvent());
   }
 }
 

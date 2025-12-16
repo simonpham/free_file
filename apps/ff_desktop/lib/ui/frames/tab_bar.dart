@@ -6,20 +6,14 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class HeheTabBar extends StatelessWidget {
-  const HeheTabBar({
-    super.key,
-  });
+  const HeheTabBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: Spacing.d28,
-      margin: EdgeInsets.only(
-        top: Spacing.d8,
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d12,
-      ),
+      margin: EdgeInsets.only(top: Spacing.d8),
+      padding: EdgeInsets.symmetric(horizontal: Spacing.d12),
       alignment: Alignment.centerLeft,
       child: Consumer<TabViewModel>(
         builder: (BuildContext context, TabViewModel model, _) {
@@ -49,17 +43,16 @@ class HeheTabBar extends StatelessWidget {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: isSelected
-                                    ? context.appTheme.color.navBarBackground
-                                        .withTransparency
+                                    ? context
+                                          .appTheme
+                                          .color
+                                          .navBarBackground
+                                          .withTransparency
                                     : context.appTheme.color.navBarBackground
-                                        .applyTransparency(0.2),
+                                          .applyTransparency(0.2),
                                 borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(
-                                    Spacing.d12,
-                                  ),
-                                  topRight: Radius.circular(
-                                    Spacing.d12,
-                                  ),
+                                  topLeft: Radius.circular(Spacing.d12),
+                                  topRight: Radius.circular(Spacing.d12),
                                 ),
                               ),
                               alignment: Alignment.center,
@@ -72,9 +65,15 @@ class HeheTabBar extends StatelessWidget {
                                   ImageView(
                                     isSelected
                                         ? Assets
-                                            .icons.filesAndFolder.solid.folder03
-                                        : Assets.icons.filesAndFolder.outline
-                                            .folder03,
+                                              .icons
+                                              .filesAndFolder
+                                              .solid
+                                              .folder03
+                                        : Assets
+                                              .icons
+                                              .filesAndFolder
+                                              .outline
+                                              .folder03,
                                     size: Spacing.d16,
                                     color: context.appTheme.color.onBackground,
                                   ),
@@ -82,15 +81,18 @@ class HeheTabBar extends StatelessWidget {
                                   Expanded(
                                     child: Text(
                                       exploreModel
-                                          .currentUri.lastNonEmptySegment,
+                                          .currentUri
+                                          .lastNonEmptySegment,
                                       style: context.theme.textTheme.bodySmall
                                           ?.copyWith(
-                                        color: isSelected
-                                            ? context
-                                                .appTheme.color.onBackground
-                                            : null,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                            color: isSelected
+                                                ? context
+                                                      .appTheme
+                                                      .color
+                                                      .onBackground
+                                                : null,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                     ),
@@ -103,9 +105,7 @@ class HeheTabBar extends StatelessWidget {
                                       child: Listener(
                                         behavior: HitTestBehavior.opaque,
                                         onPointerDown: (_) {
-                                          model.removeExploreViewModelAt(
-                                            index,
-                                          );
+                                          model.removeExploreViewModelAt(index);
                                         },
                                         child: Container(
                                           color: Colors.transparent,
@@ -113,7 +113,9 @@ class HeheTabBar extends StatelessWidget {
                                             Assets.icons.interface.solid.remove,
                                             size: Spacing.d16,
                                             color: context
-                                                .theme.colorScheme.onSurface,
+                                                .theme
+                                                .colorScheme
+                                                .onSurface,
                                           ),
                                         ),
                                       ),
@@ -134,9 +136,7 @@ class HeheTabBar extends StatelessWidget {
                   model.addTab();
                 },
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Spacing.d8,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
                   child: ImageView(
                     Assets.icons.interface.outline.plus,
                     size: Spacing.d16,

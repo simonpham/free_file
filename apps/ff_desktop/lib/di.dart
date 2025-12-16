@@ -5,20 +5,14 @@ import 'package:theme/theme.dart';
 
 class Injector {
   static Future<void> setup() async {
-    injector.registerLazySingleton<EventBus>(
-      () => EventBus(),
-    );
+    injector.registerLazySingleton<EventBus>(() => EventBus());
 
-    injector.registerLazySingleton<ThemeModel>(
-      () => ThemeModel(),
-    );
+    injector.registerLazySingleton<ThemeModel>(() => ThemeModel());
 
     injector.registerLazySingleton<LocalEntityProvider>(
       () => LocalEntityProvider(),
     );
 
-    injector.registerLazySingleton<TabViewModel>(
-      () => TabViewModel(),
-    );
+    injector.registerLazySingleton<TabViewModel>(() => TabViewModel());
   }
 }

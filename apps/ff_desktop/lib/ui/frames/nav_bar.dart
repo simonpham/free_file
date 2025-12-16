@@ -5,9 +5,7 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({
-    super.key,
-  });
+  const NavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,18 +74,14 @@ class NavBar extends StatelessWidget {
           curve: Curves.easeOut,
           duration: FludaDuration.ms3,
           child: ListView.separated(
-            padding: EdgeInsets.symmetric(
-              horizontal: Spacing.d12,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: Spacing.d12),
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               return Center(child: buttons[index]);
             },
-            separatorBuilder: (_, __) => SizedBox(
-              width: Spacing.d8,
-            ),
+            separatorBuilder: (_, __) => SizedBox(width: Spacing.d8),
             itemCount: buttons.length,
           ),
         );

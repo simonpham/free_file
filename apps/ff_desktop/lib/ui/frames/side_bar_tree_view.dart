@@ -10,10 +10,7 @@ import 'package:utils/utils.dart';
 class SideBarTreeView extends StatelessWidget {
   final TreeExploreViewModel model;
 
-  const SideBarTreeView({
-    super.key,
-    required this.model,
-  });
+  const SideBarTreeView({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +26,8 @@ class SideBarTreeView extends StatelessWidget {
               children: [
                 Consumer<ExploreViewModel>(
                   builder: (context, exploreViewModel, _) {
-                    final isIcloud = icloudPath.isNotEmpty &&
+                    final isIcloud =
+                        icloudPath.isNotEmpty &&
                         model.directory.path.toRealPath() == icloudPath;
                     return SideBarItem(
                       level: model.level,
@@ -41,20 +39,22 @@ class SideBarTreeView extends StatelessWidget {
                         }
                         exploreViewModel.goTo(model.directory.path);
                       },
-                      selected: exploreViewModel.currentUri.trim() ==
+                      selected:
+                          exploreViewModel.currentUri.trim() ==
                           model.directory.path.trim(),
                       icon: model.isExpanded && model.isExpandable
                           ? model.customIcon ??
-                              Assets.icons.filesAndFolder.outline.folder
+                                Assets.icons.filesAndFolder.outline.folder
                           : model.customIcon ??
-                              Assets.icons.filesAndFolder.outline.folder03,
+                                Assets.icons.filesAndFolder.outline.folder03,
                       selectedIcon: model.isExpanded && model.isExpandable
                           ? model.customSelectedIcon ??
-                              Assets.icons.filesAndFolder.solid.folder
+                                Assets.icons.filesAndFolder.solid.folder
                           : model.customSelectedIcon ??
-                              Assets.icons.filesAndFolder.solid.folder03,
-                      iconColor:
-                          model.directory.getEntityColor(context.appTheme),
+                                Assets.icons.filesAndFolder.solid.folder03,
+                      iconColor: model.directory.getEntityColor(
+                        context.appTheme,
+                      ),
                       expanded: isExpanded,
                       expandable: model.isExpandable,
                       onToggleExpand: () {
@@ -65,9 +65,7 @@ class SideBarTreeView extends StatelessWidget {
                 ),
                 if (isExpanded)
                   for (final directory in model.directories)
-                    SideBarTreeView(
-                      model: directory,
-                    ),
+                    SideBarTreeView(model: directory),
                 if (isExpanded && ThemeConfigs().config.showFileInSideBar)
                   for (final file in model.files)
                     SideBarItem(

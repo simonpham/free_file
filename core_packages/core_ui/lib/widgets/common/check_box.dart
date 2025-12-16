@@ -7,11 +7,7 @@ class CheckBox extends StatefulWidget {
   final bool value;
   final ValueChanged<bool> onChanged;
 
-  const CheckBox({
-    super.key,
-    required this.value,
-    required this.onChanged,
-  });
+  const CheckBox({super.key, required this.value, required this.onChanged});
 
   @override
   State<CheckBox> createState() => _CheckBoxState();

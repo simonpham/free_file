@@ -9,9 +9,7 @@ class MoveAction extends Action<MoveIntent> {
 
   @override
   void invoke(covariant MoveIntent intent) {
-    injector<EventBus>().fire(
-      const MoveEvent(),
-    );
+    injector<EventBus>().fire(const MoveEvent());
   }
 }
 

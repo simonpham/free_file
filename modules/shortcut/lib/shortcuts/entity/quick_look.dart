@@ -9,9 +9,7 @@ class QuickLookAction extends Action<QuickLookIntent> {
 
   @override
   void invoke(covariant QuickLookIntent intent) {
-    injector<EventBus>().fire(
-      const QuickLookEvent(),
-    );
+    injector<EventBus>().fire(const QuickLookEvent());
   }
 }
 

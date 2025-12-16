@@ -27,10 +27,7 @@ class LabelButton extends Button {
       enable: enable,
       enableHover: enableHover,
       semanticLabel: semanticLabel,
-      child: Text(
-        text ?? '',
-        style: context.theme.textTheme.labelLarge,
-      ),
+      child: Text(text ?? '', style: context.theme.textTheme.labelLarge),
     );
   }
 }

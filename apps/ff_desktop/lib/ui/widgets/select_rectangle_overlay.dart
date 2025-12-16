@@ -7,12 +7,7 @@ import 'package:utils/utils.dart';
 
 typedef PositionCallback = void Function(Offset position);
 
-enum BorderType {
-  top,
-  bottom,
-  left,
-  right,
-}
+enum BorderType { top, bottom, left, right }
 
 class SelectRectangleOverlay extends StatefulWidget {
   final ScrollController scrollController;
@@ -121,16 +116,9 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
 
         final leftPosition = min(_x0y0.dx, _x1y1.dx);
         final topPosition = min(_x0y0.dy, _x1y1.dy);
-        final rect = Rect.fromLTWH(
-          leftPosition,
-          topPosition,
-          _width,
-          _height,
-        );
+        final rect = Rect.fromLTWH(leftPosition, topPosition, _width, _height);
 
-        widget.onRectangleUpdated(
-          rect,
-        );
+        widget.onRectangleUpdated(rect);
         _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
       },
       onPointerUp: (event) {

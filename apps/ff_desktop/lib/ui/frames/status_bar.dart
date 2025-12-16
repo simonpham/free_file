@@ -6,9 +6,7 @@ import 'package:utils/utils.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 
 class StatusBar extends StatelessWidget {
-  const StatusBar({
-    super.key,
-  });
+  const StatusBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +16,11 @@ class StatusBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.appTheme.color.statusBarBackground.withTransparency,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(
-            Spacing.d12,
-          ),
-          bottomRight: Radius.circular(
-            Spacing.d12,
-          ),
+          bottomLeft: Radius.circular(Spacing.d12),
+          bottomRight: Radius.circular(Spacing.d12),
         ),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: Spacing.d8,
-      ),
+      padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
       child: AnimatedSize(
         curve: Curves.easeOut,
         duration: FludaDuration.ms3,

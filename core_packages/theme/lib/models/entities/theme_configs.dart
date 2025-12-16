@@ -19,11 +19,9 @@ extension ThemeConfigsExtension on ThemeConfigs {
     final colorScheme = baseTheme.colorScheme.copyWith(
       primary: config.color.primary,
       secondary: config.color.secondary,
-      background: config.color.background,
-      onBackground: config.color.onBackground,
       surface: config.color.mainBackground,
       onSurface: config.color.onBackground,
-      surfaceVariant: config.color.navBarBackground,
+      surfaceContainerHighest: config.color.navBarBackground,
       onSurfaceVariant: config.color.onBackground,
     );
     return baseTheme.copyWith(
@@ -33,31 +31,21 @@ extension ThemeConfigsExtension on ThemeConfigs {
       appBarTheme: baseTheme.appBarTheme.copyWith(
         backgroundColor: config.color.navBarBackground,
         foregroundColor: config.color.onBackground,
-        iconTheme: IconThemeData(
-          color: config.color.iconColor,
-        ),
+        iconTheme: IconThemeData(color: config.color.iconColor),
       ),
       bottomNavigationBarTheme: baseTheme.bottomNavigationBarTheme.copyWith(
         backgroundColor: config.color.navBarBackground,
         selectedItemColor: config.color.primary,
         unselectedItemColor: config.color.onBackground,
       ),
-      iconTheme: IconThemeData(
-        color: config.color.iconColor,
-      ),
+      iconTheme: IconThemeData(color: config.color.iconColor),
       disabledColor: config.color.disabledIconColor,
     );
   }
 
-  Widget contextCardBuilder(
-    BuildContext context,
-    List<Widget> children,
-  ) {
+  Widget contextCardBuilder(BuildContext context, List<Widget> children) {
     return TsCard(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: children,
-      ),
+      child: Column(mainAxisSize: MainAxisSize.min, children: children),
     );
   }
 
@@ -71,17 +59,13 @@ extension ThemeConfigsExtension on ThemeConfigs {
       leading: config.icon,
       title: Row(
         children: [
-          Expanded(
-            child: Text(config.label),
-          ),
+          Expanded(child: Text(config.label)),
           if (config.shortcutLabel != null)
             Padding(
               padding: EdgeInsets.only(left: Spacing.d48),
               child: Text(
                 '${config.shortcutLabel}',
-                style: TextStyle(
-                  color: context.theme.disabledColor,
-                ),
+                style: TextStyle(color: context.theme.disabledColor),
               ),
             ),
         ],
@@ -113,9 +97,7 @@ class ThemeConfigs {
   }
 
   static Future<void> init() async {
-    final json = await rootBundle.loadString(
-      'assets/themes/default.json',
-    );
+    final json = await rootBundle.loadString('assets/themes/default.json');
     _instance = ThemeConfigs.fromJson(jsonDecode(json));
   }
 

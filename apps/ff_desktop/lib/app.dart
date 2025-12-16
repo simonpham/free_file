@@ -15,20 +15,14 @@ import 'package:utils/utils.dart';
 class FreeFileLaunchArgument {
   final String? path;
 
-  const FreeFileLaunchArgument({
-    this.path,
-  });
+  const FreeFileLaunchArgument({this.path});
 
   Map<String, dynamic> toJson() {
-    return {
-      'path': path,
-    };
+    return {'path': path};
   }
 
   factory FreeFileLaunchArgument.fromJson(Map<String, dynamic> json) {
-    return FreeFileLaunchArgument(
-      path: json['path'] as String?,
-    );
+    return FreeFileLaunchArgument(path: json['path'] as String?);
   }
 }
 
@@ -36,11 +30,7 @@ class FreeFile extends StatefulWidget {
   final WindowController? windowController;
   final FreeFileLaunchArgument? launchArgument;
 
-  const FreeFile({
-    super.key,
-    this.windowController,
-    this.launchArgument,
-  });
+  const FreeFile({super.key, this.windowController, this.launchArgument});
 
   @override
   State<FreeFile> createState() => _FreeFileState();
@@ -56,12 +46,8 @@ class _FreeFileState extends State<FreeFile> {
     return GlobalShortcutWrapper(
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider.value(
-            value: injector<TabViewModel>(),
-          ),
-          ChangeNotifierProvider.value(
-            value: themeModel,
-          ),
+          ChangeNotifierProvider.value(value: injector<TabViewModel>()),
+          ChangeNotifierProvider.value(value: themeModel),
         ],
         builder: (BuildContext context, _) {
           return Consumer<ThemeModel>(
@@ -95,10 +81,7 @@ class _FreeFileState extends State<FreeFile> {
                       dividerBuilder: ThemeConfigs().contextMenuDividerBuilder,
                       child: Stack(
                         children: [
-                          if (child != null)
-                            Positioned.fill(
-                              child: child,
-                            ),
+                          if (child != null) Positioned.fill(child: child),
                           const Positioned(
                             top: 0.0,
                             left: 0.0,

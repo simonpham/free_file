@@ -4,9 +4,7 @@ part of 'theme_configs.dart';
 class Shortcut {
   final Map<String, ShortcutConfig> items;
 
-  const Shortcut({
-    required this.items,
-  });
+  const Shortcut({required this.items});
 
   factory Shortcut.fromJson(Map<String, dynamic> json) {
     final items = <String, ShortcutConfig>{};
@@ -34,9 +32,9 @@ class ShortcutConfig {
   factory ShortcutConfig.fromJson(Map<String, dynamic> json) {
     final shortcutKey = json['shortcutKey'] is List
         ? json['shortcutKey']
-            .map((e) => KeyParser.parse(e))
-            .whereType<LogicalKeyboardKey>()
-            .toList()
+              .map((e) => KeyParser.parse(e))
+              .whereType<LogicalKeyboardKey>()
+              .toList()
         : const <LogicalKeyboardKey>[];
     final showOnKeyHold = json['showOnKeyHold'] == null
         ? null

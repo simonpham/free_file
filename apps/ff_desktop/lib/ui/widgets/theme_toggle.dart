@@ -81,7 +81,7 @@ class ThemeToggle extends StatelessWidget {
                                               : context
                                                     .theme
                                                     .colorScheme
-                                                    .onBackground,
+                                                    .onSurface,
                                         ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -104,7 +104,7 @@ class ThemeToggle extends StatelessWidget {
                                 size: Spacing.d16,
                                 color: themeMode == ThemeMode.light
                                     ? context.theme.colorScheme.onSurface
-                                    : context.theme.colorScheme.onBackground,
+                                    : context.theme.colorScheme.onSurface,
                               ),
                               Flexible(
                                 child: Padding(
@@ -121,7 +121,7 @@ class ThemeToggle extends StatelessWidget {
                                               : context
                                                     .theme
                                                     .colorScheme
-                                                    .onBackground,
+                                                    .onSurface,
                                         ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,

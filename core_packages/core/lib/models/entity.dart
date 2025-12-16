@@ -1,9 +1,6 @@
 import 'package:core/constants/constants.dart';
 
-enum EntityType {
-  file,
-  directory,
-}
+enum EntityType { file, directory }
 
 class Entity {
   final EntityType type;

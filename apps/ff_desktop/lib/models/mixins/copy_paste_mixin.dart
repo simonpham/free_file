@@ -63,9 +63,11 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
     await Pasteboard.writeFiles(const []);
     _copiedEntities = {};
     await currentExploreViewModel.refresh();
-    currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => pathToSelects.contains(item.path.toRealPath()))
-        .toSet());
+    currentExploreViewModel.selectBatch(
+      currentExploreViewModel.entities
+          .where((item) => pathToSelects.contains(item.path.toRealPath()))
+          .toSet(),
+    );
   }
 
   @override
@@ -99,9 +101,11 @@ mixin WorkspaceCopyPasteMixin on ChangeNotifier
     await Pasteboard.writeFiles(const []);
     _copiedEntities = {};
     await currentExploreViewModel.refresh();
-    currentExploreViewModel.selectBatch(currentExploreViewModel.entities
-        .where((item) => pathToSelects.contains(item.path.toRealPath()))
-        .toSet());
+    currentExploreViewModel.selectBatch(
+      currentExploreViewModel.entities
+          .where((item) => pathToSelects.contains(item.path.toRealPath()))
+          .toSet(),
+    );
   }
 
   Future<void> refreshClipboard() async {

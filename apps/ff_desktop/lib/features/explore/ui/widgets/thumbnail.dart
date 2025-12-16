@@ -9,11 +9,7 @@ class ThumbnailWidget extends StatelessWidget {
   final File file;
   final double size;
 
-  const ThumbnailWidget({
-    super.key,
-    required this.file,
-    required this.size,
-  });
+  const ThumbnailWidget({super.key, required this.file, required this.size});
 
   @override
   Widget build(BuildContext context) {

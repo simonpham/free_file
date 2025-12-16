@@ -7,9 +7,7 @@ class CloseAllTabsAction extends Action<CloseAllTabsIntent> {
 
   @override
   void invoke(covariant CloseAllTabsIntent intent) {
-    injector<EventBus>().fire(
-      const CloseAllTabsEvent(),
-    );
+    injector<EventBus>().fire(const CloseAllTabsEvent());
   }
 }
 

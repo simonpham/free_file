@@ -40,7 +40,7 @@ extension UriExtension on Uri {
   String toRealPath() {
     if (kIsWindows) {
       const scheme = 'C:\\';
-      String path ='${pathSegments.join(kSlash)}';
+      String path = pathSegments.join(kSlash);
       if (path.toLowerCase().startsWith(scheme.toLowerCase())) {
         return path;
       }

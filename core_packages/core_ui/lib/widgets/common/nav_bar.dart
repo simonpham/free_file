@@ -49,9 +49,7 @@ class SfNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (leading != null) ...[
-          leading!,
-        ],
+        if (leading != null) ...[leading!],
         ListView.builder(
           itemCount: destinations.length,
           padding: EdgeInsets.only(
@@ -67,9 +65,7 @@ class SfNavBar extends StatelessWidget {
             return Padding(
               padding: isExpanded
                   ? EdgeInsets.zero
-                  : EdgeInsets.symmetric(
-                      horizontal: Spacing.d8,
-                    ),
+                  : EdgeInsets.symmetric(horizontal: Spacing.d8),
               child: ListItem(
                 hideTitleOnHandyDevice: true,
                 hideTrailingOnHandyDevice: true,
@@ -91,8 +87,9 @@ class SfNavBar extends StatelessWidget {
                 title: Text(
                   destinations[index].label,
                   style: context.theme.textTheme.titleLarge?.copyWith(
-                    color:
-                        selected ? Colors.grey.shade900 : Colors.grey.shade700,
+                    color: selected
+                        ? Colors.grey.shade900
+                        : Colors.grey.shade700,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -109,14 +106,9 @@ class SfNavBar extends StatelessWidget {
             );
           },
         ),
-        if (secondarySection != null) ...[
-          const Divider(),
-          secondarySection!,
-        ],
+        if (secondarySection != null) ...[const Divider(), secondarySection!],
         if (secondarySection == null) const Spacer(),
-        if (trailing != null) ...[
-          trailing!,
-        ],
+        if (trailing != null) ...[trailing!],
       ],
     );
   }

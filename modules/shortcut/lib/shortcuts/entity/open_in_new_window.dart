@@ -9,9 +9,7 @@ class OpenInNewWindowAction extends Action<OpenInNewWindowIntent> {
 
   @override
   void invoke(covariant OpenInNewWindowIntent intent) {
-    injector<EventBus>().fire(
-      const OpenInNewWindowEvent(),
-    );
+    injector<EventBus>().fire(const OpenInNewWindowEvent());
   }
 }
 

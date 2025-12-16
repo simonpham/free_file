@@ -1,4 +1,4 @@
-library core_ui;
+library;
 
 export 'package:context_menus/context_menus.dart';
 export 'package:flash/flash.dart';

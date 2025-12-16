@@ -1,4 +1,4 @@
-library shortcut;
+library;
 
 export 'shortcuts/shortcuts.dart';
 export 'widgets/widgets.dart';

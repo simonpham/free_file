@@ -9,9 +9,7 @@ class PasteAction extends Action<PasteIntent> {
 
   @override
   void invoke(covariant PasteIntent intent) {
-    injector<EventBus>().fire(
-      const PasteEvent(),
-    );
+    injector<EventBus>().fire(const PasteEvent());
   }
 }
 

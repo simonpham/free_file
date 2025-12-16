@@ -9,9 +9,7 @@ class CompressAction extends Action<CompressIntent> {
 
   @override
   void invoke(covariant CompressIntent intent) {
-    injector<EventBus>().fire(
-      const CompressEvent(),
-    );
+    injector<EventBus>().fire(const CompressEvent());
   }
 }
 

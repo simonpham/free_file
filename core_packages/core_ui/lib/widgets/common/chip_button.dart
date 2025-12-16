@@ -35,10 +35,7 @@ class ChipButton extends Button {
           horizontal: Spacing.d8,
           vertical: Spacing.d2,
         ),
-        child: Text(
-          text ?? '',
-          style: context.theme.textTheme.bodySmall,
-        ),
+        child: Text(text ?? '', style: context.theme.textTheme.bodySmall),
       ),
     );
   }
