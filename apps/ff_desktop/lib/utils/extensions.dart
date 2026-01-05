@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/utils/platform_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:l10n/l10n.dart';
 
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:theme/theme.dart';
@@ -27,21 +28,21 @@ extension SideBarSectionsExt on SideBarSection {
   String getLabel(BuildContext context) {
     switch (this) {
       case SideBarSection.home:
-        return 'Home';
+        return context.localize.home;
       case SideBarSection.pinned:
-        return 'Pinned';
+        return context.localize.pinned;
       case SideBarSection.cloud:
-        return 'Cloud';
+        return context.localize.cloud;
       case SideBarSection.yours:
         final home = PredefinedFolder.home.uri;
         if (home != null) {
           return home.toRealPath().getUsernameFromHomeFolder();
         }
-        return 'Yours';
+        return context.localize.yours;
       case SideBarSection.drives:
-        return 'Drives';
+        return context.localize.drives;
       case SideBarSection.tags:
-        return 'Tags';
+        return context.localize.tags;
     }
   }
 

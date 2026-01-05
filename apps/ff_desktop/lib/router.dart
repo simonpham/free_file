@@ -9,10 +9,5 @@ final appRouter = GoRouter(
       path: MainPage.routePath,
       builder: (context, state) => const MainPage(),
     ),
-    GoRoute(
-      name: HomePage.routeName,
-      path: HomePage.routePath,
-      builder: (context, state) => const HomePage(),
-    ),
   ],
 );

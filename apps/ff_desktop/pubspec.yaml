@@ -18,6 +18,8 @@ dependencies:
     path: ../../core_packages/core
   core_ui:
     path: ../../core_packages/core_ui
+  l10n:
+    path: ../../core_packages/l10n
   theme:
     path: ../../core_packages/theme
 

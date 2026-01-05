@@ -13,6 +13,8 @@ dependencies:
     path: ../core
   theme:
     path: ../theme
+  l10n:
+    path: ../l10n
   utils:
     path: ../../packages/utils
 

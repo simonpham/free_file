@@ -58,7 +58,7 @@ class CommonEntityActionsWrapper extends StatelessWidget {
                     size: Spacing.d16,
                     color: context.theme.disabledColor,
                   ),
-            shortcutLabel: action.shortcutLabel,
+            shortcutLabel: action.getShortcutLabel(context),
             onPressed: () {
               onAction?.call(action);
             },
