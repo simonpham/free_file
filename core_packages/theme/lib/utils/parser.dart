@@ -59,6 +59,7 @@ class KeyParser {
       'KeyX' => LogicalKeyboardKey.keyX,
       'KeyY' => LogicalKeyboardKey.keyY,
       'KeyZ' => LogicalKeyboardKey.keyZ,
+      'Period' => LogicalKeyboardKey.period,
       _ => null,
     };
   }
