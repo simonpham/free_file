@@ -51,3 +51,7 @@ class PropertiesEvent extends ShortcutEvent {
 class SelectAllEvent extends ShortcutEvent {
   const SelectAllEvent();
 }
+
+class ToggleShowHiddenEvent extends ShortcutEvent {
+  const ToggleShowHiddenEvent();
+}

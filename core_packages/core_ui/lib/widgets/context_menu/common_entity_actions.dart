@@ -31,6 +31,7 @@ enum EntityContextAction {
   rename(isCompact: true, minSelectedEntities: 1, maxSelectedEntities: 1),
   properties(minSelectedEntities: 0),
   selectAll(minSelectedEntities: 0, isVisible: false),
+  toggleShowHidden(minSelectedEntities: 0, isVisible: false),
   unknown
   ;
 
@@ -103,6 +104,7 @@ enum EntityContextAction {
       rename => Assets.icons.interface.outline.edit,
       properties => null,
       selectAll => null,
+      toggleShowHidden => null,
       unknown => null,
     };
   }
@@ -148,6 +150,7 @@ enum EntityContextAction {
       rename => 'Rename',
       properties => 'Properties',
       selectAll => 'Select all',
+      toggleShowHidden => 'Toggle show hidden files',
       unknown => 'Unknown',
     };
   }

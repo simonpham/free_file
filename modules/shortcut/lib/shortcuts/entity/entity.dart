@@ -14,6 +14,7 @@ export 'properties.dart';
 export 'quick_look.dart';
 export 'rename.dart';
 export 'select_all.dart';
+export 'toggle_show_hidden.dart';
 
 class EntityShortcuts {
   static Map<LogicalKeySet?, Intent> get entityContextShortcuts =>
@@ -32,6 +33,7 @@ class EntityShortcuts {
         QuickLookIntent.keySet: QuickLookIntent(),
         RenameIntent.keySet: RenameIntent(),
         SelectAllIntent.keySet: SelectAllIntent(),
+        ToggleShowHiddenIntent.keySet: ToggleShowHiddenIntent(),
       };
 
   static Map<Type, Action<Intent>> getEntityContextActions(
@@ -51,6 +53,7 @@ class EntityShortcuts {
       QuickLookIntent: QuickLookAction(context),
       RenameIntent: RenameAction(context),
       SelectAllIntent: SelectAllAction(context),
+      ToggleShowHiddenIntent: ToggleShowHiddenAction(context),
     };
   }
 }

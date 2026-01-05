@@ -6,6 +6,7 @@ import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
+import 'package:storage/storage.dart';
 
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:utils/utils.dart';
@@ -49,7 +50,7 @@ class ExploreViewModel extends ChangeNotifier
   Set<Entity> _selectedEntities = {};
 
   // TODO: Support toggle show hidden files.
-  bool _showHidden = false;
+  bool _showHidden = Settings().showHiddenFiles;
   bool _isSelectModeEnabled = false;
 
   void toggleSelectMode() {
@@ -69,6 +70,7 @@ class ExploreViewModel extends ChangeNotifier
 
   void toggleShowHidden() {
     _showHidden = !_showHidden;
+    Settings().showHiddenFiles = _showHidden;
     notifyListeners();
   }
 

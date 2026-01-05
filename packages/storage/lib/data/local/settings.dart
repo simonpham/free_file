@@ -30,6 +30,13 @@ extension ThemeSettings on Settings {
       value.map((e) => e.toString()).toList(),
     );
   }
+
+  bool get showHiddenFiles =>
+      sharedPrefs.getBool(keySettingsShowHiddenFiles) ?? false;
+
+  set showHiddenFiles(bool value) {
+    sharedPrefs.setBool(keySettingsShowHiddenFiles, value);
+  }
 }
 
 class Settings {
