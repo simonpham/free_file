@@ -181,9 +181,11 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  Future<Entity> createFile({Uri? path, required String name}) {
-    // TODO: implement createFile
-    throw UnimplementedError();
+  Future<Entity> createFile({Uri? path, required String name}) async {
+    final uri = (path ?? currentUri).append(name);
+    final entity = await _local.createFile(uri);
+    refresh(maintainState: true);
+    return entity;
   }
 
   @override
