@@ -175,9 +175,11 @@ class ExploreViewModel extends ChangeNotifier
   }
 
   @override
-  Future<Entity> createDirectory({Uri? path, required String name}) {
-    // TODO: implement createDirectory
-    throw UnimplementedError();
+  Future<Entity> createDirectory({Uri? path, required String name}) async {
+    final parentPath = path ?? currentUri;
+    final entity = await _local.createDirectory(parentPath.append(name));
+    await refresh(maintainState: true);
+    return entity;
   }
 
   @override
