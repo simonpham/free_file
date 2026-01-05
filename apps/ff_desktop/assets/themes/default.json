@@ -120,6 +120,13 @@
         "CmdOrControl",
         "KeyA"
       ]
+    },
+    "toggleShowHidden": {
+      "shortcutKey": [
+        "CmdOrControl",
+        "Shift",
+        "Period"
+      ]
     }
   },
   "theme": {

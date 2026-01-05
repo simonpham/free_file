@@ -3,6 +3,7 @@ import 'package:core_ui/constants/constants.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
+import 'package:storage/storage.dart';
 import 'package:utils/utils.dart';
 
 class TreeExploreViewModel extends ChangeNotifier
@@ -70,8 +71,7 @@ class TreeExploreViewModel extends ChangeNotifier
     _files = files;
     final entities = await _local.list(_directory.path);
     for (final entity in entities) {
-      if (entity.hiddenStatus.isHidden) {
-        // TODO: Support toggle show hidden files.
+      if (entity.hiddenStatus.isHidden && !Settings().showHiddenFiles) {
         continue;
       }
 

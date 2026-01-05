@@ -162,6 +162,9 @@ class MainPage extends StatelessWidget {
         final entities = context.read<ExploreViewModel>().entities.toSet();
         context.read<ExploreViewModel>().selectBatch(entities);
         break;
+      case EntityContextAction.toggleShowHidden:
+        context.read<ExploreViewModel>().toggleShowHidden();
+        break;
       case EntityContextAction.unknown:
         break;
     }
