@@ -148,10 +148,10 @@ class MainPage extends StatelessWidget {
         context.read<TabViewModel>().move();
         break;
       case EntityContextAction.delete:
-        context.read<ExploreViewModel>().delete(entities: entities);
+        _handleDelete(context, entities);
         break;
       case EntityContextAction.deletePermanently:
-        context.read<ExploreViewModel>().deletePermanently(entities: entities);
+        _handleDeletePermanently(context, entities);
         break;
       case EntityContextAction.rename:
         context.read<ExploreViewModel>().startRename();
@@ -165,5 +165,61 @@ class MainPage extends StatelessWidget {
       case EntityContextAction.unknown:
         break;
     }
+  }
+
+  Future<void> _handleDelete(BuildContext context, Set<Entity> entities) async {
+    if (entities.isEmpty) {
+      return;
+    }
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return ConfirmDialog(
+          title: 'Delete',
+          content: 'Are you sure you want to delete ${entities.length} items?',
+        );
+      },
+    );
+
+    if (confirm != true) {
+      return;
+    }
+
+    if (!context.mounted) {
+      return;
+    }
+
+    context.read<ExploreViewModel>().delete(entities: entities);
+  }
+
+  Future<void> _handleDeletePermanently(
+    BuildContext context,
+    Set<Entity> entities,
+  ) async {
+    if (entities.isEmpty) {
+      return;
+    }
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return ConfirmDialog(
+          title: 'Delete Permanently',
+          content:
+              'Are you sure you want to delete ${entities.length} items permanently?',
+        );
+      },
+    );
+
+    if (confirm != true) {
+      return;
+    }
+
+    if (!context.mounted) {
+      return;
+    }
+
+    context.read<ExploreViewModel>().deletePermanently(entities: entities);
   }
 }

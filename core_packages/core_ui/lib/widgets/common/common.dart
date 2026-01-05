@@ -15,3 +15,4 @@ export 'secondary_button.dart';
 export 'stretching_scroll_behaviour.dart';
 export 'tappable.dart';
 export 'ts_card.dart';
+export 'confirm_dialog.dart';
