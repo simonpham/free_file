@@ -37,6 +37,16 @@ extension ThemeSettings on Settings {
   set showHiddenFiles(bool value) {
     sharedPrefs.setBool(keySettingsShowHiddenFiles, value);
   }
+
+  String? get locale => sharedPrefs.getString(keySettingsLocale);
+
+  set locale(String? value) {
+    if (value == null) {
+      sharedPrefs.remove(keySettingsLocale);
+      return;
+    }
+    sharedPrefs.setString(keySettingsLocale, value);
+  }
 }
 
 class Settings {

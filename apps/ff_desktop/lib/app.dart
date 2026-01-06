@@ -8,6 +8,8 @@ import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:l10n/l10n.dart';
 import 'package:shortcut/shortcut.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
@@ -38,6 +40,7 @@ class FreeFile extends StatefulWidget {
 
 class _FreeFileState extends State<FreeFile> {
   ThemeModel get themeModel => injector<ThemeModel>();
+  final LocaleModel localeModel = LocaleModel();
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +51,23 @@ class _FreeFileState extends State<FreeFile> {
         providers: [
           ChangeNotifierProvider.value(value: injector<TabViewModel>()),
           ChangeNotifierProvider.value(value: themeModel),
+          ChangeNotifierProvider.value(value: localeModel),
         ],
         builder: (BuildContext context, _) {
-          return Consumer<ThemeModel>(
-            builder: (context, themeModel, _) {
+          return Consumer2<ThemeModel, LocaleModel>(
+            builder: (context, themeModel, localeModel, _) {
               final themeMode = themeModel.themeMode;
               return MaterialApp.router(
                 themeMode: themeMode,
+                locale: localeModel.locale,
                 debugShowCheckedModeBanner: false,
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
                 theme: ThemeConfigs().getThemeData(ThemeMode.light),
                 darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
                 builder: (context, child) {

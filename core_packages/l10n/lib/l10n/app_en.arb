@@ -1,0 +1,88 @@
+{
+  "@@locale": "en",
+  "actionOpen": "Open",
+  "actionOpenInNewWindow": "Open in new window",
+  "actionOpenInNewWindows": "Open in new windows",
+  "actionOpenInNewTab": "Open in new tab",
+  "actionOpenInNewTabs": "Open in new tabs",
+  "actionPinToSidebar": "Pin to sidebar",
+  "actionUnpinFromSidebar": "Unpin from sidebar",
+  "actionQuickLook": "Quick look",
+  "actionCompress": "Compress",
+  "actionCopy": "Copy",
+  "actionPaste": "Paste",
+  "actionPasteItems": "Paste {count} items here",
+  "@actionPasteItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "actionPasteItem": "Paste \"{name}\" here",
+  "@actionPasteItem": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "actionMove": "Move",
+  "actionMoveItems": "Move {count} items here",
+  "@actionMoveItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "actionMoveItem": "Move \"{name}\" here",
+  "@actionMoveItem": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "actionDelete": "Delete",
+  "actionDeletePermanently": "Delete permanently",
+  "actionRename": "Rename",
+  "actionProperties": "Properties",
+  "actionSelectAll": "Select all",
+  "actionToggleShowHiddenFiles": "Toggle show hidden files",
+  "actionUnknown": "Unknown",
+  "dialogCancel": "Cancel",
+  "dialogDelete": "Delete",
+  "dialogDeleteContent": "Are you sure you want to delete {count} items?",
+  "@dialogDeleteContent": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dialogDeletePermanently": "Delete Permanently",
+  "dialogDeletePermanentlyContent": "Are you sure you want to delete {count} items permanently?",
+  "@dialogDeletePermanentlyContent": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search": "Search",
+  "root": "Root",
+  "home": "Home",
+  "pinned": "Pinned",
+  "cloud": "Cloud",
+  "yours": "Yours",
+  "drives": "Drives",
+  "tags": "Tags",
+  "homePage": "Home Page",
+  "keySpace": "Space",
+  "keyShift": "Shift",
+  "keyAlt": "Alt",
+  "keyCtrl": "Ctrl",
+  "keyWindows": "Windows",
+  "keySuper": "Super"
+}

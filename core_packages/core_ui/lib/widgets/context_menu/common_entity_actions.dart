@@ -2,6 +2,7 @@ import 'package:core/core.dart';
 import 'package:core_ui/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:l10n/l10n.dart';
 import 'package:theme/models/entities/entities.dart';
 import 'package:theme/models/models.dart';
 import 'package:utils/utils.dart';
@@ -126,40 +127,43 @@ enum EntityContextAction {
             (entity) => pinnedPath.contains(entity.path.toRealPath()),
           )
         : pinnedPath.contains(currentUri.toRealPath());
+
+    final s = context.localize;
+
     return switch (this) {
-      open => 'Open',
-      openInNewWindow when hasSelectedManyItems => 'Open in new windows',
-      openInNewWindow => 'Open in new window',
-      openInNewTab when hasSelectedManyItems => 'Open in new tabs',
-      openInNewTab => 'Open in new tab',
-      pin when hasPinned => 'Unpin from sidebar',
-      pin => 'Pin to sidebar',
-      quickLook => 'Quick look',
-      compress => 'Compress',
-      copy => 'Copy',
-      paste when hasCopiedManyItems =>
-        'Paste ${copiedEntities.length} items here',
-      paste when copiedEntities.isEmpty => 'Paste',
-      paste => 'Paste "${copiedEntities.first.name.truncateMiddlePath()}" here',
-      move when hasCopiedManyItems =>
-        'Move ${copiedEntities.length} items here',
-      move when copiedEntities.isEmpty => 'Move',
-      move => 'Move "${copiedEntities.first.name.truncateMiddlePath()}" here',
-      delete => 'Delete',
-      deletePermanently => 'Delete permanently',
-      rename => 'Rename',
-      properties => 'Properties',
-      selectAll => 'Select all',
-      toggleShowHidden => 'Toggle show hidden files',
-      unknown => 'Unknown',
+      open => s.actionOpen,
+      openInNewWindow when hasSelectedManyItems => s.actionOpenInNewWindows,
+      openInNewWindow => s.actionOpenInNewWindow,
+      openInNewTab when hasSelectedManyItems => s.actionOpenInNewTabs,
+      openInNewTab => s.actionOpenInNewTab,
+      pin when hasPinned => s.actionUnpinFromSidebar,
+      pin => s.actionPinToSidebar,
+      quickLook => s.actionQuickLook,
+      compress => s.actionCompress,
+      copy => s.actionCopy,
+      paste when hasCopiedManyItems => s.actionPasteItems(copiedEntities.length),
+      paste when copiedEntities.isEmpty => s.actionPaste,
+      paste =>
+        s.actionPasteItem(copiedEntities.first.name.truncateMiddlePath()),
+      move when hasCopiedManyItems => s.actionMoveItems(copiedEntities.length),
+      move when copiedEntities.isEmpty => s.actionMove,
+      move =>
+        s.actionMoveItem(copiedEntities.first.name.truncateMiddlePath()),
+      delete => s.actionDelete,
+      deletePermanently => s.actionDeletePermanently,
+      rename => s.actionRename,
+      properties => s.actionProperties,
+      selectAll => s.actionSelectAll,
+      toggleShowHidden => s.actionToggleShowHiddenFiles,
+      unknown => s.actionUnknown,
     };
   }
 
-  String get shortcutLabel {
+  String getShortcutLabel(BuildContext context) {
     final shortcutKey = this.shortcutKey;
     if (shortcutKey.isEmpty) return '';
     return shortcutKey
-        .map((e) => e.getLabel())
+        .map((e) => e.getLabel(context))
         .skipWhile((e) => e.isEmpty)
         .join(' + ');
   }
@@ -252,18 +256,36 @@ enum EntityContextAction {
 }
 
 extension on LogicalKeyboardKey {
-  String getLabel() {
+  String getLabel(BuildContext context) {
+    if (kIsMacOs) {
+      switch (this) {
+        case LogicalKeyboardKey.space:
+          return '␣';
+        case LogicalKeyboardKey.meta:
+          return '⌘';
+        case LogicalKeyboardKey.alt:
+          return '⌥';
+        case LogicalKeyboardKey.control:
+          return '⌃';
+        case LogicalKeyboardKey.shift:
+          return '⇧';
+        default:
+          return keyLabel;
+      }
+    }
+
+    final s = context.localize;
     switch (this) {
       case LogicalKeyboardKey.space:
-        return kSpaceKeyLabel;
+        return s.keySpace;
       case LogicalKeyboardKey.meta:
-        return kMetaKeyLabel;
+        return kIsLinux ? '❖ ${s.keySuper}' : s.keyWindows;
       case LogicalKeyboardKey.alt:
-        return kAltKeyLabel;
+        return s.keyAlt;
       case LogicalKeyboardKey.control:
-        return kCtrlKeyLabel;
+        return s.keyCtrl;
       case LogicalKeyboardKey.shift:
-        return kShiftKeyLabel;
+        return s.keyShift;
       default:
         return keyLabel;
     }

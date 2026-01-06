@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:l10n/l10n.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 import 'package:ff_desktop/features/features.dart';
@@ -107,7 +108,7 @@ class _AddressBarState extends State<AddressBar> {
                             final displaySegment = isFirst
                                 ? isIcloud
                                       ? 'iCloud Drive'
-                                      : 'Root'
+                                      : context.localize.root
                                 : shouldTruncate
                                 ? '${segment.substring(0, kMaxDisplayAddressNameLength)}...'
                                 : segment;

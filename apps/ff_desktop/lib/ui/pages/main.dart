@@ -6,6 +6,7 @@ import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:l10n/l10n.dart';
 import 'package:theme/theme.dart';
 
 class MainPage extends StatelessWidget {
@@ -175,12 +176,13 @@ class MainPage extends StatelessWidget {
       return;
     }
 
+    final s = context.localize;
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) {
         return ConfirmDialog(
-          title: 'Delete',
-          content: 'Are you sure you want to delete ${entities.length} items?',
+          title: s.dialogDelete,
+          content: s.dialogDeleteContent(entities.length),
         );
       },
     );
@@ -204,13 +206,13 @@ class MainPage extends StatelessWidget {
       return;
     }
 
+    final s = context.localize;
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) {
         return ConfirmDialog(
-          title: 'Delete Permanently',
-          content:
-              'Are you sure you want to delete ${entities.length} items permanently?',
+          title: s.dialogDeletePermanently,
+          content: s.dialogDeletePermanentlyContent(entities.length),
         );
       },
     );

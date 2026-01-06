@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:l10n/l10n.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
@@ -47,7 +48,7 @@ class HeheSearchBar extends StatelessWidget {
           SizedBox(width: Spacing.d4),
           Flexible(
             child: Text(
-              'Search',
+              context.localize.search,
               style: TextStyle(
                 color: context.theme.colorScheme.onSurfaceVariant,
               ),
