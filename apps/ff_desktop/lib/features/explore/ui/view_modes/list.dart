@@ -46,7 +46,7 @@ class EntityViewList extends StatelessWidget {
 
     for (var i = 0; i < entities.length; i++) {
       final entityX = (i ~/ maxItemsPerColumn) * itemWidth;
-      final entityY = (i % maxItemsPerColumn) * itemHeight;
+      final entityY = (i % maxItemsPerColumn) * itemHeight + Spacing.d8;
       final entityRect = Rect.fromLTWH(entityX, entityY, itemWidth, itemHeight);
 
       if (rect.overlaps(entityRect)) {
