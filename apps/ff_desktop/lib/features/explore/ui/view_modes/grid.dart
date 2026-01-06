@@ -42,8 +42,6 @@ class EntityViewGrid extends StatelessWidget {
     final itemWidth = mode.itemWidth;
     final itemHeight = mode.itemHeight;
 
-    // rect is now in absolute content coordinates, no translation needed
-
     for (var i = 0; i < entities.length; i++) {
       final entityX = (i % maxItemsPerRow) * itemWidth + Spacing.d8;
       final entityY = (i ~/ maxItemsPerRow) * itemHeight;
