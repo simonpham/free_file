@@ -73,146 +73,150 @@ class EntityViewList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bound = context.findRenderObject()?.paintBounds;
-    final containerHeight = (bound?.height ?? 0) - Spacing.d24;
-    final maxItemsPerColumn = max(
-      1,
-      (containerHeight / mode.itemHeight).floor(),
-    );
     final backgroundColor = context.appTheme.color.background;
     final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(
       0.2,
     );
     final appTheme = context.appTheme;
-
     final selectedEntities = selectedEntitiesGetter.call();
-    return Scrollbar(
-      controller: scrollController,
-      thumbVisibility: true,
-      child: SelectRectangleOverlay(
-        scrollController: scrollController,
-        onDragStart: (position) {},
-        onRectangleUpdated: (rect) {
-          if (rect.width < kSelectRectangleMinimumThreshold ||
-              rect.height < kSelectRectangleMinimumThreshold) {
-            return;
-          }
 
-          _updateSelectedIndexes(rect, maxItemsPerColumn);
-        },
-        onDragUpdate: (position) {},
-        onDragEnd: () {},
-        onReachedBorder: (borders) {
-          final maxScrollPosition = scrollController.position.maxScrollExtent;
-          if (borders.contains(BorderType.right)) {
-            final newPosition = scrollController.offset + mode.itemWidth;
-            scrollController.animateTo(
-              min(newPosition, maxScrollPosition),
-              curve: Curves.linear,
-              duration: FludaDuration.ms2,
-            );
-          } else if (borders.contains(BorderType.left)) {
-            final newPosition = scrollController.offset - mode.itemWidth;
-            scrollController.animateTo(
-              max(newPosition, 0),
-              curve: Curves.linear,
-              duration: FludaDuration.ms2,
-            );
-          }
-        },
-        child: CommonEntityActionsWrapper(
-          currentUriGetter: currentUriGetter,
-          selectedEntitiesGetter: selectedEntitiesGetter,
-          copiedEntitiesGetter: copiedEntitiesGetter,
-          pinnedUrisGetter: () => Settings().pinnedUris,
-          onAction: onAction,
-          child: GridView.builder(
-            padding: EdgeInsets.only(top: Spacing.d8, bottom: Spacing.d16),
-            controller: scrollController,
-            itemCount: entities.length,
-            scrollDirection: Axis.horizontal,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: mode.itemWidth,
-              crossAxisCount: maxItemsPerColumn,
-              crossAxisSpacing: 0,
-              mainAxisSpacing: 0,
-              childAspectRatio: mode.itemHeight / mode.itemWidth,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              final Entity entity = entities[index];
-              final isSelected = selectedEntities.contains(entity);
-              final shouldEnableNameEdit =
-                  isRenaming &&
-                  selectedEntities.isNotEmpty &&
-                  selectedEntities.firstOrNull?.path.toRealPath() ==
-                      entity.path.toRealPath();
-              return Container(
-                key: ValueKey(entity.path.toRealPath()),
-                padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
-                child: Listener(
-                  onPointerDown: (event) {
-                    if (isSelected && event.buttons != kPrimaryMouseButton) {
-                      return;
-                    }
-                    onEntityTap(entity);
-                  },
-                  child: ListItem(
-                    enableFocus: !shouldEnableNameEdit,
-                    behavior: HitTestBehavior.translucent,
-                    mouseCursor: SystemMouseCursors.basic,
-                    height: mode.itemHeight - Spacing.d4,
-                    backgroundColor: isSelected
-                        ? selectedBackgroundColor
-                        : backgroundColor,
-                    onDoubleTap: () => onEntityDoubleTap(entity),
-                    enableAnimation: false,
-                    leading: EntityIconWidget(
-                      entity: entity,
-                      size: Spacing.d20,
-                    ),
-                    titlePadding: EdgeInsets.only(left: Spacing.d8),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: Spacing.d8,
-                      vertical: Spacing.d4,
-                    ),
-                    hoverOverlayPadding: EdgeInsets.only(bottom: Spacing.d4),
-                    title: shouldEnableNameEdit
-                        ? TextField(
-                            enabled: true,
-                            readOnly: false,
-                            focusNode: entityNameFocusNode,
-                            controller: entityNameController,
-                            onEditingComplete: () => onRenameFinished(),
-                            onTapOutside: (_) => onRenameFinished(),
-                            style: context.theme.textTheme.bodyMedium?.copyWith(
-                              color: entity.hiddenStatus.isHidden
-                                  ? appTheme.color.disabledIconColor
-                                  : appTheme.color.onBackground,
-                            ),
-                            maxLines: 1,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                            ),
-                          )
-                        : Text(
-                            entity.name,
-                            style: context.theme.textTheme.bodyMedium?.copyWith(
-                              color: entity.hiddenStatus.isHidden
-                                  ? appTheme.color.disabledIconColor
-                                  : appTheme.color.onBackground,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                  ),
-                ),
-              );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final containerHeight = constraints.maxHeight - Spacing.d24;
+        final maxItemsPerColumn = max(
+          1,
+          (containerHeight / mode.itemHeight).floor(),
+        );
+
+        return Scrollbar(
+          controller: scrollController,
+          thumbVisibility: true,
+          child: SelectRectangleOverlay(
+            scrollController: scrollController,
+            onDragStart: (position) {},
+            onRectangleUpdated: (rect) {
+              if (rect.width < kSelectRectangleMinimumThreshold ||
+                  rect.height < kSelectRectangleMinimumThreshold) {
+                return;
+              }
+
+              _updateSelectedIndexes(rect, maxItemsPerColumn);
             },
+            onDragUpdate: (position) {},
+            onDragEnd: () {},
+            onReachedBorder: (borders) {
+              final maxScrollPosition = scrollController.position.maxScrollExtent;
+              if (borders.contains(BorderType.right)) {
+                final newPosition = scrollController.offset + mode.itemWidth;
+                scrollController.animateTo(
+                  min(newPosition, maxScrollPosition),
+                  curve: Curves.linear,
+                  duration: FludaDuration.ms2,
+                );
+              } else if (borders.contains(BorderType.left)) {
+                final newPosition = scrollController.offset - mode.itemWidth;
+                scrollController.animateTo(
+                  max(newPosition, 0),
+                  curve: Curves.linear,
+                  duration: FludaDuration.ms2,
+                );
+              }
+            },
+            child: CommonEntityActionsWrapper(
+              currentUriGetter: currentUriGetter,
+              selectedEntitiesGetter: selectedEntitiesGetter,
+              copiedEntitiesGetter: copiedEntitiesGetter,
+              pinnedUrisGetter: () => Settings().pinnedUris,
+              onAction: onAction,
+              child: GridView.builder(
+                padding: EdgeInsets.only(top: Spacing.d8, bottom: Spacing.d16),
+                controller: scrollController,
+                itemCount: entities.length,
+                scrollDirection: Axis.horizontal,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisExtent: mode.itemWidth,
+                  crossAxisCount: maxItemsPerColumn,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 0,
+                  childAspectRatio: mode.itemHeight / mode.itemWidth,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  final Entity entity = entities[index];
+                  final isSelected = selectedEntities.contains(entity);
+                  final shouldEnableNameEdit =
+                      isRenaming &&
+                      selectedEntities.isNotEmpty &&
+                      selectedEntities.firstOrNull?.path.toRealPath() ==
+                          entity.path.toRealPath();
+                  return Container(
+                    key: ValueKey(entity.path.toRealPath()),
+                    padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
+                    child: Listener(
+                      onPointerDown: (event) {
+                        if (isSelected && event.buttons != kPrimaryMouseButton) {
+                          return;
+                        }
+                        onEntityTap(entity);
+                      },
+                      child: ListItem(
+                        enableFocus: !shouldEnableNameEdit,
+                        behavior: HitTestBehavior.translucent,
+                        mouseCursor: SystemMouseCursors.basic,
+                        height: mode.itemHeight - Spacing.d4,
+                        backgroundColor: isSelected
+                            ? selectedBackgroundColor
+                            : backgroundColor,
+                        onDoubleTap: () => onEntityDoubleTap(entity),
+                        enableAnimation: false,
+                        leading: EntityIconWidget(
+                          entity: entity,
+                          size: Spacing.d20,
+                        ),
+                        titlePadding: EdgeInsets.only(left: Spacing.d8),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Spacing.d8,
+                          vertical: Spacing.d4,
+                        ),
+                        hoverOverlayPadding: EdgeInsets.only(bottom: Spacing.d4),
+                        title: shouldEnableNameEdit
+                            ? TextField(
+                                enabled: true,
+                                readOnly: false,
+                                focusNode: entityNameFocusNode,
+                                controller: entityNameController,
+                                onEditingComplete: () => onRenameFinished(),
+                                onTapOutside: (_) => onRenameFinished(),
+                                style: context.theme.textTheme.bodyMedium?.copyWith(
+                                  color: entity.hiddenStatus.isHidden
+                                      ? appTheme.color.disabledIconColor
+                                      : appTheme.color.onBackground,
+                                ),
+                                maxLines: 1,
+                                decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  isDense: true,
+                                  contentPadding: EdgeInsets.zero,
+                                ),
+                              )
+                            : Text(
+                                entity.name,
+                                style: context.theme.textTheme.bodyMedium?.copyWith(
+                                  color: entity.hiddenStatus.isHidden
+                                      ? appTheme.color.disabledIconColor
+                                      : appTheme.color.onBackground,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
