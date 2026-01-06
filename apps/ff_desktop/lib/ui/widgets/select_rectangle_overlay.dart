@@ -40,31 +40,10 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
   bool _isTapDown = false;
   bool _isDragging = false;
 
-  double _xMax = 0.0;
-  double _yMax = 0.0;
-
   Offset _x0y0 = Offset.zero;
   Offset _x1y1 = Offset.zero;
   double _startOffset = 0.0;
   double _endOffset = 0.0;
-
-  double get _width => _isLeft
-      ? (_startOffset + _x0y0.dx) - (_x1y1.dx + _endOffset)
-      : (_endOffset + _x1y1.dx) - (_x0y0.dx + _startOffset);
-
-  double get _height => (_x1y1.dy - _x0y0.dy).abs();
-
-  double get _left => _x1y1.dx;
-
-  double get _right => _xMax - _x1y1.dx;
-
-  double get _top => _x0y0.dy;
-
-  double get _bottom => _yMax - _x0y0.dy;
-
-  bool get _isLeft => _x1y1.dx + _endOffset < _x0y0.dx + _startOffset;
-
-  bool get _isTop => _x1y1.dy > _x0y0.dy;
 
   void _onScroll() {
     final currentScrollPosition = widget.scrollController.offset;
@@ -87,8 +66,6 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
   Widget build(BuildContext context) {
     final renderBox = context.findRenderObject() as RenderBox?;
     final size = renderBox?.size ?? Size.zero;
-    _xMax = size.width;
-    _yMax = size.height;
 
     return Listener(
       onPointerSignal: (event) {
@@ -161,21 +138,29 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         children: [
           Positioned.fill(child: widget.child),
           if (_isDragging && _isTapDown)
-            Positioned(
-              left: _isLeft ? _left : null,
-              right: _isLeft ? null : _right,
-              top: _isTop ? _top : null,
-              bottom: _isTop ? null : _bottom,
-              child: Container(
-                width: _width,
-                height: _height,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.blue.withOpacity(0.5),
-                    width: 1,
+            Builder(
+              builder: (context) {
+                // Visual rectangle uses simple screen coordinates
+                final visualLeft = min(_x0y0.dx, _x1y1.dx);
+                final visualTop = min(_x0y0.dy, _x1y1.dy);
+                final visualWidth = (_x1y1.dx - _x0y0.dx).abs();
+                final visualHeight = (_x1y1.dy - _x0y0.dy).abs();
+
+                return Positioned(
+                  left: visualLeft,
+                  top: visualTop,
+                  child: Container(
+                    width: visualWidth,
+                    height: visualHeight,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.blue.withOpacity(0.5),
+                        width: 1,
+                      ),
+                    ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
         ],
       ),
