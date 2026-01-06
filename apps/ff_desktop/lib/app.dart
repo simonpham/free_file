@@ -67,7 +67,7 @@ class _FreeFileState extends State<FreeFile> {
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                 ],
-                supportedLocales: S.delegate.supportedLocales,
+                supportedLocales: S.supportedLocales,
                 theme: ThemeConfigs().getThemeData(ThemeMode.light),
                 darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
                 builder: (context, child) {
