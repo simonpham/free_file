@@ -13,6 +13,7 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 part 'view_modes/list.dart';
+part 'view_modes/grid.dart';
 
 class EntityView extends StatelessWidget {
   final ViewMode mode;
@@ -58,9 +59,24 @@ class EntityView extends StatelessWidget {
     switch (mode) {
       case ViewMode.columns:
       case ViewMode.details:
-      case ViewMode.grid:
       case ViewMode.list:
         return EntityViewList(
+          scrollController: scrollController,
+          entities: entities,
+          currentUriGetter: currentUriGetter,
+          selectedEntitiesGetter: selectedEntitiesGetter,
+          copiedEntitiesGetter: copiedEntitiesGetter,
+          isRenaming: isRenaming,
+          entityNameFocusNode: entityNameFocusNode,
+          entityNameController: entityNameController,
+          onRenameFinished: onRenameFinished,
+          onSelectionChanged: onSelectionChanged,
+          onEntityTap: onEntityTap,
+          onEntityDoubleTap: onEntityDoubleTap,
+          onAction: onAction,
+        );
+      case ViewMode.grid:
+        return EntityViewGrid(
           scrollController: scrollController,
           entities: entities,
           currentUriGetter: currentUriGetter,

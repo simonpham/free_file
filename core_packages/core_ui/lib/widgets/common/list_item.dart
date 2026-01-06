@@ -42,6 +42,9 @@ class ListItem extends StatelessWidget {
 
   final MouseCursor mouseCursor;
 
+  final bool isVertical;
+  final double leadingSize;
+
   const ListItem({
     super.key,
     this.leading,
@@ -71,6 +74,8 @@ class ListItem extends StatelessWidget {
     this.hoverOverlayPadding,
     this.expanded = true,
     this.mouseCursor = SystemMouseCursors.click,
+    this.isVertical = false,
+    this.leadingSize = 24.0,
   });
 
   @override
@@ -110,59 +115,63 @@ class ListItem extends StatelessWidget {
                 ),
             height: height,
             duration: FludaDuration.ms4,
-            child: Row(
+            child: Flex(
+              direction: isVertical ? Axis.vertical : Axis.horizontal,
               mainAxisSize: expanded ? MainAxisSize.max : MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 if (leading != null &&
                     (!hideLeadingOnHandyDevice ||
                         (hideLeadingOnHandyDevice &&
                             !screenSize.isHandyDevice)))
-                  SizedBox.square(
-                    dimension: Spacing.d24,
+                  Center(
+                    child: SizedBox.square(
+                    dimension: leadingSize,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        boxShadow: (hoverOverlayColorTint != null && isSelected)
-                            ? [
-                                BoxShadow(
-                                  color: hoverOverlayColorTint!.withOpacity(
-                                    0.1,
+                        boxShadow:
+                            (hoverOverlayColorTint != null && isSelected)
+                                ? [
+                                  BoxShadow(
+                                    color: hoverOverlayColorTint!.withOpacity(
+                                      0.1,
+                                    ),
+                                    blurRadius: FludaX.x4,
+                                    offset: const Offset(0.0, 2.0),
+                                    spreadRadius: FludaX.x4,
                                   ),
-                                  blurRadius: FludaX.x4,
-                                  offset: const Offset(0.0, 2.0),
-                                  spreadRadius: FludaX.x4,
-                                ),
-                                BoxShadow(
-                                  color: hoverOverlayColorTint!.withOpacity(
-                                    0.1,
+                                  BoxShadow(
+                                    color: hoverOverlayColorTint!.withOpacity(
+                                      0.1,
+                                    ),
+                                    blurRadius: FludaX.x8,
+                                    offset: const Offset(40.0, -40.0),
+                                    spreadRadius: FludaX.x4,
                                   ),
-                                  blurRadius: FludaX.x8,
-                                  offset: const Offset(40.0, -40.0),
-                                  spreadRadius: FludaX.x4,
-                                ),
-                              ]
-                            : null,
+                                ]
+                                : null,
                       ),
                       child: leading!,
                     ),
+                  ),
                   ),
                 if (!hideTitleOnHandyDevice ||
                     (hideTitleOnHandyDevice && !screenSize.isHandyDevice))
                   expanded
                       ? Expanded(
-                          child: Padding(
-                            padding:
-                                titlePadding ??
-                                EdgeInsets.only(left: Spacing.d20),
-                            child: title,
-                          ),
-                        )
-                      : Padding(
+                        child: Padding(
                           padding:
                               titlePadding ??
                               EdgeInsets.only(left: Spacing.d20),
                           child: title,
                         ),
+                      )
+                      : Padding(
+                        padding:
+                            titlePadding ?? EdgeInsets.only(left: Spacing.d20),
+                        child: title,
+                      ),
                 if (trailing != null &&
                     (!hideTrailingOnHandyDevice ||
                         (hideTrailingOnHandyDevice &&
