@@ -192,7 +192,7 @@ class _ViewModeSelector extends StatelessWidget {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: currentMode == mode
-                    ? context.appTheme.color.primary.withOpacity(0.1)
+                    ? context.appTheme.color.primary.withValues(alpha: .1)
                     : null,
                 borderRadius: BorderRadius.circular(Spacing.d4),
               ),
@@ -218,10 +218,10 @@ extension on ViewMode {
         return Assets.icons.interface.outline.listViewRectangle;
       case ViewMode.grid:
         return Assets.icons.grid.outline.grid;
-      case ViewMode.details:
-        return Assets.icons.editor.outline.table;
-      case ViewMode.columns:
-        return Assets.icons.grid.outline.layout03;
+      // case ViewMode.details:
+      //   return Assets.icons.editor.outline.table;
+      // case ViewMode.columns:
+      //   return Assets.icons.grid.outline.layout03;
     }
   }
 }

@@ -57,8 +57,8 @@ class EntityView extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQuery.sizeOf(context); // rebuild on resize.
     switch (mode) {
-      case ViewMode.columns:
-      case ViewMode.details:
+      // case ViewMode.columns:
+      // case ViewMode.details:
       case ViewMode.list:
         return EntityViewList(
           scrollController: scrollController,
