@@ -42,10 +42,7 @@ class EntityViewList extends StatelessWidget {
     final itemWidth = mode.itemWidth;
     final itemHeight = mode.itemHeight;
 
-    final scrollOffset = scrollController.offset;
-    if (scrollOffset > 0) {
-      rect = rect.translate(scrollOffset, 0);
-    }
+    // rect is now in absolute content coordinates, no translation needed
 
     for (var i = 0; i < entities.length; i++) {
       final entityX = (i ~/ maxItemsPerColumn) * itemWidth;

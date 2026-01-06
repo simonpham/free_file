@@ -114,9 +114,35 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         _x1y1 = event.localPosition;
         refresh();
 
-        final leftPosition = min(_x0y0.dx, _x1y1.dx);
-        final topPosition = min(_x0y0.dy, _x1y1.dy);
-        final rect = Rect.fromLTWH(leftPosition, topPosition, _width, _height);
+        // Calculate absolute content-space coordinates
+        // For vertical scrolling: X stays the same, Y is adjusted by scroll offset
+        // For horizontal scrolling: Y stays the same, X is adjusted by scroll offset
+        final scrollController = widget.scrollController;
+        final isHorizontalScroll =
+            scrollController.position.axis == Axis.horizontal;
+
+        double absoluteStartX, absoluteStartY, absoluteEndX, absoluteEndY;
+
+        if (isHorizontalScroll) {
+          // Horizontal scroll: adjust X by scroll offset
+          absoluteStartX = _x0y0.dx + _startOffset;
+          absoluteStartY = _x0y0.dy;
+          absoluteEndX = _x1y1.dx + _endOffset;
+          absoluteEndY = _x1y1.dy;
+        } else {
+          // Vertical scroll: adjust Y by scroll offset
+          absoluteStartX = _x0y0.dx;
+          absoluteStartY = _x0y0.dy + _startOffset;
+          absoluteEndX = _x1y1.dx;
+          absoluteEndY = _x1y1.dy + _endOffset;
+        }
+
+        final leftPosition = min(absoluteStartX, absoluteEndX);
+        final topPosition = min(absoluteStartY, absoluteEndY);
+        final rectWidth = (absoluteEndX - absoluteStartX).abs();
+        final rectHeight = (absoluteEndY - absoluteStartY).abs();
+        final rect =
+            Rect.fromLTWH(leftPosition, topPosition, rectWidth, rectHeight);
 
         widget.onRectangleUpdated(rect);
         _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
