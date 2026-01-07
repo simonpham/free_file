@@ -7,7 +7,9 @@ list(APPEND FLUTTER_PLUGIN_LIST
   desktop_lifecycle
   desktop_multi_window
   flutter_acrylic
+  irondash_engine_context
   pasteboard
+  super_native_extensions
   system_theme
   url_launcher_linux
 )

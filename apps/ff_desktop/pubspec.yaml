@@ -48,6 +48,7 @@ dependencies:
   desktop_multi_window: ^0.2.0
   macos_window_utils: ^1.5.0
   pasteboard: ^0.3.0
+  super_drag_and_drop: ^0.9.1
 
 dev_dependencies:
   flutter_test:
