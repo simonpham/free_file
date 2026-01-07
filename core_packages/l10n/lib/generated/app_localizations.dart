@@ -350,6 +350,66 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Super'**
   String get keySuper;
+
+  /// No description provided for @statusItems.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String statusItems(int count);
+
+  /// No description provided for @headerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get headerName;
+
+  /// No description provided for @headerDateModified.
+  ///
+  /// In en, this message translates to:
+  /// **'Date Modified'**
+  String get headerDateModified;
+
+  /// No description provided for @headerKind.
+  ///
+  /// In en, this message translates to:
+  /// **'Kind'**
+  String get headerKind;
+
+  /// No description provided for @kindFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder'**
+  String get kindFolder;
+
+  /// No description provided for @kindDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Document'**
+  String get kindDocument;
+
+  /// No description provided for @kindFile.
+  ///
+  /// In en, this message translates to:
+  /// **'{extension} File'**
+  String kindFile(String extension);
+
+  /// No description provided for @viewModeList.
+  ///
+  /// In en, this message translates to:
+  /// **'List'**
+  String get viewModeList;
+
+  /// No description provided for @viewModeGrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Grid'**
+  String get viewModeGrid;
+
+  /// No description provided for @viewModeDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get viewModeDetails;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

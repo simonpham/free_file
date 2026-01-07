@@ -161,4 +161,15 @@ extension PredefinedFoldersExt on PredefinedFolder {
 
 extension ExplorerViewModeExt on ViewMode {
   bool get isZoomable => this == ViewMode.grid;
+
+  String getLabel(BuildContext context) {
+    switch (this) {
+      case ViewMode.list:
+        return context.localize.viewModeList;
+      case ViewMode.grid:
+        return context.localize.viewModeGrid;
+      case ViewMode.details:
+        return context.localize.viewModeDetails;
+    }
+  }
 }

@@ -148,4 +148,38 @@ class SEn extends S {
 
   @override
   String get keySuper => 'Super';
+
+  @override
+  String statusItems(int count) {
+    return '$count items';
+  }
+
+  @override
+  String get headerName => 'Name';
+
+  @override
+  String get headerDateModified => 'Date Modified';
+
+  @override
+  String get headerKind => 'Kind';
+
+  @override
+  String get kindFolder => 'Folder';
+
+  @override
+  String get kindDocument => 'Document';
+
+  @override
+  String kindFile(String extension) {
+    return '$extension File';
+  }
+
+  @override
+  String get viewModeList => 'List';
+
+  @override
+  String get viewModeGrid => 'Grid';
+
+  @override
+  String get viewModeDetails => 'Details';
 }

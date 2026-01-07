@@ -11,6 +11,7 @@ import 'package:ff_desktop/constants/constants.dart';
 import 'package:storage/storage.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
+import 'package:l10n/l10n.dart';
 
 part 'view_modes/list.dart';
 part 'view_modes/grid.dart';

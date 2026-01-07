@@ -118,7 +118,7 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
 
   String _getKind(Entity entity) {
     if (entity.type == EntityType.directory) {
-      return 'Folder';
+      return context.localize.kindFolder;
     }
 
     final fileExtension = switch (entity) {
@@ -127,10 +127,10 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
     };
 
     if (fileExtension == null || fileExtension.isEmpty) {
-      return 'Document';
+      return context.localize.kindDocument;
     }
 
-    return '$fileExtension File';
+    return context.localize.kindFile(fileExtension);
   }
 
   String _formatDate(String dateStr) {
@@ -236,17 +236,17 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                       paneBuilder: (context, id) => switch (id) {
                         _kIconColumnId => const SizedBox(),
                         _kNameColumnId => _buildSortableHeader(
-                          label: 'Name',
+                          label: context.localize.headerName,
                           column: DetailsSortColumn.name,
                           style: headerStyle,
                         ),
                         _kDateColumnId => _buildSortableHeader(
-                          label: 'Date Modified',
+                          label: context.localize.headerDateModified,
                           column: DetailsSortColumn.dateModified,
                           style: headerStyle,
                         ),
                         _kKindColumnId => _buildSortableHeader(
-                          label: 'Kind',
+                          label: context.localize.headerKind,
                           column: DetailsSortColumn.kind,
                           style: headerStyle,
                         ),

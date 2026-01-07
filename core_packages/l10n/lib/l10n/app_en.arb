@@ -84,5 +84,29 @@
   "keyAlt": "Alt",
   "keyCtrl": "Ctrl",
   "keyWindows": "Windows",
-  "keySuper": "Super"
+  "keySuper": "Super",
+  "statusItems": "{count} items",
+  "@statusItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "headerName": "Name",
+  "headerDateModified": "Date Modified",
+  "headerKind": "Kind",
+  "kindFolder": "Folder",
+  "kindDocument": "Document",
+  "kindFile": "{extension} File",
+  "@kindFile": {
+    "placeholders": {
+      "extension": {
+        "type": "String"
+      }
+    }
+  },
+  "viewModeList": "List",
+  "viewModeGrid": "Grid",
+  "viewModeDetails": "Details"
 }

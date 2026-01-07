@@ -5,6 +5,7 @@ import 'package:ff_desktop/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:storage/data/data.dart';
 import 'package:theme/theme.dart';
+import 'package:ff_desktop/utils/utils.dart';
 import 'package:utils/utils.dart';
 
 class ToolBar extends StatelessWidget {
@@ -182,7 +183,7 @@ class _ViewModeSelector extends StatelessWidget {
       children: [
         for (final mode in ViewMode.values) ...[
           Tappable(
-            tooltip: mode.name,
+            tooltip: mode.getLabel(context),
             enableHover: true,
             enableHoverOverlay: true,
             hoverOverlayBorderRadius: Spacing.d4,
