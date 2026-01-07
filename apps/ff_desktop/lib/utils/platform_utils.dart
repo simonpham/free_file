@@ -1,6 +1,5 @@
 import 'dart:io' as io;
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:desktop_lifecycle/desktop_lifecycle.dart';
@@ -9,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:storage/storage.dart';
 import 'package:theme/theme.dart';
+import 'package:ff_desktop/services/window_service.dart';
 import 'package:utils/utils.dart';
 
 class PlatformUtils {
@@ -87,18 +87,8 @@ class PlatformUtils {
   }
 
   static Future<void> setupWindow() async {
-    try {
-      await Window.initialize();
-      await Window.setEffect(effect: WindowEffect.acrylic);
-    } catch (_) {}
-
-    doWhenWindowReady(() {
-      const initialSize = Size(800, 600);
-      appWindow.minSize = initialSize;
-      appWindow.size = initialSize;
-      appWindow.alignment = Alignment.center;
-      appWindow.show();
-    });
+    final windowService = injector<WindowService>();
+    await windowService.initialize();
   }
 
   static bool watchTransparencySetting(BuildContext context) {
@@ -108,6 +98,11 @@ class PlatformUtils {
     final isDarkMode = context.select(
       (ThemeModel model) => model.themeMode == ThemeMode.dark,
     );
+
+    if (!injector<WindowService>().isWindowMode) {
+      return enableTransparency;
+    }
+
     try {
       Window.setEffect(
         effect: enableTransparency && !kIsLinux

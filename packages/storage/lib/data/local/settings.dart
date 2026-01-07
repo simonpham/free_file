@@ -47,6 +47,12 @@ extension ThemeSettings on Settings {
     }
     sharedPrefs.setString(keySettingsLocale, value);
   }
+
+  bool get windowMode => sharedPrefs.getBool(keySettingsWindowMode) ?? true;
+
+  set windowMode(bool value) {
+    sharedPrefs.setBool(keySettingsWindowMode, value);
+  }
 }
 
 class Settings {

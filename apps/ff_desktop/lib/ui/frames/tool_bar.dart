@@ -1,4 +1,6 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/services/window_service.dart';
+import 'package:core/core.dart';
 import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:ff_desktop/models/models.dart';
@@ -154,6 +156,17 @@ class ToolBar extends StatelessWidget {
                               },
                             ),
                             SizedBox(width: Spacing.d12),
+                            VerticalDivider(
+                              width: 1,
+                              thickness: 1,
+                              indent: Spacing.d8,
+                              endIndent: Spacing.d8,
+                              color: context.appTheme.color.disabledIconColor
+                                  .withValues(alpha: .2),
+                            ),
+                            SizedBox(width: Spacing.d8),
+                            const _WindowModeToggle(),
+                            SizedBox(width: Spacing.d12),
                           ],
                         );
                       },
@@ -211,6 +224,40 @@ class _ViewModeSelector extends StatelessWidget {
         ],
       ],
     );
+  }
+}
+
+class _WindowModeToggle extends StatelessWidget {
+  const _WindowModeToggle();
+
+  @override
+  Widget build(BuildContext context) {
+    if (kIsMacOs) {
+      return Tappable(
+        tooltip: 'Switch Window Mode',
+        enableHover: true,
+        enableHoverOverlay: true,
+        hoverOverlayBorderRadius: Spacing.d4,
+        hoverOverlayPadding: EdgeInsets.zero,
+        onTap: () async {
+          injector<WindowService>().toggleWindowMode();
+        },
+        child: Container(
+          width: Spacing.d28,
+          height: Spacing.d28,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(Spacing.d4),
+          ),
+          child: ImageView(
+            Assets.icons.arrows.bulk.maximize01,
+            size: Spacing.d16,
+            color: context.appTheme.color.iconColor,
+          ),
+        ),
+      );
+    }
+    return const SizedBox.shrink();
   }
 }
 
