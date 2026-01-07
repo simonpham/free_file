@@ -1,6 +1,7 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:l10n/l10n.dart';
+import 'package:theme/theme.dart';
 
 class ConfirmDialog extends StatelessWidget {
   final String title;
@@ -27,6 +28,7 @@ class ConfirmDialog extends StatelessWidget {
           text: cancelText ?? s.dialogCancel,
           onPressed: () => Navigator.of(context).pop(false),
         ),
+        SizedBox(height: Spacing.d12),
         PrimaryButton(
           text: confirmText ?? s.dialogDelete,
           onPressed: () => Navigator.of(context).pop(true),
