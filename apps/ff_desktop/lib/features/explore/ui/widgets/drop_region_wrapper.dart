@@ -39,6 +39,7 @@ class DropRegionWrapper extends StatefulWidget {
 
 class _DropRegionWrapperState extends State<DropRegionWrapper> {
   bool _isDragOver = false;
+  bool _isReady = false;
 
   /// Image formats we support, in order of preference.
   static final _imageFormats = [
@@ -49,7 +50,22 @@ class _DropRegionWrapperState extends State<DropRegionWrapper> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    // Delay to ensure Flutter view is ready before registering with native drop system.
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (mounted) {
+        setState(() => _isReady = true);
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (!_isReady) {
+      return widget.child;
+    }
+
     return DropRegion(
       formats: [Formats.fileUri, ..._imageFormats, Formats.plainText],
       hitTestBehavior: HitTestBehavior.opaque,

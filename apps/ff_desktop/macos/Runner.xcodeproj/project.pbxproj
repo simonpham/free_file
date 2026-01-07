@@ -31,6 +31,7 @@
 		60E50A59B4CFB83488EC682F /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6611C89D69E11C460241B89 /* Pods_RunnerTests.framework */; };
 		F438E96E2F0E528E003A55FA /* WindowModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438E96D2F0E528E003A55FA /* WindowModeManager.swift */; };
 		F45A01722F0E48F600AE7586 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A01712F0E48F100AE7586 /* StatusBarController.swift */; };
+		F49CB5AB2F0E6AC800827AB5 /* DraggableStatusBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49CB5AA2F0E6AC800827AB5 /* DraggableStatusBarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		DE9A3208F6238D7D17AED645 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		F438E96D2F0E528E003A55FA /* WindowModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowModeManager.swift; sourceTree = "<group>"; };
 		F45A01712F0E48F100AE7586 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		F49CB5AA2F0E6AC800827AB5 /* DraggableStatusBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableStatusBarButton.swift; sourceTree = "<group>"; };
 		FFC5FDA3A415FD34186B538F /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 		33FAB671232836740065AC1E /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				F49CB5AA2F0E6AC800827AB5 /* DraggableStatusBarButton.swift */,
 				F438E96D2F0E528E003A55FA /* WindowModeManager.swift */,
 				F45A01712F0E48F100AE7586 /* StatusBarController.swift */,
 				33CC10F02044A3C60003C045 /* AppDelegate.swift */,
@@ -444,6 +447,7 @@
 				33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */,
 				F45A01722F0E48F600AE7586 /* StatusBarController.swift in Sources */,
 				F438E96E2F0E528E003A55FA /* WindowModeManager.swift in Sources */,
+				F49CB5AB2F0E6AC800827AB5 /* DraggableStatusBarButton.swift in Sources */,
 				33CC10F12044A3C60003C045 /* AppDelegate.swift in Sources */,
 				335BBD1B22A9A15E00E9071D /* GeneratedPluginRegistrant.swift in Sources */,
 			);

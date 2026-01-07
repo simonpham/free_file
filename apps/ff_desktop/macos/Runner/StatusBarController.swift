@@ -33,6 +33,26 @@ class StatusBarController {
             // Set the button's action to toggle the popover when clicked
             statusBarMenuButton.action = #selector(togglePopover(sender:))
             statusBarMenuButton.target = self
+
+            // Add a transparent overlay to handle drag-and-drop
+            let draggableOverlay = DraggableStatusBarButton(frame: statusBarMenuButton.bounds)
+            draggableOverlay.onDragEntered = { [weak self] in
+                guard let self = self else { return }
+                if !self.flutterUIPopover.isShown {
+                    self.showPopover(draggableOverlay)
+                }
+            }
+
+            statusBarMenuButton.addSubview(draggableOverlay)
+            draggableOverlay.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                draggableOverlay.leadingAnchor.constraint(
+                    equalTo: statusBarMenuButton.leadingAnchor),
+                draggableOverlay.trailingAnchor.constraint(
+                    equalTo: statusBarMenuButton.trailingAnchor),
+                draggableOverlay.topAnchor.constraint(equalTo: statusBarMenuButton.topAnchor),
+                draggableOverlay.bottomAnchor.constraint(equalTo: statusBarMenuButton.bottomAnchor),
+            ])
         }
     }
 

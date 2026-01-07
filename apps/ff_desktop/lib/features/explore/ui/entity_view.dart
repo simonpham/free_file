@@ -47,7 +47,7 @@ class EntityView extends StatelessWidget {
 
   /// Called when binary data is dropped (e.g., image from browser).
   final void Function(Uint8List data, String? suggestedName, String extension)?
-      onDataDropped;
+  onDataDropped;
 
   /// Called when text is dropped from external apps.
   final ValueChanged<String>? onTextDropped;
@@ -79,7 +79,7 @@ class EntityView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQuery.sizeOf(context); // rebuild on resize.
-    
+
     final viewModeWidget = switch (mode) {
       ViewMode.list => EntityViewList(
         scrollController: scrollController,
@@ -139,4 +139,3 @@ class EntityView extends StatelessWidget {
     );
   }
 }
-
