@@ -320,86 +320,59 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                               }
                               widget.onEntityTap(entity);
                             },
-                            child: Tappable(
-                              enableAnimation: false,
-                              enableHover: true,
-                              enableHoverOverlay: true,
-                              hoverOverlayPadding: EdgeInsets.zero,
-                              hoverOverlayBorderRadius: Spacing.d4,
-                              mouseCursor: SystemMouseCursors.basic,
-                              behavior: HitTestBehavior.translucent,
-                              onDoubleTap: () =>
-                                  widget.onEntityDoubleTap(entity),
-                              child: Container(
-                                height: EntityViewDetails.mode.itemHeight,
-                                decoration: BoxDecoration(
-                                  color: isSelected
-                                      ? selectedBackgroundColor
-                                      : backgroundColor,
-                                  borderRadius: BorderRadius.circular(
-                                    Spacing.d4,
+                            child: DraggableWraper(
+                              entity: entity,
+                              child: Tappable(
+                                enableAnimation: false,
+                                enableHover: true,
+                                enableHoverOverlay: true,
+                                hoverOverlayPadding: EdgeInsets.zero,
+                                hoverOverlayBorderRadius: Spacing.d4,
+                                mouseCursor: SystemMouseCursors.basic,
+                                behavior: HitTestBehavior.translucent,
+                                onDoubleTap: () =>
+                                    widget.onEntityDoubleTap(entity),
+                                child: Container(
+                                  height: EntityViewDetails.mode.itemHeight,
+                                  decoration: BoxDecoration(
+                                    color: isSelected
+                                        ? selectedBackgroundColor
+                                        : backgroundColor,
+                                    borderRadius: BorderRadius.circular(
+                                      Spacing.d4,
+                                    ),
                                   ),
-                                ),
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: Spacing.d8,
-                                  vertical: Spacing.d4,
-                                ),
-                                child: PaneTheme(
-                                  data: PaneThemeData(
-                                    resizerColor: Colors.transparent,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: Spacing.d8,
+                                    vertical: Spacing.d4,
                                   ),
-                                  child: MultiPane(
-                                    controller: _paneController,
-                                    direction: Axis.horizontal,
-                                    paneBuilder: (context, id) => switch (id) {
-                                      _kIconColumnId => Center(
-                                        child: EntityIconWidget(
-                                          entity: entity,
-                                          size: Spacing.d24,
+                                  child: PaneTheme(
+                                    data: PaneThemeData(
+                                      resizerColor: Colors.transparent,
+                                    ),
+                                    child: MultiPane(
+                                      controller: _paneController,
+                                      direction: Axis.horizontal,
+                                      paneBuilder: (context, id) => switch (id) {
+                                        _kIconColumnId => Center(
+                                          child: EntityIconWidget(
+                                            entity: entity,
+                                            size: Spacing.d24,
+                                          ),
                                         ),
-                                      ),
-                                      _kNameColumnId =>
-                                        shouldEnableNameEdit
-                                            ? TextField(
-                                                enabled: true,
-                                                readOnly: false,
-                                                focusNode:
-                                                    widget.entityNameFocusNode,
-                                                controller:
-                                                    widget.entityNameController,
-                                                onEditingComplete: () =>
-                                                    widget.onRenameFinished(),
-                                                onTapOutside: (_) =>
-                                                    widget.onRenameFinished(),
-                                                style: context
-                                                    .theme
-                                                    .textTheme
-                                                    .bodyMedium
-                                                    ?.copyWith(
-                                                      color:
-                                                          entity
-                                                              .hiddenStatus
-                                                              .isHidden
-                                                          ? appTheme
-                                                                .color
-                                                                .disabledIconColor
-                                                          : appTheme
-                                                                .color
-                                                                .onBackground,
-                                                    ),
-                                                maxLines: 1,
-                                                decoration:
-                                                    const InputDecoration(
-                                                      border: InputBorder.none,
-                                                      isDense: true,
-                                                      contentPadding:
-                                                          EdgeInsets.zero,
-                                                    ),
-                                              )
-                                            : Align(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  entity.name,
+                                        _kNameColumnId =>
+                                          shouldEnableNameEdit
+                                              ? TextField(
+                                                  enabled: true,
+                                                  readOnly: false,
+                                                  focusNode: widget
+                                                      .entityNameFocusNode,
+                                                  controller: widget
+                                                      .entityNameController,
+                                                  onEditingComplete: () =>
+                                                      widget.onRenameFinished(),
+                                                  onTapOutside: (_) =>
+                                                      widget.onRenameFinished(),
                                                   style: context
                                                       .theme
                                                       .textTheme
@@ -417,42 +390,74 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                                                                   .onBackground,
                                                       ),
                                                   maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
+                                                  decoration:
+                                                      const InputDecoration(
+                                                        border:
+                                                            InputBorder.none,
+                                                        isDense: true,
+                                                        contentPadding:
+                                                            EdgeInsets.zero,
+                                                      ),
+                                                )
+                                              : Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Text(
+                                                    entity.name,
+                                                    style: context
+                                                        .theme
+                                                        .textTheme
+                                                        .bodyMedium
+                                                        ?.copyWith(
+                                                          color:
+                                                              entity
+                                                                  .hiddenStatus
+                                                                  .isHidden
+                                                              ? appTheme
+                                                                    .color
+                                                                    .disabledIconColor
+                                                              : appTheme
+                                                                    .color
+                                                                    .onBackground,
+                                                        ),
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                  ),
                                                 ),
-                                              ),
-                                      _kDateColumnId => Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          _formatDate(entity.updatedAt),
-                                          style: context
-                                              .theme
-                                              .textTheme
-                                              .bodySmall
-                                              ?.copyWith(
-                                                color: secondaryTextColor,
-                                              ),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
+                                        _kDateColumnId => Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            _formatDate(entity.updatedAt),
+                                            style: context
+                                                .theme
+                                                .textTheme
+                                                .bodySmall
+                                                ?.copyWith(
+                                                  color: secondaryTextColor,
+                                                ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
                                         ),
-                                      ),
-                                      _kKindColumnId => Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          _getKind(entity),
-                                          style: context
-                                              .theme
-                                              .textTheme
-                                              .bodySmall
-                                              ?.copyWith(
-                                                color: secondaryTextColor,
-                                              ),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
+                                        _kKindColumnId => Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            _getKind(entity),
+                                            style: context
+                                                .theme
+                                                .textTheme
+                                                .bodySmall
+                                                ?.copyWith(
+                                                  color: secondaryTextColor,
+                                                ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
                                         ),
-                                      ),
-                                      _ => const SizedBox(),
-                                    },
+                                        _ => const SizedBox(),
+                                      },
+                                    ),
                                   ),
                                 ),
                               ),

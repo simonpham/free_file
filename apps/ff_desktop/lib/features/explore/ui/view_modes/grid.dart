@@ -156,83 +156,97 @@ class EntityViewGrid extends StatelessWidget {
                         }
                         onEntityTap(entity);
                       },
-                      child: Tappable(
-                        enableAnimation: false,
-                        enableHover: true,
-                        enableHoverOverlay: true,
-                        hoverOverlayPadding: EdgeInsets.zero,
-                        hoverOverlayBorderRadius: Spacing.d8,
-                        mouseCursor: SystemMouseCursors.basic,
-                        behavior: HitTestBehavior.translucent,
-                        onDoubleTap: () => onEntityDoubleTap(entity),
-                        child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: isSelected
-                                ? selectedBackgroundColor
-                                : backgroundColor,
-                            borderRadius: BorderRadius.circular(Spacing.d8),
-                          ),
-                          padding: EdgeInsets.all(Spacing.d4),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: Spacing.d32,
-                                height: Spacing.d32,
-                                child: EntityIconWidget(
-                                  entity: entity,
-                                  size: Spacing.d32,
+                      child: DraggableWraper(
+                        entity: entity,
+                        child: Tappable(
+                          enableAnimation: false,
+                          enableHover: true,
+                          enableHoverOverlay: true,
+                          hoverOverlayPadding: EdgeInsets.zero,
+                          hoverOverlayBorderRadius: Spacing.d8,
+                          mouseCursor: SystemMouseCursors.basic,
+                          behavior: HitTestBehavior.translucent,
+                          onDoubleTap: () => onEntityDoubleTap(entity),
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: isSelected
+                                  ? selectedBackgroundColor
+                                  : backgroundColor,
+                              borderRadius: BorderRadius.circular(Spacing.d8),
+                            ),
+                            padding: EdgeInsets.all(Spacing.d4),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: Spacing.d32,
+                                  height: Spacing.d32,
+                                  child: EntityIconWidget(
+                                    entity: entity,
+                                    size: Spacing.d32,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: Spacing.d4),
-                              Expanded(
-                                child: shouldEnableNameEdit
-                                    ? TextField(
-                                        enabled: true,
-                                        readOnly: false,
-                                        focusNode: entityNameFocusNode,
-                                        controller: entityNameController,
-                                        onEditingComplete: () =>
-                                            onRenameFinished(),
-                                        onTapOutside: (_) => onRenameFinished(),
-                                        style: context.theme.textTheme.bodySmall
-                                            ?.copyWith(
-                                              color:
-                                                  entity.hiddenStatus.isHidden
-                                                  ? appTheme
-                                                        .color
-                                                        .disabledIconColor
-                                                  : appTheme.color.onBackground,
-                                              fontSize: 10,
-                                            ),
-                                        maxLines: 2,
-                                        textAlign: TextAlign.center,
-                                        decoration: const InputDecoration(
-                                          border: InputBorder.none,
-                                          isDense: true,
-                                          contentPadding: EdgeInsets.zero,
+                                SizedBox(height: Spacing.d4),
+                                Expanded(
+                                  child: shouldEnableNameEdit
+                                      ? TextField(
+                                          enabled: true,
+                                          readOnly: false,
+                                          focusNode: entityNameFocusNode,
+                                          controller: entityNameController,
+                                          onEditingComplete: () =>
+                                              onRenameFinished(),
+                                          onTapOutside: (_) =>
+                                              onRenameFinished(),
+                                          style: context
+                                              .theme
+                                              .textTheme
+                                              .bodySmall
+                                              ?.copyWith(
+                                                color:
+                                                    entity.hiddenStatus.isHidden
+                                                    ? appTheme
+                                                          .color
+                                                          .disabledIconColor
+                                                    : appTheme
+                                                          .color
+                                                          .onBackground,
+                                                fontSize: 10,
+                                              ),
+                                          maxLines: 2,
+                                          textAlign: TextAlign.center,
+                                          decoration: const InputDecoration(
+                                            border: InputBorder.none,
+                                            isDense: true,
+                                            contentPadding: EdgeInsets.zero,
+                                          ),
+                                        )
+                                      : Text(
+                                          entity.name,
+                                          style: context
+                                              .theme
+                                              .textTheme
+                                              .bodySmall
+                                              ?.copyWith(
+                                                color:
+                                                    entity.hiddenStatus.isHidden
+                                                    ? appTheme
+                                                          .color
+                                                          .disabledIconColor
+                                                    : appTheme
+                                                          .color
+                                                          .onBackground,
+                                                fontSize: 10,
+                                              ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.center,
                                         ),
-                                      )
-                                    : Text(
-                                        entity.name,
-                                        style: context.theme.textTheme.bodySmall
-                                            ?.copyWith(
-                                              color:
-                                                  entity.hiddenStatus.isHidden
-                                                  ? appTheme
-                                                        .color
-                                                        .disabledIconColor
-                                                  : appTheme.color.onBackground,
-                                              fontSize: 10,
-                                            ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.center,
-                                      ),
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

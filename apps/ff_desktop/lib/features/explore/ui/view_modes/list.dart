@@ -155,60 +155,63 @@ class EntityViewList extends StatelessWidget {
                         }
                         onEntityTap(entity);
                       },
-                      child: ListItem(
-                        enableFocus: !shouldEnableNameEdit,
-                        behavior: HitTestBehavior.translucent,
-                        mouseCursor: SystemMouseCursors.basic,
-                        height: mode.itemHeight - Spacing.d4,
-                        backgroundColor: isSelected
-                            ? selectedBackgroundColor
-                            : backgroundColor,
-                        onDoubleTap: () => onEntityDoubleTap(entity),
-                        enableAnimation: false,
-                        leading: EntityIconWidget(
-                          entity: entity,
-                          size: Spacing.d20,
-                        ),
-                        titlePadding: EdgeInsets.only(left: Spacing.d8),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: Spacing.d8,
-                          vertical: Spacing.d4,
-                        ),
-                        hoverOverlayPadding: EdgeInsets.only(
-                          bottom: Spacing.d4,
-                        ),
-                        title: shouldEnableNameEdit
-                            ? TextField(
-                                enabled: true,
-                                readOnly: false,
-                                focusNode: entityNameFocusNode,
-                                controller: entityNameController,
-                                onEditingComplete: () => onRenameFinished(),
-                                onTapOutside: (_) => onRenameFinished(),
-                                style: context.theme.textTheme.bodyMedium
-                                    ?.copyWith(
-                                      color: entity.hiddenStatus.isHidden
-                                          ? appTheme.color.disabledIconColor
-                                          : appTheme.color.onBackground,
-                                    ),
-                                maxLines: 1,
-                                decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.zero,
+                      child: DraggableWraper(
+                        entity: entity,
+                        child: ListItem(
+                          enableFocus: !shouldEnableNameEdit,
+                          behavior: HitTestBehavior.translucent,
+                          mouseCursor: SystemMouseCursors.basic,
+                          height: mode.itemHeight - Spacing.d4,
+                          backgroundColor: isSelected
+                              ? selectedBackgroundColor
+                              : backgroundColor,
+                          onDoubleTap: () => onEntityDoubleTap(entity),
+                          enableAnimation: false,
+                          leading: EntityIconWidget(
+                            entity: entity,
+                            size: Spacing.d20,
+                          ),
+                          titlePadding: EdgeInsets.only(left: Spacing.d8),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Spacing.d8,
+                            vertical: Spacing.d4,
+                          ),
+                          hoverOverlayPadding: EdgeInsets.only(
+                            bottom: Spacing.d4,
+                          ),
+                          title: shouldEnableNameEdit
+                              ? TextField(
+                                  enabled: true,
+                                  readOnly: false,
+                                  focusNode: entityNameFocusNode,
+                                  controller: entityNameController,
+                                  onEditingComplete: () => onRenameFinished(),
+                                  onTapOutside: (_) => onRenameFinished(),
+                                  style: context.theme.textTheme.bodyMedium
+                                      ?.copyWith(
+                                        color: entity.hiddenStatus.isHidden
+                                            ? appTheme.color.disabledIconColor
+                                            : appTheme.color.onBackground,
+                                      ),
+                                  maxLines: 1,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                    contentPadding: EdgeInsets.zero,
+                                  ),
+                                )
+                              : Text(
+                                  entity.name,
+                                  style: context.theme.textTheme.bodyMedium
+                                      ?.copyWith(
+                                        color: entity.hiddenStatus.isHidden
+                                            ? appTheme.color.disabledIconColor
+                                            : appTheme.color.onBackground,
+                                      ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                              )
-                            : Text(
-                                entity.name,
-                                style: context.theme.textTheme.bodyMedium
-                                    ?.copyWith(
-                                      color: entity.hiddenStatus.isHidden
-                                          ? appTheme.color.disabledIconColor
-                                          : appTheme.color.onBackground,
-                                    ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                        ),
                       ),
                     ),
                   );
