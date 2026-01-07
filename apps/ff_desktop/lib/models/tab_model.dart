@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:io' as io;
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
@@ -7,6 +9,7 @@ import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
 import 'package:flutter/material.dart';
+import 'package:local_entity_provider/local_entity_provider.dart';
 import 'package:utils/utils.dart';
 import 'package:ff_desktop/models/models.dart';
 
@@ -247,5 +250,93 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
           .where((item) => item.path.toRealPath() == zipFile)
           .toSet(),
     );
+  }
+
+  LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
+
+  /// Drop files from external applications (e.g., Finder).
+  /// Copies the files to the current directory.
+  Future<void> dropExternalFiles(List<Uri> files) async {
+    if (files.isEmpty) return;
+
+    final targetDir = currentExploreViewModel.currentUri;
+    final List<String> createdPaths = [];
+
+    for (final sourceUri in files) {
+      try {
+        final sourcePath = sourceUri.toRealPath();
+        final name = sourcePath.split(kSlash).last;
+        final newPath = targetDir.resolve('${targetDir.path}$kSlash$name');
+
+        final sourceFile = io.File(sourcePath);
+        final sourceDir = io.Directory(sourcePath);
+
+        if (await sourceFile.exists()) {
+          await _local.copyFile(sourceUri, newPath);
+          createdPaths.add(newPath.toRealPath());
+        } else if (await sourceDir.exists()) {
+          await _local.copyDirectory(sourceUri, newPath);
+          createdPaths.add(newPath.toRealPath());
+        }
+      } catch (err, trace) {
+        printError(err, trace);
+      }
+    }
+
+    await currentExploreViewModel.refresh();
+    currentExploreViewModel.selectBatch(
+      currentExploreViewModel.entities
+          .where((item) => createdPaths.contains(item.path.toRealPath()))
+          .toSet(),
+    );
+  }
+
+  /// Drop binary data from external applications (e.g., image from browser).
+  /// Saves the data as a new file in the current directory.
+  Future<void> dropExternalData(
+    Uint8List data,
+    String? suggestedName,
+    String extension,
+  ) async {
+    final targetDir = currentExploreViewModel.currentUri;
+
+    // Generate a unique filename.
+    String baseName = suggestedName ?? 'dropped_file';
+    // Remove extension from suggested name if present.
+    if (baseName.contains('.')) {
+      baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+    }
+
+    String fileName = '$baseName.$extension';
+    var targetPath = targetDir.resolve('${targetDir.path}$kSlash$fileName');
+    int counter = 1;
+
+    // Ensure unique filename.
+    while (await io.File(targetPath.toRealPath()).exists()) {
+      fileName = '${baseName}_$counter.$extension';
+      targetPath = targetDir.resolve('${targetDir.path}$kSlash$fileName');
+      counter++;
+    }
+
+    try {
+      final file = io.File(targetPath.toRealPath());
+      await file.writeAsBytes(data);
+
+      await currentExploreViewModel.refresh();
+      currentExploreViewModel.selectBatch(
+        currentExploreViewModel.entities
+            .where((item) => item.path.toRealPath() == targetPath.toRealPath())
+            .toSet(),
+      );
+    } catch (err, trace) {
+      printError(err, trace);
+    }
+  }
+
+  /// Drop plain text from external applications.
+  /// Saves the text as a new .txt file in the current directory.
+  Future<void> dropExternalText(String text) async {
+    final data = Uint8List.fromList(text.codeUnits);
+    await dropExternalData(data, 'dropped_text', 'txt');
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:ff_desktop/ui/ui.dart';
@@ -41,6 +42,16 @@ class EntityView extends StatelessWidget {
   final SortDirection sortDirection;
   final ValueChanged<DetailsSortColumn> onSortChanged;
 
+  /// Called when files are dropped from external apps (e.g., Finder).
+  final ValueChanged<List<Uri>>? onFilesDropped;
+
+  /// Called when binary data is dropped (e.g., image from browser).
+  final void Function(Uint8List data, String? suggestedName, String extension)?
+      onDataDropped;
+
+  /// Called when text is dropped from external apps.
+  final ValueChanged<String>? onTextDropped;
+
   const EntityView({
     super.key,
     this.mode = ViewMode.list,
@@ -60,12 +71,16 @@ class EntityView extends StatelessWidget {
     required this.sortColumn,
     required this.sortDirection,
     required this.onSortChanged,
+    this.onFilesDropped,
+    this.onDataDropped,
+    this.onTextDropped,
   });
 
   @override
   Widget build(BuildContext context) {
     MediaQuery.sizeOf(context); // rebuild on resize.
-    return switch (mode) {
+    
+    final viewModeWidget = switch (mode) {
       ViewMode.list => EntityViewList(
         scrollController: scrollController,
         entities: entities,
@@ -115,5 +130,13 @@ class EntityView extends StatelessWidget {
         onAction: onAction,
       ),
     };
+
+    return DropRegionWrapper(
+      onFilesDropped: onFilesDropped,
+      onDataDropped: onDataDropped,
+      onTextDropped: onTextDropped,
+      child: viewModeWidget,
+    );
   }
 }
+

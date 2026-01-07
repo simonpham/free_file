@@ -94,6 +94,19 @@ class _MainAreaState extends State<MainArea> {
               onSortChanged: (column) {
                 context.read<ExploreViewModel>().sortBy(column);
               },
+              onFilesDropped: (files) {
+                context.read<TabViewModel>().dropExternalFiles(files);
+              },
+              onDataDropped: (data, suggestedName, extension) {
+                context.read<TabViewModel>().dropExternalData(
+                  data,
+                  suggestedName,
+                  extension,
+                );
+              },
+              onTextDropped: (text) {
+                context.read<TabViewModel>().dropExternalText(text);
+              },
             );
           },
         ),
