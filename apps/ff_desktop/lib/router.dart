@@ -1,6 +1,5 @@
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ff_desktop/features/features.dart';
 
 final appRouter = GoRouter(
   initialLocation: MainPage.routePath,

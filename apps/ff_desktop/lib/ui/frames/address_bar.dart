@@ -140,7 +140,7 @@ class _AddressBarState extends State<AddressBar> {
                                                     .theme
                                                     .colorScheme
                                                     .onSurfaceVariant
-                                                    .withOpacity(0.5),
+                                                    .withValues(alpha: 0.5),
                                         ),
                                     maxLines: 1,
                                   ),
@@ -192,7 +192,9 @@ class AddressDivider extends StatelessWidget {
       padding: EdgeInsets.only(top: Spacing.d2 + Spacing.d1),
       child: ImageView(
         Assets.icons.arrows.solid.directionRight01,
-        color: context.theme.colorScheme.onSurfaceVariant.withOpacity(0.5),
+        color: context.theme.colorScheme.onSurfaceVariant.withValues(
+          alpha: 0.5,
+        ),
         width: Spacing.d8 + Spacing.d2,
         height: Spacing.d20,
       ),

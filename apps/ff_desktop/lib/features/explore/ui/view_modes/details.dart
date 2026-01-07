@@ -184,12 +184,14 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
   @override
   Widget build(BuildContext context) {
     final backgroundColor = context.appTheme.color.background;
-    final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(
-      0.2,
+    final selectedBackgroundColor = context.appTheme.color.primary.withValues(
+      alpha: 0.2,
     );
     final appTheme = context.appTheme;
     final selectedEntities = widget.selectedEntitiesGetter.call();
-    final secondaryTextColor = appTheme.color.onBackground.withOpacity(0.5);
+    final secondaryTextColor = appTheme.color.onBackground.withValues(
+      alpha: 0.5,
+    );
     final headerStyle = context.theme.textTheme.bodySmall?.copyWith(
       color: secondaryTextColor,
       fontWeight: FontWeight.w600,
@@ -215,7 +217,7 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: secondaryTextColor.withOpacity(0.3),
+                        color: secondaryTextColor.withValues(alpha: 0.3),
                         width: 0.5,
                       ),
                     ),

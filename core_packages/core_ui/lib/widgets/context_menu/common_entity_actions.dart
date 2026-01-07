@@ -141,14 +141,16 @@ enum EntityContextAction {
       quickLook => s.actionQuickLook,
       compress => s.actionCompress,
       copy => s.actionCopy,
-      paste when hasCopiedManyItems => s.actionPasteItems(copiedEntities.length),
+      paste when hasCopiedManyItems => s.actionPasteItems(
+        copiedEntities.length,
+      ),
       paste when copiedEntities.isEmpty => s.actionPaste,
-      paste =>
-        s.actionPasteItem(copiedEntities.first.name.truncateMiddlePath()),
+      paste => s.actionPasteItem(
+        copiedEntities.first.name.truncateMiddlePath(),
+      ),
       move when hasCopiedManyItems => s.actionMoveItems(copiedEntities.length),
       move when copiedEntities.isEmpty => s.actionMove,
-      move =>
-        s.actionMoveItem(copiedEntities.first.name.truncateMiddlePath()),
+      move => s.actionMoveItem(copiedEntities.first.name.truncateMiddlePath()),
       delete => s.actionDelete,
       deletePermanently => s.actionDeletePermanently,
       rename => s.actionRename,

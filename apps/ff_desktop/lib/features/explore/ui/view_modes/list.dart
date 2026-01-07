@@ -69,8 +69,8 @@ class EntityViewList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final backgroundColor = context.appTheme.color.background;
-    final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(
-      0.2,
+    final selectedBackgroundColor = context.appTheme.color.primary.withValues(
+      alpha: 0.2,
     );
     final appTheme = context.appTheme;
     final selectedEntities = selectedEntitiesGetter.call();
@@ -100,7 +100,8 @@ class EntityViewList extends StatelessWidget {
             onDragUpdate: (position) {},
             onDragEnd: () {},
             onReachedBorder: (borders) {
-              final maxScrollPosition = scrollController.position.maxScrollExtent;
+              final maxScrollPosition =
+                  scrollController.position.maxScrollExtent;
               if (borders.contains(BorderType.right)) {
                 final newPosition = scrollController.offset + mode.itemWidth;
                 scrollController.animateTo(
@@ -148,7 +149,8 @@ class EntityViewList extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: Spacing.d8),
                     child: Listener(
                       onPointerDown: (event) {
-                        if (isSelected && event.buttons != kPrimaryMouseButton) {
+                        if (isSelected &&
+                            event.buttons != kPrimaryMouseButton) {
                           return;
                         }
                         onEntityTap(entity);
@@ -172,7 +174,9 @@ class EntityViewList extends StatelessWidget {
                           horizontal: Spacing.d8,
                           vertical: Spacing.d4,
                         ),
-                        hoverOverlayPadding: EdgeInsets.only(bottom: Spacing.d4),
+                        hoverOverlayPadding: EdgeInsets.only(
+                          bottom: Spacing.d4,
+                        ),
                         title: shouldEnableNameEdit
                             ? TextField(
                                 enabled: true,
@@ -181,11 +185,12 @@ class EntityViewList extends StatelessWidget {
                                 controller: entityNameController,
                                 onEditingComplete: () => onRenameFinished(),
                                 onTapOutside: (_) => onRenameFinished(),
-                                style: context.theme.textTheme.bodyMedium?.copyWith(
-                                  color: entity.hiddenStatus.isHidden
-                                      ? appTheme.color.disabledIconColor
-                                      : appTheme.color.onBackground,
-                                ),
+                                style: context.theme.textTheme.bodyMedium
+                                    ?.copyWith(
+                                      color: entity.hiddenStatus.isHidden
+                                          ? appTheme.color.disabledIconColor
+                                          : appTheme.color.onBackground,
+                                    ),
                                 maxLines: 1,
                                 decoration: const InputDecoration(
                                   border: InputBorder.none,
@@ -195,11 +200,12 @@ class EntityViewList extends StatelessWidget {
                               )
                             : Text(
                                 entity.name,
-                                style: context.theme.textTheme.bodyMedium?.copyWith(
-                                  color: entity.hiddenStatus.isHidden
-                                      ? appTheme.color.disabledIconColor
-                                      : appTheme.color.onBackground,
-                                ),
+                                style: context.theme.textTheme.bodyMedium
+                                    ?.copyWith(
+                                      color: entity.hiddenStatus.isHidden
+                                          ? appTheme.color.disabledIconColor
+                                          : appTheme.color.onBackground,
+                                    ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),

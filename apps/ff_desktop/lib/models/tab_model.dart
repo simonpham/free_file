@@ -198,7 +198,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
         final entities = currentExploreViewModel.entities.toSet();
         currentExploreViewModel.selectBatch(entities);
         break;
-      case ToggleShowHiddenEvent:
+      case const (ToggleShowHiddenEvent):
         currentExploreViewModel.toggleShowHidden();
         break;
       default:

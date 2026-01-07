@@ -20,6 +20,6 @@ extension EntityExtension on Entity {
       EntityType.directory => appTheme.color.primary,
       EntityType.file => appTheme.color.iconColor,
     };
-    return hiddenStatus.isHidden ? color.withOpacity(0.6) : color;
+    return hiddenStatus.isHidden ? color.withValues(alpha: 0.6) : color;
   }
 }

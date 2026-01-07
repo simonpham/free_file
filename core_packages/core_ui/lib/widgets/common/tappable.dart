@@ -20,7 +20,6 @@
 
 import 'dart:async';
 
-import 'package:fluda/fluda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:utils/utils.dart';
@@ -136,18 +135,18 @@ class _TappableState extends State<Tappable> {
               reset();
             }
           },
-          onKey: (FocusNode node, RawKeyEvent event) {
+          onKeyEvent: (FocusNode node, KeyEvent event) {
             if (!widget.enableFocus) {
               return KeyEventResult.ignored;
             }
 
-            if (event is RawKeyDownEvent) {
+            if (event is KeyDownEvent) {
               if (event.logicalKey == LogicalKeyboardKey.enter ||
                   event.logicalKey == LogicalKeyboardKey.space) {
                 pressedDown();
                 return KeyEventResult.handled;
               }
-            } else if (event is RawKeyUpEvent) {
+            } else if (event is KeyUpEvent) {
               if (event.logicalKey == LogicalKeyboardKey.enter ||
                   event.logicalKey == LogicalKeyboardKey.space) {
                 bounceUp();
@@ -222,7 +221,9 @@ class _TappableState extends State<Tappable> {
                                 color:
                                     (widget.hoverOverlayColorTint ??
                                             context.theme.primaryColor)
-                                        .withOpacity(_state.backgroundOpacity),
+                                        .withValues(
+                                          alpha: _state.backgroundOpacity,
+                                        ),
                                 borderRadius:
                                     widget.hoverOverlayBorderRadius != null
                                     ? BorderRadius.circular(

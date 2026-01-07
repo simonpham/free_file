@@ -127,51 +127,52 @@ class ListItem extends StatelessWidget {
                             !screenSize.isHandyDevice)))
                   Center(
                     child: SizedBox.square(
-                    dimension: leadingSize,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        boxShadow:
-                            (hoverOverlayColorTint != null && isSelected)
-                                ? [
+                      dimension: leadingSize,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          boxShadow:
+                              (hoverOverlayColorTint != null && isSelected)
+                              ? [
                                   BoxShadow(
-                                    color: hoverOverlayColorTint!.withOpacity(
-                                      0.1,
+                                    color: hoverOverlayColorTint!.withValues(
+                                      alpha: 0.1,
                                     ),
                                     blurRadius: FludaX.x4,
                                     offset: const Offset(0.0, 2.0),
                                     spreadRadius: FludaX.x4,
                                   ),
                                   BoxShadow(
-                                    color: hoverOverlayColorTint!.withOpacity(
-                                      0.1,
+                                    color: hoverOverlayColorTint!.withValues(
+                                      alpha: 0.1,
                                     ),
                                     blurRadius: FludaX.x8,
                                     offset: const Offset(40.0, -40.0),
                                     spreadRadius: FludaX.x4,
                                   ),
                                 ]
-                                : null,
+                              : null,
+                        ),
+                        child: leading!,
                       ),
-                      child: leading!,
                     ),
-                  ),
                   ),
                 if (!hideTitleOnHandyDevice ||
                     (hideTitleOnHandyDevice && !screenSize.isHandyDevice))
                   expanded
                       ? Expanded(
-                        child: Padding(
+                          child: Padding(
+                            padding:
+                                titlePadding ??
+                                EdgeInsets.only(left: Spacing.d20),
+                            child: title,
+                          ),
+                        )
+                      : Padding(
                           padding:
                               titlePadding ??
                               EdgeInsets.only(left: Spacing.d20),
                           child: title,
                         ),
-                      )
-                      : Padding(
-                        padding:
-                            titlePadding ?? EdgeInsets.only(left: Spacing.d20),
-                        child: title,
-                      ),
                 if (trailing != null &&
                     (!hideTrailingOnHandyDevice ||
                         (hideTrailingOnHandyDevice &&

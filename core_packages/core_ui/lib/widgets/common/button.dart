@@ -232,7 +232,7 @@ class Button extends StatelessWidget {
     }
 
     if (!enable) {
-      color = color.withOpacity(0.5);
+      color = color.withValues(alpha: 0.5);
     }
 
     return color;
@@ -262,7 +262,7 @@ class Button extends StatelessWidget {
     }
 
     if (!enable) {
-      color = color.withOpacity(0.5);
+      color = color.withValues(alpha: 0.5);
     }
 
     return color;

@@ -69,8 +69,8 @@ class EntityViewGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final backgroundColor = context.appTheme.color.background;
-    final selectedBackgroundColor = context.appTheme.color.primary.withOpacity(
-      0.2,
+    final selectedBackgroundColor = context.appTheme.color.primary.withValues(
+      alpha: 0.2,
     );
     final appTheme = context.appTheme;
     final selectedEntities = selectedEntitiesGetter.call();

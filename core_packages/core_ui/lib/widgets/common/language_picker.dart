@@ -37,7 +37,7 @@
 //   String get _language => SettingsBox().locale;
 //
 //   Color _getPopupBorderColor(bool isDark) {
-//     return isDark ? kNeutralSwatch[5]!.withOpacity(0.5) : kNeutralSwatch[3]!;
+//     return isDark ? kNeutralSwatch[5]!.withValues(alpha: 0.5) : kNeutralSwatch[3]!;
 //   }
 //
 //   Color _getBorderColor(bool isDark) {
@@ -46,8 +46,8 @@
 //         return isDark ? kNeutralSwatch[5]! : kNeutralSwatch[3]!;
 //       case LanguagePickerState.hover:
 //         return isDark
-//             ? kNeutralSwatch[4]!.withOpacity(0.5)
-//             : kNeutralSwatch[4]!.withOpacity(0.25);
+//             ? kNeutralSwatch[4]!.withValues(alpha: 0.5)
+//             : kNeutralSwatch[4]!.withValues(alpha: 0.25);
 //       case LanguagePickerState.open:
 //         return kPrimaryColor;
 //     }
@@ -102,7 +102,7 @@
 //                 backgroundColor: lang == _language
 //                     ? isDark
 //                         ? kNeutralSwatch[7]
-//                         : kNeutralSwatch[3]?.withOpacity(0.5)
+//                         : kNeutralSwatch[3]?.withValues(alpha: 0.5)
 //                     : Colors.transparent,
 //                 onTap: () {
 //                   Navigator.of(context).pop(lang);

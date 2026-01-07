@@ -1,4 +1,3 @@
-import 'package:fluda/fluda.dart';
 import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
@@ -50,7 +49,8 @@ class TsCard extends StatelessWidget {
         border: enableBorder
             ? Border.all(
                 color:
-                    borderColor ?? context.theme.dividerColor.withOpacity(0.1),
+                    borderColor ??
+                    context.theme.dividerColor.withValues(alpha: 0.1),
                 width: borderSize ?? Spacing.d2,
                 strokeAlign: BorderSide.strokeAlignInside,
               )
@@ -67,7 +67,7 @@ class TsCard extends StatelessWidget {
                   spreadRadius: additionElevation + 0.0,
                   color: const Color(
                     0xff17271B,
-                  ).withOpacity(0.03 + 0.03 * additionElevation),
+                  ).withValues(alpha: 0.03 + 0.03 * additionElevation),
                 ),
               ],
       ),

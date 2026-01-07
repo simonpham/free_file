@@ -118,8 +118,12 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
         final topPosition = min(absoluteStartY, absoluteEndY);
         final rectWidth = (absoluteEndX - absoluteStartX).abs();
         final rectHeight = (absoluteEndY - absoluteStartY).abs();
-        final rect =
-            Rect.fromLTWH(leftPosition, topPosition, rectWidth, rectHeight);
+        final rect = Rect.fromLTWH(
+          leftPosition,
+          topPosition,
+          rectWidth,
+          rectHeight,
+        );
 
         widget.onRectangleUpdated(rect);
         _handleDetectBorder(size, _x0y0, _x1y1, _startOffset, _endOffset);
@@ -154,7 +158,7 @@ class _SelectRectangleOverlayState extends State<SelectRectangleOverlay>
                     height: visualHeight,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.blue.withOpacity(0.5),
+                        color: Colors.blue.withValues(alpha: 0.5),
                         width: 1,
                       ),
                     ),

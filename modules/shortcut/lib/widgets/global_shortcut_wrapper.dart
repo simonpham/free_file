@@ -30,17 +30,17 @@ class _GlobalShortcutWrapperState extends State<GlobalShortcutWrapper> {
       }
     }
 
-    RawKeyboard.instance.addListener(_handleRawKeyEvent);
+    HardwareKeyboard.instance.addHandler(_handleKeyEvent);
   }
 
-  void _handleRawKeyEvent(RawKeyEvent event) {
-    final isKeyDown = event is RawKeyDownEvent;
+  bool _handleKeyEvent(KeyEvent event) {
+    final isKeyDown = event is KeyDownEvent;
     switch (event.logicalKey) {
       case LogicalKeyboardKey.shift:
       case LogicalKeyboardKey.shiftLeft:
       case LogicalKeyboardKey.shiftRight:
         injector<EventBus>().fire(HoldShiftEvent(isKeyDown));
-        break;
+        return false;
       case LogicalKeyboardKey.meta:
       case LogicalKeyboardKey.metaLeft:
       case LogicalKeyboardKey.metaRight:
@@ -48,20 +48,21 @@ class _GlobalShortcutWrapperState extends State<GlobalShortcutWrapper> {
       case LogicalKeyboardKey.controlLeft:
       case LogicalKeyboardKey.controlRight:
         injector<EventBus>().fire(HoldControlCommandEvent(isKeyDown));
-        break;
+        return false;
       case LogicalKeyboardKey.alt:
       case LogicalKeyboardKey.altLeft:
       case LogicalKeyboardKey.altRight:
         injector<EventBus>().fire(HoldAltOptionEvent(isKeyDown));
-        break;
+        return false;
       default:
         break;
     }
+    return true;
   }
 
   @override
   void dispose() {
-    RawKeyboard.instance.removeListener(_handleRawKeyEvent);
+    HardwareKeyboard.instance.removeHandler(_handleKeyEvent);
     super.dispose();
   }
 

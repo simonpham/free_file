@@ -20,7 +20,9 @@ class ToolBar extends StatelessWidget {
         color: context.appTheme.color.navBarBackground.withTransparency,
         border: Border(
           bottom: BorderSide(
-            color: context.appTheme.color.disabledIconColor.withOpacity(0.1),
+            color: context.appTheme.color.disabledIconColor.withValues(
+              alpha: 0.1,
+            ),
             width: 0.5,
           ),
         ),
