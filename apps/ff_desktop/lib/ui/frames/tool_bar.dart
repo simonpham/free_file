@@ -218,8 +218,8 @@ extension on ViewMode {
         return Assets.icons.interface.outline.listViewRectangle;
       case ViewMode.grid:
         return Assets.icons.grid.outline.grid;
-      // case ViewMode.details:
-      //   return Assets.icons.editor.outline.table;
+      case ViewMode.details:
+        return Assets.icons.editor.outline.table;
       // case ViewMode.columns:
       //   return Assets.icons.grid.outline.layout03;
     }

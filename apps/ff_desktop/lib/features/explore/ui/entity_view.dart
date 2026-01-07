@@ -14,6 +14,7 @@ import 'package:utils/utils.dart';
 
 part 'view_modes/list.dart';
 part 'view_modes/grid.dart';
+part 'view_modes/details.dart';
 
 class EntityView extends StatelessWidget {
   final ViewMode mode;
@@ -56,41 +57,52 @@ class EntityView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQuery.sizeOf(context); // rebuild on resize.
-    switch (mode) {
-      // case ViewMode.columns:
-      // case ViewMode.details:
-      case ViewMode.list:
-        return EntityViewList(
-          scrollController: scrollController,
-          entities: entities,
-          currentUriGetter: currentUriGetter,
-          selectedEntitiesGetter: selectedEntitiesGetter,
-          copiedEntitiesGetter: copiedEntitiesGetter,
-          isRenaming: isRenaming,
-          entityNameFocusNode: entityNameFocusNode,
-          entityNameController: entityNameController,
-          onRenameFinished: onRenameFinished,
-          onSelectionChanged: onSelectionChanged,
-          onEntityTap: onEntityTap,
-          onEntityDoubleTap: onEntityDoubleTap,
-          onAction: onAction,
-        );
-      case ViewMode.grid:
-        return EntityViewGrid(
-          scrollController: scrollController,
-          entities: entities,
-          currentUriGetter: currentUriGetter,
-          selectedEntitiesGetter: selectedEntitiesGetter,
-          copiedEntitiesGetter: copiedEntitiesGetter,
-          isRenaming: isRenaming,
-          entityNameFocusNode: entityNameFocusNode,
-          entityNameController: entityNameController,
-          onRenameFinished: onRenameFinished,
-          onSelectionChanged: onSelectionChanged,
-          onEntityTap: onEntityTap,
-          onEntityDoubleTap: onEntityDoubleTap,
-          onAction: onAction,
-        );
-    }
+    return switch (mode) {
+      ViewMode.list => EntityViewList(
+        scrollController: scrollController,
+        entities: entities,
+        currentUriGetter: currentUriGetter,
+        selectedEntitiesGetter: selectedEntitiesGetter,
+        copiedEntitiesGetter: copiedEntitiesGetter,
+        isRenaming: isRenaming,
+        entityNameFocusNode: entityNameFocusNode,
+        entityNameController: entityNameController,
+        onRenameFinished: onRenameFinished,
+        onSelectionChanged: onSelectionChanged,
+        onEntityTap: onEntityTap,
+        onEntityDoubleTap: onEntityDoubleTap,
+        onAction: onAction,
+      ),
+      ViewMode.details => EntityViewDetails(
+        scrollController: scrollController,
+        entities: entities,
+        currentUriGetter: currentUriGetter,
+        selectedEntitiesGetter: selectedEntitiesGetter,
+        copiedEntitiesGetter: copiedEntitiesGetter,
+        isRenaming: isRenaming,
+        entityNameFocusNode: entityNameFocusNode,
+        entityNameController: entityNameController,
+        onRenameFinished: onRenameFinished,
+        onSelectionChanged: onSelectionChanged,
+        onEntityTap: onEntityTap,
+        onEntityDoubleTap: onEntityDoubleTap,
+        onAction: onAction,
+      ),
+      ViewMode.grid => EntityViewGrid(
+        scrollController: scrollController,
+        entities: entities,
+        currentUriGetter: currentUriGetter,
+        selectedEntitiesGetter: selectedEntitiesGetter,
+        copiedEntitiesGetter: copiedEntitiesGetter,
+        isRenaming: isRenaming,
+        entityNameFocusNode: entityNameFocusNode,
+        entityNameController: entityNameController,
+        onRenameFinished: onRenameFinished,
+        onSelectionChanged: onSelectionChanged,
+        onEntityTap: onEntityTap,
+        onEntityDoubleTap: onEntityDoubleTap,
+        onAction: onAction,
+      ),
+    };
   }
 }
