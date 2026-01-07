@@ -26,7 +26,7 @@ class StatusBarController {
         // Configure the status bar item's button
         if let statusBarMenuButton = statusBarMenuItem.button {
             // Set the button's image
-            statusBarMenuButton.image = #imageLiteral(resourceName: "AppIcon")
+            statusBarMenuButton.image = #imageLiteral(resourceName: "MenuBarIcon")
             statusBarMenuButton.image?.size = NSSize(width: 18.0, height: 18.0)
             statusBarMenuButton.image?.isTemplate = true
 
