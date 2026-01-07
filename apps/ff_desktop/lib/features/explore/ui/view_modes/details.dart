@@ -97,7 +97,7 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
     final itemHeight = EntityViewDetails.mode.itemHeight;
 
     for (var i = 0; i < widget.entities.length; i++) {
-      final entityY = i * itemHeight + Spacing.d8;
+      final entityY = Spacing.d4 + i * (itemHeight + Spacing.d4);
       final entityRect = Rect.fromLTWH(0, entityY, double.infinity, itemHeight);
 
       if (rect.overlaps(entityRect)) {
@@ -200,96 +200,96 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
         return Scrollbar(
           controller: widget.scrollController,
           thumbVisibility: true,
-          child: SelectRectangleOverlay(
-            scrollController: widget.scrollController,
-            onDragStart: (position) {},
-            onRectangleUpdated: (rect) {
-              if (rect.width < kSelectRectangleMinimumThreshold ||
-                  rect.height < kSelectRectangleMinimumThreshold) {
-                return;
-              }
-              _updateSelectedIndexes(rect);
-            },
-            onDragUpdate: (position) {},
-            onDragEnd: () {},
-            onReachedBorder: (borders) {
-              final maxScrollPosition =
-                  widget.scrollController.position.maxScrollExtent;
-              if (borders.contains(BorderType.bottom)) {
-                final newPosition =
-                    widget.scrollController.offset +
-                    EntityViewDetails.mode.itemHeight;
-                widget.scrollController.animateTo(
-                  min(newPosition, maxScrollPosition),
-                  curve: Curves.linear,
-                  duration: FludaDuration.ms2,
-                );
-              } else if (borders.contains(BorderType.top)) {
-                final newPosition =
-                    widget.scrollController.offset -
-                    EntityViewDetails.mode.itemHeight;
-                widget.scrollController.animateTo(
-                  max(newPosition, 0),
-                  curve: Curves.linear,
-                  duration: FludaDuration.ms2,
-                );
-              }
-            },
-            child: CommonEntityActionsWrapper(
-              currentUriGetter: widget.currentUriGetter,
-              selectedEntitiesGetter: widget.selectedEntitiesGetter,
-              copiedEntitiesGetter: widget.copiedEntitiesGetter,
-              pinnedUrisGetter: () => Settings().pinnedUris,
-              onAction: widget.onAction,
-              child: Column(
-                children: [
-                  // Header row with resizable columns.
-                  Container(
-                    height: Spacing.d32,
-                    padding: EdgeInsets.symmetric(horizontal: Spacing.d16),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: secondaryTextColor.withOpacity(0.3),
-                          width: 0.5,
-                        ),
-                      ),
-                    ),
-                    child: PaneTheme(
-                      data: PaneThemeData(
-                        resizerColor: appTheme.color.disabledIconColor,
-                        resizerThickness: 1.0,
-                        resizerHitTestThickness: 4.0,
-                        resizerFocusedColor: appTheme.color.primary,
-                        resizerHoverColor: appTheme.color.primary,
-                      ),
-                      child: MultiPane(
-                        controller: _paneController,
-                        direction: Axis.horizontal,
-                        paneBuilder: (context, id) => switch (id) {
-                          _kIconColumnId => const SizedBox(),
-                          _kNameColumnId => _buildSortableHeader(
-                            label: 'Name',
-                            column: DetailsSortColumn.name,
-                            style: headerStyle,
-                          ),
-                          _kDateColumnId => _buildSortableHeader(
-                            label: 'Date Modified',
-                            column: DetailsSortColumn.dateModified,
-                            style: headerStyle,
-                          ),
-                          _kKindColumnId => _buildSortableHeader(
-                            label: 'Kind',
-                            column: DetailsSortColumn.kind,
-                            style: headerStyle,
-                          ),
-                          _ => const SizedBox(),
-                        },
+          child: CommonEntityActionsWrapper(
+            currentUriGetter: widget.currentUriGetter,
+            selectedEntitiesGetter: widget.selectedEntitiesGetter,
+            copiedEntitiesGetter: widget.copiedEntitiesGetter,
+            pinnedUrisGetter: () => Settings().pinnedUris,
+            onAction: widget.onAction,
+            child: Column(
+              children: [
+                // Header row with resizable columns.
+                Container(
+                  height: Spacing.d32,
+                  padding: EdgeInsets.symmetric(horizontal: Spacing.d16),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: secondaryTextColor.withOpacity(0.3),
+                        width: 0.5,
                       ),
                     ),
                   ),
-                  // Data rows.
-                  Expanded(
+                  child: PaneTheme(
+                    data: PaneThemeData(
+                      resizerColor: appTheme.color.disabledIconColor,
+                      resizerThickness: 1.0,
+                      resizerHitTestThickness: 4.0,
+                      resizerFocusedColor: appTheme.color.primary,
+                      resizerHoverColor: appTheme.color.primary,
+                    ),
+                    child: MultiPane(
+                      controller: _paneController,
+                      direction: Axis.horizontal,
+                      paneBuilder: (context, id) => switch (id) {
+                        _kIconColumnId => const SizedBox(),
+                        _kNameColumnId => _buildSortableHeader(
+                          label: 'Name',
+                          column: DetailsSortColumn.name,
+                          style: headerStyle,
+                        ),
+                        _kDateColumnId => _buildSortableHeader(
+                          label: 'Date Modified',
+                          column: DetailsSortColumn.dateModified,
+                          style: headerStyle,
+                        ),
+                        _kKindColumnId => _buildSortableHeader(
+                          label: 'Kind',
+                          column: DetailsSortColumn.kind,
+                          style: headerStyle,
+                        ),
+                        _ => const SizedBox(),
+                      },
+                    ),
+                  ),
+                ),
+                // Data rows.
+                Expanded(
+                  child: SelectRectangleOverlay(
+                    scrollController: widget.scrollController,
+                    onDragStart: (position) {},
+                    onRectangleUpdated: (rect) {
+                      if (rect.width < kSelectRectangleMinimumThreshold ||
+                          rect.height < kSelectRectangleMinimumThreshold) {
+                        return;
+                      }
+                      _updateSelectedIndexes(rect);
+                    },
+                    onDragUpdate: (position) {},
+                    onDragEnd: () {},
+                    onReachedBorder: (borders) {
+                      final maxScrollPosition =
+                          widget.scrollController.position.maxScrollExtent;
+                      if (borders.contains(BorderType.bottom)) {
+                        final newPosition =
+                            widget.scrollController.offset +
+                            EntityViewDetails.mode.itemHeight;
+                        widget.scrollController.animateTo(
+                          min(newPosition, maxScrollPosition),
+                          curve: Curves.linear,
+                          duration: FludaDuration.ms2,
+                        );
+                      } else if (borders.contains(BorderType.top)) {
+                        final newPosition =
+                            widget.scrollController.offset -
+                            EntityViewDetails.mode.itemHeight;
+                        widget.scrollController.animateTo(
+                          max(newPosition, 0),
+                          curve: Curves.linear,
+                          duration: FludaDuration.ms2,
+                        );
+                      }
+                    },
                     child: ListView.separated(
                       padding: EdgeInsets.only(
                         top: Spacing.d4,
@@ -458,8 +458,8 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                       },
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );
