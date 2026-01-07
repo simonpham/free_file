@@ -23,6 +23,7 @@ extension ThemeConfigsExtension on ThemeConfigs {
       onSurface: config.color.onBackground,
       surfaceContainerHighest: config.color.navBarBackground,
       onSurfaceVariant: config.color.onBackground,
+      surfaceTint: Colors.transparent,
     );
     return baseTheme.copyWith(
       colorScheme: colorScheme,
@@ -37,6 +38,27 @@ extension ThemeConfigsExtension on ThemeConfigs {
         backgroundColor: config.color.navBarBackground,
         selectedItemColor: config.color.primary,
         unselectedItemColor: config.color.onBackground,
+      ),
+      drawerTheme: baseTheme.drawerTheme.copyWith(
+        backgroundColor: colorScheme.surface,
+        surfaceTintColor: Colors.transparent,
+      ),
+      popupMenuTheme: baseTheme.popupMenuTheme.copyWith(
+        color: colorScheme.surface,
+        surfaceTintColor: colorScheme.surfaceTint,
+      ),
+      cardColor: colorScheme.surface,
+      canvasColor: colorScheme.surface,
+      cardTheme: baseTheme.cardTheme.copyWith(
+        color: colorScheme.surface,
+        surfaceTintColor: colorScheme.surfaceTint,
+      ),
+      listTileTheme: baseTheme.listTileTheme.copyWith(
+        tileColor: colorScheme.surface,
+      ),
+      dialogTheme: baseTheme.dialogTheme.copyWith(
+        backgroundColor: colorScheme.surface,
+        surfaceTintColor: Colors.transparent,
       ),
       iconTheme: IconThemeData(color: config.color.iconColor),
       disabledColor: config.color.disabledIconColor,
