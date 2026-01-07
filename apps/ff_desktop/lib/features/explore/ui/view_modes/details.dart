@@ -352,9 +352,11 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                                     controller: _paneController,
                                     direction: Axis.horizontal,
                                     paneBuilder: (context, id) => switch (id) {
-                                      _kIconColumnId => EntityIconWidget(
-                                        entity: entity,
-                                        size: Spacing.d16,
+                                      _kIconColumnId => Center(
+                                        child: EntityIconWidget(
+                                          entity: entity,
+                                          size: Spacing.d24,
+                                        ),
                                       ),
                                       _kNameColumnId =>
                                         shouldEnableNameEdit
