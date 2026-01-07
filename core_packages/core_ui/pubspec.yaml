@@ -28,6 +28,7 @@ dependencies:
   gradient_borders: ^1.0.1
   flutter_svg: ^2.0.10+1
   shimmer: ^3.0.0
+  panes: ^1.1.0
   context_menus:
     git:
       url: https://github.com/SoFluffyOS/flutter-context-menu.git

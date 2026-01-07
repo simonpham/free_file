@@ -8,6 +8,7 @@ export 'package:multi_split_view/multi_split_view.dart';
 export 'package:provider/provider.dart';
 export 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 export 'package:shimmer/shimmer.dart';
+export 'package:panes/panes.dart';
 
 export 'constants/constants.dart';
 export 'extensions/extensions.dart';
