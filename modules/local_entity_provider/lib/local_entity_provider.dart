@@ -55,7 +55,11 @@ class LocalEntityProvider extends EntityProvider {
   }
 
   @override
-  Future<List<Entity>> list(Uri path) async {
+  Future<List<Entity>> list(
+    Uri path, {
+    DetailsSortColumn sort = DetailsSortColumn.name,
+    SortDirection order = SortDirection.ascending,
+  }) async {
     final result = <Entity>[];
     final dir = io.Directory(path.toRealPath());
     final isExisted = await dir.exists();
@@ -94,18 +98,34 @@ class LocalEntityProvider extends EntityProvider {
           createdAt: stat.changed.toIso8601String(),
           updatedAt: stat.modified.toIso8601String(),
         );
-        folders.add(dir);
+        if (dir.hiddenStatus == HiddenStatus.hidden) {
+          hiddenFolders.add(dir);
+        } else {
+          folders.add(dir);
+        }
         continue;
       }
     }
 
-    result.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-    folders.sort(
-      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
-    );
-    hiddenFolders.sort(
-      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
-    );
+    int compare(Entity a, Entity b) {
+      int cmp = switch (sort) {
+        .name => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+        .dateModified => a.updatedAt.compareTo(b.updatedAt),
+        .kind => () {
+          String getKind(Entity entity) {
+            if (entity is! File) return '';
+            return entity.extension;
+          }
+
+          return getKind(a).compareTo(getKind(b));
+        }(),
+      };
+      return order == SortDirection.ascending ? cmp : -cmp;
+    }
+
+    result.sort(compare);
+    folders.sort(compare);
+    hiddenFolders.sort(compare);
 
     result.insertAll(0, folders);
     result.insertAll(0, hiddenFolders);

@@ -85,6 +85,15 @@ class _MainAreaState extends State<MainArea> {
                 entity.doubleTap(context);
               },
               onAction: widget.onAction,
+              sortColumn: context.select(
+                (ExploreViewModel model) => model.sortColumn,
+              ),
+              sortDirection: context.select(
+                (ExploreViewModel model) => model.sortDirection,
+              ),
+              onSortChanged: (column) {
+                context.read<ExploreViewModel>().sortBy(column);
+              },
             );
           },
         ),

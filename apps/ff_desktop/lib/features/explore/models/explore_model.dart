@@ -68,6 +68,22 @@ class ExploreViewModel extends ChangeNotifier
     notifyListeners();
   }
 
+  DetailsSortColumn _sortColumn = DetailsSortColumn.name;
+  SortDirection _sortDirection = SortDirection.ascending;
+
+  DetailsSortColumn get sortColumn => _sortColumn;
+  SortDirection get sortDirection => _sortDirection;
+
+  void sortBy(DetailsSortColumn column) {
+    if (_sortColumn == column) {
+      _sortDirection = _sortDirection.toggle();
+    } else {
+      _sortColumn = column;
+      _sortDirection = SortDirection.ascending;
+    }
+    refresh(maintainState: true);
+  }
+
   void toggleShowHidden() {
     _showHidden = !_showHidden;
     Settings().showHiddenFiles = _showHidden;
@@ -94,7 +110,11 @@ class ExploreViewModel extends ChangeNotifier
     }
     _addressBarController.text = currentUri.toRealPath();
     notifyListeners();
-    final entities = await _local.list(currentUri);
+    final entities = await _local.list(
+      currentUri,
+      sort: _sortColumn,
+      order: _sortDirection,
+    );
     _entities = entities;
     _clearSelectedEntities();
     notifyListeners();

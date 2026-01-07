@@ -36,6 +36,10 @@ class EntityView extends StatelessWidget {
 
   final Function(EntityContextAction action)? onAction;
 
+  final DetailsSortColumn sortColumn;
+  final SortDirection sortDirection;
+  final ValueChanged<DetailsSortColumn> onSortChanged;
+
   const EntityView({
     super.key,
     this.mode = ViewMode.list,
@@ -52,6 +56,9 @@ class EntityView extends StatelessWidget {
     required this.onEntityTap,
     required this.onEntityDoubleTap,
     required this.onAction,
+    required this.sortColumn,
+    required this.sortDirection,
+    required this.onSortChanged,
   });
 
   @override
@@ -87,6 +94,9 @@ class EntityView extends StatelessWidget {
         onEntityTap: onEntityTap,
         onEntityDoubleTap: onEntityDoubleTap,
         onAction: onAction,
+        sortColumn: sortColumn,
+        sortDirection: sortDirection,
+        onSortChanged: onSortChanged,
       ),
       ViewMode.grid => EntityViewGrid(
         scrollController: scrollController,
