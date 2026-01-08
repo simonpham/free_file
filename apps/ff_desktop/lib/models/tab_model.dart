@@ -4,9 +4,11 @@ import 'dart:math';
 
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ff_desktop/features/features.dart';
+import 'package:ff_desktop/services/services.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 import 'package:utils/utils.dart';
 import 'package:ff_desktop/models/models.dart';
@@ -123,6 +125,24 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
     }
   }
 
+  WindowService get _windowService => injector.get<WindowService>();
+
+  Future<void> openInNewWindow() async {
+    final entities = currentExploreViewModel.selectedEntities;
+    if (entities.isEmpty) {
+      /// If no entities are selected, open current directory.
+      _windowService.openNewWindow(
+        currentExploreViewModel.currentUri.toRealPath(),
+      );
+      return;
+    }
+    for (final entity in entities) {
+      if (entity is Directory) {
+        _windowService.openNewWindow(entity.path.toRealPath());
+      }
+    }
+  }
+
   void closeAllTabs() {
     _exploreViewModels.clear();
     _exploreViewModels.add(ExploreViewModel());
@@ -169,6 +189,7 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
         openInNewTab();
         break;
       case const (OpenInNewWindowEvent):
+        openInNewWindow();
         break;
       case const (QuickLookEvent):
         quickLook();

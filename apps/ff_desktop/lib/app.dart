@@ -1,7 +1,7 @@
+import 'dart:convert';
+
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-
-import 'package:desktop_multi_window/desktop_multi_window.dart';
 
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/models/models.dart';
@@ -26,13 +26,17 @@ class FreeFileLaunchArgument {
   factory FreeFileLaunchArgument.fromJson(Map<String, dynamic> json) {
     return FreeFileLaunchArgument(path: json['path'] as String?);
   }
+
+  @override
+  String toString() {
+    return jsonEncode(toJson());
+  }
 }
 
 class FreeFile extends StatefulWidget {
-  final WindowController? windowController;
-  final FreeFileLaunchArgument? launchArgument;
+  final String? initialPath;
 
-  const FreeFile({super.key, this.windowController, this.launchArgument});
+  const FreeFile({super.key, this.initialPath});
 
   @override
   State<FreeFile> createState() => _FreeFileState();
@@ -42,8 +46,49 @@ class _FreeFileState extends State<FreeFile> {
   ThemeModel get themeModel => injector<ThemeModel>();
   final LocaleModel localeModel = LocaleModel();
 
+  bool _isReady = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeApp();
+  }
+
+  Future<void> _initializeApp() async {
+    // Delay initialization to allow irondash_engine_context to complete async
+    // FlutterView registration. This prevents super_native_extensions from
+    // crashing when DropRegion tries to access FlutterView before it's ready.
+    // The async registration happens via dispatch_async(dispatch_get_main_queue())
+    // in the native plugin code.
+    await Future.delayed(const Duration(milliseconds: 200));
+
+    // If we have an initial path, navigate to it
+    if (widget.initialPath != null) {
+      final tabViewModel = injector<TabViewModel>();
+      tabViewModel.currentExploreViewModel.goTo(
+        Uri.directory(widget.initialPath!),
+      );
+    }
+
+    if (mounted) {
+      setState(() {
+        _isReady = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Show loading indicator until ready
+    if (!_isReady) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeConfigs().getThemeData(ThemeMode.light),
+        darkTheme: ThemeConfigs().getThemeData(ThemeMode.dark),
+        home: const Scaffold(body: Center(child: CircularProgressIndicator())),
+      );
+    }
+
     final size = ScreenSize.of(context);
     themeModel.screenSize = size;
     return GlobalShortcutWrapper(

@@ -124,6 +124,7 @@ class MainPage extends StatelessWidget {
         }
         break;
       case EntityContextAction.openInNewWindow:
+        context.read<TabViewModel>().openInNewWindow();
         break;
       case EntityContextAction.openInNewTab:
         context.read<TabViewModel>().openInNewTab();

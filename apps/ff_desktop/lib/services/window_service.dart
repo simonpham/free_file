@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io' as io;
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,20 @@ import 'package:storage/storage.dart';
 import 'package:utils/utils.dart';
 
 class WindowService extends ChangeNotifier {
+  /// Opens a new window with the given path by spawning a new app instance.
+  /// This approach avoids conflicts between desktop_multi_window and bitsdojo_window.
+  Future<void> openNewWindow(String path) async {
+    try {
+      final executablePath = io.Platform.resolvedExecutable;
+      await io.Process.start(executablePath, [
+        '--open',
+        path,
+      ], mode: io.ProcessStartMode.detached);
+    } catch (err, trace) {
+      printError(err, trace);
+    }
+  }
+
   bool _isWindowMode = Settings().windowMode;
   bool get isWindowMode => _isWindowMode;
 

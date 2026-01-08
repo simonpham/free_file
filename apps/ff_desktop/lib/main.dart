@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:desktop_multi_window/desktop_multi_window.dart';
 import 'package:ff_desktop/app.dart';
 import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/utils/utils.dart';
@@ -18,21 +15,14 @@ Future<void> main(List<String> args) async {
   await PlatformUtils.setupWindow();
   PlatformUtils.listenToWindowStatus();
 
-  if (args case [String tag, String windowIdString, String argument]) {
-    final int? windowId = int.tryParse(windowIdString);
-    if (tag == 'multi_window' && windowId != null) {
-      final launchArgument = FreeFileLaunchArgument.fromJson(
-        jsonDecode(argument),
-      );
-      runApp(
-        FreeFile(
-          windowController: WindowController.fromWindowId(windowId),
-          launchArgument: launchArgument,
-        ),
-      );
-      return;
+  // Parse command-line arguments for --open flag
+  String? initialPath;
+  for (int i = 0; i < args.length; i++) {
+    if (args[i] == '--open' && i + 1 < args.length) {
+      initialPath = args[i + 1];
+      break;
     }
   }
 
-  runApp(const FreeFile());
+  runApp(FreeFile(initialPath: initialPath));
 }
