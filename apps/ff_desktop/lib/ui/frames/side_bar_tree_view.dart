@@ -1,9 +1,8 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/features/features.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/platform_utils.dart';
 import 'package:flutter/material.dart';
-
-import 'package:ff_desktop/features/features.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 

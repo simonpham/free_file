@@ -2,8 +2,8 @@ import 'package:ff_desktop/app.dart';
 import 'package:ff_desktop/di.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:theme/theme.dart';
 import 'package:storage/storage.dart';
+import 'package:theme/theme.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();

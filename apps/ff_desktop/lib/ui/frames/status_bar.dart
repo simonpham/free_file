@@ -1,11 +1,9 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:flutter/material.dart';
+import 'package:l10n/l10n.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
-
-import 'package:l10n/l10n.dart';
-
-import 'package:ff_desktop/features/explore/explore.dart';
 
 class StatusBar extends StatelessWidget {
   const StatusBar({super.key});

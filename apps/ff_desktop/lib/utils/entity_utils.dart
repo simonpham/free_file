@@ -1,9 +1,8 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/features/features.dart';
 import 'package:ff_desktop/models/models.dart';
 import 'package:flutter/material.dart';
-
-import 'package:ff_desktop/features/features.dart';
 
 extension EntityUtilsExtension on Entity {
   Future<void> tap(

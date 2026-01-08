@@ -1,13 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:core/core.dart';
-import 'package:flutter/material.dart';
-
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:l10n/l10n.dart';
 import 'package:shortcut/shortcut.dart';
@@ -63,10 +63,12 @@ class _FreeFileState extends State<FreeFile> {
     await Future.delayed(const Duration(milliseconds: 200));
 
     // If we have an initial path, navigate to it
-    if (widget.initialPath != null) {
+    if (widget.initialPath case String intialPath) {
       final tabViewModel = injector<TabViewModel>();
-      tabViewModel.currentExploreViewModel.goTo(
-        Uri.directory(widget.initialPath!),
+      unawaited(
+        tabViewModel.currentExploreViewModel.goTo(
+          Uri.directory(intialPath),
+        ),
       );
     }
 

@@ -1,22 +1,21 @@
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
+import 'package:ff_desktop/constants/constants.dart';
 import 'package:ff_desktop/features/explore/explore.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-import 'package:core/core.dart';
-import 'package:core_ui/core_ui.dart';
-import 'package:ff_desktop/constants/constants.dart';
+import 'package:l10n/l10n.dart';
 import 'package:storage/storage.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
-import 'package:l10n/l10n.dart';
 
-part 'view_modes/list.dart';
-part 'view_modes/grid.dart';
 part 'view_modes/details.dart';
+part 'view_modes/grid.dart';
+part 'view_modes/list.dart';
 
 class EntityView extends StatelessWidget {
   final ViewMode mode;

@@ -1,12 +1,12 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/constants/constants.dart';
+import 'package:ff_desktop/features/features.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
-import 'package:ff_desktop/features/features.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key});

@@ -347,7 +347,7 @@ class _EntityViewDetailsState extends State<EntityViewDetails> {
                                     vertical: Spacing.d4,
                                   ),
                                   child: PaneTheme(
-                                    data: PaneThemeData(
+                                    data: const PaneThemeData(
                                       resizerColor: Colors.transparent,
                                     ),
                                     child: MultiPane(
