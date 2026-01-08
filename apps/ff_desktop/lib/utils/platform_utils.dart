@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:storage/storage.dart';
 import 'package:theme/theme.dart';
-import 'package:ff_desktop/services/window_service.dart';
+import 'package:ff_desktop/services/services.dart';
 import 'package:utils/utils.dart';
 
 class PlatformUtils {

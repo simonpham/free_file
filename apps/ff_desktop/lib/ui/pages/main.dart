@@ -46,7 +46,12 @@ class MainPage extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          const HeheTabBar(),
+                          const Row(
+                            children: [
+                              Expanded(child: HeheTabBar()),
+                              WindowModeToggle(),
+                            ],
+                          ),
                           Container(
                             height: Spacing.d48,
                             decoration: BoxDecoration(

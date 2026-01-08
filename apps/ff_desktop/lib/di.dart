@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
 import 'package:ff_desktop/models/models.dart';
-import 'package:ff_desktop/services/window_service.dart';
+import 'package:ff_desktop/services/services.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 import 'package:theme/theme.dart';
 

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -20,25 +22,11 @@ class WindowService extends ChangeNotifier {
 
     await _channel.invokeMethod('toggleWindowMode');
 
-    if (_isWindowMode) {
-      try {
-        await Window.initialize();
-        if (kIsMacOs || kIsWindows) {
-          await Window.setEffect(effect: WindowEffect.acrylic);
-        }
-      } catch (_) {}
-    }
+    _initWindowStyle();
   }
 
   Future<void> initialize() async {
-    if (_isWindowMode) {
-      try {
-        await Window.initialize();
-        if (kIsMacOs || kIsWindows) {
-          await Window.setEffect(effect: WindowEffect.acrylic);
-        }
-      } catch (_) {}
-    }
+    _initWindowStyle();
 
     doWhenWindowReady(() {
       const initialSize = Size(800, 600);
@@ -50,5 +38,26 @@ class WindowService extends ChangeNotifier {
         appWindow.show();
       }
     });
+  }
+
+  Future<void> _initWindowStyle() async {
+    if (!_isWindowMode) {
+      return;
+    }
+
+    try {
+      await Window.initialize();
+      if (kIsMacOs) {
+        unawaited(Window.addToolbar());
+        unawaited(
+          Window.setToolbarStyle(
+            toolbarStyle: MacOSToolbarStyle.unifiedCompact,
+          ),
+        );
+      }
+      if (kIsMacOs || kIsWindows) {
+        await Window.setEffect(effect: WindowEffect.acrylic);
+      }
+    } catch (_) {}
   }
 }
