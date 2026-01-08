@@ -18,7 +18,10 @@ class ExploreViewModel extends ChangeNotifier
         ExploreInterfaceManipulateActions {
   LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
 
-  ExploreViewModel() {
+  ExploreViewModel({bool shouldRefresh = true}) {
+    if (!shouldRefresh) {
+      return;
+    }
     refresh();
   }
 

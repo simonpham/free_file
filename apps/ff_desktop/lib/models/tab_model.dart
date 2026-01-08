@@ -101,7 +101,8 @@ class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
   void addTab([ExploreViewModel? viewModel]) {
     final currentTab = currentExploreViewModel;
     final newTab =
-        viewModel ?? (ExploreViewModel()..goTo(currentTab.currentUri));
+        viewModel ??
+        (ExploreViewModel(shouldRefresh: false)..goTo(currentTab.currentUri));
     _exploreViewModels.add(newTab);
     _setIndex(_exploreViewModels.length - 1);
   }
