@@ -1,4 +1,5 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:storage/data/data.dart';
 import 'package:theme/theme.dart';
@@ -70,7 +71,7 @@ class ThemeToggle extends StatelessWidget {
                                 child: Padding(
                                   padding: EdgeInsets.only(left: Spacing.d8),
                                   child: Text(
-                                    ThemeMode.light.name.capitalize(),
+                                    context.localize.themeLight,
                                     style: context.theme.textTheme.bodySmall
                                         ?.copyWith(
                                           color: themeMode == ThemeMode.light
@@ -110,7 +111,7 @@ class ThemeToggle extends StatelessWidget {
                                 child: Padding(
                                   padding: EdgeInsets.only(left: Spacing.d8),
                                   child: Text(
-                                    ThemeMode.dark.name.capitalize(),
+                                    context.localize.themeDark,
                                     style: context.theme.textTheme.bodySmall
                                         ?.copyWith(
                                           color: themeMode == ThemeMode.light

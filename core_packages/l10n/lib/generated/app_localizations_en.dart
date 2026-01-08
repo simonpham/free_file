@@ -182,4 +182,13 @@ class SEn extends S {
 
   @override
   String get viewModeDetails => 'Details';
+
+  @override
+  String get switchWindowMode => 'Switch Window Mode';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
 }

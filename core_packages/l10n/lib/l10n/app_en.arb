@@ -108,5 +108,8 @@
   },
   "viewModeList": "List",
   "viewModeGrid": "Grid",
-  "viewModeDetails": "Details"
+  "viewModeDetails": "Details",
+  "switchWindowMode": "Switch Window Mode",
+  "themeLight": "Light",
+  "themeDark": "Dark"
 }

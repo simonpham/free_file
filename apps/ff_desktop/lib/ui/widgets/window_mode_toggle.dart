@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:l10n/l10n.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:ff_desktop/services/services.dart';
 import 'package:flutter/widgets.dart';
@@ -22,7 +23,7 @@ class _WindowModeToggleState extends State<WindowModeToggle> {
     }
 
     return Tappable(
-      tooltip: 'Switch Window Mode',
+      tooltip: context.localize.switchWindowMode,
       enableHover: true,
       enableHoverOverlay: true,
       hoverOverlayBorderRadius: Spacing.d4,
@@ -44,8 +45,8 @@ class _WindowModeToggleState extends State<WindowModeToggle> {
         ),
         child: ImageView(
           _windowService.isWindowMode
-              ? Assets.icons.arrows.bulk.maximize01
-              : Assets.icons.arrows.bulk.minimize01,
+              ? Assets.icons.arrows.outline.maximize01
+              : Assets.icons.arrows.outline.minimize01,
           size: Spacing.d16,
           color: context.appTheme.color.iconColor,
         ),

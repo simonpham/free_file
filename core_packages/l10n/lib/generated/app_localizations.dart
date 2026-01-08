@@ -410,6 +410,24 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Details'**
   String get viewModeDetails;
+
+  /// No description provided for @switchWindowMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch Window Mode'**
+  String get switchWindowMode;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {
