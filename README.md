@@ -1,41 +1,46 @@
 # Free File
 
-Free File is a free and open-source cross-platform file manager. It is built with Flutter and is available for Windows,
-macOS, Linux (*currently only tested on macOS. Other platforms support is coming soon*).
+Free File is a modern, high-performance, and open-source cross-platform file manager. Built from the ground up with **Flutter**, it delivers a native feel with powerful features for power users.
 
-| Light Mode                                                                                                          | Dark Mode                                                                                                           |
-|---------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+Current support is optimized for **macOS**, with Windows and Linux support coming soon.
+
+| Light Mode | Dark Mode |
+|---|---|
 | ![Free File Screenshot](https://github.com/simonpham/free_file/assets/8846657/e5148b95-f07b-40ae-9a7b-2e6c038c3459) | ![Free File Screenshot](https://github.com/simonpham/free_file/assets/8846657/d7b2e7d0-f391-48cd-b652-281346ebf51d) |
 
-## Features
+## ✨ Features
 
-- **Feels like home** - Free File can replace your default file manager. It has all the features you need. (*)
-- **Cloud storage** - Free File supports iCloud Drive, Google Drive, Dropbox, OneDrive,... (*)
-- **Easy to navigate** - Free File has a **tree view** and an **address bar** that allows you to navigate through your
-  files and folders easily.
-- **Easy-multitasking** - Free File supports tabs and split view. (*)
-- **Customizable** - Free File allows you to customize the app to your liking. (*)
+- **Blazing Fast Navigation** - Built for speed with a native-feel tree view and interactive address bar.
+- **Multiple View Modes** - Choose how you see your files: **List**, **Grid**, or **Details** view.
+- **Tabbed Browsing** - Manage multiple directories at once with an intuitive tab system.
+- **Keyboard First** - Extensive shortcut support for power users.
+- **macOS Native Integration** - Supports vibrancy, transparency, and native window controls.
 
-_(*) Some of these features are not available yet. [See our roadmap](https://github.com/users/simonpham/projects/1)._
+## 🗺️ Roadmap
 
-## Installation
+We are actively working on:
+- **Cloud Storage** - Native integration for iCloud Drive, Google Drive, Dropbox, and OneDrive.
+- **Split View** - Side-by-side file management.
+- **Advanced Customization** - Deep theme and layout configuration.
+- **Windows & Linux Support** - Bringing the Free File experience to all desktop platforms.
 
-1. Download the latest version
-   at [https://github.com/simonpham/free_file/releases/latest](https://github.com/simonpham/free_file/releases/latest).
-2. Extract the downloaded ZIP file.
-3. Drag and drop `Free File.app` to your Applications folder.
-4. Enjoy!
+[See our full roadmap](https://github.com/users/simonpham/projects/1)
 
-## Contributing
+## 🚀 Installation
 
-Free File is still in early development. If you want to contribute, please
-read [CONTRIBUTING.md](https://github.com/simonpham/free_file/blob/develop/CONTRIBUTING.md).
+1. Download the latest version from [Github Releases](https://github.com/simonpham/free_file/releases/latest).
+2. Open the downloaded DMG file.
+3. Drag `Free File.app` to your **Applications** folder.
+4. Open and enjoy!
 
-## License
+## 🤝 Contributing
 
-Free File is licensed under
-the [GNU General Public License v3.0](https://github.com/simonpham/free_file/blob/develop/LICENSE).
+Free File is in early development, and we welcome contributions! Whether it's bug reports, feature requests, or code, please read [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+
+## 📄 License
+
+Free File is licensed under the [GNU General Public License v3.0](LICENSE.md).
 
 ---
 
-Made with ❤️ by [Simon Pham 🦊](https://github.com/simonpham).
+Made with ❤️ by [Simon Pham 🦊](https://github.com/simonpham)
