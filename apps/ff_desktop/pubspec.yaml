@@ -3,7 +3,7 @@ description: Free File Explorer
 
 publish_to: 'none'
 
-version: 0.3.0+1
+version: 0.4.0
 
 environment:
   sdk: ^3.10.0
