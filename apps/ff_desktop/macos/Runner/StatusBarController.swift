@@ -20,7 +20,7 @@ class StatusBarController {
     // Initializer for the StatusBarController class
     init(_ popover: NSPopover) {
         self.flutterUIPopover = popover
-        appStatusBar = NSStatusBar.init()
+        appStatusBar = NSStatusBar.system
         statusBarMenuItem = appStatusBar.statusItem(withLength: 28.0)
 
         // Configure the status bar item's button

@@ -50,13 +50,15 @@ class WindowModeManager: NSObject {
 
         } else {
             // Popover Mode
-            mainFlutterWindow?.orderOut(nil)
+            statusBarController?.setStatusItemVisible(true)
+            
             mainFlutterWindow?.contentViewController = nil
+            mainFlutterWindow?.orderOut(nil)
 
             NSApp.setActivationPolicy(.accessory)
-            statusBarController?.setStatusItemVisible(true)
 
             DispatchQueue.main.async {
+                NSApp.activate(ignoringOtherApps: true)
                 self.statusBarController?.showPopover(self)
             }
         }
@@ -107,14 +109,16 @@ class WindowModeManager: NSObject {
         } else {
             // Switch to Popover Mode (Dock Icon Hidden, Menu Icon Visible)
             if let window = mainFlutterWindow, let controller = window.contentViewController {
-                window.orderOut(nil)
-                window.contentViewController = nil
-                popover.contentViewController = controller
-
-                NSApp.setActivationPolicy(.accessory)
                 statusBarController?.setStatusItemVisible(true)
 
+                popover.contentViewController = controller
+                window.contentViewController = nil
+                window.orderOut(nil)
+
+                NSApp.setActivationPolicy(.accessory)
+
                 DispatchQueue.main.async {
+                    NSApp.activate(ignoringOtherApps: true)
                     self.statusBarController?.showPopover(self)
                 }
             }
