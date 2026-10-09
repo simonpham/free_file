@@ -34,6 +34,7 @@ dependencies:
       url: https://github.com/SoFluffyOS/flutter-context-menu.git
       ref: aa9b82808637f7d81293fd6f7641a0661f760422
 
+  vector_graphics: any
 flutter:
   uses-material-design: true
 

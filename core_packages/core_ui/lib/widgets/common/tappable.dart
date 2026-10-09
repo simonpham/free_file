@@ -30,8 +30,7 @@ enum TappableState {
   normal(1.0),
   hover(1.025, 0.1),
   focus(1.025, 0.2),
-  pressed(0.9)
-  ;
+  pressed(0.9);
 
   final double scale;
   final double backgroundOpacity;

@@ -29,9 +29,12 @@ dependencies:
     path: ../../packages/utils
 
   local_entity_provider:
-    path: ../../modules/local_entity_provider
+    path: ../../packages/local_entity_provider
   shortcut:
-    path: ../../modules/shortcut
+    path: ../../packages/shortcut
+
+  file_explorer:
+    path: ../../modules/file_explorer
 
   # Localization.
   intl:
@@ -46,8 +49,6 @@ dependencies:
   bitsdojo_window: ^0.1.6
   desktop_lifecycle: ^0.1.1
   macos_window_utils: ^1.5.0
-  pasteboard: ^0.3.0
-  super_drag_and_drop: ^0.9.1
 
 dev_dependencies:
   flutter_test:

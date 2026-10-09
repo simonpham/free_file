@@ -1,10 +1,10 @@
-import 'dart:io' as io;
+import 'dart:async';
 
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:desktop_lifecycle/desktop_lifecycle.dart';
-import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/services/services.dart';
+import 'package:file_explorer/file_explorer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:storage/storage.dart';
@@ -12,80 +12,6 @@ import 'package:theme/theme.dart';
 import 'package:utils/utils.dart';
 
 class PlatformUtils {
-  static Future<Error?> open(Uri uri, {Uri? workingDirectory}) async {
-    final result = await io.Process.run(kOpenProcess, [
-      uri.toRealPath(),
-    ], workingDirectory: workingDirectory?.toRealPath());
-
-    if (result.exitCode != 0 &&
-        result.stderr.contains('kLSApplicationNotFoundErr')) {
-      return Error.noApplicationKnowsHowToOpenUrl;
-    }
-
-    if (result.exitCode != 0) {
-      return Error.openFailed;
-    }
-
-    return null;
-  }
-
-  static Future<Error?> openQuickLook(
-    List<String> paths, {
-    Uri? workingDirectory,
-  }) async {
-    if (!kIsMacOs) {
-      return Error.notSupported;
-    }
-
-    final result = await io.Process.run(
-      kMacOsQuickLookProcess,
-      ['-p', ...paths],
-      workingDirectory: workingDirectory?.toRealPath(),
-      runInShell: true,
-    );
-
-    if (result.exitCode != 0) {
-      return Error.openFailed;
-    }
-
-    return null;
-  }
-
-  static Future<(String?, Error?)> compress(
-    List<String> paths, {
-    String fileName = 'archive',
-    required Uri workingDirectory,
-  }) async {
-    if (!kIsMacOs) {
-      return (null, Error.notSupported);
-    }
-
-    String zipFilePath = '${workingDirectory.toRealPath()}$kSlash$fileName';
-    int count = 1;
-    while (await io.File('$zipFilePath.zip').exists()) {
-      zipFilePath = '$zipFilePath-$count';
-      count++;
-    }
-
-    /// Convert paths to relative paths.
-    paths = paths.map((path) {
-      return path.replaceFirst('${workingDirectory.toRealPath()}$kSlash', '');
-    }).toList();
-
-    zipFilePath = '$zipFilePath.zip';
-    final result = await io.Process.run(kZipProcess, [
-      '-r',
-      zipFilePath,
-      ...paths,
-    ], workingDirectory: workingDirectory.toRealPath());
-
-    if (result.exitCode != 0) {
-      return (null, Error.compressFailed);
-    }
-
-    return (zipFilePath, null);
-  }
-
   static Future<void> setupWindow() async {
     final windowService = injector<WindowService>();
     await windowService.initialize();
@@ -130,32 +56,9 @@ class PlatformUtils {
       }
       if (injector.isRegistered<TabViewModel>()) {
         final model = injector<TabViewModel>();
-        model.refreshClipboard();
-        model.currentExploreViewModel.refresh(maintainState: true);
+        unawaited(model.refreshClipboard());
+        unawaited(model.currentExploreViewModel.refresh(maintainState: true));
       }
     }
-  }
-
-  static String getVolumesPath() {
-    if (kIsMacOs) {
-      return '/Volumes/';
-    }
-
-    return '';
-  }
-
-  static String? getHomePath() {
-    if (io.Platform.isWindows) {
-      return io.Platform.environment['USERPROFILE'];
-    }
-    return io.Platform.environment['HOME'];
-  }
-
-  static String getIcloudDrivePath() {
-    if (kIsMacOs) {
-      return '/Users/${io.Platform.environment['USER']}/Library/Mobile Documents/com~apple~CloudDocs';
-    }
-
-    return '';
   }
 }

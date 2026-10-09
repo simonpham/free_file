@@ -7,9 +7,11 @@ workspace:
   - apps/ff_desktop
   - core_packages/core
   - core_packages/core_ui
+  - core_packages/l10n
   - core_packages/theme
-  - modules/local_entity_provider
-  - modules/shortcut
+  - modules/file_explorer
+  - packages/local_entity_provider
+  - packages/shortcut
   - packages/storage
   - packages/utils
 

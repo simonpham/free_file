@@ -1,0 +1,32 @@
+name: file_explorer
+
+environment:
+  sdk: ^3.10.0
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  core:
+    path: ../../core_packages/core
+  core_ui:
+    path: ../../core_packages/core_ui
+  l10n:
+    path: ../../core_packages/l10n
+  theme:
+    path: ../../core_packages/theme
+
+  storage:
+    path: ../../packages/storage
+  utils:
+    path: ../../packages/utils
+
+  local_entity_provider:
+    path: ../../packages/local_entity_provider
+  shortcut:
+    path: ../../packages/shortcut
+
+  pasteboard: ^0.3.0
+  super_drag_and_drop: ^0.9.1

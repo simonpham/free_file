@@ -33,8 +33,7 @@ enum EntityContextAction {
   properties(minSelectedEntities: 0),
   selectAll(minSelectedEntities: 0, isVisible: false),
   toggleShowHidden(minSelectedEntities: 0, isVisible: false),
-  unknown
-  ;
+  unknown;
 
   final bool isVisible;
 

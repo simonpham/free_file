@@ -7,6 +7,7 @@ import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/router.dart';
 import 'package:ff_desktop/ui/ui.dart';
 import 'package:ff_desktop/utils/utils.dart';
+import 'package:file_explorer/file_explorer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:l10n/l10n.dart';

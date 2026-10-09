@@ -8,8 +8,7 @@ enum Error {
   openFailed,
   compressFailed,
   unsupportedFile,
-  notSupported
-  ;
+  notSupported;
 
   String toReadableMessage() {
     switch (this) {

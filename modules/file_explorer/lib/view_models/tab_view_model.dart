@@ -1,0 +1,353 @@
+import 'dart:async';
+import 'dart:io' as io;
+import 'dart:math';
+
+import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
+import 'package:file_explorer/services/services.dart';
+import 'package:file_explorer/view_models/explore_view_model.dart';
+import 'package:file_explorer/view_models/mixins/mixins.dart';
+import 'package:flutter/foundation.dart';
+import 'package:local_entity_provider/local_entity_provider.dart';
+import 'package:utils/utils.dart';
+
+class TabViewModel extends ChangeNotifier with WorkspaceCopyPasteMixin {
+  StreamSubscription? _shortcutSubscription;
+
+  EventBus get eventBus => injector.get<EventBus>();
+
+  final ItemScrollController tabScrollController = ItemScrollController();
+  final ItemPositionsListener itemPositionsListener =
+      ItemPositionsListener.create();
+
+  TabViewModel() {
+    _shortcutSubscription?.cancel();
+    _shortcutSubscription = eventBus.on<ShortcutEvent>().listen(
+      _handleShortcut,
+    );
+    itemPositionsListener.itemPositions.addListener(
+      _handleItemPositionsChanged,
+    );
+  }
+
+  @override
+  void dispose() {
+    _shortcutSubscription?.cancel();
+    _shortcutSubscription = null;
+    itemPositionsListener.itemPositions.removeListener(
+      _handleItemPositionsChanged,
+    );
+    for (var element in _exploreViewModels) {
+      element.dispose();
+    }
+    _exploreViewModels.clear();
+    super.dispose();
+  }
+
+  int _currentIndex = 0;
+
+  int get currentIndex => _currentIndex;
+
+  bool _isRemovingTab = false;
+
+  void _handleItemPositionsChanged() {
+    final itemPositions = itemPositionsListener.itemPositions.value;
+    final isCurrentIndexInView = itemPositions
+        .where((item) => item.index == _currentIndex)
+        .isNotEmpty;
+    if (isCurrentIndexInView) {
+      return;
+    }
+    final align = _currentIndex == 0 ? 0.0 : 0.5;
+    tabScrollController.jumpTo(index: _currentIndex, alignment: align);
+  }
+
+  void _setIndex(int index) {
+    _currentIndex = max(0, min(index, _exploreViewModels.length - 1));
+    notifyListeners();
+  }
+
+  void changeTab(int index) {
+    _setIndex(index);
+  }
+
+  void nextTab() {
+    final isLastTab = _currentIndex == _exploreViewModels.length - 1;
+    if (isLastTab) {
+      changeTab(0);
+      return;
+    }
+    changeTab(_currentIndex + 1);
+  }
+
+  void previousTab() {
+    final isFirstTab = _currentIndex == 0;
+    if (isFirstTab) {
+      changeTab(_exploreViewModels.length - 1);
+      return;
+    }
+    changeTab(_currentIndex - 1);
+  }
+
+  final List<ExploreViewModel> _exploreViewModels = [ExploreViewModel()];
+
+  @override
+  ExploreViewModel get currentExploreViewModel =>
+      _exploreViewModels[_currentIndex];
+
+  List<ExploreViewModel> get exploreViewModels => _exploreViewModels;
+
+  void addTab([ExploreViewModel? viewModel]) {
+    final currentTab = currentExploreViewModel;
+    final newTab =
+        viewModel ??
+        (ExploreViewModel(shouldRefresh: false)..goTo(currentTab.currentUri));
+    _exploreViewModels.add(newTab);
+    _setIndex(_exploreViewModels.length - 1);
+  }
+
+  Future<void> openInNewTab() async {
+    final entities = currentExploreViewModel.selectedEntities;
+    if (entities.isEmpty) {
+      addTab();
+      return;
+    }
+    for (final entity in entities) {
+      if (entity is Directory) {
+        final newTab = ExploreViewModel();
+        await newTab.goTo(entity.path);
+        addTab(newTab);
+      }
+    }
+  }
+
+  WindowServiceInterface get _windowService =>
+      injector.get<WindowServiceInterface>();
+
+  Future<void> openInNewWindow() async {
+    final entities = currentExploreViewModel.selectedEntities;
+    if (entities.isEmpty) {
+      unawaited(
+        _windowService.openNewWindow(
+          currentExploreViewModel.currentUri.toRealPath(),
+        ),
+      );
+      return;
+    }
+    for (final entity in entities) {
+      if (entity is Directory) {
+        unawaited(_windowService.openNewWindow(entity.path.toRealPath()));
+      }
+    }
+  }
+
+  void closeAllTabs() {
+    _exploreViewModels.clear();
+    _exploreViewModels.add(ExploreViewModel());
+    _setIndex(0);
+  }
+
+  void removeExploreViewModelAt(int index) {
+    if (_isRemovingTab) {
+      return;
+    }
+    if (_exploreViewModels.length == 1) {
+      return;
+    }
+    _isRemovingTab = true;
+    if (index <= _currentIndex) {
+      _setIndex(index - 1);
+    }
+
+    _exploreViewModels.removeAt(index);
+    notifyListeners();
+    _isRemovingTab = false;
+  }
+
+  void _handleShortcut(ShortcutEvent event) {
+    switch (event.runtimeType) {
+      case const (AddTabEvent):
+        addTab();
+        break;
+      case const (CloseAllTabsEvent):
+        closeAllTabs();
+        break;
+      case const (CloseTabEvent):
+        removeExploreViewModelAt(_currentIndex);
+        break;
+      case const (NextTabEvent):
+        nextTab();
+        break;
+      case const (PreviousTabEvent):
+        previousTab();
+        break;
+      case const (OpenEvent):
+        break;
+      case const (OpenInNewTabEvent):
+        openInNewTab();
+        break;
+      case const (OpenInNewWindowEvent):
+        openInNewWindow();
+        break;
+      case const (QuickLookEvent):
+        quickLook();
+        break;
+      case const (CompressEvent):
+        compress();
+        break;
+      case const (CopyEvent):
+        copy();
+        break;
+      case const (PasteEvent):
+        paste();
+        break;
+      case const (MoveEvent):
+        move();
+        break;
+      case const (DeleteEvent):
+        currentExploreViewModel.delete();
+        break;
+      case const (DeletePermanentlyEvent):
+        currentExploreViewModel.deletePermanently();
+        break;
+      case const (RenameEvent):
+        currentExploreViewModel.startRename();
+        break;
+      case const (PropertiesEvent):
+        break;
+      case const (SelectAllEvent):
+        final entities = currentExploreViewModel.entities.toSet();
+        currentExploreViewModel.selectBatch(entities);
+        break;
+      case const (ToggleShowHiddenEvent):
+        currentExploreViewModel.toggleShowHidden();
+        break;
+      default:
+        printLog(
+          '[TabViewModel] Unhandled shortcut event: ${event.runtimeType}',
+        );
+        break;
+    }
+  }
+
+  Future<void> quickLook({Set<Entity>? entities}) async {
+    entities ??= currentExploreViewModel.selectedEntities;
+    await PlatformService.openQuickLook(
+      entities.isEmpty
+          ? [currentExploreViewModel.currentUri.toRealPath()]
+          : entities.map((item) => item.path.toRealPath()).toList(),
+      workingDirectory: currentExploreViewModel.currentUri,
+    );
+  }
+
+  Future<void> compress({Set<Entity>? entities}) async {
+    entities ??= currentExploreViewModel.selectedEntities;
+    Directory? firstDirectory;
+
+    final List<String> pathsToCompress = [];
+    for (final entity in entities) {
+      if (entity is Directory) {
+        firstDirectory ??= entity;
+      }
+      pathsToCompress.add(entity.path.toRealPath());
+    }
+
+    final (zipFile, error) = await PlatformService.compress(
+      pathsToCompress,
+      fileName: firstDirectory?.name ?? 'archive',
+      workingDirectory: currentExploreViewModel.currentUri,
+    );
+
+    if (error != null) {
+      return;
+    }
+
+    await currentExploreViewModel.refresh();
+    currentExploreViewModel.selectBatch(
+      currentExploreViewModel.entities
+          .where((item) => item.path.toRealPath() == zipFile)
+          .toSet(),
+    );
+  }
+
+  LocalEntityProvider get _local => injector.get<LocalEntityProvider>();
+
+  Future<void> dropExternalFiles(List<Uri> files) async {
+    if (files.isEmpty) return;
+
+    final targetDir = currentExploreViewModel.currentUri;
+    final List<String> createdPaths = [];
+
+    for (final sourceUri in files) {
+      try {
+        final sourcePath = sourceUri.toRealPath();
+        final name = sourcePath.split(kSlash).last;
+        final newPath = targetDir.resolve('${targetDir.path}$kSlash$name');
+
+        final sourceFile = io.File(sourcePath);
+        final sourceDir = io.Directory(sourcePath);
+
+        if (await sourceFile.exists()) {
+          await _local.copyFile(sourceUri, newPath);
+          createdPaths.add(newPath.toRealPath());
+        } else if (await sourceDir.exists()) {
+          await _local.copyDirectory(sourceUri, newPath);
+          createdPaths.add(newPath.toRealPath());
+        }
+      } catch (err, trace) {
+        printError(err, trace);
+      }
+    }
+
+    await currentExploreViewModel.refresh();
+    currentExploreViewModel.selectBatch(
+      currentExploreViewModel.entities
+          .where((item) => createdPaths.contains(item.path.toRealPath()))
+          .toSet(),
+    );
+  }
+
+  Future<void> dropExternalData(
+    Uint8List data,
+    String? suggestedName,
+    String extension,
+  ) async {
+    final targetDir = currentExploreViewModel.currentUri;
+
+    String baseName = suggestedName ?? 'dropped_file';
+    if (baseName.contains('.')) {
+      baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+    }
+
+    String fileName = '$baseName.$extension';
+    var targetPath = targetDir.resolve('${targetDir.path}$kSlash$fileName');
+    int counter = 1;
+
+    while (await io.File(targetPath.toRealPath()).exists()) {
+      fileName = '${baseName}_$counter.$extension';
+      targetPath = targetDir.resolve('${targetDir.path}$kSlash$fileName');
+      counter++;
+    }
+
+    try {
+      final file = io.File(targetPath.toRealPath());
+      await file.writeAsBytes(data);
+
+      await currentExploreViewModel.refresh();
+      currentExploreViewModel.selectBatch(
+        currentExploreViewModel.entities
+            .where(
+              (item) => item.path.toRealPath() == targetPath.toRealPath(),
+            )
+            .toSet(),
+      );
+    } catch (err, trace) {
+      printError(err, trace);
+    }
+  }
+
+  Future<void> dropExternalText(String text) async {
+    final data = Uint8List.fromList(text.codeUnits);
+    await dropExternalData(data, 'dropped_text', 'txt');
+  }
+}

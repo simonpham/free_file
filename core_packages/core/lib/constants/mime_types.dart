@@ -322,8 +322,7 @@ enum FileType {
     mimeType: 'application/x-7z-compressed',
     contentType: ContentType.application,
   ),
-  unknown(extension: '', mimeType: '', contentType: ContentType.unknown)
-  ;
+  unknown(extension: '', mimeType: '', contentType: ContentType.unknown);
 
   final String extension;
   final String mimeType;

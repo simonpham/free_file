@@ -24,7 +24,6 @@ linter:
 
     # DOCUMENTATION: true
     slash_for_doc_comments: true
-    package_api_docs: true # prefer
 
     # USAGE: true
     implementation_imports: true

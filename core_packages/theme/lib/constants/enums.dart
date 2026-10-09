@@ -5,8 +5,7 @@ enum ScreenSize {
   normal(375),
   large(768),
   larger(1024),
-  extraLarge(1200)
-  ;
+  extraLarge(1200);
 
   final int breakpoint;
 

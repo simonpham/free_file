@@ -1,0 +1,115 @@
+import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
+import 'package:file_explorer/models/models.dart';
+import 'package:file_explorer/ui/widgets/widgets.dart';
+import 'package:file_explorer/utils/entity_utils.dart';
+import 'package:file_explorer/view_models/view_models.dart';
+import 'package:flutter/material.dart';
+import 'package:theme/theme.dart';
+
+class MainArea extends StatefulWidget {
+  final Function(EntityContextAction action)? onAction;
+
+  const MainArea({super.key, this.onAction});
+
+  @override
+  State<MainArea> createState() => _MainAreaState();
+}
+
+class _MainAreaState extends State<MainArea> {
+  final ScrollController scrollController = ScrollController();
+
+  Uri currentUriGetter() => context.read<ExploreViewModel>().currentUri;
+
+  Set<Entity> selectedEntitiesGetter() =>
+      context.read<ExploreViewModel>().selectedEntities.toSet();
+
+  Set<Entity> copiedEntitiesGetter() =>
+      context.read<TabViewModel>().copiedEntities.toSet();
+
+  bool _isPressedShift = false;
+  bool _isPressedControlCommand = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return KeyHoldDetector(
+      onHoldChanged: (_, bool isPressedShift, bool isPressedControlCommand) {
+        _isPressedShift = isPressedShift;
+        _isPressedControlCommand = isPressedControlCommand;
+      },
+      child: Container(
+        color: context.appTheme.color.mainBackground.withTransparency,
+        child: Selector<ExploreViewModel, (ViewMode, List<Entity>)>(
+          selector: (BuildContext context, ExploreViewModel model) {
+            return (model.viewMode, model.entities);
+          },
+          builder: (context, data, _) {
+            final (viewMode, entities) = data;
+            final textController = context.select(
+              (ExploreViewModel model) => model.entityNameController,
+            );
+            return EntityView(
+              scrollController: scrollController,
+              mode: viewMode,
+              entities: entities,
+              currentUriGetter: currentUriGetter,
+              selectedEntitiesGetter: selectedEntitiesGetter,
+              copiedEntitiesGetter: copiedEntitiesGetter,
+              isRenaming: context.select(
+                (ExploreViewModel model) => model.isRenaming,
+              ),
+              entityNameFocusNode: context.select(
+                (ExploreViewModel model) => model.entityNameFocusNode,
+              ),
+              entityNameController: textController,
+              onRenameFinished: () {
+                final newName = textController.text;
+                final selectedEntities = selectedEntitiesGetter();
+                context.read<ExploreViewModel>().finishRename(
+                  entities: selectedEntities,
+                  newName: newName,
+                );
+              },
+              onSelectionChanged: (selectedEntities) {
+                context.read<ExploreViewModel>().selectBatch(selectedEntities);
+              },
+              onEntityTap: (entity) {
+                entity.tap(
+                  context,
+                  isPressedShift: _isPressedShift,
+                  isPressedControlCommand: _isPressedControlCommand,
+                );
+              },
+              onEntityDoubleTap: (entity) {
+                entity.doubleTap(context);
+              },
+              onAction: widget.onAction,
+              sortColumn: context.select(
+                (ExploreViewModel model) => model.sortColumn,
+              ),
+              sortDirection: context.select(
+                (ExploreViewModel model) => model.sortDirection,
+              ),
+              onSortChanged: (column) {
+                context.read<ExploreViewModel>().sortBy(column);
+              },
+              onFilesDropped: (files) {
+                context.read<TabViewModel>().dropExternalFiles(files);
+              },
+              onDataDropped: (data, suggestedName, extension) {
+                context.read<TabViewModel>().dropExternalData(
+                  data,
+                  suggestedName,
+                  extension,
+                );
+              },
+              onTextDropped: (text) {
+                context.read<TabViewModel>().dropExternalText(text);
+              },
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

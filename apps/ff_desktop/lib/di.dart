@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
-import 'package:ff_desktop/models/models.dart';
 import 'package:ff_desktop/services/services.dart';
+import 'package:file_explorer/file_explorer.dart';
 import 'package:local_entity_provider/local_entity_provider.dart';
 import 'package:theme/theme.dart';
 
@@ -16,6 +16,10 @@ class Injector {
 
     injector.registerLazySingleton<TabViewModel>(() => TabViewModel());
 
-    injector.registerLazySingleton<WindowService>(() => WindowService());
+    final windowService = WindowService();
+    injector.registerLazySingleton<WindowService>(() => windowService);
+    injector.registerLazySingleton<WindowServiceInterface>(
+      () => windowService,
+    );
   }
 }

@@ -255,8 +255,7 @@ class _SegmentSeparatorState extends State<_SegmentSeparator>
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: _kSeparatorColor.withValues(
-                alpha:
-                    _kSeparatorColor.opacity * separatorOpacityController.value,
+                alpha: _kSeparatorColor.a * separatorOpacityController.value,
               ),
               borderRadius: const BorderRadius.all(_kSeparatorRadius),
             ),
